@@ -31,7 +31,7 @@ const Contact = () => {
   {
     icon: <FaLinkedin />,
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/meenatharshini-i-410343301/",
+    href: "https://www.linkedin.com/in/meena-tharshini-i-410343301/",
     external: true,
   },
   {
