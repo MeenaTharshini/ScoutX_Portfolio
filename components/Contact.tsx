@@ -10,32 +10,37 @@ import {
 import { SiLeetcode } from "react-icons/si";
 const Contact = () => {
   const links = [
-    {
-      icon: <FaEnvelope />,
-      label: "Email",
-      href: "mailto:meenatharshiniiyappan@gmail.com",
-    },
-    {
-      icon: <FaPhoneAlt />,
-      label: "Call",
-      href: "tel:+916374093373",
-    },
-    {
-      icon: <FaGithub />,
-      label: "GitHub",
-      href: "https://github.com/MeenaTharshini",
-    },
-    {
-      icon: <FaLinkedin />,
-      label: "LinkedIn",
-      href: "https://www.linkedin.com/in/meenatharshini-i-410343301/",
-    },
-    {
-  icon: <SiLeetcode />,
-  label: "LeetCode",
-  href: "https://leetcode.com/u/MeenaTharshiniI/",
-},
-  ];
+  {
+    icon: <FaEnvelope />,
+    label: "Email",
+    href: "mailto:meenatharshiniiyappan@gmail.com",
+    external: false,
+  },
+  {
+    icon: <FaPhoneAlt />,
+    label: "Call",
+    href: "tel:+916374093373",
+    external: false,
+  },
+  {
+    icon: <FaGithub />,
+    label: "GitHub",
+    href: "https://github.com/MeenaTharshini",
+    external: true,
+  },
+  {
+    icon: <FaLinkedin />,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/meenatharshini-i-410343301/",
+    external: true,
+  },
+  {
+    icon: <SiLeetcode />,
+    label: "LeetCode",
+    href: "https://leetcode.com/u/MeenaTharshiniI/",
+    external: true,
+  },
+];
 
   return (
     <section
@@ -60,37 +65,60 @@ const Contact = () => {
         </div>
 
         {/* Contact Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+  {links.map((item, index) => (
+    <a
+      key={index}
+      href={item.href}
+      target={item.external ? "_blank" : undefined}
+      rel={item.external ? "noreferrer" : undefined}
+      aria-label={item.label}
+      className="
+        group
+        min-h-[160px]
+        bg-[#151B2E]
+        border border-purple-500/10
+        rounded-2xl
+        flex flex-col
+        items-center
+        justify-center
+        gap-4
+        transition-all
+        duration-300
+        hover:-translate-y-2
+        hover:border-purple-500/50
+        hover:shadow-[0_0_30px_rgba(168,85,247,0.2)]
+      "
+    >
+      {/* Icon */}
+      <div
+        className="
+          w-14
+          h-14
+          rounded-full
+          bg-purple-500/10
+          flex
+          items-center
+          justify-center
+          text-3xl
+          text-purple-400
+          transition-all
+          duration-300
+          group-hover:bg-purple-500
+          group-hover:text-white
+          group-hover:scale-110
+        "
+      >
+        {item.icon}
+      </div>
 
-          {links.map((item, index) => (
-            <a
-              key={index}
-              href={item.href}
-              target={
-                item.label === "GitHub" || item.label === "LinkedIn" ||
-  item.label === "LeetCode"
-                  ? "_blank"
-                  : undefined
-              }
-              rel={
-                item.label === "GitHub" || item.label === "LinkedIn " ||
-  item.label === "LeetCode"
-                  ? "noreferrer"
-                  : undefined
-              }
-              className="bg-[#151B2E] border border-purple-500/10 rounded-2xl p-5 flex flex-col items-center justify-center gap-2 text-slate-300 transition-all duration-300 hover:-translate-y-2 hover:border-purple-500/40 hover:shadow-[0_0_25px_rgba(168,85,247,0.15)] hover:text-white"
-            >
-              <div className="text-2xl text-purple-400">
-                {item.icon}
-              </div>
-
-              <p className="text-sm font-medium">
-                {item.label}
-              </p>
-            </a>
-          ))}
-
-        </div>
+      {/* Label */}
+      <span className="text-base font-semibold text-slate-300 group-hover:text-white transition">
+        {item.label}
+      </span>
+    </a>
+  ))}
+</div>
 
         {/* Contact Info */}
         <div className="mt-14 text-center text-slate-400 text-sm space-y-2">
