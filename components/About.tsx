@@ -98,7 +98,7 @@ export default function About() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mt-14">
 
           <div className="bg-[#151B2E] p-5 rounded-2xl border border-purple-500/10">
-            <h3 className="text-3xl font-bold text-purple-400">4</h3>
+            <h3 className="text-3xl font-bold text-purple-400">3</h3>
             <p className="text-slate-400 text-sm mt-2">Featured Projects</p>
           </div>
 
@@ -108,12 +108,12 @@ export default function About() {
           </div>
 
           <div className="bg-[#151B2E] p-5 rounded-2xl border border-purple-500/10">
-            <h3 className="text-3xl font-bold text-purple-400">4+</h3>
+            <h3 className="text-3xl font-bold text-purple-400">5+</h3>
             <p className="text-slate-400 text-sm mt-2">Internships</p>
           </div>
 
           <div className="bg-[#151B2E] p-5 rounded-2xl border border-purple-500/10">
-            <h3 className="text-3xl font-bold text-purple-400">9.45</h3>
+            <h3 className="text-3xl font-bold text-purple-400">9.15</h3>
             <p className="text-slate-400 text-sm mt-2">CGPA</p>
           </div>
 

@@ -8,7 +8,7 @@ const resume = "/assets/resume.pdf";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
-
+  
   const navItems = [
     { name: "About", id: "about" },
     { name: "Skills", id: "skills" },
