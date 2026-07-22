@@ -12,7 +12,7 @@ import {
 const projects = [
   {
   title: "Trust Wipe",
-  status: "Completed",
+  status: "Live",
   year: "2026",
   desc: "Secure MERN-based platform for device sanitization, cryptographic verification, and certificate generation.",
   icon: <FaShieldAlt />,

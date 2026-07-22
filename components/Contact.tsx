@@ -7,7 +7,7 @@ import {
   FaGithub,
   FaLinkedin,
 } from "react-icons/fa";
-
+import { SiLeetcode } from "react-icons/si";
 const Contact = () => {
   const links = [
     {
@@ -30,6 +30,11 @@ const Contact = () => {
       label: "LinkedIn",
       href: "https://www.linkedin.com/in/meenatharshini-i-410343301/",
     },
+    {
+  icon: <SiLeetcode />,
+  label: "LeetCode",
+  href: "https://leetcode.com/u/MeenaTharshiniI/",
+},
   ];
 
   return (
@@ -62,12 +67,14 @@ const Contact = () => {
               key={index}
               href={item.href}
               target={
-                item.label === "GitHub" || item.label === "LinkedIn"
+                item.label === "GitHub" || item.label === "LinkedIn" ||
+  item.label === "LeetCode"
                   ? "_blank"
                   : undefined
               }
               rel={
-                item.label === "GitHub" || item.label === "LinkedIn"
+                item.label === "GitHub" || item.label === "LinkedIn " ||
+  item.label === "LeetCode"
                   ? "noreferrer"
                   : undefined
               }

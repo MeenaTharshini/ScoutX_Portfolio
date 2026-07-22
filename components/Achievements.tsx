@@ -32,7 +32,7 @@ const achievements = [
   },
   {
     title: "Infosys Certifications",
-    desc: "Completed Python Foundation and multiple technical certifications.",
+    desc: "Completed Python and Java Foundation and multiple technical certifications.",
     icon: <FaCode />,
   },
   {
