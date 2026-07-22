@@ -3,12 +3,23 @@ import {
   FaRobot,
   FaBriefcase,
   FaFileAlt,
+  FaShieldAlt,
   FaTint,
   FaGithub,
   FaExternalLinkAlt,
 } from "react-icons/fa";
 
 const projects = [
+  {
+  title: "Trust Wipe",
+  status: "Completed",
+  year: "2026",
+  desc: "Secure MERN-based platform for device sanitization, cryptographic verification, and certificate generation.",
+  icon: <FaShieldAlt />,
+  github: "https://github.com/MeenaTharshini/Trust_WipeLive",
+  live: "https://trust-wipe-tau.vercel.app/",
+  tech: ["React.js","Node.js","MongoDB","Socket.Io","JavaScript"],
+},
   {
   title: "Dhanvantri Bot",
   status: "In Progress",
@@ -19,7 +30,6 @@ const projects = [
   live: "#",
   tech: ["Python", "Flask", "SQLite", "Groq API"],
 },
-
   {
     title: "Job Portal",
     status: "Live",
@@ -33,19 +43,7 @@ const projects = [
   },
 
   {
-    title: "Resume Generator",
-    status: "Live",
-    year: "2025",
-    desc: "AI-powered healthcare assistant with authentication, conversation history, and Groq LLM integration. Currently being enhanced with advanced healthcare workflows and intelligent response capabilities.",
-    icon: <FaFileAlt />,
-    github:
-      "https://github.com/MeenaTharshini/resume_generator",
-    live: "https://resumegeneratorbymti.netlify.app/",
-    tech: ["React", "Vite", "CSS"],
-  },
-
-  {
-    title: "LiveLink",
+    title: "LifeLink",
     status: "In Development",
     year: "2026",
     desc: "Emergency blood donor network designed to connect donors and recipients through location-based matching.",
