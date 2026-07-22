@@ -16,7 +16,7 @@ const projects = [
   year: "2026",
   desc: "Secure MERN-based platform for device sanitization, cryptographic verification, and certificate generation.",
   icon: <FaShieldAlt />,
-  github: "https://github.com/MeenaTharshini/Trust_WipeLive",
+  github: "https://github.com/MeenaTharshini/Trust_Wipe",
   live: "https://trust-wipe-tau.vercel.app/",
   tech: ["React.js","Node.js","MongoDB","Socket.Io","JavaScript"],
 },
