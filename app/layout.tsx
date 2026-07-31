@@ -16,7 +16,7 @@ export const metadata: Metadata = {
   title: "MTI Portfolio",
   description: "Meena Tharshini I - Full Stack Developer Portfolio",
   icons: {
-    icon: "/icon2.png",
+    icon: "/icon.png",
   },
 };
 
