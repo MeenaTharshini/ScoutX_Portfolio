@@ -2,36 +2,68 @@
 
 /* =========================================================
    SCOUTX — GLOBAL STYLES
+   Dark / Gold Product Theme
    ========================================================= */
 
 :root {
-  --scoutx-bg: #f8f3e8;
-  --scoutx-white: #fffdf8;
-  --scoutx-black: #171611;
-  --scoutx-muted: #625d52;
-  --scoutx-gold: #c9a646;
+  /* Main surfaces */
+  --scoutx-bg: #0b0b09;
+  --scoutx-surface: #11100d;
+  --scoutx-surface-light: #17150f;
+
+  /* Text */
+  --scoutx-white: #f7f2e8;
+  --scoutx-muted: #a9a293;
+  --scoutx-muted-dark: #8f887b;
+
+  /* Brand */
+  --scoutx-gold: #d4af37;
   --scoutx-gold-light: #e7c979;
-  --scoutx-gold-dark: #ad8930;
+  --scoutx-gold-dark: #a67c00;
 }
+
+/* =========================================================
+   HTML
+   ========================================================= */
 
 html {
   scroll-behavior: smooth;
+  background: var(--scoutx-bg);
+  color-scheme: dark;
 }
+
+/* =========================================================
+   BODY
+   ========================================================= */
 
 body {
   margin: 0;
   background: var(--scoutx-bg);
-  color: var(--scoutx-black);
+  color: var(--scoutx-white);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* IMPORTANT:
-   Do NOT globally style <a> or <button> colors.
-   Tailwind classes in Navbar/Hero should control them.
-*/
+/* Prevent accidental light background from appearing */
+html,
+body {
+  min-height: 100%;
+}
+
+/* =========================================================
+   BOX SIZING
+   ========================================================= */
 
 * {
   box-sizing: border-box;
+}
+
+/* =========================================================
+   SELECTION
+   ========================================================= */
+
+::selection {
+  background: rgba(212, 175, 55, 0.25);
+  color: #f7f2e8;
 }
 
 /* =========================================================
@@ -43,16 +75,22 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1eadb;
+  background: #0b0b09;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #c9a646;
+  background: #6f5b24;
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #ad8930;
+  background: #d4af37;
+}
+
+/* Firefox */
+html {
+  scrollbar-color: #6f5b24 #0b0b09;
+  scrollbar-width: thin;
 }
 
 /* =========================================================
@@ -63,8 +101,8 @@ body {
   background: linear-gradient(
     135deg,
     #e7c979 0%,
-    #c9a646 45%,
-    #ad8930 100%
+    #d4af37 45%,
+    #a67c00 100%
   );
 
   -webkit-background-clip: text;
@@ -75,7 +113,7 @@ body {
 
 /* =========================================================
    SCOUTX BRAND GRADIENT
-   Used by the Navbar logo
+   Used by Navbar / Logo
    ========================================================= */
 
 .brand-gradient {
@@ -83,28 +121,63 @@ body {
     135deg,
     #e7c979 0%,
     #d4af37 50%,
-    #ad8930 100%
+    #a67c00 100%
   );
 }
 
 /* =========================================================
    SUBTLE GRID BACKGROUND
-   Used by Hero
    ========================================================= */
 
 .bg-grid {
   background-image:
     linear-gradient(
-      rgba(173, 137, 48, 0.055) 1px,
+      rgba(212, 175, 55, 0.035) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(173, 137, 48, 0.055) 1px,
+      rgba(212, 175, 55, 0.035) 1px,
       transparent 1px
     );
 
   background-size: 42px 42px;
+}
+
+/* =========================================================
+   FADED GRID
+   Used by About / other sections
+   ========================================================= */
+
+.bg-grid-fade {
+  background-image:
+    linear-gradient(
+      rgba(212, 175, 55, 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(212, 175, 55, 0.03) 1px,
+      transparent 1px
+    );
+
+  background-size: 48px 48px;
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 15%,
+    black 85%,
+    transparent
+  );
 }
 
 /* =========================================================
@@ -119,18 +192,35 @@ body {
   background: linear-gradient(
     90deg,
     transparent,
-    #c9a646,
+    #d4af37,
     transparent
   );
 }
 
 /* =========================================================
-   TEXT SELECTION
+   EYEBROW TEXT
    ========================================================= */
 
-::selection {
-  background: rgba(201, 166, 70, 0.25);
-  color: #171611;
+.eyebrow {
+  color: #d4af37;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+/* =========================================================
+   COMMON DARK SURFACES
+   Optional utility classes
+   ========================================================= */
+
+.scoutx-surface {
+  background: #11100d;
+}
+
+.scoutx-surface-light {
+  background: #17150f;
 }
 
 /* =========================================================
@@ -146,4 +236,50 @@ select {
 button,
 a {
   -webkit-tap-highlight-color: transparent;
+}
+
+/* =========================================================
+   FORM DARK THEME
+   ========================================================= */
+
+input,
+textarea,
+select {
+  background-color: #11100d;
+  color: #f7f2e8;
+  border-color: rgba(212, 175, 55, 0.15);
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: #6f695d;
+}
+
+/* =========================================================
+   FOCUS STATES
+   ========================================================= */
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border-color: rgba(212, 175, 55, 0.5);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.08);
+}
+
+/* =========================================================
+   SMOOTH COLOR TRANSITIONS
+   ========================================================= */
+
+button,
+a,
+input,
+textarea,
+select {
+  transition:
+    background-color 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease,
+    box-shadow 200ms ease,
+    transform 200ms ease;
 }

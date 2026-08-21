@@ -13,8 +13,27 @@ import {
   FaUniversity,
   FaChevronRight,
 } from "react-icons/fa";
+import type { IconType } from "react-icons";
 
-const userGroups = [
+type Accent = "purple" | "blue" | "gold";
+
+interface UserGroup {
+  icon: IconType;
+  number: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  benefits: string[];
+  accent: Accent;
+}
+
+interface MarketSegment {
+  title: string;
+  description: string;
+  icon: IconType;
+}
+
+const userGroups: UserGroup[] = [
   {
     icon: FaUserGraduate,
     number: "01",
@@ -62,7 +81,7 @@ const userGroups = [
   },
 ];
 
-const marketSegments = [
+const marketSegments: MarketSegment[] = [
   {
     title: "Students & Developers",
     description:
@@ -89,27 +108,60 @@ const marketSegments = [
   },
 ];
 
+const accentStyles: Record<
+  Accent,
+  {
+    text: string;
+    icon: string;
+    border: string;
+    glow: string;
+    line: string;
+  }
+> = {
+  purple: {
+    text: "text-purple-300",
+    icon: "bg-purple-500/10 text-purple-300 border-purple-500/20",
+    border: "hover:border-purple-500/40",
+    glow: "bg-purple-500",
+    line: "via-purple-500",
+  },
+  blue: {
+    text: "text-blue-300",
+    icon: "bg-blue-500/10 text-blue-300 border-blue-500/20",
+    border: "hover:border-blue-500/40",
+    glow: "bg-blue-500",
+    line: "via-blue-500",
+  },
+  gold: {
+    text: "text-amber-300",
+    icon: "bg-amber-500/10 text-amber-300 border-amber-500/20",
+    border: "hover:border-amber-500/40",
+    glow: "bg-amber-500",
+    line: "via-amber-500",
+  },
+};
+
 export default function Users() {
   return (
     <section
       id="users"
-      className="relative overflow-hidden bg-[#080A0F] px-6 py-28 text-white md:py-36"
+      aria-labelledby="users-heading"
+      className="relative overflow-hidden bg-[#080A0F] px-6 py-24 text-white md:py-32"
     >
       {/* =========================================================
           BACKGROUND
       ========================================================== */}
 
-      <div className="pointer-events-none absolute inset-0">
-        {/* Purple glow */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 overflow-hidden"
+      >
         <div className="absolute -left-48 top-20 h-[520px] w-[520px] rounded-full bg-purple-600/[0.07] blur-[120px]" />
 
-        {/* Blue glow */}
         <div className="absolute -right-48 top-[35%] h-[520px] w-[520px] rounded-full bg-blue-600/[0.05] blur-[120px]" />
 
-        {/* Bottom glow */}
         <div className="absolute bottom-[-200px] left-1/2 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-violet-600/[0.05] blur-[120px]" />
 
-        {/* Grid */}
         <div
           className="absolute inset-0 opacity-[0.025]"
           style={{
@@ -121,24 +173,29 @@ export default function Users() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl">
-
         {/* =========================================================
             HEADER
         ========================================================== */}
 
-        <motion.div
+        <motion.header
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-4xl text-center"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/20 bg-purple-500/[0.06] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-purple-300">
-            <span className="h-1.5 w-1.5 rounded-full bg-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.9)]" />
+            <span
+              aria-hidden="true"
+              className="h-1.5 w-1.5 rounded-full bg-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.9)]"
+            />
             Who is ScoutX for?
           </div>
 
-          <h2 className="mt-7 text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
+          <h2
+            id="users-heading"
+            className="mt-7 text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+          >
             One platform.
             <span className="block bg-gradient-to-r from-purple-300 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
               Three sides of innovation.
@@ -147,80 +204,70 @@ export default function Users() {
 
           <p className="mx-auto mt-7 max-w-3xl text-base leading-8 text-slate-400 md:text-lg">
             ScoutX connects the people who{" "}
-            <span className="text-slate-200">build solutions</span>, the
-            organizations that{" "}
-            <span className="text-slate-200">need solutions</span>, and the
-            ecosystem that helps{" "}
-            <span className="text-purple-300">innovation grow.</span>
+            <span className="font-medium text-slate-200">
+              build solutions
+            </span>
+            , the organizations that{" "}
+            <span className="font-medium text-slate-200">
+              need solutions
+            </span>
+            , and the ecosystem that helps{" "}
+            <span className="font-medium text-purple-300">
+              innovation grow.
+            </span>
           </p>
-        </motion.div>
+        </motion.header>
 
         {/* =========================================================
-            USER GROUP CARDS
+            USER GROUPS
         ========================================================== */}
 
-        <div className="mt-20 grid gap-6 lg:grid-cols-3">
+        <div className="mt-16 grid gap-6 lg:mt-20 lg:grid-cols-3">
           {userGroups.map((group, index) => {
             const Icon = group.icon;
-
-            const accent =
-              group.accent === "purple"
-                ? {
-                    text: "text-purple-300",
-                    icon: "bg-purple-500/10 text-purple-300 border-purple-500/20",
-                    border: "hover:border-purple-500/40",
-                    glow: "bg-purple-500",
-                  }
-                : group.accent === "blue"
-                ? {
-                    text: "text-blue-300",
-                    icon: "bg-blue-500/10 text-blue-300 border-blue-500/20",
-                    border: "hover:border-blue-500/40",
-                    glow: "bg-blue-500",
-                  }
-                : {
-                    text: "text-amber-300",
-                    icon: "bg-amber-500/10 text-amber-300 border-amber-500/20",
-                    border: "hover:border-amber-500/40",
-                    glow: "bg-amber-500",
-                  };
+            const accent = accentStyles[group.accent];
 
             return (
-              <motion.div
+              <motion.article
                 key={group.title}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
+                viewport={{ once: true, amount: 0.15 }}
                 transition={{
                   duration: 0.7,
                   delay: index * 0.12,
                 }}
-                className={`group relative overflow-hidden rounded-[28px] border border-white/[0.07] bg-white/[0.025] p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.04] md:p-8 ${accent.border}`}
+                whileHover={{ y: -8 }}
+                className={`group relative overflow-hidden rounded-[28px] border border-white/[0.07] bg-white/[0.025] p-7 backdrop-blur-xl transition-colors duration-500 md:p-8 ${accent.border}`}
               >
                 {/* Hover glow */}
 
                 <div
+                  aria-hidden="true"
                   className={`pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full ${accent.glow} opacity-0 blur-[90px] transition-opacity duration-500 group-hover:opacity-20`}
                 />
 
-                {/* Top line */}
+                {/* Accent line */}
 
                 <div
-                  className={`absolute left-8 right-8 top-0 h-px opacity-40 ${accent.glow}`}
+                  aria-hidden="true"
+                  className={`absolute left-8 right-8 top-0 h-px bg-gradient-to-r from-transparent ${accent.line} to-transparent opacity-50`}
                 />
 
                 <div className="relative z-10">
-
                   {/* Header */}
 
                   <div className="flex items-start justify-between">
                     <div
-                      className={`flex h-14 w-14 items-center justify-center rounded-2xl border text-xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 ${accent.icon}`}
+                      className={`flex h-14 w-14 items-center justify-center rounded-2xl border text-xl transition-transform duration-500 group-hover:rotate-3 group-hover:scale-110 ${accent.icon}`}
                     >
-                      <Icon />
+                      <Icon aria-hidden="true" />
                     </div>
 
-                    <span className="font-mono text-4xl font-bold text-white/[0.06]">
+                    <span
+                      aria-hidden="true"
+                      className="font-mono text-4xl font-bold text-white/[0.06]"
+                    >
                       {group.number}
                     </span>
                   </div>
@@ -245,7 +292,10 @@ export default function Users() {
 
                   {/* Divider */}
 
-                  <div className="my-7 h-px bg-white/[0.06]" />
+                  <div
+                    aria-hidden="true"
+                    className="my-7 h-px bg-white/[0.06]"
+                  />
 
                   <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-600">
                     What they get
@@ -253,31 +303,32 @@ export default function Users() {
 
                   {/* Benefits */}
 
-                  <div className="space-y-3.5">
+                  <ul className="space-y-3.5">
                     {group.benefits.map((benefit) => (
-                      <div
-                        key={benefit}
-                        className="flex items-start gap-3"
-                      >
+                      <li key={benefit} className="flex items-start gap-3">
                         <FaCheckCircle
+                          aria-hidden="true"
                           className={`mt-1 shrink-0 text-xs ${accent.text}`}
                         />
 
                         <span className="text-sm leading-6 text-slate-300">
                           {benefit}
                         </span>
-                      </div>
+                      </li>
                     ))}
-                  </div>
+                  </ul>
 
                   {/* Bottom indicator */}
 
                   <div className="mt-8 flex items-center gap-2 text-xs text-slate-600 transition-colors group-hover:text-slate-400">
                     <span>Explore this side of ScoutX</span>
-                    <FaChevronRight className="text-[9px]" />
+                    <FaChevronRight
+                      aria-hidden="true"
+                      className="text-[9px]"
+                    />
                   </div>
                 </div>
-              </motion.div>
+              </motion.article>
             );
           })}
         </div>
@@ -289,16 +340,21 @@ export default function Users() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7 }}
-          className="mt-28"
+          className="mt-24 md:mt-28"
         >
           <div className="mx-auto max-w-3xl text-center">
-
             <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-purple-400">
-              <span className="h-px w-8 bg-purple-500/40" />
+              <span
+                aria-hidden="true"
+                className="h-px w-8 bg-purple-500/40"
+              />
               The Discovery Layer
-              <span className="h-px w-8 bg-purple-500/40" />
+              <span
+                aria-hidden="true"
+                className="h-px w-8 bg-purple-500/40"
+              />
             </div>
 
             <h3 className="mt-5 text-3xl font-bold tracking-tight md:text-5xl">
@@ -310,24 +366,21 @@ export default function Users() {
 
             <p className="mt-6 text-base leading-8 text-slate-500 md:text-lg">
               Great projects can remain hidden inside college folders,
-              GitHub repositories, hackathons, portfolios, and personal
-              networks. ScoutX creates a structured layer where innovation
-              can become easier to discover and connect.
+              repositories, hackathons, portfolios, and personal networks.
+              ScoutX creates a structured layer where innovation can become
+              easier to discover and connect.
             </p>
           </div>
 
-          {/* =====================================================
-              FLOW
-          ====================================================== */}
+          {/* Flow */}
 
           <div className="relative mx-auto mt-14 max-w-5xl">
-
-            {/* Desktop connecting line */}
-
-            <div className="absolute left-[17%] right-[17%] top-1/2 hidden h-px -translate-y-1/2 bg-gradient-to-r from-purple-500/0 via-purple-500/30 to-blue-500/0 md:block" />
+            <div
+              aria-hidden="true"
+              className="absolute left-[17%] right-[17%] top-1/2 hidden h-px -translate-y-1/2 bg-gradient-to-r from-transparent via-purple-500/30 to-blue-500/20 md:block"
+            />
 
             <div className="relative grid gap-5 md:grid-cols-3">
-
               {/* Innovation */}
 
               <motion.div
@@ -335,19 +388,17 @@ export default function Users() {
                 className="relative rounded-3xl border border-white/[0.07] bg-white/[0.025] p-7 text-center backdrop-blur-xl"
               >
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-purple-500/20 bg-purple-500/10 text-xl text-purple-300 shadow-[0_0_30px_rgba(168,85,247,0.08)]">
-                  <FaLightbulb />
+                  <FaLightbulb aria-hidden="true" />
                 </div>
 
                 <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-purple-400">
                   Input
                 </p>
 
-                <h4 className="mt-2 text-xl font-bold">
-                  Innovation
-                </h4>
+                <h4 className="mt-2 text-xl font-bold">Innovation</h4>
 
                 <p className="mt-3 text-sm leading-6 text-slate-500">
-                  Ideas, projects, prototypes and technical work created by
+                  Ideas, projects, prototypes, and technical work created by
                   real builders.
                 </p>
               </motion.div>
@@ -358,22 +409,23 @@ export default function Users() {
                 whileHover={{ y: -8, scale: 1.015 }}
                 className="relative rounded-3xl border border-purple-500/30 bg-gradient-to-b from-purple-500/[0.10] to-white/[0.02] p-8 text-center shadow-[0_20px_70px_rgba(124,58,237,0.12)]"
               >
-                <div className="absolute inset-x-10 -top-px h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent" />
+                <div
+                  aria-hidden="true"
+                  className="absolute inset-x-10 -top-px h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent"
+                />
 
                 <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-purple-400/30 bg-purple-500/10 text-2xl text-purple-300 shadow-[0_0_40px_rgba(168,85,247,0.15)]">
-                  <FaSearch />
+                  <FaSearch aria-hidden="true" />
                 </div>
 
                 <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-purple-300">
                   Discovery Layer
                 </p>
 
-                <h4 className="mt-2 text-2xl font-bold text-white">
-                  ScoutX
-                </h4>
+                <h4 className="mt-2 text-2xl font-bold text-white">ScoutX</h4>
 
                 <p className="mt-3 text-sm leading-6 text-slate-400">
-                  Structures, evaluates and makes promising innovation
+                  Structures, evaluates, and makes promising innovation
                   discoverable.
                 </p>
               </motion.div>
@@ -385,19 +437,17 @@ export default function Users() {
                 className="relative rounded-3xl border border-white/[0.07] bg-white/[0.025] p-7 text-center backdrop-blur-xl"
               >
                 <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-blue-500/20 bg-blue-500/10 text-xl text-blue-300">
-                  <FaRocket />
+                  <FaRocket aria-hidden="true" />
                 </div>
 
                 <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-blue-400">
                   Outcome
                 </p>
 
-                <h4 className="mt-2 text-xl font-bold">
-                  Opportunity
-                </h4>
+                <h4 className="mt-2 text-xl font-bold">Opportunity</h4>
 
                 <p className="mt-3 text-sm leading-6 text-slate-500">
-                  Collaboration, pilots, internships, investment and
+                  Collaboration, pilots, internships, investment, and
                   incubation.
                 </p>
               </motion.div>
@@ -412,18 +462,17 @@ export default function Users() {
         <motion.div
           initial={{ opacity: 0, scale: 0.97 }}
           whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.7 }}
-          className="mt-28"
+          className="mt-24 md:mt-28"
         >
           <div className="relative overflow-hidden rounded-[32px] border border-white/[0.07] bg-gradient-to-br from-white/[0.045] via-white/[0.02] to-purple-500/[0.04] p-8 md:p-12">
-
-            {/* Decorative glow */}
-
-            <div className="pointer-events-none absolute -right-32 -top-32 h-80 w-80 rounded-full bg-purple-600/10 blur-[100px]" />
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute -right-32 -top-32 h-80 w-80 rounded-full bg-purple-600/10 blur-[100px]"
+            />
 
             <div className="relative z-10 text-center">
-
               <p className="text-xs font-semibold uppercase tracking-[0.22em] text-purple-400">
                 The ScoutX Ecosystem
               </p>
@@ -431,7 +480,8 @@ export default function Users() {
               <h3 className="mt-4 text-3xl font-bold md:text-4xl">
                 Different goals.
                 <span className="text-purple-400">
-                  {" "}One innovation loop.
+                  {" "}
+                  One innovation loop.
                 </span>
               </h3>
 
@@ -444,8 +494,7 @@ export default function Users() {
 
             {/* Loop */}
 
-            <div className="relative z-10 mt-14 grid gap-8 md:grid-cols-3">
-
+            <div className="relative z-10 mt-14 grid gap-10 md:grid-cols-3">
               {[
                 {
                   icon: FaLightbulb,
@@ -474,25 +523,26 @@ export default function Users() {
                     className="relative text-center"
                   >
                     <div
-                      className={`mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border ${
+                      className={`mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border text-xl ${
                         item.color === "blue"
                           ? "border-blue-500/20 bg-blue-500/10 text-blue-300"
                           : "border-purple-500/20 bg-purple-500/10 text-purple-300"
-                      } text-xl`}
+                      }`}
                     >
-                      <Icon />
+                      <Icon aria-hidden="true" />
                     </div>
 
-                    <h4 className="mt-5 font-bold">
-                      {item.title}
-                    </h4>
+                    <h4 className="mt-5 font-bold">{item.title}</h4>
 
                     <p className="mx-auto mt-2 max-w-xs text-sm leading-6 text-slate-500">
                       {item.text}
                     </p>
 
                     {index < 2 && (
-                      <FaArrowRight className="absolute -right-4 top-8 hidden text-purple-500/30 md:block" />
+                      <FaArrowRight
+                        aria-hidden="true"
+                        className="absolute -right-4 top-8 hidden text-purple-500/30 md:block"
+                      />
                     )}
                   </div>
                 );
@@ -502,24 +552,21 @@ export default function Users() {
             {/* Ecosystem partners */}
 
             <div className="relative z-10 mt-14 flex justify-center">
-              <div className="flex flex-wrap items-center justify-center gap-2 rounded-2xl border border-white/[0.06] bg-black/20 px-5 py-3">
-                <FaTrophy className="text-amber-400" />
+              <div className="flex flex-wrap items-center justify-center gap-x-3 gap-y-2 rounded-2xl border border-white/[0.06] bg-black/20 px-5 py-3">
+                <FaTrophy
+                  aria-hidden="true"
+                  className="text-amber-400"
+                />
 
-                <span className="text-xs text-slate-500">
-                  Hackathons
-                </span>
-
-                <span className="text-slate-700">•</span>
-
-                <span className="text-xs text-slate-500">
-                  Colleges
-                </span>
+                <span className="text-xs text-slate-500">Hackathons</span>
 
                 <span className="text-slate-700">•</span>
 
-                <span className="text-xs text-slate-500">
-                  Incubators
-                </span>
+                <span className="text-xs text-slate-500">Colleges</span>
+
+                <span className="text-slate-700">•</span>
+
+                <span className="text-xs text-slate-500">Incubators</span>
 
                 <span className="text-slate-700">•</span>
 
@@ -538,17 +585,19 @@ export default function Users() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.15 }}
           transition={{ duration: 0.7 }}
-          className="mt-28"
+          className="mt-24 md:mt-28"
         >
-          <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
-
+          <div className="grid items-center gap-12 lg:grid-cols-[0.9fr_1.1fr] lg:gap-14">
             {/* Left */}
 
             <div>
               <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-purple-400">
-                <span className="h-1.5 w-1.5 rounded-full bg-purple-400" />
+                <span
+                  aria-hidden="true"
+                  className="h-1.5 w-1.5 rounded-full bg-purple-400"
+                />
                 Initial Target Market
               </div>
 
@@ -562,18 +611,18 @@ export default function Users() {
               <p className="mt-6 text-base leading-8 text-slate-400 md:text-lg">
                 ScoutX can initially focus on the student and early-stage
                 innovation ecosystem, where thousands of projects emerge
-                through colleges, hackathons, clubs, internships and
+                through colleges, hackathons, clubs, internships, and
                 innovation programs.
               </p>
 
               <p className="mt-4 text-sm leading-7 text-slate-500">
                 As the platform grows, the resulting innovation database
                 becomes increasingly valuable to companies, startups,
-                incubators, accelerators and industry partners.
+                incubators, accelerators, and industry partners.
               </p>
 
               <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-purple-500/20 bg-purple-500/[0.06] px-5 py-3 text-sm text-purple-300">
-                <FaRocket />
+                <FaRocket aria-hidden="true" />
                 Build the innovation database first
               </div>
             </div>
@@ -589,15 +638,18 @@ export default function Users() {
                     key={segment.title}
                     whileHover={{ x: 5 }}
                     transition={{ duration: 0.2 }}
-                    className="group flex items-center gap-5 rounded-2xl border border-white/[0.06] bg-white/[0.025] p-5 backdrop-blur-xl transition-all duration-300 hover:border-purple-500/20 hover:bg-white/[0.04]"
+                    className="group flex items-center gap-4 rounded-2xl border border-white/[0.06] bg-white/[0.025] p-5 backdrop-blur-xl transition-all duration-300 hover:border-purple-500/20 hover:bg-white/[0.04] sm:gap-5"
                   >
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-purple-500/10 bg-purple-500/[0.07] text-purple-300">
-                      <Icon />
+                      <Icon aria-hidden="true" />
                     </div>
 
                     <div className="min-w-0">
                       <div className="flex items-center gap-3">
-                        <span className="font-mono text-[10px] text-slate-700">
+                        <span
+                          aria-hidden="true"
+                          className="font-mono text-[10px] text-slate-700"
+                        >
                           0{index + 1}
                         </span>
 
@@ -611,7 +663,10 @@ export default function Users() {
                       </p>
                     </div>
 
-                    <FaArrowRight className="ml-auto shrink-0 text-xs text-slate-700 transition-all duration-300 group-hover:translate-x-1 group-hover:text-purple-400" />
+                    <FaArrowRight
+                      aria-hidden="true"
+                      className="ml-auto hidden shrink-0 text-xs text-slate-700 transition-all duration-300 group-hover:translate-x-1 group-hover:text-purple-400 sm:block"
+                    />
                   </motion.div>
                 );
               })}
@@ -626,40 +681,41 @@ export default function Users() {
         <motion.div
           initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.2 }}
           transition={{ duration: 0.7 }}
-          className="mt-28 text-center"
+          className="mt-24 text-center md:mt-28"
         >
           <div className="mx-auto max-w-4xl">
-
             <p className="text-sm text-slate-600">
               Not another professional network.
             </p>
 
             <h3 className="mt-4 text-3xl font-bold tracking-tight md:text-5xl">
-              A place where
+              A place where{" "}
               <span className="bg-gradient-to-r from-purple-300 to-violet-500 bg-clip-text text-transparent">
-                {" "}innovation can actually be found.
+                innovation can actually be found.
               </span>
             </h3>
 
             <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-slate-500 md:text-base">
-              ScoutX brings builders, organizations and the innovation
+              ScoutX brings builders, organizations, and the innovation
               ecosystem together through one discoverable layer of projects,
-              prototypes, evidence and opportunities.
+              prototypes, evidence, and opportunities.
             </p>
 
             <a
               href="#features"
-              className="group mt-9 inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 px-7 py-3.5 text-sm font-semibold shadow-[0_15px_40px_rgba(124,58,237,0.2)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(124,58,237,0.3)]"
+              className="group mt-9 inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 px-7 py-3.5 text-sm font-semibold shadow-[0_15px_40px_rgba(124,58,237,0.2)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(124,58,237,0.3)] focus:outline-none focus:ring-2 focus:ring-purple-400 focus:ring-offset-2 focus:ring-offset-[#080A0F]"
             >
               Explore ScoutX
 
-              <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
+              <FaArrowRight
+                aria-hidden="true"
+                className="transition-transform duration-300 group-hover:translate-x-1"
+              />
             </a>
           </div>
         </motion.div>
-
       </div>
     </section>
   );

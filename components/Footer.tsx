@@ -7,7 +7,6 @@ import {
   FaEnvelope,
   FaArrowUp,
   FaRocket,
-  FaLightbulb,
   FaArrowRight,
   FaCheckCircle,
 } from "react-icons/fa";
@@ -46,6 +45,12 @@ const socialLinks = [
   },
 ];
 
+const valuePoints = [
+  "Discover innovation",
+  "Show real evidence",
+  "Connect opportunities",
+];
+
 export default function Footer() {
   const scrollToTop = () => {
     window.scrollTo({
@@ -58,204 +63,92 @@ export default function Footer() {
     const id = href.replace("#", "");
     const element = document.getElementById(id);
 
-    if (element) {
-      element.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
-    }
+    if (!element) return;
+
+    element.scrollIntoView({
+      behavior: "smooth",
+      block: "start",
+    });
   };
 
   return (
     <footer
-      className="
-        relative
-        overflow-hidden
-        bg-[#080806]
-        text-[#F7F2E8]
-        border-t
-        border-[#D4AF37]/10
-      "
+      id="footer"
+      className="relative overflow-hidden border-t border-white/[0.06] bg-[#080A0F] text-white"
     >
-      {/* =====================================================
-          BACKGROUND ATMOSPHERE
-      ====================================================== */}
+      {/* =========================================================
+          BACKGROUND
+      ========================================================== */}
 
-      <div
-        className="
-          pointer-events-none
-          absolute
-          top-[-250px]
-          left-1/2
-          -translate-x-1/2
-          w-[700px]
-          h-[500px]
-          rounded-full
-          bg-[#D4AF37]/5
-          blur-[140px]
-        "
-      />
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
+        {/* Top purple glow */}
+        <div className="absolute left-1/2 top-[-280px] h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-purple-600/[0.07] blur-[140px]" />
 
-      <div
-        className="
-          pointer-events-none
-          absolute
-          bottom-[-250px]
-          right-[-150px]
-          w-[500px]
-          h-[500px]
-          rounded-full
-          bg-[#D4AF37]/4
-          blur-[120px]
-        "
-      />
+        {/* Left glow */}
+        <div className="absolute bottom-[-250px] left-[-180px] h-[500px] w-[500px] rounded-full bg-violet-600/[0.05] blur-[130px]" />
 
-      {/* =====================================================
+        {/* Right glow */}
+        <div className="absolute right-[-200px] top-[35%] h-[500px] w-[500px] rounded-full bg-fuchsia-600/[0.035] blur-[130px]" />
+
+        {/* Subtle grid */}
+        <div
+          className="absolute inset-0 opacity-[0.018]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.6) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.6) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+      </div>
+
+      {/* =========================================================
           FINAL CTA
-      ====================================================== */}
+      ========================================================== */}
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-20 md:pt-28">
+      <div className="relative z-10 mx-auto max-w-7xl px-6 pt-20 md:pt-28">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="
-            relative
-            overflow-hidden
-            rounded-[2rem]
-            border
-            border-[#D4AF37]/20
-            bg-gradient-to-br
-            from-[#171611]
-            via-[#11100D]
-            to-[#0B0B09]
-            p-8
-            md:p-12
-            lg:p-14
-            shadow-[0_30px_100px_rgba(0,0,0,0.35)]
-          "
+          className="group relative overflow-hidden rounded-[32px] border border-purple-500/20 bg-gradient-to-br from-purple-500/[0.09] via-white/[0.025] to-white/[0.015] p-8 shadow-[0_30px_100px_rgba(0,0,0,0.35)] md:p-12 lg:p-14"
         >
           {/* CTA glow */}
+          <div className="pointer-events-none absolute -right-32 -top-32 h-[420px] w-[420px] rounded-full bg-purple-600/[0.10] blur-[110px] transition-opacity duration-700 group-hover:bg-purple-600/[0.15]" />
 
-          <div
-            className="
-              pointer-events-none
-              absolute
-              top-[-180px]
-              right-[-120px]
-              w-[450px]
-              h-[450px]
-              rounded-full
-              bg-[#D4AF37]/8
-              blur-[100px]
-            "
-          />
+          <div className="pointer-events-none absolute -bottom-40 -left-20 h-[350px] w-[350px] rounded-full bg-violet-600/[0.06] blur-[110px]" />
 
-          <div
-            className="
-              pointer-events-none
-              absolute
-              bottom-[-180px]
-              left-[-100px]
-              w-[350px]
-              h-[350px]
-              rounded-full
-              bg-[#E7C979]/5
-              blur-[100px]
-            "
-          />
+          {/* Top accent */}
+          <div className="absolute left-12 right-12 top-0 h-px bg-gradient-to-r from-transparent via-purple-400/60 to-transparent" />
 
-          <div className="relative z-10 grid lg:grid-cols-[1fr_auto] gap-10 lg:gap-16 items-center">
+          <div className="relative z-10 grid items-center gap-10 lg:grid-cols-[1fr_auto] lg:gap-16">
             {/* LEFT */}
-
             <div>
-              <div
-                className="
-                  inline-flex
-                  items-center
-                  gap-2
-                  px-3.5
-                  py-2
-                  rounded-full
-                  bg-[#D4AF37]/8
-                  border
-                  border-[#D4AF37]/20
-                  text-[#E7C979]
-                  text-[11px]
-                  font-semibold
-                  uppercase
-                  tracking-[0.2em]
-                "
-              >
+              <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/20 bg-purple-500/[0.07] px-3.5 py-2 text-[10px] font-semibold uppercase tracking-[0.22em] text-purple-300">
                 <FaRocket className="text-[10px]" />
-
-                <span>Build. Discover. Connect.</span>
+                Build. Discover. Connect.
               </div>
 
-              <h2
-                className="
-                  text-3xl
-                  md:text-5xl
-                  lg:text-6xl
-                  font-bold
-                  leading-[1.08]
-                  tracking-tight
-                  mt-6
-                  max-w-4xl
-                "
-              >
+              <h2 className="mt-6 max-w-4xl text-3xl font-bold leading-[1.08] tracking-tight md:text-5xl lg:text-6xl">
                 The next great innovation
-                <span
-                  className="
-                    block
-                    text-transparent
-                    bg-clip-text
-                    bg-gradient-to-r
-                    from-[#E7C979]
-                    via-[#D4AF37]
-                    to-[#AD8930]
-                  "
-                >
-                  shouldn't stay hidden.
+                <span className="block bg-gradient-to-r from-purple-300 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
+                  shouldn&apos;t stay hidden.
                 </span>
               </h2>
 
-              <p
-                className="
-                  text-[#A9A293]
-                  text-base
-                  md:text-lg
-                  leading-7
-                  mt-6
-                  max-w-2xl
-                "
-              >
-                ScoutX creates a discovery layer where ideas, projects,
-                prototypes, and the people behind them can be found,
-                evaluated, matched, and connected to real opportunities.
+              <p className="mt-6 max-w-2xl text-base leading-7 text-slate-400 md:text-lg">
+                ScoutX creates a discovery layer where projects, prototypes,
+                technical capabilities, and the people behind them can be
+                discovered and connected to real opportunities.
               </p>
 
-              {/* Small value points */}
-
-              <div className="flex flex-wrap gap-x-5 gap-y-3 mt-7">
-                {[
-                  "Discover innovation",
-                  "Show real evidence",
-                  "Connect opportunities",
-                ].map((item) => (
+              <div className="mt-7 flex flex-wrap gap-x-6 gap-y-3">
+                {valuePoints.map((item) => (
                   <div
                     key={item}
-                    className="
-                      flex
-                      items-center
-                      gap-2
-                      text-xs
-                      text-[#BEB6A7]
-                    "
+                    className="flex items-center gap-2 text-xs text-slate-400"
                   >
-                    <FaCheckCircle className="text-[#D4AF37] text-[10px]" />
-
+                    <FaCheckCircle className="text-[10px] text-purple-400" />
                     {item}
                   </div>
                 ))}
@@ -263,40 +156,19 @@ export default function Footer() {
             </div>
 
             {/* RIGHT CTA */}
-
             <div className="lg:text-right">
               <motion.a
                 href="#contact"
-                whileHover={{ y: -2 }}
+                whileHover={{ y: -3 }}
                 whileTap={{ scale: 0.98 }}
-                className="
-                  inline-flex
-                  items-center
-                  justify-center
-                  gap-3
-                  px-7
-                  py-3.5
-                  rounded-xl
-                  bg-gradient-to-br
-                  from-[#E7C979]
-                  via-[#D4AF37]
-                  to-[#AD8930]
-                  text-[#0B0B09]
-                  font-bold
-                  text-sm
-                  shadow-[0_12px_35px_rgba(201,166,70,0.18)]
-                  hover:shadow-[0_18px_50px_rgba(201,166,70,0.30)]
-                  hover:brightness-110
-                  transition-all
-                  duration-300
-                "
+                className="group/cta inline-flex items-center justify-center gap-3 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 px-7 py-4 text-sm font-semibold text-white shadow-[0_15px_40px_rgba(124,58,237,0.22)] transition-all duration-300 hover:from-purple-500 hover:to-violet-500 hover:shadow-[0_20px_55px_rgba(124,58,237,0.32)]"
               >
                 Connect With ScoutX
 
-                <FaArrowRight className="text-xs" />
+                <FaArrowRight className="text-xs transition-transform duration-300 group-hover/cta:translate-x-1" />
               </motion.a>
 
-              <p className="text-[#70695D] text-xs mt-4">
+              <p className="mt-4 text-xs text-slate-600">
                 Discover what people can build.
               </p>
             </div>
@@ -304,103 +176,57 @@ export default function Footer() {
         </motion.div>
       </div>
 
-      {/* =====================================================
-          FOOTER CONTENT
-      ====================================================== */}
+      {/* =========================================================
+          MAIN FOOTER
+      ========================================================== */}
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-16 md:py-20">
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-16">
-          {/* =================================================
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-16 md:py-20">
+        <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1.1fr] lg:gap-16">
+          {/* =====================================================
               BRAND
-          ================================================== */}
+          ====================================================== */}
 
           <div>
             <button
               type="button"
               onClick={scrollToTop}
               className="group inline-flex items-center gap-3"
+              aria-label="Back to top"
             >
-              <div
-                className="
-                  relative
-                  w-10
-                  h-10
-                  rounded-xl
-                  flex
-                  items-center
-                  justify-center
-                  bg-gradient-to-br
-                  from-[#E7C979]
-                  via-[#D4AF37]
-                  to-[#AD8930]
-                  text-[#0B0B09]
-                  shadow-[0_8px_25px_rgba(201,166,70,0.15)]
-                  group-hover:shadow-[0_10px_35px_rgba(201,166,70,0.28)]
-                  transition-all
-                  duration-300
-                "
-              >
-                <FaRocket className="text-sm -rotate-12" />
-              </div>
+              <span className="relative flex h-11 w-11 items-center justify-center rounded-xl border border-purple-400/20 bg-purple-500/[0.10] text-purple-300 shadow-[0_8px_30px_rgba(124,58,237,0.10)] transition-all duration-300 group-hover:scale-105 group-hover:border-purple-400/40 group-hover:bg-purple-500/[0.15] group-hover:shadow-[0_10px_35px_rgba(124,58,237,0.2)]">
+                <FaRocket className="-rotate-12 text-sm" />
+              </span>
 
               <span className="text-2xl font-bold tracking-tight">
                 Scout
-                <span className="text-[#D4AF37]">X</span>
+                <span className="bg-gradient-to-r from-purple-300 to-violet-500 bg-clip-text text-transparent">
+                  X
+                </span>
               </span>
             </button>
 
-            <p
-              className="
-                text-[#777064]
-                text-sm
-                leading-7
-                mt-5
-                max-w-xs
-              "
-            >
-              An innovation discovery platform connecting real-world
-              problems with the people and prototypes capable of solving
+            <p className="mt-5 max-w-sm text-sm leading-7 text-slate-500">
+              An innovation discovery platform connecting real-world problems
+              with the people, projects, and prototypes capable of solving
               them.
             </p>
 
             {/* Social */}
-
-            <div className="flex items-center gap-2.5 mt-6">
+            <div className="mt-7 flex items-center gap-2.5">
               {socialLinks.map((social) => {
                 const Icon = social.icon;
+                const isExternal = social.href.startsWith("http");
 
                 return (
                   <a
                     key={social.label}
                     href={social.href}
-                    target={
-                      social.href.startsWith("#")
-                        ? undefined
-                        : "_blank"
-                    }
+                    target={isExternal ? "_blank" : undefined}
                     rel={
-                      social.href.startsWith("#")
-                        ? undefined
-                        : "noopener noreferrer"
+                      isExternal ? "noopener noreferrer" : undefined
                     }
                     aria-label={`ScoutX ${social.label}`}
-                    className="
-                      w-10
-                      h-10
-                      rounded-xl
-                      flex
-                      items-center
-                      justify-center
-                      bg-[#11100D]
-                      border
-                      border-[#F7F2E8]/8
-                      text-[#777064]
-                      hover:text-[#E7C979]
-                      hover:border-[#D4AF37]/30
-                      hover:bg-[#D4AF37]/5
-                      transition-all
-                      duration-300
-                    "
+                    className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/[0.07] bg-white/[0.025] text-slate-500 transition-all duration-300 hover:border-purple-500/30 hover:bg-purple-500/[0.08] hover:text-purple-300"
                   >
                     <Icon className="text-sm" />
                   </a>
@@ -409,275 +235,159 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* =================================================
+          {/* =====================================================
               PRODUCT
-          ================================================== */}
+          ====================================================== */}
 
-          <div>
-            <h3 className="text-sm font-semibold text-[#F7F2E8]">
-              Product
-            </h3>
+          <FooterColumn
+            title="Product"
+            links={productLinks}
+            onNavigate={scrollToSection}
+          />
 
-            <div className="w-7 h-px bg-[#D4AF37]/50 mt-3" />
-
-            <ul className="mt-5 space-y-3.5">
-              {productLinks.map((link) => (
-                <li key={link.name}>
-                  <button
-                    type="button"
-                    onClick={() => scrollToSection(link.href)}
-                    className="
-                      group
-                      flex
-                      items-center
-                      gap-2
-                      text-left
-                      text-sm
-                      text-[#777064]
-                      hover:text-[#E7C979]
-                      transition-colors
-                      duration-200
-                    "
-                  >
-                    <span
-                      className="
-                        w-0
-                        h-px
-                        bg-[#D4AF37]
-                        group-hover:w-3
-                        transition-all
-                        duration-200
-                      "
-                    />
-
-                    {link.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* =================================================
+          {/* =====================================================
               ECOSYSTEM
-          ================================================== */}
+          ====================================================== */}
 
-          <div>
-            <h3 className="text-sm font-semibold text-[#F7F2E8]">
-              Ecosystem
-            </h3>
+          <FooterColumn
+            title="Ecosystem"
+            links={ecosystemLinks}
+            onNavigate={scrollToSection}
+          />
 
-            <div className="w-7 h-px bg-[#D4AF37]/50 mt-3" />
-
-            <ul className="mt-5 space-y-3.5">
-              {ecosystemLinks.map((link) => (
-                <li key={link.name}>
-                  <button
-                    type="button"
-                    onClick={() => scrollToSection(link.href)}
-                    className="
-                      group
-                      flex
-                      items-center
-                      gap-2
-                      text-left
-                      text-sm
-                      text-[#777064]
-                      hover:text-[#E7C979]
-                      transition-colors
-                      duration-200
-                    "
-                  >
-                    <span
-                      className="
-                        w-0
-                        h-px
-                        bg-[#D4AF37]
-                        group-hover:w-3
-                        transition-all
-                        duration-200
-                      "
-                    />
-
-                    {link.name}
-                  </button>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* =================================================
+          {/* =====================================================
               MISSION
-          ================================================== */}
+          ====================================================== */}
 
           <div>
-            <h3 className="text-sm font-semibold text-[#F7F2E8]">
+            <h3 className="text-sm font-semibold text-slate-200">
               Our Mission
             </h3>
 
-            <div className="w-7 h-px bg-[#D4AF37]/50 mt-3" />
+            <div className="mt-3 h-px w-7 bg-purple-500/50" />
 
-            <p
-              className="
-                text-[#777064]
-                text-sm
-                leading-7
-                mt-5
-              "
-            >
-              To make valuable innovation discoverable, measurable,
-              and connected to the opportunities where it can create
-              real impact.
+            <p className="mt-5 text-sm leading-7 text-slate-500">
+              To make valuable innovation discoverable, measurable, and
+              connected to the opportunities where it can create real impact.
             </p>
 
             <a
               href="#contact"
-              className="
-                group
-                inline-flex
-                items-center
-                gap-2
-                text-[#D4AF37]
-                hover:text-[#E7C979]
-                text-sm
-                font-medium
-                mt-5
-                transition-colors
-              "
+              className="group mt-5 inline-flex items-center gap-2 text-sm font-medium text-purple-400 transition-colors hover:text-purple-300"
             >
               Start a conversation
 
-              <FaArrowRight
-                className="
-                  text-[10px]
-                  group-hover:translate-x-1
-                  transition-transform
-                "
-              />
+              <FaArrowRight className="text-[10px] transition-transform duration-200 group-hover:translate-x-1" />
             </a>
           </div>
         </div>
       </div>
 
-      {/* =====================================================
+      {/* =========================================================
           DIVIDER
-      ====================================================== */}
+      ========================================================== */}
 
-      <div className="relative z-10 border-t border-[#F7F2E8]/7">
-        <div className="max-w-7xl mx-auto px-6">
-          <div
-            className="
-              h-px
-              bg-gradient-to-r
-              from-transparent
-              via-[#D4AF37]/20
-              to-transparent
-            "
-          />
-        </div>
+      <div className="relative z-10 mx-auto max-w-7xl px-6">
+        <div className="h-px bg-gradient-to-r from-transparent via-purple-500/20 to-transparent" />
       </div>
 
-      {/* =====================================================
+      {/* =========================================================
           BOTTOM BAR
-      ====================================================== */}
+      ========================================================== */}
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-6">
-        <div
-          className="
-            flex
-            flex-col
-            md:flex-row
-            items-center
-            justify-between
-            gap-5
-          "
-        >
+      <div className="relative z-10 mx-auto max-w-7xl px-6 py-6">
+        <div className="flex flex-col items-center justify-between gap-5 md:flex-row">
           {/* Copyright */}
-
           <div className="text-center md:text-left">
-            <p className="text-xs text-[#625C52]">
+            <p className="text-xs text-slate-600">
               © {new Date().getFullYear()} ScoutX. All rights reserved.
             </p>
 
-            <p className="text-[11px] text-[#454139] mt-1">
+            <p className="mt-1 text-[11px] text-slate-700">
               Built to make innovation discoverable.
             </p>
           </div>
 
           {/* Center tagline */}
+          <div className="hidden items-center gap-2 text-[10px] uppercase tracking-[0.2em] text-slate-700 lg:flex">
+            <span className="h-px w-5 bg-purple-500/30" />
 
-          <div
-            className="
-              hidden
-              lg:flex
-              items-center
-              gap-2
-              text-[11px]
-              uppercase
-              tracking-[0.18em]
-              text-[#4F4A42]
-            "
-          >
-            <span className="w-5 h-px bg-[#D4AF37]/30" />
+            <span>Build</span>
 
-            Build
-            <span className="text-[#D4AF37]/50">•</span>
-            Prove
-            <span className="text-[#D4AF37]/50">•</span>
-            Discover
-            <span className="text-[#D4AF37]/50">•</span>
-            Connect
+            <span className="text-purple-500/50">•</span>
 
-            <span className="w-5 h-px bg-[#D4AF37]/30" />
+            <span>Prove</span>
+
+            <span className="text-purple-500/50">•</span>
+
+            <span>Discover</span>
+
+            <span className="text-purple-500/50">•</span>
+
+            <span>Connect</span>
+
+            <span className="h-px w-5 bg-purple-500/30" />
           </div>
 
           {/* Back to top */}
-
           <motion.button
             type="button"
             onClick={scrollToTop}
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.97 }}
-            className="
-              group
-              inline-flex
-              items-center
-              gap-3
-              text-xs
-              font-medium
-              text-[#777064]
-              hover:text-[#E7C979]
-              transition-colors
-            "
+            className="group inline-flex items-center gap-3 text-xs font-medium text-slate-500 transition-colors hover:text-purple-300"
           >
             Back to top
 
-            <span
-              className="
-                w-9
-                h-9
-                rounded-xl
-                bg-[#11100D]
-                border
-                border-[#F7F2E8]/8
-                flex
-                items-center
-                justify-center
-                group-hover:border-[#D4AF37]/35
-                group-hover:bg-[#D4AF37]/5
-                transition-all
-              "
-            >
-              <FaArrowUp
-                className="
-                  text-[10px]
-                  group-hover:-translate-y-0.5
-                  transition-transform
-                "
-              />
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/[0.07] bg-white/[0.025] transition-all duration-300 group-hover:border-purple-500/30 group-hover:bg-purple-500/[0.07]">
+              <FaArrowUp className="text-[10px] transition-transform duration-200 group-hover:-translate-y-0.5" />
             </span>
           </motion.button>
         </div>
       </div>
     </footer>
+  );
+}
+
+/* =============================================================
+   FOOTER COLUMN
+============================================================= */
+
+interface FooterColumnProps {
+  title: string;
+  links: {
+    name: string;
+    href: string;
+  }[];
+  onNavigate: (href: string) => void;
+}
+
+function FooterColumn({
+  title,
+  links,
+  onNavigate,
+}: FooterColumnProps) {
+  return (
+    <div>
+      <h3 className="text-sm font-semibold text-slate-200">{title}</h3>
+
+      <div className="mt-3 h-px w-7 bg-purple-500/50" />
+
+      <ul className="mt-5 space-y-3.5">
+        {links.map((link) => (
+          <li key={link.name}>
+            <button
+              type="button"
+              onClick={() => onNavigate(link.href)}
+              className="group flex items-center gap-2 text-left text-sm text-slate-500 transition-colors duration-200 hover:text-purple-300"
+            >
+              <span className="h-px w-0 bg-purple-400 transition-all duration-200 group-hover:w-3" />
+
+              {link.name}
+            </button>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }
