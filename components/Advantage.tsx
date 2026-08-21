@@ -147,38 +147,52 @@ export default function Advantage() {
   return (
     <section
       id="advantage"
-      className="relative overflow-hidden bg-[#0B0B09] text-[#F7F1E3] py-24 md:py-32 px-6"
+      className="relative overflow-hidden bg-[#0B0B09] px-6 py-24 text-[#F7F1E3] md:py-32"
     >
       {/* =====================================================
           PREMIUM BACKGROUND
       ====================================================== */}
 
-      <div className="absolute top-[-180px] right-[-180px] w-[500px] h-[500px] rounded-full bg-[#C9A646]/8 blur-3xl pointer-events-none" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute right-[-180px] top-[-180px] h-[500px] w-[500px] rounded-full bg-[#D4AF37]/[0.07] blur-[120px]"
+      />
 
-      <div className="absolute bottom-[-180px] left-[-180px] w-[500px] h-[500px] rounded-full bg-[#C9A646]/6 blur-3xl pointer-events-none" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute bottom-[-180px] left-[-180px] h-[500px] w-[500px] rounded-full bg-[#D4AF37]/[0.05] blur-[120px]"
+      />
 
-      <div className="absolute inset-0 bg-grid opacity-[0.18] pointer-events-none" />
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.025]"
+        style={{
+          backgroundImage:
+            "linear-gradient(rgba(212,175,55,.5) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,.5) 1px, transparent 1px)",
+          backgroundSize: "60px 60px",
+        }}
+      />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+      <div className="relative z-10 mx-auto max-w-7xl">
         {/* =====================================================
             HEADER
         ====================================================== */}
 
-        <div className="text-center max-w-4xl mx-auto">
-          <p className="text-[#D4AF37] uppercase tracking-[0.25em] text-xs md:text-sm font-semibold">
+        <div className="mx-auto max-w-4xl text-center">
+          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D4AF37] md:text-sm">
             The ScoutX Advantage
           </p>
 
-          <div className="gold-line mx-auto mt-4" />
+          <div className="mx-auto mt-4 h-px w-16 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
 
-          <h2 className="text-4xl md:text-6xl font-bold mt-6 leading-[1.08] tracking-tight">
+          <h2 className="mt-6 text-4xl font-bold leading-[1.08] tracking-tight md:text-6xl">
             Innovation discovery{" "}
-            <span className="text-gradient">
+            <span className="bg-gradient-to-r from-[#E7C979] via-[#D4AF37] to-[#AD8930] bg-clip-text text-transparent">
               without depending on hackathons.
             </span>
           </h2>
 
-          <p className="text-[#A9A293] text-base md:text-lg leading-8 mt-6 max-w-3xl mx-auto">
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-[#A9A293] md:text-lg">
             Hackathons can be valuable, but they require planning,
             participants, travel, infrastructure, time, and significant
             resources. ScoutX provides another way: discover ideas that
@@ -190,31 +204,34 @@ export default function Advantage() {
             ADVANTAGE CARDS
         ====================================================== */}
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-14">
+        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {advantageCards.map((item) => {
             const Icon = item.icon;
 
             return (
               <div
                 key={item.number}
-                className="group relative overflow-hidden rounded-3xl bg-[#11100D] border border-[#D4AF37]/15 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/40"
+                className="group relative overflow-hidden rounded-3xl border border-[#D4AF37]/[0.15] bg-[#11100D] p-6 transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/40"
               >
-                <div className="absolute top-[-60px] right-[-60px] w-32 h-32 rounded-full bg-[#D4AF37]/5 blur-3xl pointer-events-none" />
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute right-[-60px] top-[-60px] h-32 w-32 rounded-full bg-[#D4AF37]/[0.06] blur-3xl"
+                />
 
                 <div className="relative z-10">
-                  <div className="w-12 h-12 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/15 text-[#E7C979] flex items-center justify-center text-lg group-hover:bg-[#D4AF37]/15 transition-all duration-300">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#D4AF37]/[0.15] bg-[#D4AF37]/[0.10] text-lg text-[#E7C979] transition-all duration-300 group-hover:bg-[#D4AF37]/[0.15]">
                     <Icon />
                   </div>
 
-                  <p className="text-[#8E8779] text-xs font-bold tracking-[0.2em] mt-5">
+                  <p className="mt-5 text-xs font-bold tracking-[0.2em] text-[#8E8779]">
                     {item.number}
                   </p>
 
-                  <h3 className="text-lg font-semibold text-[#F7F1E3] mt-2">
+                  <h3 className="mt-2 text-lg font-semibold text-[#F7F1E3]">
                     {item.title}
                   </h3>
 
-                  <p className="text-[#8F887B] text-sm leading-6 mt-2">
+                  <p className="mt-2 text-sm leading-6 text-[#8F887B]">
                     {item.text}
                   </p>
                 </div>
@@ -228,42 +245,43 @@ export default function Advantage() {
         ====================================================== */}
 
         <div className="mt-24">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <p className="text-[#D4AF37] uppercase tracking-[0.25em] text-xs md:text-sm font-semibold">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D4AF37] md:text-sm">
               A Different Approach
             </p>
 
-            <h3 className="text-3xl md:text-5xl font-bold mt-4 leading-tight">
+            <h3 className="mt-4 text-3xl font-bold leading-tight md:text-5xl">
               Why wait for the next{" "}
-              <span className="text-gradient">hackathon?</span>
+              <span className="bg-gradient-to-r from-[#E7C979] via-[#D4AF37] to-[#AD8930] bg-clip-text text-transparent">
+                hackathon?
+              </span>
             </h3>
 
-            <p className="text-[#A9A293] mt-5 leading-7">
+            <p className="mt-5 leading-7 text-[#A9A293]">
               ScoutX changes innovation discovery from an event-based process
               into a continuous discovery ecosystem.
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-5 items-stretch">
+          <div className="grid items-stretch gap-5 lg:grid-cols-3">
             {/* Traditional */}
 
-            <div className="bg-[#11100D] border border-white/10 rounded-3xl p-8">
-              <p className="text-[#7F786B] uppercase tracking-widest text-xs">
+            <div className="rounded-3xl border border-white/[0.08] bg-[#11100D] p-8">
+              <p className="text-xs uppercase tracking-widest text-[#7F786B]">
                 Traditional Discovery
               </p>
 
-              <h4 className="text-2xl font-bold mt-4 text-[#F7F1E3]">
+              <h4 className="mt-4 text-2xl font-bold text-[#F7F1E3]">
                 Organize a Hackathon
               </h4>
 
-              <div className="space-y-4 mt-8">
+              <div className="mt-8 space-y-4">
                 {traditionalPoints.map((item) => (
                   <div
                     key={item}
-                    className="flex items-start gap-3 text-[#918A7D] text-sm"
+                    className="flex items-start gap-3 text-sm text-[#918A7D]"
                   >
-                    <span className="text-[#6D675D] mt-1">×</span>
-
+                    <span className="mt-1 text-[#6D675D]">×</span>
                     <span>{item}</span>
                   </div>
                 ))}
@@ -272,34 +290,30 @@ export default function Advantage() {
 
             {/* ScoutX */}
 
-            <div className="relative bg-[#17150F] border border-[#D4AF37]/30 rounded-3xl p-8 text-center overflow-hidden">
-              <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-transparent" />
+            <div className="relative overflow-hidden rounded-3xl border border-[#D4AF37]/30 bg-[#17150F] p-8 text-center">
+              <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/70 to-transparent" />
 
-              <div className="w-16 h-16 mx-auto rounded-2xl bg-[#D4AF37]/10 border border-[#D4AF37]/20 text-[#E7C979] flex items-center justify-center text-2xl">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-[#D4AF37]/20 bg-[#D4AF37]/10 text-2xl text-[#E7C979]">
                 <FaRocket />
               </div>
 
-              <p className="text-[#D4AF37] uppercase tracking-widest text-xs mt-6">
+              <p className="mt-6 text-xs uppercase tracking-widest text-[#D4AF37]">
                 ScoutX
               </p>
 
-              <h4 className="text-2xl font-bold mt-2 text-[#F7F1E3]">
+              <h4 className="mt-2 text-2xl font-bold text-[#F7F1E3]">
                 Continuous Innovation Discovery
               </h4>
 
-              <div className="flex flex-wrap justify-center items-center gap-3 mt-8 text-[#D4AF37] font-semibold text-sm">
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-3 text-sm font-semibold text-[#D4AF37]">
                 <span>Discover</span>
-
                 <FaArrowRight className="text-xs" />
-
                 <span>Evaluate</span>
-
                 <FaArrowRight className="text-xs" />
-
                 <span>Match</span>
               </div>
 
-              <p className="text-[#A9A293] text-sm leading-6 mt-6">
+              <p className="mt-6 text-sm leading-6 text-[#A9A293]">
                 AI continuously connects company requirements with relevant
                 ideas already available on the platform.
               </p>
@@ -307,23 +321,22 @@ export default function Advantage() {
 
             {/* Result */}
 
-            <div className="bg-[#11100D] border border-[#D4AF37]/15 rounded-3xl p-8">
-              <p className="text-[#D4AF37] uppercase tracking-widest text-xs">
+            <div className="rounded-3xl border border-[#D4AF37]/[0.15] bg-[#11100D] p-8">
+              <p className="text-xs uppercase tracking-widest text-[#D4AF37]">
                 Result
               </p>
 
-              <h4 className="text-2xl font-bold mt-4 text-[#F7F1E3]">
+              <h4 className="mt-4 text-2xl font-bold text-[#F7F1E3]">
                 Focus on the Best Ideas
               </h4>
 
-              <div className="space-y-4 mt-8">
+              <div className="mt-8 space-y-4">
                 {scoutXPoints.map((item) => (
                   <div
                     key={item}
-                    className="flex items-start gap-3 text-[#A9A293] text-sm"
+                    className="flex items-start gap-3 text-sm text-[#A9A293]"
                   >
-                    <FaCheckCircle className="text-[#D4AF37] text-xs shrink-0 mt-1" />
-
+                    <FaCheckCircle className="mt-1 shrink-0 text-xs text-[#D4AF37]" />
                     <span>{item}</span>
                   </div>
                 ))}
@@ -337,19 +350,19 @@ export default function Advantage() {
         ====================================================== */}
 
         <div className="mt-24">
-          <div className="text-center max-w-3xl mx-auto">
-            <p className="text-[#D4AF37] uppercase tracking-[0.25em] text-xs md:text-sm font-semibold">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D4AF37] md:text-sm">
               Why ScoutX?
             </p>
 
-            <h3 className="text-3xl md:text-5xl font-bold mt-4 leading-tight">
+            <h3 className="mt-4 text-3xl font-bold leading-tight md:text-5xl">
               From scattered ideas{" "}
-              <span className="text-gradient">
+              <span className="bg-gradient-to-r from-[#E7C979] via-[#D4AF37] to-[#AD8930] bg-clip-text text-transparent">
                 to discoverable innovation.
               </span>
             </h3>
 
-            <p className="text-[#A9A293] mt-5 leading-7">
+            <p className="mt-5 leading-7 text-[#A9A293]">
               ScoutX creates a structured layer between builders, their work,
               and organizations looking for relevant innovation.
             </p>
@@ -357,16 +370,16 @@ export default function Advantage() {
 
           {/* Tabs */}
 
-          <div className="flex flex-wrap justify-center gap-3 mt-10 mb-8">
+          <div className="mb-8 mt-10 flex flex-wrap justify-center gap-3">
             {tabs.map((tab) => (
               <button
                 key={tab.key}
                 onMouseEnter={() => setActive(tab.key)}
                 onClick={() => setActive(tab.key)}
-                className={`px-5 py-3 rounded-xl border transition-all duration-300 text-sm font-medium ${
+                className={`rounded-xl border px-5 py-3 text-sm font-medium transition-all duration-300 ${
                   active === tab.key
-                    ? "bg-gradient-to-br from-[#E7C979] via-[#D4AF37] to-[#AD8930] text-[#0B0B09] border-[#D4AF37] shadow-[0_8px_25px_rgba(201,166,70,0.15)]"
-                    : "bg-[#11100D] text-[#918A7D] border-white/10 hover:border-[#D4AF37]/30 hover:text-[#F7F1E3]"
+                    ? "border-[#D4AF37] bg-gradient-to-br from-[#E7C979] via-[#D4AF37] to-[#AD8930] text-[#0B0B09] shadow-[0_8px_25px_rgba(201,166,70,0.15)]"
+                    : "border-white/[0.08] bg-[#11100D] text-[#918A7D] hover:border-[#D4AF37]/30 hover:text-[#F7F1E3]"
                 }`}
               >
                 {tab.label}
@@ -376,13 +389,13 @@ export default function Advantage() {
 
           {/* Tab Content */}
 
-          <div className="max-w-4xl mx-auto bg-[#11100D] border border-[#D4AF37]/15 rounded-3xl p-8 md:p-10 min-h-[220px] flex items-center">
+          <div className="mx-auto flex min-h-[220px] max-w-4xl items-center rounded-3xl border border-[#D4AF37]/[0.15] bg-[#11100D] p-8 md:p-10">
             <div className="w-full text-center">
-              <p className="text-[#D4AF37] text-xs uppercase tracking-widest font-semibold">
+              <p className="text-xs font-semibold uppercase tracking-widest text-[#D4AF37]">
                 {tabs.find((tab) => tab.key === active)?.label}
               </p>
 
-              <p className="text-[#C0B8A9] text-lg md:text-xl leading-9 mt-5">
+              <p className="mt-5 text-lg leading-9 text-[#C0B8A9] md:text-xl">
                 {content[active]}
               </p>
             </div>
@@ -394,45 +407,45 @@ export default function Advantage() {
         ====================================================== */}
 
         <div className="mt-24">
-          <div className="text-center max-w-3xl mx-auto mb-12">
-            <p className="text-[#D4AF37] uppercase tracking-[0.25em] text-xs md:text-sm font-semibold">
+          <div className="mx-auto mb-12 max-w-3xl text-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D4AF37] md:text-sm">
               The Differentiator
             </p>
 
-            <h3 className="text-3xl md:text-5xl font-bold mt-4 leading-tight">
+            <h3 className="mt-4 text-3xl font-bold leading-tight md:text-5xl">
               Not another resume platform.
               <br />
-              <span className="text-gradient">
+              <span className="bg-gradient-to-r from-[#E7C979] via-[#D4AF37] to-[#AD8930] bg-clip-text text-transparent">
                 Not just another project showcase.
               </span>
             </h3>
 
-            <p className="text-[#A9A293] mt-6 text-lg leading-8">
+            <p className="mt-6 text-lg leading-8 text-[#A9A293]">
               ScoutX connects the person, problem, prototype, evidence, and
               organization looking for relevant innovation.
             </p>
           </div>
 
-          <div className="bg-[#11100D] border border-[#D4AF37]/15 rounded-3xl overflow-hidden">
+          <div className="overflow-hidden rounded-3xl border border-[#D4AF37]/[0.15] bg-[#11100D]">
             {/* Table Header */}
 
-            <div className="grid grid-cols-2 border-b border-white/10">
+            <div className="grid grid-cols-2 border-b border-white/[0.08]">
               <div className="p-6 md:p-8">
-                <p className="text-[#7F786B] text-xs uppercase tracking-widest">
+                <p className="text-xs uppercase tracking-widest text-[#7F786B]">
                   Traditional Platforms
                 </p>
 
-                <h4 className="text-xl md:text-2xl font-bold mt-2 text-[#F7F1E3]">
+                <h4 className="mt-2 text-xl font-bold text-[#F7F1E3] md:text-2xl">
                   Search Around People
                 </h4>
               </div>
 
-              <div className="p-6 md:p-8 bg-[#D4AF37]/5 border-l border-white/10">
-                <p className="text-[#D4AF37] text-xs uppercase tracking-widest">
+              <div className="border-l border-white/[0.08] bg-[#D4AF37]/[0.05] p-6 md:p-8">
+                <p className="text-xs uppercase tracking-widest text-[#D4AF37]">
                   ScoutX
                 </p>
 
-                <h4 className="text-xl md:text-2xl font-bold mt-2 text-[#F7F1E3]">
+                <h4 className="mt-2 text-xl font-bold text-[#F7F1E3] md:text-2xl">
                   Search Around Innovation
                 </h4>
               </div>
@@ -446,24 +459,24 @@ export default function Advantage() {
               return (
                 <div
                   key={item.traditional}
-                  className="grid grid-cols-2 border-b border-white/10 last:border-b-0"
+                  className="grid grid-cols-2 border-b border-white/[0.08] last:border-b-0"
                 >
-                  <div className="p-5 md:p-6 flex items-center gap-4">
-                    <div className="w-9 h-9 rounded-lg bg-white/5 border border-white/5 text-[#7F786B] flex items-center justify-center shrink-0">
+                  <div className="flex items-center gap-4 p-5 md:p-6">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-white/[0.05] bg-white/[0.04] text-[#7F786B]">
                       <Icon className="text-sm" />
                     </div>
 
-                    <span className="text-[#918A7D] text-sm md:text-base">
+                    <span className="text-sm text-[#918A7D] md:text-base">
                       {item.traditional}
                     </span>
                   </div>
 
-                  <div className="p-5 md:p-6 flex items-center gap-4 bg-[#D4AF37]/5 border-l border-white/10">
-                    <div className="w-9 h-9 rounded-lg bg-[#D4AF37]/10 text-[#D4AF37] flex items-center justify-center shrink-0">
+                  <div className="flex items-center gap-4 border-l border-white/[0.08] bg-[#D4AF37]/[0.05] p-5 md:p-6">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#D4AF37]/10 text-[#D4AF37]">
                       <FaCheckCircle className="text-sm" />
                     </div>
 
-                    <span className="text-[#DDD5C6] font-medium text-sm md:text-base">
+                    <span className="text-sm font-medium text-[#DDD5C6] md:text-base">
                       {item.scoutx}
                     </span>
                   </div>
@@ -478,15 +491,18 @@ export default function Advantage() {
         ====================================================== */}
 
         <div className="mt-24">
-          <div className="relative overflow-hidden bg-[#11100D] border border-[#D4AF37]/20 rounded-3xl p-8 md:p-12">
-            <div className="absolute top-[-120px] right-[-120px] w-72 h-72 rounded-full bg-[#D4AF37]/5 blur-3xl pointer-events-none" />
+          <div className="relative overflow-hidden rounded-3xl border border-[#D4AF37]/20 bg-[#11100D] p-8 md:p-12">
+            <div
+              aria-hidden
+              className="pointer-events-none absolute right-[-120px] top-[-120px] h-72 w-72 rounded-full bg-[#D4AF37]/[0.06] blur-3xl"
+            />
 
             <div className="relative z-10 text-center">
-              <p className="text-[#D4AF37] uppercase tracking-[0.25em] text-xs md:text-sm font-semibold">
+              <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D4AF37] md:text-sm">
                 ScoutX Discovery Model
               </p>
 
-              <h3 className="text-3xl md:text-5xl font-bold mt-4">
+              <h3 className="mt-4 text-3xl font-bold md:text-5xl">
                 Build{" "}
                 <span className="text-[#D4AF37]">→</span> Prove{" "}
                 <span className="text-[#D4AF37]">→</span> Discover{" "}
@@ -495,25 +511,25 @@ export default function Advantage() {
               </h3>
             </div>
 
-            <div className="relative z-10 grid md:grid-cols-5 gap-4 mt-12">
+            <div className="relative z-10 mt-12 grid gap-4 md:grid-cols-5">
               {discoverySteps.map((item, index) => (
                 <div key={item.number} className="relative">
-                  <div className="bg-[#0B0B09] border border-white/10 rounded-2xl p-6 text-center h-full hover:border-[#D4AF37]/30 hover:-translate-y-1 transition-all duration-300">
-                    <p className="text-[#D4AF37] text-xs font-bold tracking-widest">
+                  <div className="h-full rounded-2xl border border-white/[0.08] bg-[#0B0B09] p-6 text-center transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/30">
+                    <p className="text-xs font-bold tracking-widest text-[#D4AF37]">
                       {item.number}
                     </p>
 
-                    <h4 className="text-lg font-semibold mt-3 text-[#F7F1E3]">
+                    <h4 className="mt-3 text-lg font-semibold text-[#F7F1E3]">
                       {item.title}
                     </h4>
 
-                    <p className="text-[#8F887B] text-sm leading-6 mt-2">
+                    <p className="mt-2 text-sm leading-6 text-[#8F887B]">
                       {item.text}
                     </p>
                   </div>
 
                   {index < discoverySteps.length - 1 && (
-                    <FaArrowRight className="hidden md:block absolute top-1/2 -right-3 -translate-y-1/2 text-[#D4AF37]/60 z-10 text-xs" />
+                    <FaArrowRight className="absolute -right-3 top-1/2 z-10 hidden -translate-y-1/2 text-xs text-[#D4AF37]/60 md:block" />
                   )}
                 </div>
               ))}
@@ -525,15 +541,17 @@ export default function Advantage() {
             FINAL STATEMENT
         ====================================================== */}
 
-        <div className="text-center mt-24 max-w-4xl mx-auto">
-          <FaRocket className="text-[#D4AF37] text-3xl mx-auto" />
+        <div className="mx-auto mt-24 max-w-4xl text-center">
+          <FaRocket className="mx-auto text-3xl text-[#D4AF37]" />
 
-          <h3 className="text-3xl md:text-5xl font-bold mt-6 leading-tight">
+          <h3 className="mt-6 text-3xl font-bold leading-tight md:text-5xl">
             Make valuable innovation{" "}
-            <span className="text-gradient">discoverable.</span>
+            <span className="bg-gradient-to-r from-[#E7C979] via-[#D4AF37] to-[#AD8930] bg-clip-text text-transparent">
+              discoverable.
+            </span>
           </h3>
 
-          <p className="text-[#A9A293] mt-6 text-lg leading-8">
+          <p className="mt-6 text-lg leading-8 text-[#A9A293]">
             ScoutX turns scattered projects and prototypes into structured,
             discoverable innovation — creating a path from building to
             real-world opportunity.
