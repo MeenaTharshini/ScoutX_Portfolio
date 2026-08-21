@@ -95,19 +95,6 @@ export default function Problem() {
             The Problem
           </p>
 
-          <h2 className="text-4xl md:text-6xl font-bold mt-4 leading-tight">
-            Innovation exists.
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-purple-400 to-violet-500">
-              Discovery is the problem.
-            </span>
-          </h2>
-
-          <p className="text-slate-400 text-lg md:text-xl leading-8 mt-6 max-w-3xl mx-auto">
-            Students, independent innovators, and early-stage builders are
-            creating valuable ideas and prototypes. But companies still lack
-            an efficient way to discover the right innovation without relying
-            on scattered platforms or expensive innovation events.
-          </p>
         </motion.div>
 
         {/* Main Problem Statement */}
@@ -422,16 +409,6 @@ export default function Problem() {
             <p className="text-purple-400 uppercase tracking-widest text-sm font-semibold">
               The Core Problem
             </p>
-
-            <h3 className="text-2xl md:text-4xl font-bold mt-6 leading-relaxed max-w-4xl mx-auto">
-              “The problem is not a lack of innovation;
-              <span className="text-purple-400">
-                {" "}it is the lack of an efficient way to discover,
-                evaluate, and connect innovators with the organizations
-                that need them.
-              </span>
-              ”
-            </h3>
 
           </div>
 
