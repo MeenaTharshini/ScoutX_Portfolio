@@ -45,10 +45,13 @@ export default function Navbar() {
     <motion.header
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: "easeOut" }}
+      transition={{
+        duration: 0.6,
+        ease: "easeOut",
+      }}
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
         scrolled
-          ? "bg-slate-950/90 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/10"
+          ? "navbar-glass shadow-[0_10px_40px_rgba(0,0,0,0.25)]"
           : "bg-transparent"
       }`}
     >
@@ -72,17 +75,43 @@ export default function Navbar() {
           >
             {/* Logo Mark */}
 
-            <div className="relative w-9 h-9 rounded-xl bg-gradient-to-br from-purple-500 to-violet-700 flex items-center justify-center shadow-lg shadow-purple-500/20 group-hover:shadow-purple-500/40 transition-all duration-300">
-              <FaRocket className="text-white text-sm -rotate-12" />
+            <div
+              className="
+                relative
+                w-9
+                h-9
+                rounded-xl
+                flex
+                items-center
+                justify-center
+                brand-gradient
+                shadow-[0_8px_25px_rgba(201,166,70,0.18)]
+                group-hover:shadow-[0_10px_35px_rgba(201,166,70,0.35)]
+                transition-all
+                duration-300
+              "
+            >
+              <FaRocket className="text-[#0B0B09] text-sm -rotate-12" />
+
+              {/* Small shine */}
+              <span
+                className="
+                  absolute
+                  inset-0
+                  rounded-xl
+                  bg-white/10
+                  opacity-0
+                  group-hover:opacity-100
+                  transition-opacity
+                "
+              />
             </div>
 
             {/* Logo Name */}
 
-            <div className="text-2xl font-bold tracking-tight text-white">
+            <div className="text-2xl font-bold tracking-tight text-[#F7F2E8]">
               Scout
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-violet-500 to-cyan-400">
-                X
-              </span>
+              <span className="text-gradient">X</span>
             </div>
           </Link>
 
@@ -90,7 +119,7 @@ export default function Navbar() {
               DESKTOP NAVIGATION
           ====================================================== */}
 
-          <ul className="hidden lg:flex items-center gap-6 xl:gap-7">
+          <ul className="hidden lg:flex items-center gap-5 xl:gap-7">
             {navLinks.map((link) => (
               <li key={link.to}>
                 <Link
@@ -99,10 +128,38 @@ export default function Navbar() {
                   duration={600}
                   offset={-80}
                   spy
-                  activeClass="!text-purple-400"
-                  className="relative text-slate-300 hover:text-white text-sm font-medium cursor-pointer transition-colors duration-200"
+                  activeClass="!text-[#D4AF37]"
+                  className="
+                    relative
+                    text-[#B7B0A2]
+                    hover:text-[#F7F2E8]
+                    text-sm
+                    font-medium
+                    cursor-pointer
+                    transition-colors
+                    duration-200
+                    group
+                  "
                 >
                   {link.name}
+
+                  {/* Gold underline */}
+
+                  <span
+                    className="
+                      absolute
+                      -bottom-2
+                      left-0
+                      h-[1.5px]
+                      w-0
+                      bg-gradient-to-r
+                      from-[#E7C979]
+                      to-[#AD8930]
+                      transition-all
+                      duration-300
+                      group-hover:w-full
+                    "
+                  />
                 </Link>
               </li>
             ))}
@@ -118,11 +175,39 @@ export default function Navbar() {
               smooth
               duration={600}
               offset={-80}
-              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white text-sm font-semibold shadow-lg shadow-purple-600/20 hover:shadow-purple-600/30 transition-all duration-300 cursor-pointer"
+              className="
+                group
+                inline-flex
+                items-center
+                gap-2
+                px-5
+                py-2.5
+                rounded-xl
+                bg-gradient-to-br
+                from-[#E7C979]
+                via-[#D4AF37]
+                to-[#AD8930]
+                hover:brightness-110
+                text-[#0B0B09]
+                text-sm
+                font-bold
+                shadow-[0_10px_30px_rgba(201,166,70,0.18)]
+                hover:shadow-[0_15px_40px_rgba(201,166,70,0.30)]
+                transition-all
+                duration-300
+                cursor-pointer
+              "
             >
               Join ScoutX
 
-              <FaArrowRight className="text-xs group-hover:translate-x-1 transition-transform duration-200" />
+              <FaArrowRight
+                className="
+                  text-xs
+                  group-hover:translate-x-1
+                  transition-transform
+                  duration-200
+                "
+              />
             </Link>
           </div>
 
@@ -133,9 +218,28 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMenuOpen((prev) => !prev)}
-            className="lg:hidden w-10 h-10 rounded-xl border border-slate-700 bg-slate-900/70 text-slate-200 flex items-center justify-center hover:border-purple-500/40 hover:text-purple-400 transition-all duration-200"
+            className="
+              lg:hidden
+              w-10
+              h-10
+              rounded-xl
+              border
+              border-[#D4AF37]/20
+              bg-[#12120F]/80
+              backdrop-blur-md
+              text-[#E7C979]
+              flex
+              items-center
+              justify-center
+              hover:border-[#D4AF37]/50
+              hover:bg-[#D4AF37]/10
+              transition-all
+              duration-200
+            "
             aria-label={
-              menuOpen ? "Close navigation menu" : "Open navigation menu"
+              menuOpen
+                ? "Close navigation menu"
+                : "Open navigation menu"
             }
             aria-expanded={menuOpen}
           >
@@ -144,9 +248,9 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* =====================================================
+      {/* =========================================================
           MOBILE MENU
-      ====================================================== */}
+      ========================================================== */}
 
       <AnimatePresence>
         {menuOpen && (
@@ -167,7 +271,15 @@ export default function Navbar() {
               duration: 0.25,
               ease: "easeInOut",
             }}
-            className="lg:hidden overflow-hidden bg-slate-950/95 backdrop-blur-xl border-t border-white/10"
+            className="
+              lg:hidden
+              overflow-hidden
+              bg-[#0B0B09]/95
+              backdrop-blur-2xl
+              border-t
+              border-[#F7F2E8]/8
+              shadow-[0_20px_50px_rgba(0,0,0,0.35)]
+            "
           >
             <div className="px-5 sm:px-6 py-6">
               {/* Mobile Navigation */}
@@ -195,13 +307,40 @@ export default function Navbar() {
                       duration={600}
                       offset={-75}
                       spy
-                      activeClass="!text-purple-400 !bg-purple-500/10"
+                      activeClass="
+                        !text-[#D4AF37]
+                        !bg-[#D4AF37]/10
+                        !border-[#D4AF37]/20
+                      "
                       onClick={closeMenu}
-                      className="flex items-center justify-between px-4 py-3 rounded-xl text-slate-300 hover:text-white hover:bg-white/5 text-sm font-medium cursor-pointer transition-all duration-200"
+                      className="
+                        flex
+                        items-center
+                        justify-between
+                        px-4
+                        py-3
+                        rounded-xl
+                        border
+                        border-transparent
+                        text-[#B7B0A2]
+                        hover:text-[#F7F2E8]
+                        hover:bg-[#D4AF37]/5
+                        hover:border-[#D4AF37]/10
+                        text-sm
+                        font-medium
+                        cursor-pointer
+                        transition-all
+                        duration-200
+                      "
                     >
                       <span>{link.name}</span>
 
-                      <FaArrowRight className="text-[10px] text-slate-600" />
+                      <FaArrowRight
+                        className="
+                          text-[10px]
+                          text-[#8D6D25]
+                        "
+                      />
                     </Link>
                   </motion.li>
                 ))}
@@ -211,18 +350,47 @@ export default function Navbar() {
                   MOBILE CTA
               ================================================== */}
 
-              <div className="mt-6 pt-6 border-t border-slate-800">
+              <div className="mt-6 pt-6 border-t border-[#F7F2E8]/8">
                 <Link
                   to="contact"
                   smooth
                   duration={600}
                   offset={-80}
                   onClick={closeMenu}
-                  className="group flex items-center justify-center gap-2 w-full px-5 py-3.5 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 hover:from-purple-500 hover:to-violet-500 text-white font-semibold text-sm shadow-lg shadow-purple-600/20 transition-all duration-300 cursor-pointer"
+                  className="
+                    group
+                    flex
+                    items-center
+                    justify-center
+                    gap-2
+                    w-full
+                    px-5
+                    py-3.5
+                    rounded-xl
+                    bg-gradient-to-br
+                    from-[#E7C979]
+                    via-[#D4AF37]
+                    to-[#AD8930]
+                    hover:brightness-110
+                    text-[#0B0B09]
+                    font-bold
+                    text-sm
+                    shadow-[0_10px_30px_rgba(201,166,70,0.18)]
+                    transition-all
+                    duration-300
+                    cursor-pointer
+                  "
                 >
                   Join ScoutX
 
-                  <FaRocket className="text-xs group-hover:-rotate-12 transition-transform duration-200" />
+                  <FaRocket
+                    className="
+                      text-xs
+                      group-hover:-rotate-12
+                      transition-transform
+                      duration-200
+                    "
+                  />
                 </Link>
               </div>
             </div>

@@ -20,7 +20,7 @@ const innovationFlow = [
   {
     icon: FaLightbulb,
     title: "Submit",
-    description: "Idea / Prototype / Portfolio",
+    description: "Idea, prototype or portfolio",
   },
   {
     icon: FaRobot,
@@ -30,17 +30,17 @@ const innovationFlow = [
   {
     icon: FaBullseye,
     title: "Match",
-    description: "Compare with company requirements",
+    description: "Compare with company needs",
   },
   {
     icon: FaListOl,
     title: "Shortlist",
-    description: "Top relevant ideas",
+    description: "Find relevant innovations",
   },
   {
     icon: FaHandshake,
     title: "Connect",
-    description: "Company ↔ Innovator",
+    description: "Innovator ↔ Company",
   },
 ];
 
@@ -48,63 +48,53 @@ const innovatorSteps = [
   {
     icon: FaLightbulb,
     title: "Submit Your Idea",
-    description:
-      "Share an idea through text, concept, problem statement, or description.",
-    iconStyle: "bg-purple-500/10 text-purple-400",
+    description: "Share an idea, concept or problem statement.",
   },
   {
     icon: FaCode,
     title: "Showcase Your Work",
-    description:
-      "Add prototypes, GitHub projects, demos, documentation, or portfolio links.",
-    iconStyle: "bg-blue-500/10 text-blue-400",
+    description: "Add prototypes, projects, demos or portfolio links.",
   },
   {
     icon: FaRobot,
-    title: "AI Evaluation & Improvement",
+    title: "AI Evaluation",
     description:
-      "Get AI insights about value, uniqueness, technology relevance, feasibility, and possible improvements.",
-    iconStyle: "bg-purple-500/20 text-purple-300",
+      "Get insights on value, uniqueness, feasibility and improvement.",
     featured: true,
   },
   {
     icon: FaGlobe,
     title: "Become Discoverable",
     description:
-      "Make your innovation visible to organizations searching for relevant ideas and capabilities.",
-    iconStyle: "bg-green-500/10 text-green-400",
+      "Make your innovation visible to organizations.",
   },
 ];
 
 const companySteps = [
   {
     icon: FaBuilding,
-    title: "Post Innovation Requirement",
+    title: "Post a Requirement",
     description:
-      "Define the problem, innovation area, industry, domain, and technologies required.",
-    iconStyle: "bg-blue-500/10 text-blue-400",
+      "Define the problem, domain and technologies needed.",
   },
   {
     icon: FaRobot,
-    title: "AI-Powered Matching",
+    title: "AI Matching",
     description:
-      "AI analyzes available innovations against the company's requirements, technologies, and capabilities.",
-    iconStyle: "bg-purple-500/20 text-purple-300",
+      "AI compares requirements with available innovations.",
     featured: true,
   },
   {
     icon: FaChartLine,
-    title: "Focused Shortlist",
+    title: "Get a Shortlist",
     description:
-      "Receive a focused shortlist of highly relevant ideas, prototypes, and innovators.",
-    iconStyle: "bg-yellow-500/10 text-yellow-400",
+      "Discover the most relevant ideas and prototypes.",
   },
   {
     icon: FaComments,
-    title: "Direct Communication",
+    title: "Connect",
     description:
-      "Connect directly with promising innovators to explore collaboration, pilots, or opportunities.",
-    iconStyle: "bg-green-500/10 text-green-400",
+      "Talk directly with promising innovators.",
   },
 ];
 
@@ -112,245 +102,282 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative min-h-screen bg-slate-900 text-white py-24 px-6 overflow-hidden"
+      className="relative overflow-hidden bg-[#F8F3E8] text-[#171611] py-20 md:py-28 px-6"
     >
-      {/* Background Glows */}
-      <div className="absolute top-0 left-[-180px] w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 right-[-180px] w-[500px] h-[500px] bg-violet-600/5 rounded-full blur-3xl pointer-events-none" />
+      {/* =====================================================
+          PREMIUM BACKGROUND
+      ====================================================== */}
+
+      <div className="absolute top-[-180px] left-[-180px] w-[480px] h-[480px] rounded-full bg-[#C9A646]/10 blur-3xl pointer-events-none" />
+
+      <div className="absolute bottom-[-180px] right-[-180px] w-[480px] h-[480px] rounded-full bg-[#C9A646]/8 blur-3xl pointer-events-none" />
+
+      <div className="absolute inset-0 bg-grid-fade opacity-[0.12] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
+
         {/* =====================================================
             HEADER
-        ===================================================== */}
+        ====================================================== */}
 
-        <div className="text-center max-w-4xl mx-auto">
-          <p className="text-purple-400 uppercase tracking-[0.25em] text-sm font-semibold">
+        <div className="text-center max-w-3xl mx-auto">
+
+          <p className="eyebrow text-[#A67C1F]">
             About ScoutX
           </p>
 
-          <h2 className="text-4xl md:text-6xl font-bold mt-4 leading-tight">
+          <div className="gold-line mx-auto mb-5" />
+
+          <h2 className="text-4xl md:text-6xl font-bold mt-4 tracking-tight leading-tight text-[#171611]">
             Where{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-600">
+            <span className="text-gradient">
               Ideas Meet Opportunity
             </span>
           </h2>
 
-          <p className="text-slate-400 text-lg md:text-xl leading-8 mt-6 max-w-3xl mx-auto">
-            ScoutX is an AI-powered innovation discovery platform that
-            connects people who create ideas with companies looking for new
-            ideas, technologies, and solutions.
+          <p className="text-[#625D52] text-base md:text-lg leading-8 mt-5 max-w-2xl mx-auto">
+            ScoutX is an AI-powered innovation discovery platform connecting
+            people who build ideas with companies searching for new solutions.
           </p>
         </div>
 
         {/* =====================================================
-            TWO SIDES OF SCOUTX
-        ===================================================== */}
+            TWO SIDES
+        ====================================================== */}
 
-        <div className="grid lg:grid-cols-2 gap-8 mt-16">
-          {/* ==================== INNOVATORS ==================== */}
+        <div className="grid lg:grid-cols-2 gap-6 mt-14">
 
-          <div className="bg-[#151B2E] border border-purple-500/10 rounded-3xl p-8 md:p-10">
+          {/* =================================================
+              INNOVATORS
+          ================================================== */}
+
+          <div className="rounded-3xl border border-[#B58A24]/20 bg-[#FFFDF8] p-7 md:p-8 shadow-[0_20px_60px_rgba(60,45,15,0.08)]">
+
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl">
+
+              <div className="w-12 h-12 rounded-xl bg-[#C9A646]/10 border border-[#C9A646]/20 text-[#A67C1F] flex items-center justify-center">
                 <FaUsers />
               </div>
 
               <div>
-                <p className="text-purple-400 text-xs uppercase tracking-widest">
+                <p className="text-[#A67C1F] text-[11px] uppercase tracking-widest font-bold">
                   Side 01
                 </p>
 
-                <h3 className="text-2xl md:text-3xl font-bold mt-1">
+                <h3 className="text-2xl font-bold mt-1 text-[#171611]">
                   Innovators
                 </h3>
               </div>
+
             </div>
 
-            <p className="text-slate-400 leading-7 mt-6">
-              ScoutX is open to students, developers, creators, researchers,
-              early-stage innovators, and the public. Anyone with a promising
-              idea or project can showcase what they are building.
+            <p className="text-[#625D52] leading-7 mt-5">
+              Students, developers, researchers and creators can showcase
+              ideas, projects and prototypes and become discoverable.
             </p>
 
-            <div className="mt-8 space-y-4">
+            <div className="mt-6 space-y-3">
+
               {innovatorSteps.map((item) => {
                 const Icon = item.icon;
 
                 return (
                   <div
                     key={item.title}
-                    className={`flex items-start gap-4 p-4 rounded-2xl border ${
+                    className={`flex gap-3 p-4 rounded-2xl border transition-all duration-300 ${
                       item.featured
-                        ? "bg-purple-500/10 border-purple-500/20"
-                        : "bg-slate-800/60 border-slate-700"
+                        ? "bg-[#C9A646]/10 border-[#B58A24]/30 shadow-[0_8px_30px_rgba(181,138,36,0.08)]"
+                        : "bg-[#F8F3E8] border-[#171611]/8 hover:border-[#B58A24]/25 hover:-translate-y-0.5"
                     }`}
                   >
-                    <div
-                      className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${item.iconStyle}`}
-                    >
-                      <Icon />
+
+                    <div className="w-9 h-9 rounded-lg bg-[#C9A646]/10 text-[#A67C1F] flex items-center justify-center shrink-0">
+                      <Icon className="text-sm" />
                     </div>
 
                     <div>
+
                       <h4
                         className={`font-semibold ${
-                          item.featured ? "text-purple-300" : "text-white"
+                          item.featured
+                            ? "text-[#A67C1F]"
+                            : "text-[#171611]"
                         }`}
                       >
                         {item.title}
                       </h4>
 
-                      <p className="text-slate-400 text-sm leading-6 mt-1">
+                      <p className="text-[#746E62] text-sm leading-6 mt-1">
                         {item.description}
                       </p>
+
                     </div>
                   </div>
                 );
               })}
+
             </div>
           </div>
 
-          {/* ==================== COMPANIES ==================== */}
+          {/* =================================================
+              COMPANIES
+          ================================================== */}
 
-          <div className="bg-[#151B2E] border border-blue-500/10 rounded-3xl p-8 md:p-10">
+          <div className="rounded-3xl border border-[#B58A24]/20 bg-[#FFFDF8] p-7 md:p-8 shadow-[0_20px_60px_rgba(60,45,15,0.08)]">
+
             <div className="flex items-center gap-4">
-              <div className="w-14 h-14 rounded-2xl bg-blue-500/10 text-blue-400 flex items-center justify-center text-xl">
+
+              <div className="w-12 h-12 rounded-xl bg-[#C9A646]/10 border border-[#C9A646]/20 text-[#A67C1F] flex items-center justify-center">
                 <FaBuilding />
               </div>
 
               <div>
-                <p className="text-blue-400 text-xs uppercase tracking-widest">
+                <p className="text-[#A67C1F] text-[11px] uppercase tracking-widest font-bold">
                   Side 02
                 </p>
 
-                <h3 className="text-2xl md:text-3xl font-bold mt-1">
+                <h3 className="text-2xl font-bold mt-1 text-[#171611]">
                   Companies
                 </h3>
               </div>
+
             </div>
 
-            <p className="text-slate-400 leading-7 mt-6">
-              Companies can tell ScoutX exactly what kind of innovation they
-              need instead of depending only on hackathons, recruitment
-              campaigns, or traditional searches.
+            <p className="text-[#625D52] leading-7 mt-5">
+              Organizations can describe what they need and discover relevant
+              innovations without relying only on hackathons or traditional
+              searches.
             </p>
 
-            <div className="mt-8 space-y-4">
+            <div className="mt-6 space-y-3">
+
               {companySteps.map((item) => {
                 const Icon = item.icon;
 
                 return (
                   <div
                     key={item.title}
-                    className={`flex items-start gap-4 p-4 rounded-2xl border ${
+                    className={`flex gap-3 p-4 rounded-2xl border transition-all duration-300 ${
                       item.featured
-                        ? "bg-purple-500/10 border-purple-500/20"
-                        : "bg-slate-800/60 border-slate-700"
+                        ? "bg-[#C9A646]/10 border-[#B58A24]/30 shadow-[0_8px_30px_rgba(181,138,36,0.08)]"
+                        : "bg-[#F8F3E8] border-[#171611]/8 hover:border-[#B58A24]/25 hover:-translate-y-0.5"
                     }`}
                   >
-                    <div
-                      className={`w-10 h-10 rounded-xl flex items-center justify-center shrink-0 ${item.iconStyle}`}
-                    >
-                      <Icon />
+
+                    <div className="w-9 h-9 rounded-lg bg-[#C9A646]/10 text-[#A67C1F] flex items-center justify-center shrink-0">
+                      <Icon className="text-sm" />
                     </div>
 
                     <div>
+
                       <h4
                         className={`font-semibold ${
-                          item.featured ? "text-purple-300" : "text-white"
+                          item.featured
+                            ? "text-[#A67C1F]"
+                            : "text-[#171611]"
                         }`}
                       >
                         {item.title}
                       </h4>
 
-                      <p className="text-slate-400 text-sm leading-6 mt-1">
+                      <p className="text-[#746E62] text-sm leading-6 mt-1">
                         {item.description}
                       </p>
+
                     </div>
                   </div>
                 );
               })}
+
             </div>
           </div>
         </div>
 
         {/* =====================================================
-            HOW SCOUTX CONNECTS BOTH SIDES
-        ===================================================== */}
+            FLOW
+        ====================================================== */}
 
-        <div className="mt-24">
-          <div className="bg-[#151B2E] border border-purple-500/10 rounded-3xl p-8 md:p-12">
-            <div className="text-center max-w-3xl mx-auto">
-              <p className="text-purple-400 uppercase tracking-widest text-sm font-semibold">
-                How ScoutX Connects Both Sides
-              </p>
+        <div className="mt-16 rounded-3xl border border-[#B58A24]/20 bg-[#FFFDF8] p-7 md:p-10 shadow-[0_20px_60px_rgba(60,45,15,0.08)]">
 
-              <h3 className="text-3xl md:text-5xl font-bold mt-4 leading-tight">
-                Idea{" "}
-                <span className="text-purple-400">→</span> AI{" "}
-                <span className="text-purple-400">→</span> Match{" "}
-                <span className="text-purple-400">→</span> Opportunity
-              </h3>
+          <div className="text-center max-w-2xl mx-auto">
 
-              <p className="text-slate-400 mt-5 leading-7">
-                Innovation flows in both directions. Innovators showcase what
-                they can build, while organizations communicate what they need.
-              </p>
-            </div>
+            <p className="text-[#A67C1F] uppercase tracking-widest text-xs font-bold">
+              How ScoutX Works
+            </p>
 
-            {/* Flow */}
-            <div className="grid md:grid-cols-5 gap-4 items-center mt-12">
-              {innovationFlow.map((item, index) => {
-                const Icon = item.icon;
+            <h3 className="text-3xl md:text-4xl font-bold mt-3 text-[#171611]">
+              Idea{" "}
+              <span className="text-[#B58A24]">→</span>{" "}
+              AI{" "}
+              <span className="text-[#B58A24]">→</span>{" "}
+              Match{" "}
+              <span className="text-[#B58A24]">→</span>{" "}
+              Opportunity
+            </h3>
 
-                return (
-                  <div key={item.title} className="relative">
-                    <div className="bg-slate-900 border border-slate-700 rounded-2xl p-5 text-center h-full">
-                      <div className="w-12 h-12 mx-auto rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl">
-                        <Icon />
-                      </div>
+          </div>
 
-                      <h4 className="font-semibold mt-3">{item.title}</h4>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mt-10">
 
-                      <p className="text-slate-500 text-xs leading-5 mt-2">
-                        {item.description}
-                      </p>
+            {innovationFlow.map((item, index) => {
+              const Icon = item.icon;
+
+              return (
+                <div key={item.title} className="relative">
+
+                  <div className="h-full text-center rounded-2xl bg-[#F8F3E8] border border-[#171611]/8 p-5 hover:border-[#B58A24]/35 hover:-translate-y-1 transition-all duration-300">
+
+                    <div className="w-11 h-11 mx-auto rounded-xl bg-[#C9A646]/10 border border-[#C9A646]/15 text-[#A67C1F] flex items-center justify-center">
+                      <Icon />
                     </div>
 
-                    {index < innovationFlow.length - 1 && (
-                      <div className="hidden md:block absolute top-1/2 -right-3 text-purple-400 z-10">
-                        <FaArrowRight />
-                      </div>
-                    )}
+                    <h4 className="font-semibold mt-3 text-[#171611]">
+                      {item.title}
+                    </h4>
+
+                    <p className="text-[#746E62] text-xs leading-5 mt-2">
+                      {item.description}
+                    </p>
+
                   </div>
-                );
-              })}
-            </div>
+
+                  {index < innovationFlow.length - 1 && (
+                    <div className="hidden lg:block absolute top-1/2 -right-3 text-[#B58A24] z-10">
+                      <FaArrowRight className="text-xs" />
+                    </div>
+                  )}
+
+                </div>
+              );
+            })}
+
           </div>
         </div>
 
         {/* =====================================================
-            SIMPLE MISSION STATEMENT
-        ===================================================== */}
+            MISSION
+        ====================================================== */}
 
-        <div className="text-center mt-24 max-w-4xl mx-auto">
-          <div className="w-16 h-16 mx-auto rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-2xl">
+        <div className="text-center mt-16 max-w-3xl mx-auto">
+
+          <div className="w-14 h-14 mx-auto rounded-2xl bg-[#C9A646]/10 border border-[#C9A646]/20 text-[#A67C1F] flex items-center justify-center shadow-[0_8px_30px_rgba(181,138,36,0.10)]">
             <FaRocket />
           </div>
 
-          <h3 className="text-3xl md:text-5xl font-bold mt-6 leading-tight">
-            Great ideas should not depend on{" "}
-            <span className="text-purple-400">
-              who attends a hackathon.
+          <h3 className="text-3xl md:text-4xl font-bold mt-5 leading-tight text-[#171611]">
+            Great ideas should be{" "}
+            <span className="text-gradient">
+              discoverable.
             </span>
           </h3>
 
-          <p className="text-slate-400 mt-6 text-lg leading-8">
+          <p className="text-[#625D52] mt-5 text-base md:text-lg leading-7">
             ScoutX gives innovators a place to showcase what they create and
-            gives organizations an AI-powered way to discover the ideas they
-            actually need.
+            gives organizations a smarter way to discover what they need.
           </p>
+
         </div>
+
       </div>
     </section>
   );
