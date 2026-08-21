@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Advantage from "@/components/Advantage";
 import Problem from "@/components/Problem";
 import Solution from "@/components/Solution";
 import Features from "@/components/Features";
@@ -55,7 +56,7 @@ export default function HomePage() {
 
         {/* Platform features */}
         <Features />
-
+        <Advantage/>
         {/* Ecosystem / users */}
         <Users />
 
