@@ -6,11 +6,7 @@ import {
   FaBuilding,
   FaUsers,
   FaCode,
-  FaGlobe,
-  FaChartLine,
-  FaComments,
   FaBullseye,
-  FaListOl,
   FaHandshake,
   FaArrowRight,
   FaRocket,
@@ -20,80 +16,58 @@ const innovationFlow = [
   {
     icon: FaLightbulb,
     title: "Submit",
-    description: "Idea, prototype or portfolio",
+    description: "Idea, project or prototype",
   },
   {
     icon: FaRobot,
-    title: "Analyze",
-    description: "AI evaluates the innovation",
+    title: "Evaluate",
+    description: "AI analyzes the innovation",
   },
   {
     icon: FaBullseye,
     title: "Match",
-    description: "Compare with company needs",
-  },
-  {
-    icon: FaListOl,
-    title: "Shortlist",
-    description: "Find relevant innovations",
+    description: "Find relevant opportunities",
   },
   {
     icon: FaHandshake,
     title: "Connect",
-    description: "Innovator ↔ Company",
+    description: "Innovators ↔ Organizations",
   },
 ];
 
-const innovatorSteps = [
+const innovatorPoints = [
   {
     icon: FaLightbulb,
-    title: "Submit Your Idea",
-    description: "Share an idea, concept or problem statement.",
+    title: "Showcase",
+    description: "Share ideas, projects and prototypes.",
   },
   {
     icon: FaCode,
-    title: "Showcase Your Work",
-    description: "Add prototypes, projects, demos or portfolio links.",
+    title: "Add Evidence",
+    description: "Connect demos, GitHub and technical work.",
   },
   {
     icon: FaRobot,
-    title: "AI Evaluation",
-    description:
-      "Get insights on value, uniqueness, feasibility and improvement.",
-    featured: true,
-  },
-  {
-    icon: FaGlobe,
-    title: "Become Discoverable",
-    description: "Make your innovation visible to organizations.",
+    title: "Get Evaluated",
+    description: "AI provides insights on value and feasibility.",
   },
 ];
 
-const companySteps = [
+const companyPoints = [
   {
     icon: FaBuilding,
-    title: "Post a Requirement",
-    description:
-      "Define the problem, domain and technologies needed.",
+    title: "Define a Need",
+    description: "Describe a problem, domain or technology.",
   },
   {
     icon: FaRobot,
-    title: "AI Matching",
-    description:
-      "AI compares requirements with available innovations.",
-    featured: true,
+    title: "Discover Matches",
+    description: "AI identifies relevant innovations.",
   },
   {
-    icon: FaChartLine,
-    title: "Get a Shortlist",
-    description:
-      "Discover the most relevant ideas and prototypes.",
-  },
-  {
-    icon: FaComments,
+    icon: FaHandshake,
     title: "Connect",
-    description:
-      "Talk directly with promising innovators.",
+    description: "Engage directly with promising builders.",
   },
 ];
 
@@ -101,353 +75,193 @@ export default function About() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-[#0B0B09] text-[#F7F2E8] py-20 md:py-28 px-6"
+      className="relative overflow-hidden bg-[#0B0B09] px-6 py-20 text-[#F7F2E8] md:py-28"
     >
-      {/* =====================================================
-          PREMIUM DARK BACKGROUND
-      ====================================================== */}
+      {/* Background */}
+      <div className="pointer-events-none absolute -left-40 -top-48 h-[500px] w-[500px] rounded-full bg-[#D4AF37]/7 blur-[130px]" />
 
-      {/* Top gold glow */}
-      <div className="absolute -top-48 -left-40 w-[500px] h-[500px] rounded-full bg-[#D4AF37]/7 blur-[130px] pointer-events-none" />
+      <div className="pointer-events-none absolute -bottom-48 -right-40 h-[500px] w-[500px] rounded-full bg-[#D4AF37]/5 blur-[140px]" />
 
-      {/* Bottom gold glow */}
-      <div className="absolute -bottom-48 -right-40 w-[500px] h-[500px] rounded-full bg-[#D4AF37]/5 blur-[140px] pointer-events-none" />
+      <div className="pointer-events-none absolute inset-0 bg-grid-fade opacity-[0.06]" />
 
-      {/* Center glow */}
-      <div className="absolute top-1/2 left-1/2 w-[700px] h-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#D4AF37]/[0.02] blur-[140px] pointer-events-none" />
-
-      {/* Subtle grid */}
-      <div className="absolute inset-0 bg-grid-fade opacity-[0.06] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto relative z-10">
-
-        {/* =====================================================
-            HEADER
-        ====================================================== */}
-
-        <div className="text-center max-w-3xl mx-auto">
-
-          <p className="text-[#D4AF37] uppercase tracking-[0.18em] text-xs font-bold">
+      <div className="relative z-10 mx-auto max-w-7xl">
+        {/* HEADER */}
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#D4AF37]">
             About ScoutX
           </p>
 
-          <div className="w-20 h-px bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent mx-auto mt-4 mb-5" />
+          <div className="mx-auto mt-4 h-px w-16 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
 
-          <h2 className="text-4xl md:text-6xl font-bold mt-4 tracking-tight leading-tight text-[#F7F2E8]">
+          <h2 className="mt-5 text-4xl font-bold leading-tight tracking-tight text-[#F7F2E8] md:text-6xl">
             Where{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E7C979] via-[#D4AF37] to-[#A67C00]">
+            <span className="bg-gradient-to-r from-[#E7C979] via-[#D4AF37] to-[#A67C00] bg-clip-text text-transparent">
               Ideas Meet Opportunity
             </span>
           </h2>
 
-          <p className="text-[#A9A293] text-base md:text-lg leading-8 mt-5 max-w-2xl mx-auto">
+          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[#A9A293] md:text-lg">
             ScoutX is an AI-powered innovation discovery platform connecting
-            people who build ideas with companies searching for new solutions.
+            people who build ideas with organizations looking for relevant
+            solutions.
           </p>
         </div>
 
-        {/* =====================================================
-            TWO SIDES
-        ====================================================== */}
+        {/* TWO SIDES */}
+        <div className="mt-12 grid gap-6 lg:grid-cols-2">
+          {/* INNOVATORS */}
+          <AboutCard
+            eyebrow="For Innovators"
+            title="Turn what you build into something discoverable."
+            icon={FaUsers}
+            description="Students, developers, researchers and creators can showcase their work, add evidence and become visible to organizations."
+            points={innovatorPoints}
+          />
 
-        <div className="grid lg:grid-cols-2 gap-6 mt-14">
-
-          {/* =================================================
-              INNOVATORS
-          ================================================== */}
-
-          <div
-            className="
-              rounded-3xl
-              border border-[#D4AF37]/10
-              bg-[#11100D]
-              p-7 md:p-8
-              shadow-[0_20px_60px_rgba(0,0,0,0.25)]
-              hover:border-[#D4AF37]/20
-              transition-colors
-              duration-300
-            "
-          >
-            <div className="flex items-center gap-4">
-
-              <div className="w-12 h-12 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/15 text-[#E7C979] flex items-center justify-center">
-                <FaUsers />
-              </div>
-
-              <div>
-                <p className="text-[#D4AF37] text-[11px] uppercase tracking-widest font-bold">
-                  Side 01
-                </p>
-
-                <h3 className="text-2xl font-bold mt-1 text-[#F7F2E8]">
-                  Innovators
-                </h3>
-              </div>
-
-            </div>
-
-            <p className="text-[#A9A293] leading-7 mt-5">
-              Students, developers, researchers and creators can showcase
-              ideas, projects and prototypes and become discoverable.
-            </p>
-
-            <div className="mt-6 space-y-3">
-
-              {innovatorSteps.map((item) => {
-                const Icon = item.icon;
-
-                return (
-                  <div
-                    key={item.title}
-                    className={`
-                      flex gap-3 p-4 rounded-2xl border
-                      transition-all duration-300
-                      ${
-                        item.featured
-                          ? "bg-[#D4AF37]/[0.07] border-[#D4AF37]/25 shadow-[0_8px_30px_rgba(212,175,55,0.06)]"
-                          : "bg-[#0B0B09] border-[#D4AF37]/8 hover:border-[#D4AF37]/20 hover:-translate-y-0.5"
-                      }
-                    `}
-                  >
-
-                    <div className="w-9 h-9 rounded-lg bg-[#D4AF37]/10 border border-[#D4AF37]/10 text-[#E7C979] flex items-center justify-center shrink-0">
-                      <Icon className="text-sm" />
-                    </div>
-
-                    <div>
-                      <h4
-                        className={`
-                          font-semibold
-                          ${
-                            item.featured
-                              ? "text-[#E7C979]"
-                              : "text-[#F7F2E8]"
-                          }
-                        `}
-                      >
-                        {item.title}
-                      </h4>
-
-                      <p className="text-[#8F887B] text-sm leading-6 mt-1">
-                        {item.description}
-                      </p>
-                    </div>
-
-                  </div>
-                );
-              })}
-
-            </div>
-          </div>
-
-          {/* =================================================
-              COMPANIES
-          ================================================== */}
-
-          <div
-            className="
-              rounded-3xl
-              border border-[#D4AF37]/10
-              bg-[#11100D]
-              p-7 md:p-8
-              shadow-[0_20px_60px_rgba(0,0,0,0.25)]
-              hover:border-[#D4AF37]/20
-              transition-colors
-              duration-300
-            "
-          >
-            <div className="flex items-center gap-4">
-
-              <div className="w-12 h-12 rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/15 text-[#E7C979] flex items-center justify-center">
-                <FaBuilding />
-              </div>
-
-              <div>
-                <p className="text-[#D4AF37] text-[11px] uppercase tracking-widest font-bold">
-                  Side 02
-                </p>
-
-                <h3 className="text-2xl font-bold mt-1 text-[#F7F2E8]">
-                  Companies
-                </h3>
-              </div>
-
-            </div>
-
-            <p className="text-[#A9A293] leading-7 mt-5">
-              Organizations can describe what they need and discover relevant
-              innovations without relying only on hackathons or traditional
-              searches.
-            </p>
-
-            <div className="mt-6 space-y-3">
-
-              {companySteps.map((item) => {
-                const Icon = item.icon;
-
-                return (
-                  <div
-                    key={item.title}
-                    className={`
-                      flex gap-3 p-4 rounded-2xl border
-                      transition-all duration-300
-                      ${
-                        item.featured
-                          ? "bg-[#D4AF37]/[0.07] border-[#D4AF37]/25 shadow-[0_8px_30px_rgba(212,175,55,0.06)]"
-                          : "bg-[#0B0B09] border-[#D4AF37]/8 hover:border-[#D4AF37]/20 hover:-translate-y-0.5"
-                      }
-                    `}
-                  >
-
-                    <div className="w-9 h-9 rounded-lg bg-[#D4AF37]/10 border border-[#D4AF37]/10 text-[#E7C979] flex items-center justify-center shrink-0">
-                      <Icon className="text-sm" />
-                    </div>
-
-                    <div>
-                      <h4
-                        className={`
-                          font-semibold
-                          ${
-                            item.featured
-                              ? "text-[#E7C979]"
-                              : "text-[#F7F2E8]"
-                          }
-                        `}
-                      >
-                        {item.title}
-                      </h4>
-
-                      <p className="text-[#8F887B] text-sm leading-6 mt-1">
-                        {item.description}
-                      </p>
-                    </div>
-
-                  </div>
-                );
-              })}
-
-            </div>
-          </div>
+          {/* ORGANIZATIONS */}
+          <AboutCard
+            eyebrow="For Organizations"
+            title="Find ideas that can solve real problems."
+            icon={FaBuilding}
+            description="Companies and organizations can define their needs and discover relevant innovations without relying only on traditional hiring or hackathons."
+            points={companyPoints}
+          />
         </div>
 
-        {/* =====================================================
-            FLOW
-        ====================================================== */}
-
-        <div
-          className="
-            mt-16
-            rounded-3xl
-            border border-[#D4AF37]/10
-            bg-[#11100D]
-            p-7 md:p-10
-            shadow-[0_20px_60px_rgba(0,0,0,0.25)]
-          "
-        >
-
-          <div className="text-center max-w-2xl mx-auto">
-
-            <p className="text-[#D4AF37] uppercase tracking-widest text-xs font-bold">
+        {/* FLOW */}
+        <div className="mt-12 rounded-3xl border border-[#D4AF37]/10 bg-[#11100D] p-7 shadow-[0_20px_60px_rgba(0,0,0,0.25)] md:p-10">
+          <div className="text-center">
+            <p className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
               How ScoutX Works
             </p>
 
-            <h3 className="text-3xl md:text-4xl font-bold mt-3 text-[#F7F2E8]">
-              Idea{" "}
-              <span className="text-[#D4AF37]">→</span>{" "}
-              AI{" "}
-              <span className="text-[#D4AF37]">→</span>{" "}
-              Match{" "}
-              <span className="text-[#D4AF37]">→</span>{" "}
-              Opportunity
+            <h3 className="mt-3 text-3xl font-bold text-[#F7F2E8] md:text-4xl">
+              Build{" "}
+              <span className="text-[#D4AF37]">→</span> Evaluate{" "}
+              <span className="text-[#D4AF37]">→</span> Match{" "}
+              <span className="text-[#D4AF37]">→</span> Connect
             </h3>
-
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-5 gap-4 mt-10">
-
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {innovationFlow.map((item, index) => {
               const Icon = item.icon;
 
               return (
                 <div key={item.title} className="relative">
-
-                  <div
-                    className="
-                      h-full
-                      text-center
-                      rounded-2xl
-                      bg-[#0B0B09]
-                      border border-[#D4AF37]/8
-                      p-5
-                      hover:border-[#D4AF37]/25
-                      hover:-translate-y-1
-                      transition-all
-                      duration-300
-                    "
-                  >
-
-                    <div className="w-11 h-11 mx-auto rounded-xl bg-[#D4AF37]/10 border border-[#D4AF37]/15 text-[#E7C979] flex items-center justify-center">
+                  <div className="h-full rounded-2xl border border-[#D4AF37]/8 bg-[#0B0B09] p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/25">
+                    <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-xl border border-[#D4AF37]/15 bg-[#D4AF37]/10 text-[#E7C979]">
                       <Icon />
                     </div>
 
-                    <h4 className="font-semibold mt-3 text-[#F7F2E8]">
+                    <h4 className="mt-3 font-semibold text-[#F7F2E8]">
                       {item.title}
                     </h4>
 
-                    <p className="text-[#8F887B] text-xs leading-5 mt-2">
+                    <p className="mt-2 text-xs leading-5 text-[#8F887B]">
                       {item.description}
                     </p>
-
                   </div>
 
                   {index < innovationFlow.length - 1 && (
-                    <div className="hidden lg:block absolute top-1/2 -right-3 text-[#D4AF37] z-10">
-                      <FaArrowRight className="text-xs" />
-                    </div>
+                    <FaArrowRight className="absolute -right-3 top-1/2 hidden -translate-y-1/2 text-xs text-[#D4AF37] lg:block" />
                   )}
-
                 </div>
               );
             })}
-
           </div>
         </div>
 
-        {/* =====================================================
-            MISSION
-        ====================================================== */}
-
-        <div className="text-center mt-16 max-w-3xl mx-auto">
-
-          <div
-            className="
-              w-14 h-14 mx-auto
-              rounded-2xl
-              bg-[#D4AF37]/10
-              border border-[#D4AF37]/20
-              text-[#E7C979]
-              flex items-center justify-center
-              shadow-[0_8px_30px_rgba(212,175,55,0.08)]
-            "
-          >
+        {/* CLOSING MESSAGE */}
+        <div className="mx-auto mt-14 max-w-3xl text-center">
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl border border-[#D4AF37]/20 bg-[#D4AF37]/10 text-[#E7C979]">
             <FaRocket />
           </div>
 
-          <h3 className="text-3xl md:text-4xl font-bold mt-5 leading-tight text-[#F7F2E8]">
+          <h3 className="mt-5 text-3xl font-bold leading-tight text-[#F7F2E8] md:text-4xl">
             Great ideas should be{" "}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#E7C979] via-[#D4AF37] to-[#A67C00]">
+            <span className="bg-gradient-to-r from-[#E7C979] via-[#D4AF37] to-[#A67C00] bg-clip-text text-transparent">
               discoverable.
             </span>
           </h3>
 
-          <p className="text-[#A9A293] mt-5 text-base md:text-lg leading-7">
-            ScoutX gives innovators a place to showcase what they create and
-            gives organizations a smarter way to discover what they need.
+          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-[#A9A293]">
+            ScoutX creates a continuous bridge between people who build
+            solutions and organizations that can discover and act on them.
           </p>
-
         </div>
-
       </div>
     </section>
+  );
+}
+
+/* =========================================================
+   ABOUT CARD
+========================================================= */
+
+function AboutCard({
+  eyebrow,
+  title,
+  description,
+  icon: Icon,
+  points,
+}: {
+  eyebrow: string;
+  title: string;
+  description: string;
+  icon: React.ElementType;
+  points: {
+    icon: React.ElementType;
+    title: string;
+    description: string;
+  }[];
+}) {
+  return (
+    <div className="rounded-3xl border border-[#D4AF37]/10 bg-[#11100D] p-7 shadow-[0_20px_60px_rgba(0,0,0,0.25)] transition-colors duration-300 hover:border-[#D4AF37]/20 md:p-8">
+      <div className="flex items-center gap-4">
+        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#D4AF37]/15 bg-[#D4AF37]/10 text-[#E7C979]">
+          <Icon />
+        </div>
+
+        <div>
+          <p className="text-[11px] font-bold uppercase tracking-widest text-[#D4AF37]">
+            {eyebrow}
+          </p>
+
+          <h3 className="mt-1 text-2xl font-bold text-[#F7F2E8]">
+            {title}
+          </h3>
+        </div>
+      </div>
+
+      <p className="mt-5 leading-7 text-[#A9A293]">{description}</p>
+
+      <div className="mt-6 space-y-3">
+        {points.map((item) => {
+          const PointIcon = item.icon;
+
+          return (
+            <div
+              key={item.title}
+              className="flex gap-3 rounded-2xl border border-[#D4AF37]/8 bg-[#0B0B09] p-4 transition-all duration-300 hover:-translate-y-0.5 hover:border-[#D4AF37]/20"
+            >
+              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[#D4AF37]/10 bg-[#D4AF37]/10 text-[#E7C979]">
+                <PointIcon className="text-sm" />
+              </div>
+
+              <div>
+                <h4 className="font-semibold text-[#F7F2E8]">
+                  {item.title}
+                </h4>
+
+                <p className="mt-1 text-sm leading-6 text-[#8F887B]">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
   );
 }
