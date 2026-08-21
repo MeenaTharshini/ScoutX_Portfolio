@@ -2,39 +2,48 @@
 
 import { motion } from "framer-motion";
 import {
-  FaLightbulb,
-  FaRobot,
-  FaBuilding,
-  FaSearch,
-  FaComments,
   FaArrowRight,
+  FaBrain,
+  FaBuilding,
+  FaComments,
+  FaLightbulb,
+  FaSearch,
+  FaTools,
 } from "react-icons/fa";
 
-const steps = [
+const innovatorFlow = [
   {
     icon: FaLightbulb,
-    title: "Submit",
-    text: "Share a project, prototype, or idea with evidence.",
+    title: "Post",
+    text: "Share an idea, project, or prototype with evidence.",
   },
   {
-    icon: FaRobot,
-    title: "Evaluate",
-    text: "ScoutX analyzes the innovation and its supporting signals.",
-  },
-  {
-    icon: FaBuilding,
-    title: "Define Need",
-    text: "Organizations describe problems, domains, and requirements.",
+    icon: FaBrain,
+    title: "Get AI Insights",
+    text: "See innovation, feasibility, and related-work signals.",
   },
   {
     icon: FaSearch,
-    title: "Match",
-    text: "Relevant innovations are identified against those needs.",
+    title: "Get Discovered",
+    text: "Become visible to organizations looking for relevant innovation.",
+  },
+];
+
+const organizationFlow = [
+  {
+    icon: FaSearch,
+    title: "Discover",
+    text: "Search by technology, domain, and requirements.",
   },
   {
-    icon: FaComments,
-    title: "Connect",
-    text: "Organizations connect with promising builders.",
+    icon: FaBuilding,
+    title: "Select",
+    text: "Compare relevant projects, evidence, and builders.",
+  },
+  {
+    icon: FaTools,
+    title: "Post a Problem",
+    text: "Can't find the right solution? Let innovators build it.",
   },
 ];
 
@@ -69,81 +78,33 @@ export default function Solution() {
           </h2>
 
           <p className="mx-auto mt-4 max-w-xl text-sm leading-6 text-[#A9A293] md:text-base">
-            ScoutX turns projects, prototypes, builders, and evidence into
-            structured innovation that organizations can discover and connect with.
+            ScoutX connects what innovators build with organizations looking
+            for relevant technology, ideas, and solutions.
           </p>
         </motion.div>
 
-        {/* HOW IT WORKS */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mt-10 rounded-3xl border border-[#D4AF37]/15 bg-[#11100D] px-5 py-7 md:px-8"
-        >
-          <div className="text-center">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
-              How ScoutX Works
-            </p>
-
-            <h3 className="mt-2 text-xl font-bold md:text-2xl">
-              Submit → Evaluate → Match → Connect
-            </h3>
-          </div>
-
-          <div className="mt-8 grid gap-7 sm:grid-cols-2 lg:grid-cols-5">
-            {steps.map((step, index) => {
-              const Icon = step.icon;
-
-              return (
-                <div
-                  key={step.title}
-                  className="relative text-center"
-                >
-                  <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-xl border border-[#D4AF37]/20 bg-[#0B0B09] text-[#E7C979]">
-                    <Icon className="text-sm" />
-                  </div>
-
-                  <span className="mt-2 block text-[9px] font-bold tracking-[0.2em] text-[#D4AF37]">
-                    0{index + 1}
-                  </span>
-
-                  <h3 className="mt-1 text-base font-bold">
-                    {step.title}
-                  </h3>
-
-                  <p className="mt-1 text-xs leading-5 text-[#8F887B]">
-                    {step.text}
-                  </p>
-
-                  {index < steps.length - 1 && (
-                    <FaArrowRight className="absolute -right-3 top-5 hidden text-[10px] text-[#D4AF37]/35 lg:block" />
-                  )}
-                </div>
-              );
-            })}
-          </div>
-        </motion.div>
-
         {/* TWO SIDES */}
-        <div className="mt-5 grid gap-5 lg:grid-cols-2">
-          <AudienceCard
+        <div className="mt-10 grid gap-5 lg:grid-cols-2">
+
+          {/* INNOVATOR */}
+          <FlowCard
             label="For Innovators"
-            title="Make your work discoverable."
-            text="Showcase what you have actually built through structured projects and evidence."
-            tags={["Ideas", "Projects", "Prototypes", "Evidence"]}
+            title="Make what you build discoverable."
+            description="Turn your ideas, projects, and prototypes into structured innovation profiles."
+            flow={innovatorFlow}
           />
 
-          <AudienceCard
+          {/* ORGANIZATION */}
+          <FlowCard
             label="For Organizations"
-            title="Discover solutions to real problems."
-            text="Define a need and find relevant innovations, capabilities, and builders."
-            tags={["Problems", "Technology", "Domain", "Requirements"]}
+            title="Find solutions to real problems."
+            description="Discover existing innovation or post a problem when the right solution does not yet exist."
+            flow={organizationFlow}
           />
+
         </div>
 
-        {/* DIFFERENTIATOR */}
+        {/* CORE IDEA */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -151,30 +112,31 @@ export default function Solution() {
           className="mx-auto mt-10 max-w-2xl text-center"
         >
           <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
-            The Difference
+            The ScoutX Loop
           </p>
 
           <h3 className="mt-3 text-2xl font-bold md:text-4xl">
-            Discover{" "}
+            Discover.{" "}
             <span className="text-gradient">
-              what people build.
+              Build. Connect.
             </span>
           </h3>
 
           <p className="mt-3 text-sm leading-6 text-[#A9A293]">
-            ScoutX goes beyond traditional profiles by connecting real
-            projects and evidence with real organizational needs.
+            Organizations discover existing innovation. If the right solution
+            isn't available, they can post the problem — giving innovators a
+            reason to build toward a real need.
           </p>
 
-          <motion.a
-            href="#advantage"
-            whileHover={{ y: -2 }}
-            whileTap={{ scale: 0.98 }}
-            className="mt-5 inline-flex items-center gap-2 rounded-xl bg-gradient-to-br from-[#E7C979] via-[#D4AF37] to-[#A67C00] px-5 py-2.5 text-xs font-bold text-[#0B0B09]"
-          >
-            Why ScoutX
-            <FaArrowRight className="text-[10px]" />
-          </motion.a>
+          <div className="mt-5 flex flex-wrap items-center justify-center gap-2 text-xs font-semibold">
+            <FlowPill text="Innovation" />
+            <FaArrowRight className="text-[#D4AF37]/50" />
+            <FlowPill text="Discovery" />
+            <FaArrowRight className="text-[#D4AF37]/50" />
+            <FlowPill text="Real Problems" />
+            <FaArrowRight className="text-[#D4AF37]/50" />
+            <FlowPill text="New Solutions" />
+          </div>
         </motion.div>
 
       </div>
@@ -182,16 +144,20 @@ export default function Solution() {
   );
 }
 
-function AudienceCard({
+function FlowCard({
   label,
   title,
-  text,
-  tags,
+  description,
+  flow,
 }: {
   label: string;
   title: string;
-  text: string;
-  tags: string[];
+  description: string;
+  flow: readonly {
+    icon: React.ElementType;
+    title: string;
+    text: string;
+  }[];
 }) {
   return (
     <motion.div
@@ -210,19 +176,45 @@ function AudienceCard({
       </h3>
 
       <p className="mt-3 text-sm leading-6 text-[#A9A293]">
-        {text}
+        {description}
       </p>
 
-      <div className="mt-4 flex flex-wrap gap-2">
-        {tags.map((tag) => (
-          <span
-            key={tag}
-            className="rounded-full border border-[#D4AF37]/15 bg-[#0B0B09] px-3 py-1.5 text-[11px] text-[#A9A293]"
+      <div className="mt-6 space-y-3">
+        {flow.map(({ icon: Icon, title, text }, index) => (
+          <div
+            key={title}
+            className="flex items-center gap-3 rounded-2xl border border-[#D4AF37]/10 bg-[#0B0B09] p-3"
           >
-            {tag}
-          </span>
+            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[#D4AF37]/15 bg-[#D4AF37]/10 text-[#E7C979]">
+              <Icon className="text-sm" />
+            </div>
+
+            <div className="min-w-0 flex-1">
+              <div className="flex items-center gap-2">
+                <span className="text-[9px] font-bold text-[#D4AF37]">
+                  0{index + 1}
+                </span>
+
+                <h4 className="text-sm font-semibold">
+                  {title}
+                </h4>
+              </div>
+
+              <p className="mt-0.5 text-xs leading-5 text-[#8F887B]">
+                {text}
+              </p>
+            </div>
+          </div>
         ))}
       </div>
     </motion.div>
+  );
+}
+
+function FlowPill({ text }: { text: string }) {
+  return (
+    <span className="rounded-full border border-[#D4AF37]/15 bg-[#11100D] px-3 py-1.5 text-[#A9A293]">
+      {text}
+    </span>
   );
 }
