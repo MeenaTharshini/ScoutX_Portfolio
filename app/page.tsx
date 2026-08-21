@@ -1,6 +1,7 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
+import Advantage from "@/components/Advantage";
 import Problem from "@/components/Problem";
 import Solution from "@/components/Solution";
 import Features from "@/components/Features";
@@ -19,7 +20,6 @@ export default function Home() {
       <Navbar />
 
       <main>
-
         {/* =====================================================
             01 — FIRST IMPRESSION
             What is ScoutX?
@@ -27,47 +27,52 @@ export default function Home() {
         <Hero />
 
         {/* =====================================================
-            02 — CONTEXT
-            Why does ScoutX need to exist?
+            02 — ABOUT SCOUTX
+            What is ScoutX and who does it connect?
         ====================================================== */}
         <About />
 
         {/* =====================================================
-            03 — THE PROBLEM
-            What is broken today?
+            03 — THE SCOUTX ADVANTAGE
+            Why is ScoutX different?
+        ====================================================== */}
+        <Advantage />
+
+        {/* =====================================================
+            04 — THE PROBLEM
+            What is broken in innovation discovery today?
         ====================================================== */}
         <Problem />
 
         {/* =====================================================
-            04 — THE SOLUTION
-            How does ScoutX solve the problem?
+            05 — THE SOLUTION
+            How does ScoutX solve the discovery gap?
         ====================================================== */}
         <Solution />
 
         {/* =====================================================
-            05 — PRODUCT CAPABILITIES
+            06 — PRODUCT CAPABILITIES
             What can ScoutX actually do?
         ====================================================== */}
         <Features />
 
         {/* =====================================================
-            06 — USERS & ECOSYSTEM
+            07 — USERS & ECOSYSTEM
             Who gets value from ScoutX?
         ====================================================== */}
         <Users />
 
         {/* =====================================================
-            07 — TEAM
+            08 — TEAM
             Who is building ScoutX?
         ====================================================== */}
         <Team />
 
         {/* =====================================================
-            08 — FINAL CTA / CONTACT
+            09 — FINAL CTA / CONTACT
             What should the visitor do next?
         ====================================================== */}
         <Contact />
-
       </main>
 
       {/* =====================================================
