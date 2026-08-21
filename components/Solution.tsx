@@ -2,91 +2,105 @@
 
 import { motion } from "framer-motion";
 import {
-  FaBuilding,
   FaLightbulb,
+  FaCode,
+  FaRobot,
+  FaBuilding,
   FaSearch,
+  FaComments,
   FaChartLine,
-  FaShieldAlt,
-  FaRocket,
-  FaArrowRight,
   FaCheckCircle,
-  FaUserTie,
-  FaProjectDiagram,
+  FaArrowRight,
+  FaUsers,
+  FaRocket,
+  FaFileAlt,
 } from "react-icons/fa";
 
 const solutionSteps = [
   {
     number: "01",
-    icon: FaBuilding,
-    title: "Post a Real Problem",
+    icon: FaLightbulb,
+    title: "Submit Your Innovation",
     description:
-      "Organizations describe a real-world challenge, required capabilities, domain, and desired outcome instead of posting only a traditional job.",
+      "Students, developers, researchers, or anyone with an idea can submit a unique concept, text description, prototype, portfolio, or existing project.",
   },
   {
     number: "02",
-    icon: FaLightbulb,
-    title: "Build an Innovation Passport",
+    icon: FaRobot,
+    title: "AI Evaluates & Improves",
     description:
-      "Innovators showcase their project through the problem solved, technology used, prototype stage, evidence, outcomes, and potential applications.",
+      "ScoutX AI analyzes the idea for uniqueness, technology relevance, potential value, feasibility, and possible improvements.",
   },
   {
     number: "03",
-    icon: FaSearch,
-    title: "Discover Relevant Solutions",
+    icon: FaBuilding,
+    title: "Companies Post Requirements",
     description:
-      "ScoutX analyzes project capabilities and problem requirements to surface innovations that are relevant to the organization's challenge.",
+      "Companies describe the type of innovation they need, including the problem, industry, technologies, capabilities, and expected outcome.",
   },
   {
     number: "04",
-    icon: FaChartLine,
-    title: "Evaluate with Evidence",
+    icon: FaSearch,
+    title: "AI Finds the Best Ideas",
     description:
-      "Organizations can evaluate prototype readiness, technical capabilities, validation, impact indicators, and supporting project evidence.",
+      "ScoutX compares company requirements with the innovation ecosystem and identifies a focused shortlist of highly relevant ideas and prototypes.",
   },
   {
     number: "05",
-    icon: FaRocket,
-    title: "Connect & Collaborate",
+    icon: FaComments,
+    title: "Connect Directly",
     description:
-      "Relevant builders and organizations can move from discovery to discussion, pilot projects, internships, incubation, or collaboration.",
+      "Companies can communicate directly with promising innovators to discuss collaboration, validation, development, pilots, or startup opportunities.",
   },
 ];
 
-const innovationLayers = [
-  {
-    icon: FaProjectDiagram,
-    title: "Problem",
-    description: "What needs to be solved?",
-  },
+const aiCapabilities = [
   {
     icon: FaLightbulb,
-    title: "Prototype",
-    description: "What has already been built?",
+    title: "Uniqueness",
+    description: "How differentiated is the idea?",
   },
   {
-    icon: FaUserTie,
-    title: "Builder",
-    description: "Who built it?",
+    icon: FaChartLine,
+    title: "Value",
+    description: "What potential value can it create?",
   },
   {
-    icon: FaShieldAlt,
-    title: "Evidence",
-    description: "Can the innovation be verified?",
+    icon: FaCode,
+    title: "Technology Fit",
+    description: "Which technologies support the idea?",
   },
+  {
+    icon: FaRocket,
+    title: "Potential",
+    description: "Can it become a useful solution?",
+  },
+];
+
+const companyRequirements = [
+  "Problem or innovation area",
+  "Required technologies",
+  "Industry or domain",
+  "Expected capabilities",
+  "Desired solution type",
 ];
 
 export default function Solution() {
   return (
     <section
       id="solution"
-      className="relative bg-slate-900 text-white py-24 px-6 overflow-hidden"
+      className="relative overflow-hidden bg-slate-900 text-white py-24 md:py-32 px-6"
     >
-      {/* Background glow */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-[300px] bg-purple-600/10 blur-3xl rounded-full" />
+      {/* Background */}
+      <div className="absolute top-0 left-[-180px] w-[500px] h-[500px] bg-purple-600/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-[-180px] w-[500px] h-[500px] bg-violet-600/10 rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto relative z-10">
 
-        {/* Header */}
+        {/* =====================================================
+            HEADER
+        ====================================================== */}
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -94,161 +108,165 @@ export default function Solution() {
           transition={{ duration: 0.7 }}
           className="text-center max-w-4xl mx-auto"
         >
-          <p className="text-purple-400 uppercase tracking-[0.25em] text-sm font-semibold">
-            The ScoutX Solution
-          </p>
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-sm"
+          >
+            <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
+            THE SCOUTX SOLUTION
+          </div>
 
-          <h2 className="text-4xl md:text-6xl font-bold mt-4 leading-tight">
-            A discovery layer for
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-600">
-              real-world innovation
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight mt-6 leading-tight">
+            From scattered ideas to
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-violet-500 to-cyan-400">
+              discoverable innovation.
             </span>
           </h2>
 
           <p className="text-slate-400 text-lg md:text-xl leading-8 mt-6 max-w-3xl mx-auto">
-            ScoutX connects organizations with existing innovations by
-            understanding both sides of the equation:
-            <span className="text-purple-400 font-medium">
-              {" "}
-              what problem needs to be solved
-            </span>{" "}
-            and
-            <span className="text-purple-400 font-medium">
-              {" "}
-              what has already been built.
-            </span>
+            ScoutX creates a direct bridge between people who build
+            innovations and companies looking for new solutions —
+            powered by AI-driven evaluation and matching.
           </p>
         </motion.div>
 
-        {/* Core Concept */}
+        {/* =====================================================
+            CORE PROBLEM → SOLUTION
+        ====================================================== */}
+
         <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="max-w-5xl mx-auto mt-16"
+          className="mt-20"
         >
-          <div className="bg-[#151B2E] border border-purple-500/20 rounded-3xl p-8 md:p-12">
+          <div className="max-w-6xl mx-auto bg-[#151B2E] border border-purple-500/20 rounded-3xl p-8 md:p-12">
 
-            <p className="text-slate-500 uppercase tracking-widest text-xs text-center">
-              The ScoutX Innovation Graph
-            </p>
+            <div className="text-center">
+              <p className="text-purple-400 uppercase tracking-widest text-xs font-semibold">
+                The Core Idea
+              </p>
 
-            <div className="grid md:grid-cols-3 items-center gap-6 mt-10">
+              <h3 className="text-2xl md:text-4xl font-bold mt-3">
+                Instead of waiting for ideas,
+                <span className="text-purple-400">
+                  {" "}discover them.
+                </span>
+              </h3>
 
-              {/* Problem */}
+              <p className="text-slate-500 max-w-2xl mx-auto mt-4">
+                Companies do not always need to organize another hackathon
+                to find innovative solutions. ScoutX allows them to discover
+                ideas and prototypes that already exist within its ecosystem.
+              </p>
+            </div>
+
+            {/* Flow */}
+            <div className="grid md:grid-cols-5 gap-4 mt-12 items-center">
+
+              {/* Users */}
               <div className="text-center">
-                <div className="w-20 h-20 mx-auto rounded-2xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center text-3xl">
+                <div className="w-16 h-16 mx-auto rounded-2xl bg-blue-500/10 border border-blue-500/20 text-blue-400 flex items-center justify-center text-2xl">
+                  <FaUsers />
+                </div>
+
+                <h4 className="font-semibold mt-4">
+                  Innovators
+                </h4>
+
+                <p className="text-xs text-slate-500 mt-2">
+                  Students, developers, researchers & public
+                </p>
+              </div>
+
+              <div className="hidden md:flex justify-center text-purple-400">
+                <FaArrowRight />
+              </div>
+
+              {/* AI */}
+              <div className="text-center">
+                <div className="w-20 h-20 mx-auto rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 flex items-center justify-center text-2xl">
+                  <FaRobot />
+                </div>
+
+                <h4 className="font-semibold text-purple-300 mt-4">
+                  ScoutX AI
+                </h4>
+
+                <p className="text-xs text-slate-500 mt-2">
+                  Evaluate • Improve • Match
+                </p>
+              </div>
+
+              <div className="hidden md:flex justify-center text-purple-400">
+                <FaArrowRight />
+              </div>
+
+              {/* Company */}
+              <div className="text-center">
+                <div className="w-16 h-16 mx-auto rounded-2xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400 flex items-center justify-center text-2xl">
                   <FaBuilding />
                 </div>
 
-                <h3 className="text-xl font-bold mt-5">
-                  Organization
-                </h3>
+                <h4 className="font-semibold mt-4">
+                  Companies
+                </h4>
 
-                <p className="text-slate-500 text-sm mt-2">
-                  Has a real-world problem
-                </p>
-              </div>
-
-              {/* Matching */}
-              <div className="text-center">
-
-                <div className="flex justify-center items-center gap-2 text-purple-400 text-2xl">
-                  <span>→</span>
-                  <FaSearch className="text-lg" />
-                  <span>←</span>
-                </div>
-
-                <div className="mt-4 px-6 py-4 rounded-2xl bg-purple-500/10 border border-purple-500/30">
-                  <h3 className="font-bold text-purple-300">
-                    ScoutX Matching
-                  </h3>
-
-                  <p className="text-slate-500 text-xs mt-2">
-                    Problem ↔ Innovation
-                  </p>
-                </div>
-              </div>
-
-              {/* Innovation */}
-              <div className="text-center">
-                <div className="w-20 h-20 mx-auto rounded-2xl bg-yellow-500/10 border border-yellow-500/20 text-yellow-400 flex items-center justify-center text-3xl">
-                  <FaLightbulb />
-                </div>
-
-                <h3 className="text-xl font-bold mt-5">
-                  Innovation
-                </h3>
-
-                <p className="text-slate-500 text-sm mt-2">
-                  Has an existing prototype
+                <p className="text-xs text-slate-500 mt-2">
+                  Discover relevant innovation
                 </p>
               </div>
 
             </div>
-
-            {/* Result */}
-            <div className="flex justify-center mt-10">
-              <div className="text-center">
-                <div className="text-purple-400 text-2xl mb-3">
-                  ↓
-                </div>
-
-                <div className="px-8 py-4 rounded-2xl bg-gradient-to-r from-purple-500/10 to-violet-500/10 border border-purple-500/20">
-                  <p className="text-purple-300 font-semibold">
-                    Discovery → Evaluation → Collaboration
-                  </p>
-                </div>
-              </div>
-            </div>
-
           </div>
         </motion.div>
 
-        {/* Innovation Passport */}
+        {/* =====================================================
+            FOR INNOVATORS
+        ====================================================== */}
+
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           className="mt-24"
         >
-
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
 
             {/* Left */}
             <div>
+
               <p className="text-purple-400 uppercase tracking-widest text-sm font-semibold">
                 For Innovators
               </p>
 
               <h3 className="text-3xl md:text-5xl font-bold mt-4 leading-tight">
-                Turn a project into an
+                Your idea does not need to wait for a
                 <span className="text-purple-400">
-                  {" "}
-                  Innovation Passport.
+                  {" "}hackathon.
                 </span>
               </h3>
 
-              <p className="text-slate-400 mt-6 text-lg leading-8">
-                Instead of presenting a generic resume, innovators create a
-                structured identity for what they have actually built.
+              <p className="text-slate-400 text-lg leading-8 mt-6">
+                Anyone can bring an idea to ScoutX. Whether it is only a
+                concept, a working prototype, a GitHub project, a portfolio,
+                or an early-stage solution, it can become part of the
+                innovation ecosystem.
               </p>
 
               <div className="space-y-4 mt-8">
 
                 {[
-                  "Problem the project solves",
-                  "Technology and technical capabilities",
-                  "Prototype or development stage",
-                  "GitHub, demo, documentation and other evidence",
-                  "Potential real-world applications",
+                  "Submit an idea, prototype, project, or portfolio",
+                  "Explain the problem and proposed solution",
+                  "Add technologies and supporting evidence",
+                  "Receive AI-generated improvement suggestions",
+                  "Get evaluated for uniqueness, value, and technology relevance",
                 ].map((item) => (
                   <div
                     key={item}
-                    className="flex items-center gap-3"
+                    className="flex items-start gap-3"
                   >
-                    <FaCheckCircle className="text-purple-400 shrink-0" />
+                    <FaCheckCircle className="text-purple-400 mt-1 shrink-0" />
 
                     <span className="text-slate-300">
                       {item}
@@ -259,65 +277,350 @@ export default function Solution() {
               </div>
             </div>
 
-            {/* Passport Card */}
-            <div className="bg-[#151B2E] border border-purple-500/20 rounded-3xl p-7 md:p-8">
+            {/* Innovation Card */}
+            <div className="relative">
 
-              <div className="flex items-center justify-between mb-7">
-                <div>
-                  <p className="text-xs text-slate-500 uppercase tracking-widest">
-                    Innovation Passport
+              <div className="absolute inset-0 bg-purple-500/10 blur-3xl rounded-full" />
+
+              <div className="relative bg-[#151B2E] border border-purple-500/20 rounded-3xl p-7">
+
+                <div className="flex items-center justify-between">
+
+                  <div className="flex items-center gap-3">
+
+                    <div className="w-12 h-12 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center text-xl">
+                      <FaLightbulb />
+                    </div>
+
+                    <div>
+                      <p className="text-xs text-slate-500 uppercase tracking-widest">
+                        Submitted Innovation
+                      </p>
+
+                      <h4 className="text-xl font-bold mt-1">
+                        Smart Crop Vision
+                      </h4>
+                    </div>
+
+                  </div>
+
+                  <span className="text-xs px-3 py-1 rounded-full bg-purple-500/10 text-purple-300 border border-purple-500/20">
+                    AI Analyzed
+                  </span>
+
+                </div>
+
+                {/* Idea */}
+                <div className="mt-6 p-4 rounded-xl bg-slate-800/60">
+
+                  <div className="flex items-center gap-2 text-purple-400 text-xs uppercase tracking-widest">
+                    <FaFileAlt />
+                    Idea
+                  </div>
+
+                  <p className="text-sm text-slate-300 mt-3 leading-6">
+                    A computer vision system that identifies crop diseases
+                    using images captured through a mobile device.
                   </p>
 
-                  <h4 className="text-2xl font-bold mt-2">
-                    CropVision AI
-                  </h4>
                 </div>
 
-                <div className="px-3 py-1 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-xs">
-                  Prototype Ready
+                {/* AI Analysis */}
+                <div className="mt-4">
+
+                  <p className="text-xs text-slate-500 uppercase tracking-widest mb-3">
+                    AI Evaluation
+                  </p>
+
+                  <div className="grid grid-cols-2 gap-3">
+
+                    {aiCapabilities.map((item) => {
+                      const Icon = item.icon;
+
+                      return (
+                        <div
+                          key={item.title}
+                          className="p-4 rounded-xl bg-slate-800/50 border border-slate-700"
+                        >
+                          <Icon className="text-purple-400" />
+
+                          <p className="text-sm font-semibold mt-3">
+                            {item.title}
+                          </p>
+
+                          <p className="text-xs text-slate-500 mt-1">
+                            {item.description}
+                          </p>
+                        </div>
+                      );
+                    })}
+
+                  </div>
+
                 </div>
+
+                {/* Improvement */}
+                <div className="mt-4 p-4 rounded-xl bg-purple-500/5 border border-purple-500/20">
+
+                  <div className="flex items-center gap-2">
+                    <FaRobot className="text-purple-400" />
+
+                    <span className="text-sm font-semibold text-purple-300">
+                      AI Improvement Suggestion
+                    </span>
+                  </div>
+
+                  <p className="text-xs text-slate-400 mt-2 leading-5">
+                    Add multilingual disease explanations and offline
+                    image processing to improve accessibility in
+                    low-connectivity agricultural areas.
+                  </p>
+
+                </div>
+
               </div>
+            </div>
 
-              <div className="grid grid-cols-2 gap-3">
+          </div>
+        </motion.div>
 
-                {innovationLayers.map((item) => {
-                  const Icon = item.icon;
+        {/* =====================================================
+            FOR COMPANIES
+        ====================================================== */}
 
-                  return (
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-24"
+        >
+
+          <div className="grid lg:grid-cols-2 gap-10 items-center">
+
+            {/* Company Requirement Card */}
+            <div className="order-2 lg:order-1">
+
+              <div className="bg-[#151B2E] border border-cyan-500/20 rounded-3xl p-7">
+
+                <div className="flex items-center gap-3">
+
+                  <div className="w-12 h-12 rounded-xl bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xl">
+                    <FaBuilding />
+                  </div>
+
+                  <div>
+                    <p className="text-xs text-slate-500 uppercase tracking-widest">
+                      Company Innovation Request
+                    </p>
+
+                    <h4 className="text-xl font-bold mt-1">
+                      Smart Agriculture Solutions
+                    </h4>
+                  </div>
+
+                </div>
+
+                <div className="mt-6 space-y-3">
+
+                  {companyRequirements.map((item, index) => (
                     <div
-                      key={item.title}
-                      className="bg-slate-800/60 border border-slate-700 rounded-xl p-4"
+                      key={item}
+                      className="flex items-center gap-3 p-3 rounded-xl bg-slate-800/60"
                     >
-                      <Icon className="text-purple-400" />
+                      <div className="w-7 h-7 rounded-lg bg-cyan-500/10 text-cyan-400 flex items-center justify-center text-xs">
+                        {index + 1}
+                      </div>
 
-                      <h5 className="font-semibold mt-3">
-                        {item.title}
-                      </h5>
-
-                      <p className="text-slate-500 text-xs mt-1">
-                        {item.description}
-                      </p>
+                      <span className="text-sm text-slate-300">
+                        {item}
+                      </span>
                     </div>
-                  );
-                })}
+                  ))}
+
+                </div>
+
+                <div className="mt-5 p-4 rounded-xl bg-purple-500/5 border border-purple-500/20">
+
+                  <div className="flex items-center justify-between">
+
+                    <span className="text-xs text-slate-400">
+                      AI Shortlisting
+                    </span>
+
+                    <span className="text-purple-400 font-semibold text-sm">
+                      Top Matches
+                    </span>
+
+                  </div>
+
+                  <div className="flex gap-2 mt-4">
+
+                    {["#01", "#02", "#03", "#04", "#05"].map((item) => (
+                      <span
+                        key={item}
+                        className="px-3 py-2 rounded-lg bg-purple-500/10 text-purple-300 text-xs"
+                      >
+                        {item}
+                      </span>
+                    ))}
+
+                    <span className="px-3 py-2 rounded-lg bg-slate-800 text-slate-400 text-xs">
+                      + more
+                    </span>
+
+                  </div>
+
+                </div>
 
               </div>
 
-              {/* Readiness */}
-              <div className="mt-5 p-4 rounded-xl bg-purple-500/5 border border-purple-500/10">
+            </div>
 
-                <div className="flex justify-between text-sm mb-3">
-                  <span className="text-slate-400">
-                    Innovation Readiness
-                  </span>
+            {/* Right */}
+            <div className="order-1 lg:order-2">
 
-                  <span className="text-purple-400 font-semibold">
-                    87%
-                  </span>
+              <p className="text-cyan-400 uppercase tracking-widest text-sm font-semibold">
+                For Companies
+              </p>
+
+              <h3 className="text-3xl md:text-5xl font-bold mt-4 leading-tight">
+                Need an idea?
+                <span className="text-cyan-400">
+                  {" "}Search for one.
+                </span>
+              </h3>
+
+              <p className="text-slate-400 text-lg leading-8 mt-6">
+                Instead of organizing a new hackathon every time a company
+                needs innovative ideas, ScoutX allows organizations to
+                describe what they are looking for and discover relevant
+                innovations already submitted by users.
+              </p>
+
+              <div className="space-y-4 mt-8">
+
+                {[
+                  "Define the problem or innovation requirement",
+                  "Specify preferred technologies and domain",
+                  "Let AI analyze the innovation ecosystem",
+                  "Receive a focused shortlist of relevant ideas",
+                  "Review projects and connect directly with innovators",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-start gap-3"
+                  >
+                    <FaCheckCircle className="text-cyan-400 mt-1 shrink-0" />
+
+                    <span className="text-slate-300">
+                      {item}
+                    </span>
+                  </div>
+                ))}
+
+              </div>
+
+            </div>
+
+          </div>
+        </motion.div>
+
+        {/* =====================================================
+            HACKATHON ALTERNATIVE
+        ====================================================== */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-24"
+        >
+
+          <div className="bg-gradient-to-br from-purple-500/10 via-[#151B2E] to-cyan-500/5 border border-purple-500/20 rounded-3xl p-8 md:p-12">
+
+            <div className="text-center max-w-3xl mx-auto">
+
+              <p className="text-purple-400 uppercase tracking-widest text-sm font-semibold">
+                A Different Way To Find Innovation
+              </p>
+
+              <h3 className="text-3xl md:text-5xl font-bold mt-4">
+                Why wait for the next hackathon?
+              </h3>
+
+              <p className="text-slate-400 text-lg leading-8 mt-5">
+                Hackathons can be valuable, but they require organizing
+                participants, venues, travel, time, judging, and event
+                infrastructure. They also reach only the people who
+                participate in those events.
+              </p>
+
+            </div>
+
+            <div className="grid md:grid-cols-2 gap-5 mt-12 max-w-5xl mx-auto">
+
+              {/* Traditional */}
+              <div className="bg-slate-900/70 border border-slate-800 rounded-2xl p-7">
+
+                <p className="text-slate-500 text-xs uppercase tracking-widest">
+                  Traditional Approach
+                </p>
+
+                <h4 className="text-xl font-bold mt-3">
+                  Organize → Attract → Build → Select
+                </h4>
+
+                <div className="space-y-3 mt-6">
+
+                  {[
+                    "Event planning",
+                    "Participant recruitment",
+                    "Venue and logistics",
+                    "Travel and participation barriers",
+                    "Limited event-time ideas",
+                  ].map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-center gap-3 text-slate-500"
+                    >
+                      <span className="text-slate-700">×</span>
+                      {item}
+                    </div>
+                  ))}
+
                 </div>
 
-                <div className="h-2 bg-slate-800 rounded-full overflow-hidden">
-                  <div className="h-full w-[87%] bg-gradient-to-r from-purple-500 to-violet-500 rounded-full" />
+              </div>
+
+              {/* ScoutX */}
+              <div className="bg-purple-500/5 border border-purple-500/20 rounded-2xl p-7">
+
+                <p className="text-purple-400 text-xs uppercase tracking-widest">
+                  ScoutX Approach
+                </p>
+
+                <h4 className="text-xl font-bold mt-3">
+                  Post → AI Match → Discover → Connect
+                </h4>
+
+                <div className="space-y-3 mt-6">
+
+                  {[
+                    "Access ideas beyond event participants",
+                    "Discover existing prototypes",
+                    "AI-assisted shortlisting",
+                    "Reduce event and coordination overhead",
+                    "Direct communication with innovators",
+                  ].map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-center gap-3 text-slate-300"
+                    >
+                      <FaCheckCircle className="text-purple-400" />
+                      {item}
+                    </div>
+                  ))}
+
                 </div>
 
               </div>
@@ -327,31 +630,38 @@ export default function Solution() {
           </div>
         </motion.div>
 
-        {/* How It Works */}
+        {/* =====================================================
+            HOW IT WORKS
+        ====================================================== */}
+
         <div className="mt-28">
 
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
+            initial={{ opacity: 0, y: 25 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-center mb-14"
+            className="text-center max-w-3xl mx-auto"
           >
-            <p className="text-purple-400 uppercase tracking-widest text-sm">
+
+            <p className="text-purple-400 uppercase tracking-widest text-sm font-semibold">
               How ScoutX Works
             </p>
 
             <h3 className="text-3xl md:text-5xl font-bold mt-3">
-              From problem to opportunity
+              One ecosystem.
+              <span className="text-purple-400">
+                {" "}Two sides.
+              </span>
             </h3>
 
-            <p className="text-slate-500 max-w-2xl mx-auto mt-5">
-              A simple discovery workflow designed to move promising
-              innovations beyond visibility and toward real-world use.
+            <p className="text-slate-500 mt-5">
+              Innovation flows in both directions — people submit what
+              they can build, while companies communicate what they need.
             </p>
+
           </motion.div>
 
-          {/* Steps */}
-          <div className="relative">
+          <div className="relative mt-14">
 
             {/* Connecting line */}
             <div className="hidden lg:block absolute top-14 left-[8%] right-[8%] h-px bg-gradient-to-r from-purple-500/0 via-purple-500/30 to-purple-500/0" />
@@ -368,10 +678,10 @@ export default function Solution() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{
-                      delay: index * 0.1,
+                      delay: index * 0.08,
                       duration: 0.6,
                     }}
-                    className="relative bg-[#151B2E] border border-slate-800 hover:border-purple-500/30 rounded-2xl p-6 transition-all duration-300"
+                    className="relative bg-[#151B2E] border border-slate-800 hover:border-purple-500/30 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
                   >
 
                     <div className="flex items-center justify-between">
@@ -402,123 +712,69 @@ export default function Solution() {
           </div>
         </div>
 
-        {/* Why It Is Different */}
+        {/* =====================================================
+            FINAL VALUE
+        ====================================================== */}
+
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-28"
+          className="mt-24"
         >
 
-          <div className="bg-gradient-to-br from-purple-500/10 via-[#151B2E] to-violet-500/5 border border-purple-500/20 rounded-3xl p-8 md:p-12">
+          <div className="text-center bg-gradient-to-r from-purple-500/10 via-violet-500/10 to-cyan-500/10 border border-purple-500/20 rounded-3xl p-8 md:p-12">
 
-            <div className="text-center max-w-3xl mx-auto">
+            <div className="w-16 h-16 mx-auto rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-2xl">
+              <FaRocket />
+            </div>
 
-              <p className="text-purple-400 uppercase tracking-widest text-sm font-semibold">
-                What Makes ScoutX Different
-              </p>
+            <p className="text-purple-400 uppercase tracking-widest text-xs font-semibold mt-6">
+              The ScoutX Advantage
+            </p>
 
-              <h3 className="text-3xl md:text-5xl font-bold mt-4">
-                Not another professional network.
-              </h3>
+            <h3 className="text-3xl md:text-5xl font-bold mt-3">
+              Innovation should be
+              <span className="text-purple-400">
+                {" "}discoverable, not hidden.
+              </span>
+            </h3>
 
-              <p className="text-slate-400 text-lg leading-8 mt-6">
-                Traditional platforms are primarily centered around people,
-                profiles, jobs, and connections. ScoutX is centered around
-                <span className="text-purple-400 font-medium">
-                  {" "}
-                  problems, prototypes, evidence, and potential impact.
+            <p className="text-slate-400 max-w-3xl mx-auto mt-5 text-lg leading-8">
+              ScoutX connects the people who have ideas with the companies
+              that need them. AI helps evaluate, improve, and match
+              innovations — creating a faster path from idea to opportunity.
+            </p>
+
+            <div className="flex flex-wrap justify-center gap-3 mt-8">
+
+              {[
+                "More discoverable ideas",
+                "AI-assisted evaluation",
+                "Smarter matching",
+                "Lower discovery overhead",
+                "Direct communication",
+                "Real-world opportunities",
+              ].map((item) => (
+                <span
+                  key={item}
+                  className="px-4 py-2 rounded-full bg-slate-800/70 border border-slate-700 text-slate-300 text-sm"
+                >
+                  {item}
                 </span>
-              </p>
+              ))}
 
             </div>
 
-            {/* Comparison */}
-            <div className="grid md:grid-cols-2 gap-5 mt-12 max-w-4xl mx-auto">
-
-              <div className="bg-slate-900/60 border border-slate-800 rounded-2xl p-6">
-
-                <p className="text-slate-500 text-xs uppercase tracking-widest">
-                  Traditional Discovery
-                </p>
-
-                <div className="mt-5 space-y-3">
-
-                  {[
-                    "Person → Resume",
-                    "Job → Application",
-                    "Profile → Connection",
-                    "Recruitment → Selection",
-                  ].map((item) => (
-                    <div
-                      key={item}
-                      className="flex items-center gap-3 text-slate-500"
-                    >
-                      <span className="text-slate-700">×</span>
-                      {item}
-                    </div>
-                  ))}
-
-                </div>
-              </div>
-
-              <div className="bg-purple-500/5 border border-purple-500/20 rounded-2xl p-6">
-
-                <p className="text-purple-400 text-xs uppercase tracking-widest">
-                  ScoutX
-                </p>
-
-                <div className="mt-5 space-y-3">
-
-                  {[
-                    "Problem → Innovation",
-                    "Prototype → Evidence",
-                    "Capability → Match",
-                    "Discovery → Collaboration",
-                  ].map((item) => (
-                    <div
-                      key={item}
-                      className="flex items-center gap-3 text-slate-300"
-                    >
-                      <FaCheckCircle className="text-purple-400" />
-                      {item}
-                    </div>
-                  ))}
-
-                </div>
-              </div>
-
-            </div>
+            <a
+              href="#features"
+              className="inline-flex items-center gap-3 mt-9 px-7 py-3 rounded-xl bg-purple-600 hover:bg-purple-700 transition"
+            >
+              Explore ScoutX
+              <FaArrowRight />
+            </a>
 
           </div>
-        </motion.div>
-
-        {/* Final CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-center mt-24"
-        >
-
-          <p className="text-slate-500">
-            From scattered projects to discoverable innovation.
-          </p>
-
-          <h3 className="text-2xl md:text-4xl font-bold mt-4">
-            Build.
-            <span className="text-purple-400"> Prove.</span>
-            Discover.
-            <span className="text-purple-400"> Collaborate.</span>
-          </h3>
-
-          <a
-            href="#features"
-            className="inline-flex items-center gap-3 mt-8 px-7 py-3 rounded-xl bg-purple-600 hover:bg-purple-700 transition"
-          >
-            Explore the Platform
-            <FaArrowRight />
-          </a>
 
         </motion.div>
 

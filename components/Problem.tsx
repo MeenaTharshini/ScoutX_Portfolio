@@ -2,44 +2,73 @@
 
 import { motion } from "framer-motion";
 import {
-  FaGithub,
-  FaLinkedin,
-  FaTrophy,
-  FaGlobe,
-  FaExclamationTriangle,
-  FaArrowDown,
-  FaSearch,
+  FaUser,
+  FaBuilding,
   FaLightbulb,
+  FaGlobe,
+  FaSearch,
+  FaMoneyBillWave,
+  FaUsers,
+  FaArrowRight,
+  FaCheckCircle,
+  FaExclamationTriangle,
+  FaCode,
+  FaRocket,
 } from "react-icons/fa";
 
-const sources = [
-  {
-    icon: FaGithub,
-    title: "GitHub",
-    description: "Projects and prototypes",
-  },
-  {
-    icon: FaLinkedin,
-    title: "LinkedIn",
-    description: "Posts and achievements",
-  },
-  {
-    icon: FaTrophy,
-    title: "Hackathons",
-    description: "Ideas and submissions",
-  },
+const problemPoints = [
   {
     icon: FaGlobe,
-    title: "Portfolios",
-    description: "Personal project showcases",
+    title: "Innovation is Scattered",
+    description:
+      "Student and public innovators share ideas through GitHub, LinkedIn, portfolios, college events, hackathons, and personal platforms. There is no single place where companies can discover them efficiently.",
+  },
+  {
+    icon: FaUsers,
+    title: "Not Everyone Joins Hackathons",
+    description:
+      "Many talented students and independent innovators never participate in hackathons because of time, travel, eligibility, team, location, or other constraints. Their ideas remain invisible to companies.",
+  },
+  {
+    icon: FaMoneyBillWave,
+    title: "Hackathons Can Be Expensive",
+    description:
+      "Companies often conduct hackathons to discover innovative ideas and talent, but organizing events requires significant spending on venues, travel, logistics, prizes, marketing, and coordination.",
+  },
+  {
+    icon: FaSearch,
+    title: "Finding the Right Idea Is Difficult",
+    description:
+      "When companies need a specific type of innovation, technology, or solution, manually searching thousands of projects and profiles is time-consuming and inefficient.",
   },
 ];
 
-const consequences = [
-  "Promising prototypes become difficult to discover",
-  "Organizations spend time searching across disconnected platforms",
-  "Students struggle to get visibility beyond their immediate network",
-  "Useful innovations can remain unnoticed after competitions and events",
+const currentFlow = [
+  {
+    icon: FaLightbulb,
+    title: "Innovator Creates",
+    description: "Idea, prototype, project, or portfolio",
+  },
+  {
+    icon: FaGlobe,
+    title: "Posts Elsewhere",
+    description: "GitHub, LinkedIn, hackathons, college events",
+  },
+  {
+    icon: FaExclamationTriangle,
+    title: "Visibility Drops",
+    description: "Innovation becomes difficult to discover",
+  },
+  {
+    icon: FaBuilding,
+    title: "Company Searches",
+    description: "Manual search or expensive hackathon",
+  },
+  {
+    icon: FaSearch,
+    title: "Opportunity Gets Missed",
+    description: "Relevant ideas and innovators remain undiscovered",
+  },
 ];
 
 export default function Problem() {
@@ -49,8 +78,8 @@ export default function Problem() {
       className="relative bg-slate-900 text-white py-24 px-6 overflow-hidden"
     >
       {/* Background decoration */}
-      <div className="absolute top-20 right-[-150px] w-[400px] h-[400px] bg-red-500/5 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-[-150px] w-[400px] h-[400px] bg-purple-500/5 rounded-full blur-3xl" />
+      <div className="absolute top-20 left-[-180px] w-[450px] h-[450px] bg-red-500/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-0 right-[-180px] w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto relative z-10">
 
@@ -60,269 +89,407 @@ export default function Problem() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center max-w-3xl mx-auto"
+          className="text-center max-w-4xl mx-auto"
         >
           <p className="text-red-400 uppercase tracking-[0.25em] text-sm font-semibold">
             The Problem
           </p>
 
           <h2 className="text-4xl md:text-6xl font-bold mt-4 leading-tight">
-            Innovation is everywhere.
-            <span className="block text-slate-500">
-              Discovery isn't.
+            Innovation exists.
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-400 via-purple-400 to-violet-500">
+              Discovery is the problem.
             </span>
           </h2>
 
-          <p className="text-slate-400 text-lg leading-8 mt-6">
-            Students and early-stage innovators are constantly building
-            prototypes and solving meaningful problems. But their work is
-            scattered across platforms that were never designed for
-            innovation discovery.
+          <p className="text-slate-400 text-lg md:text-xl leading-8 mt-6 max-w-3xl mx-auto">
+            Students, independent innovators, and early-stage builders are
+            creating valuable ideas and prototypes. But companies still lack
+            an efficient way to discover the right innovation without relying
+            on scattered platforms or expensive innovation events.
           </p>
         </motion.div>
 
-        {/* Problem Statement */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.96 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="max-w-5xl mx-auto mt-16"
-        >
-          <div className="relative bg-[#151B2E] border border-red-500/10 rounded-3xl p-8 md:p-12 text-center">
-
-            <div className="absolute top-6 left-6 text-red-400/20 text-4xl">
-              <FaExclamationTriangle />
-            </div>
-
-            <p className="text-slate-500 uppercase tracking-widest text-xs">
-              The Discovery Gap
-            </p>
-
-            <h3 className="text-2xl md:text-4xl font-semibold mt-5 leading-relaxed">
-              The problem is not a lack of innovation.
-              <span className="block text-red-400 mt-2">
-                It is the lack of efficient discovery.
-              </span>
-            </h3>
-
-            <p className="text-slate-400 max-w-3xl mx-auto mt-6 leading-8">
-              Valuable ideas, prototypes, and technical projects often exist
-              independently of the organizations that could benefit from them.
-              There is no dedicated layer connecting real-world problems with
-              these emerging solutions.
-            </p>
-          </div>
-        </motion.div>
-
-        {/* Scattered Information */}
-        <div className="mt-24">
-
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
-            <p className="text-purple-400 uppercase tracking-widest text-sm">
-              Today's Reality
-            </p>
-
-            <h3 className="text-3xl md:text-4xl font-bold mt-3">
-              Innovation is scattered across the internet
-            </h3>
-          </motion.div>
-
-          <div className="grid md:grid-cols-4 gap-5">
-
-            {sources.map((source, index) => {
-              const Icon = source.icon;
-
-              return (
-                <motion.div
-                  key={source.title}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
-                  className="bg-[#151B2E] border border-slate-800 hover:border-purple-500/30 rounded-2xl p-6 text-center transition-all duration-300"
-                >
-                  <div className="w-14 h-14 mx-auto rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl">
-                    <Icon />
-                  </div>
-
-                  <h4 className="font-semibold text-lg mt-5">
-                    {source.title}
-                  </h4>
-
-                  <p className="text-slate-500 text-sm mt-2">
-                    {source.description}
-                  </p>
-                </motion.div>
-              );
-            })}
-
-          </div>
-
-          {/* Scattered → */}
-          <div className="flex justify-center items-center gap-4 mt-10">
-            <div className="hidden md:block h-px w-24 bg-slate-800" />
-
-            <div className="flex items-center gap-2 text-slate-500 text-sm">
-              <FaArrowDown className="md:hidden" />
-              <span>Disconnected information</span>
-              <FaArrowDown className="md:hidden" />
-            </div>
-
-            <div className="hidden md:block h-px w-24 bg-slate-800" />
-          </div>
-
-        </div>
-
-        {/* The Broken Flow */}
+        {/* Main Problem Statement */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="mt-20"
+          className="mt-16"
         >
-          <div className="bg-[#101625] border border-slate-800 rounded-3xl p-8 md:p-12">
+          <div className="bg-[#151B2E] border border-red-500/10 rounded-3xl p-8 md:p-12">
 
-            <p className="text-slate-500 uppercase tracking-widest text-xs text-center">
-              What happens today
-            </p>
+            <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-            <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-3 mt-10">
+              {/* Left */}
+              <div>
 
-              {/* Step 1 */}
-              <div className="w-full md:w-48 text-center">
-                <div className="w-14 h-14 mx-auto rounded-full bg-purple-500/10 text-purple-400 flex items-center justify-center">
-                  <FaLightbulb />
-                </div>
-
-                <h4 className="font-semibold mt-4">
-                  Innovator Builds
-                </h4>
-
-                <p className="text-slate-500 text-sm mt-2">
-                  Creates an idea or prototype
-                </p>
-              </div>
-
-              <div className="text-slate-700 text-2xl rotate-90 md:rotate-0">
-                →
-              </div>
-
-              {/* Step 2 */}
-              <div className="w-full md:w-48 text-center">
-                <div className="w-14 h-14 mx-auto rounded-full bg-blue-500/10 text-blue-400 flex items-center justify-center">
-                  <FaGlobe />
-                </div>
-
-                <h4 className="font-semibold mt-4">
-                  Posts Everywhere
-                </h4>
-
-                <p className="text-slate-500 text-sm mt-2">
-                  Shares across multiple platforms
-                </p>
-              </div>
-
-              <div className="text-slate-700 text-2xl rotate-90 md:rotate-0">
-                →
-              </div>
-
-              {/* Step 3 */}
-              <div className="w-full md:w-48 text-center">
-                <div className="w-14 h-14 mx-auto rounded-full bg-yellow-500/10 text-yellow-400 flex items-center justify-center">
-                  <FaSearch />
-                </div>
-
-                <h4 className="font-semibold mt-4">
-                  Hard to Discover
-                </h4>
-
-                <p className="text-slate-500 text-sm mt-2">
-                  Organizations cannot efficiently find it
-                </p>
-              </div>
-
-              <div className="text-slate-700 text-2xl rotate-90 md:rotate-0">
-                →
-              </div>
-
-              {/* Step 4 */}
-              <div className="w-full md:w-48 text-center">
-                <div className="w-14 h-14 mx-auto rounded-full bg-red-500/10 text-red-400 flex items-center justify-center">
+                <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-red-500/10 border border-red-500/20 text-red-300 text-sm">
                   <FaExclamationTriangle />
+                  The Discovery Gap
                 </div>
 
-                <h4 className="font-semibold mt-4">
-                  Opportunity Lost
-                </h4>
+                <h3 className="text-3xl md:text-5xl font-bold mt-6 leading-tight">
+                  Companies don't lack
+                  <span className="text-red-400">
+                    {" "}problems.
+                  </span>
+                  <br />
+                  They lack efficient access to
+                  <span className="text-purple-400">
+                    {" "}ideas.
+                  </span>
+                </h3>
 
-                <p className="text-slate-500 text-sm mt-2">
-                  Potential innovation remains unnoticed
+                <p className="text-slate-400 text-lg leading-8 mt-6">
+                  A company may need a startup idea, a new product concept,
+                  an AI solution, or a specific technology. Traditionally,
+                  it may organize a hackathon or manually search through
+                  professional networks and repositories.
                 </p>
+
+                <p className="text-slate-400 text-lg leading-8 mt-4">
+                  But this approach is expensive, time-consuming, and
+                  excludes innovators who never participate in those events.
+                </p>
+
+              </div>
+
+              {/* Right */}
+              <div className="space-y-4">
+
+                <div className="bg-slate-900/70 border border-slate-700 rounded-2xl p-5">
+                  <div className="flex items-center gap-4">
+
+                    <div className="w-12 h-12 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center">
+                      <FaMoneyBillWave />
+                    </div>
+
+                    <div>
+                      <h4 className="font-semibold">
+                        Expensive Discovery
+                      </h4>
+
+                      <p className="text-slate-500 text-sm mt-1">
+                        Events, travel, logistics, prizes and coordination
+                      </p>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div className="bg-slate-900/70 border border-slate-700 rounded-2xl p-5">
+                  <div className="flex items-center gap-4">
+
+                    <div className="w-12 h-12 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center">
+                      <FaGlobe />
+                    </div>
+
+                    <div>
+                      <h4 className="font-semibold">
+                        Scattered Innovation
+                      </h4>
+
+                      <p className="text-slate-500 text-sm mt-1">
+                        Ideas distributed across multiple platforms
+                      </p>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div className="bg-slate-900/70 border border-slate-700 rounded-2xl p-5">
+                  <div className="flex items-center gap-4">
+
+                    <div className="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
+                      <FaUsers />
+                    </div>
+
+                    <div>
+                      <h4 className="font-semibold">
+                        Hidden Innovators
+                      </h4>
+
+                      <p className="text-slate-500 text-sm mt-1">
+                        Talented people who never enter hackathons
+                      </p>
+                    </div>
+
+                  </div>
+                </div>
+
+                <div className="bg-slate-900/70 border border-slate-700 rounded-2xl p-5">
+                  <div className="flex items-center gap-4">
+
+                    <div className="w-12 h-12 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center">
+                      <FaSearch />
+                    </div>
+
+                    <div>
+                      <h4 className="font-semibold">
+                        Manual Evaluation
+                      </h4>
+
+                      <p className="text-slate-500 text-sm mt-1">
+                        Difficult to compare hundreds of ideas efficiently
+                      </p>
+                    </div>
+
+                  </div>
+                </div>
+
               </div>
 
             </div>
+
           </div>
         </motion.div>
 
-        {/* Consequences */}
+        {/* Current Problem Flow */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-20 grid lg:grid-cols-2 gap-10 items-center"
+          transition={{ duration: 0.8 }}
+          className="mt-24"
         >
 
-          {/* Left */}
-          <div>
+          <div className="text-center mb-12">
+
             <p className="text-red-400 uppercase tracking-widest text-sm font-semibold">
-              The Discovery Gap
+              Current Situation
             </p>
 
-            <h3 className="text-3xl md:text-4xl font-bold mt-4 leading-tight">
-              Good ideas can disappear
-              <span className="text-slate-500">
-                {" "}
-                before reaching the right people.
-              </span>
+            <h3 className="text-3xl md:text-5xl font-bold mt-3">
+              How valuable ideas get lost
             </h3>
 
-            <p className="text-slate-400 mt-6 leading-8">
-              A working prototype built during a college hackathon may be
-              valuable to a startup months later. But if nobody can discover
-              it, the opportunity is lost.
+          </div>
+
+          <div className="relative">
+
+            {/* Connecting Line */}
+            <div className="hidden lg:block absolute top-14 left-[8%] right-[8%] h-px bg-gradient-to-r from-red-500/0 via-red-500/30 to-red-500/0" />
+
+            <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-5">
+
+              {currentFlow.map((item, index) => {
+                const Icon = item.icon;
+
+                return (
+                  <motion.div
+                    key={item.title}
+                    initial={{ opacity: 0, y: 25 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{
+                      duration: 0.6,
+                      delay: index * 0.1,
+                    }}
+                    className="relative bg-[#151B2E] border border-slate-800 rounded-2xl p-6 text-center"
+                  >
+
+                    <div className="w-12 h-12 mx-auto rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center">
+                      <Icon />
+                    </div>
+
+                    <h4 className="font-semibold mt-5">
+                      {item.title}
+                    </h4>
+
+                    <p className="text-slate-500 text-sm leading-6 mt-2">
+                      {item.description}
+                    </p>
+
+                    {index < currentFlow.length - 1 && (
+                      <div className="hidden lg:block absolute -right-4 top-12 text-red-400 text-lg z-20">
+                        →
+                      </div>
+                    )}
+
+                  </motion.div>
+                );
+              })}
+
+            </div>
+
+          </div>
+        </motion.div>
+
+        {/* Hackathon Limitation */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-24"
+        >
+
+          <div className="grid lg:grid-cols-2 gap-8">
+
+            {/* Hackathon */}
+            <div className="bg-[#151B2E] border border-red-500/10 rounded-3xl p-8 md:p-10">
+
+              <div className="w-14 h-14 rounded-2xl bg-red-500/10 text-red-400 flex items-center justify-center text-xl">
+                <FaRocket />
+              </div>
+
+              <h3 className="text-2xl md:text-3xl font-bold mt-6">
+                The Hackathon-Only Approach
+              </h3>
+
+              <p className="text-slate-400 leading-7 mt-4">
+                Hackathons are valuable, but they cannot capture the entire
+                innovation ecosystem.
+              </p>
+
+              <div className="space-y-3 mt-6">
+
+                {[
+                  "Requires event planning and coordination",
+                  "Involves travel and venue expenses",
+                  "Requires prizes, marketing and logistics",
+                  "Limited to participants who can attend",
+                  "Ideas are often produced within a short event window",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-start gap-3 text-slate-400"
+                  >
+                    <span className="text-red-400 mt-1">×</span>
+                    <span>{item}</span>
+                  </div>
+                ))}
+
+              </div>
+
+            </div>
+
+            {/* ScoutX Opportunity */}
+            <div className="bg-purple-500/5 border border-purple-500/20 rounded-3xl p-8 md:p-10">
+
+              <div className="w-14 h-14 rounded-2xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl">
+                <FaLightbulb />
+              </div>
+
+              <h3 className="text-2xl md:text-3xl font-bold mt-6">
+                The Untapped Opportunity
+              </h3>
+
+              <p className="text-slate-400 leading-7 mt-4">
+                Thousands of innovators are already building ideas outside
+                hackathons. The challenge is finding and evaluating them.
+              </p>
+
+              <div className="space-y-3 mt-6">
+
+                {[
+                  "Students can submit ideas directly",
+                  "Public innovators can participate",
+                  "Ideas can be submitted as text, prototype or portfolio",
+                  "AI can evaluate and suggest improvements",
+                  "Companies can discover ideas based on their requirements",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-start gap-3 text-slate-300"
+                  >
+                    <FaCheckCircle className="text-purple-400 mt-1 shrink-0" />
+                    <span>{item}</span>
+                  </div>
+                ))}
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </motion.div>
+
+        {/* One Line Problem */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.96 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-24"
+        >
+
+          <div className="bg-gradient-to-br from-red-500/10 via-[#151B2E] to-purple-500/10 border border-purple-500/20 rounded-3xl p-8 md:p-12 text-center">
+
+            <p className="text-purple-400 uppercase tracking-widest text-sm font-semibold">
+              The Core Problem
             </p>
-          </div>
 
-          {/* Right */}
-          <div className="space-y-3">
-
-            {consequences.map((item, index) => (
-              <motion.div
-                key={item}
-                initial={{ opacity: 0, x: 20 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
-                className="flex gap-4 items-start bg-[#151B2E] border border-slate-800 rounded-xl p-4"
-              >
-                <div className="mt-1 text-red-400">
-                  <FaExclamationTriangle className="text-sm" />
-                </div>
-
-                <p className="text-slate-400 text-sm leading-6">
-                  {item}
-                </p>
-              </motion.div>
-            ))}
+            <h3 className="text-2xl md:text-4xl font-bold mt-6 leading-relaxed max-w-4xl mx-auto">
+              “The problem is not a lack of innovation;
+              <span className="text-purple-400">
+                {" "}it is the lack of an efficient way to discover,
+                evaluate, and connect innovators with the organizations
+                that need them.
+              </span>
+              ”
+            </h3>
 
           </div>
+
+        </motion.div>
+
+        {/* Real Example */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-16"
+        >
+
+          <div className="max-w-5xl mx-auto bg-[#151B2E] border border-slate-800 rounded-3xl p-8 md:p-10">
+
+            <div className="flex items-center gap-3">
+              <FaCode className="text-purple-400" />
+
+              <p className="text-purple-400 uppercase tracking-widest text-sm font-semibold">
+                Real Example
+              </p>
+            </div>
+
+            <h3 className="text-2xl md:text-3xl font-bold mt-5">
+              A valuable prototype can disappear after one event.
+            </h3>
+
+            <p className="text-slate-400 text-lg leading-8 mt-5">
+              Suppose a student builds a working AI healthcare prototype.
+              After a college event or hackathon, the project may remain in
+              a GitHub repository or a LinkedIn post. Meanwhile, a company
+              looking for exactly that type of innovation may never discover
+              it.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3 mt-7">
+
+              <span className="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-sm">
+                AI Healthcare Prototype
+              </span>
+
+              <FaArrowRight className="text-purple-400" />
+
+              <span className="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 text-sm">
+                Scattered Online
+              </span>
+
+              <FaArrowRight className="text-purple-400" />
+
+              <span className="px-4 py-2 rounded-xl bg-red-500/10 text-red-300 text-sm">
+                Company Cannot Find It
+              </span>
+
+            </div>
+
+          </div>
+
         </motion.div>
 
         {/* Transition to Solution */}
@@ -330,32 +497,29 @@ export default function Problem() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-24 text-center"
+          transition={{ duration: 0.7 }}
+          className="text-center mt-24"
         >
-          <div className="inline-flex flex-col items-center">
 
-            <p className="text-slate-500 text-sm uppercase tracking-widest">
-              So what if
-            </p>
+          <p className="text-slate-500">
+            The missing layer is not another social network.
+          </p>
 
-            <h3 className="text-2xl md:text-4xl font-bold mt-4">
-              Organizations could discover
-              <span className="text-purple-400">
-                {" "}
-                existing solutions
-              </span>
-              ?
-            </h3>
+          <h3 className="text-2xl md:text-4xl font-bold mt-4">
+            It is a smarter way to
+            <span className="text-purple-400">
+              {" "}discover innovation.
+            </span>
+          </h3>
 
-            <div className="mt-6 text-purple-400 text-2xl animate-bounce">
-              ↓
-            </div>
+          <a
+            href="#solution"
+            className="inline-flex items-center gap-3 mt-8 px-7 py-3 rounded-xl bg-purple-600 hover:bg-purple-700 transition"
+          >
+            See the ScoutX Solution
+            <FaArrowRight />
+          </a>
 
-            <p className="text-purple-300 font-medium mt-3">
-              That's where ScoutX begins.
-            </p>
-
-          </div>
         </motion.div>
 
       </div>

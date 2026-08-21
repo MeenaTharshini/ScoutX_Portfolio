@@ -6,8 +6,12 @@ import {
   FaArrowRight,
   FaSearch,
   FaLightbulb,
-  FaBuilding,
+  FaGithub,
+  FaLinkedin,
   FaCode,
+  FaBuilding,
+  FaTrophy,
+  FaCheckCircle,
 } from "react-icons/fa";
 
 export default function Hero() {
@@ -17,13 +21,18 @@ export default function Hero() {
       className="relative min-h-screen overflow-hidden bg-slate-900 text-white flex items-center pt-28 md:pt-32 px-6"
     >
       {/* Background Glow */}
-      <div className="absolute top-20 left-[-120px] w-[400px] h-[400px] bg-purple-600/10 rounded-full blur-3xl" />
+      <div className="absolute top-10 left-[-150px] w-[450px] h-[450px] bg-purple-600/10 rounded-full blur-3xl" />
 
-      <div className="absolute bottom-0 right-[-100px] w-[450px] h-[450px] bg-violet-600/10 rounded-full blur-3xl" />
+      <div className="absolute bottom-[-100px] right-[-100px] w-[500px] h-[500px] bg-violet-600/10 rounded-full blur-3xl" />
+
+      <div className="absolute top-1/2 left-1/2 w-[700px] h-[700px] -translate-x-1/2 -translate-y-1/2 bg-purple-500/[0.025] rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
 
-        {/* Main Hero */}
+        {/* =====================================================
+            HERO CONTENT
+        ====================================================== */}
+
         <div className="text-center max-w-5xl mx-auto">
 
           {/* Badge */}
@@ -34,7 +43,8 @@ export default function Hero() {
             className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-sm mb-8"
           >
             <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
-            AI-Powered Innovation Discovery Platform
+
+            Innovation Discovery &amp; Talent Visibility Platform
           </motion.div>
 
           {/* Main Heading */}
@@ -44,14 +54,10 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[1.05] tracking-tight"
           >
-            Where
+            Innovation Exists.
 
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-violet-500 to-purple-600">
-              Problems Meet
-            </span>
-
-            <span className="block">
-              Prototypes.
+              Discovery Doesn't.
             </span>
           </motion.h1>
 
@@ -64,13 +70,16 @@ export default function Hero() {
           >
             <TypeAnimation
               sequence={[
-                "Discover innovations that solve real problems.",
+                "Discover what innovators have actually built.",
                 2500,
-                "Turn scattered prototypes into discoverable solutions.",
+
+                "Turn scattered projects into discoverable innovation.",
                 2500,
-                "Match real-world challenges with emerging innovators.",
+
+                "Evaluate talent through real project evidence.",
                 2500,
-                "Give promising ideas a path beyond the hackathon.",
+
+                "Connect promising innovators with organizations.",
                 2500,
               ]}
               speed={45}
@@ -78,25 +87,31 @@ export default function Hero() {
             />
           </motion.div>
 
-          {/* Description */}
+          {/* Correct Project Description */}
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7, duration: 0.8 }}
-            className="mt-8 text-slate-400 text-lg md:text-xl leading-8 max-w-3xl mx-auto"
+            className="mt-8 text-slate-400 text-lg md:text-xl leading-8 max-w-4xl mx-auto"
           >
-            ScoutX is an innovation discovery platform that connects
+            <span className="text-white font-semibold">ScoutX</span> is an
+            innovation discovery platform that brings together
             <span className="text-purple-400 font-medium">
               {" "}
-              real-world problems
+              student and early-stage innovators,
             </span>{" "}
-            with
+            their
             <span className="text-purple-400 font-medium">
               {" "}
-              existing student and early-stage prototypes
-            </span>
-            , helping organizations discover, evaluate, and collaborate
-            on solutions beyond traditional recruitment.
+              ideas, prototypes, builders, and evidence
+            </span>{" "}
+            in one structured profile — helping companies, hackathon
+            organizers, and incubators
+            <span className="text-purple-400 font-medium">
+              {" "}
+              discover, evaluate, and connect
+            </span>{" "}
+            with promising innovation.
           </motion.p>
 
           {/* CTA */}
@@ -111,6 +126,7 @@ export default function Hero() {
               className="group bg-purple-600 hover:bg-purple-700 px-7 py-4 rounded-xl flex items-center gap-3 transition-all duration-300 shadow-lg shadow-purple-600/20"
             >
               Explore ScoutX
+
               <FaArrowRight className="group-hover:translate-x-1 transition-transform" />
             </a>
 
@@ -118,153 +134,283 @@ export default function Hero() {
               href="#problem"
               className="px-7 py-4 rounded-xl border border-purple-500/30 hover:bg-purple-500/10 transition-all duration-300"
             >
-              See the Problem
+              See the Discovery Gap
             </a>
           </motion.div>
-
         </div>
 
-        {/* Core Concept */}
+        {/* =====================================================
+            DISCOVERY GAP VISUAL
+        ====================================================== */}
+
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 1.1, duration: 0.9 }}
           className="mt-20"
         >
+          <div className="max-w-6xl mx-auto">
 
-          <div className="max-w-5xl mx-auto">
+            {/* Scattered Sources */}
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
 
-            {/* Flow */}
-            <div className="grid md:grid-cols-5 gap-3 items-center">
-
-              {/* Problem */}
-              <div className="bg-[#151B2E] border border-slate-700 hover:border-purple-500/40 rounded-2xl p-5 transition">
-                <div className="w-11 h-11 rounded-xl bg-red-500/10 text-red-400 flex items-center justify-center mb-4 mx-auto">
-                  <FaBuilding />
+              {/* LinkedIn */}
+              <div className="bg-[#151B2E] border border-slate-700 hover:border-purple-500/40 rounded-2xl p-5 transition-all">
+                <div className="w-11 h-11 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-4 mx-auto">
+                  <FaLinkedin />
                 </div>
 
                 <h3 className="font-semibold text-center">
-                  Real Problems
+                  LinkedIn
                 </h3>
 
                 <p className="text-slate-500 text-xs text-center mt-2">
-                  Organizations post challenges
+                  Project posts &amp; achievements
                 </p>
               </div>
 
-              {/* Arrow */}
-              <div className="hidden md:flex justify-center text-purple-400 text-xl">
-                →
+              {/* GitHub */}
+              <div className="bg-[#151B2E] border border-slate-700 hover:border-purple-500/40 rounded-2xl p-5 transition-all">
+                <div className="w-11 h-11 rounded-xl bg-slate-700/30 text-slate-300 flex items-center justify-center mb-4 mx-auto">
+                  <FaGithub />
+                </div>
+
+                <h3 className="font-semibold text-center">
+                  GitHub
+                </h3>
+
+                <p className="text-slate-500 text-xs text-center mt-2">
+                  Code &amp; technical evidence
+                </p>
               </div>
 
-              {/* Matching */}
-              <div className="bg-purple-500/10 border border-purple-500/30 rounded-2xl p-5 shadow-lg shadow-purple-500/5">
-                <div className="w-11 h-11 rounded-xl bg-purple-500/20 text-purple-300 flex items-center justify-center mb-4 mx-auto">
+              {/* Hackathons */}
+              <div className="bg-[#151B2E] border border-slate-700 hover:border-purple-500/40 rounded-2xl p-5 transition-all">
+                <div className="w-11 h-11 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center mb-4 mx-auto">
+                  <FaTrophy />
+                </div>
+
+                <h3 className="font-semibold text-center">
+                  Hackathons
+                </h3>
+
+                <p className="text-slate-500 text-xs text-center mt-2">
+                  Prototypes &amp; achievements
+                </p>
+              </div>
+
+              {/* Portfolios */}
+              <div className="bg-[#151B2E] border border-slate-700 hover:border-purple-500/40 rounded-2xl p-5 transition-all">
+                <div className="w-11 h-11 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center mb-4 mx-auto">
+                  <FaCode />
+                </div>
+
+                <h3 className="font-semibold text-center">
+                  Portfolios
+                </h3>
+
+                <p className="text-slate-500 text-xs text-center mt-2">
+                  Personal projects &amp; work
+                </p>
+              </div>
+            </div>
+
+            {/* Down Arrow */}
+            <div className="flex justify-center my-5 text-purple-400 text-2xl">
+              ↓
+            </div>
+
+            {/* ScoutX */}
+            <motion.div
+              animate={{
+                boxShadow: [
+                  "0 0 20px rgba(168,85,247,0.05)",
+                  "0 0 45px rgba(168,85,247,0.18)",
+                  "0 0 20px rgba(168,85,247,0.05)",
+                ],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+              }}
+              className="max-w-3xl mx-auto bg-gradient-to-r from-purple-500/10 via-violet-500/10 to-purple-500/10 border border-purple-500/30 rounded-3xl p-7"
+            >
+              <div className="flex flex-col md:flex-row items-center justify-center gap-5">
+
+                <div className="w-14 h-14 rounded-2xl bg-purple-500/20 text-purple-300 flex items-center justify-center text-xl">
                   <FaSearch />
                 </div>
 
-                <h3 className="font-semibold text-center text-purple-300">
-                  ScoutX Engine
-                </h3>
+                <div className="text-center md:text-left">
+                  <h3 className="text-lg font-semibold text-purple-300">
+                    ScoutX Innovation Discovery Engine
+                  </h3>
 
-                <p className="text-slate-400 text-xs text-center mt-2">
-                  Finds relevant innovations
-                </p>
+                  <p className="text-slate-400 text-sm mt-1">
+                    Collects scattered innovation evidence into one
+                    discoverable profile.
+                  </p>
+                </div>
+
               </div>
+            </motion.div>
 
-              {/* Arrow */}
-              <div className="hidden md:flex justify-center text-purple-400 text-xl">
-                →
-              </div>
+            {/* Down Arrow */}
+            <div className="flex justify-center my-5 text-purple-400 text-2xl">
+              ↓
+            </div>
 
-              {/* Innovation */}
-              <div className="bg-[#151B2E] border border-slate-700 hover:border-purple-500/40 rounded-2xl p-5 transition">
-                <div className="w-11 h-11 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center mb-4 mx-auto">
+            {/* Structured Innovation Profile */}
+            <div className="max-w-4xl mx-auto grid md:grid-cols-4 gap-3">
+
+              {/* Idea */}
+              <div className="bg-[#151B2E] border border-purple-500/20 rounded-2xl p-5">
+                <div className="w-10 h-10 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center mb-4 mx-auto">
                   <FaLightbulb />
                 </div>
 
                 <h3 className="font-semibold text-center">
-                  Prototypes
+                  Idea
                 </h3>
 
                 <p className="text-slate-500 text-xs text-center mt-2">
-                  Existing ideas & solutions
+                  Problem &amp; concept
+                </p>
+              </div>
+
+              {/* Prototype */}
+              <div className="bg-[#151B2E] border border-purple-500/20 rounded-2xl p-5">
+                <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center mb-4 mx-auto">
+                  <FaCode />
+                </div>
+
+                <h3 className="font-semibold text-center">
+                  Prototype
+                </h3>
+
+                <p className="text-slate-500 text-xs text-center mt-2">
+                  What was built
+                </p>
+              </div>
+
+              {/* Builder */}
+              <div className="bg-[#151B2E] border border-purple-500/20 rounded-2xl p-5">
+                <div className="w-10 h-10 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center mb-4 mx-auto">
+                  <FaCheckCircle />
+                </div>
+
+                <h3 className="font-semibold text-center">
+                  Builder
+                </h3>
+
+                <p className="text-slate-500 text-xs text-center mt-2">
+                  Who built it
+                </p>
+              </div>
+
+              {/* Evidence */}
+              <div className="bg-[#151B2E] border border-purple-500/20 rounded-2xl p-5">
+                <div className="w-10 h-10 rounded-xl bg-orange-500/10 text-orange-400 flex items-center justify-center mb-4 mx-auto">
+                  <FaTrophy />
+                </div>
+
+                <h3 className="font-semibold text-center">
+                  Evidence
+                </h3>
+
+                <p className="text-slate-500 text-xs text-center mt-2">
+                  Proof &amp; achievements
                 </p>
               </div>
 
             </div>
 
-            {/* Bottom connection */}
-            <div className="flex justify-center my-4 text-purple-400 text-xl">
+            {/* Bottom Connection */}
+            <div className="flex justify-center my-5 text-purple-400 text-2xl">
               ↓
             </div>
 
-            <div className="max-w-xl mx-auto bg-[#151B2E] border border-purple-500/20 rounded-2xl p-5">
+            {/* Evaluation + Matching */}
+            <div className="max-w-3xl mx-auto bg-[#151B2E] border border-purple-500/20 rounded-2xl p-6">
 
-              <div className="flex flex-col md:flex-row items-center justify-center gap-4">
+              <div className="flex flex-col md:flex-row items-center justify-center gap-6">
 
-                <div className="w-11 h-11 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center">
-                  <FaCode />
-                </div>
-
-                <div className="text-center md:text-left">
-                  <h3 className="font-semibold">
-                    Builder + Evidence
-                  </h3>
-
-                  <p className="text-slate-500 text-sm mt-1">
-                    Prototype • Technology • Impact • Validation
-                  </p>
-                </div>
-
-                <div className="hidden md:block text-purple-400 text-xl">
-                  →
-                </div>
-
+                {/* Innovation Score */}
                 <div className="text-center">
-                  <span className="text-purple-400 font-semibold">
-                    Opportunity
-                  </span>
+                  <div className="text-purple-400 text-2xl font-bold">
+                    87
+                  </div>
 
-                  <p className="text-slate-500 text-xs mt-1">
-                    Pilot • Collaboration • Incubation
-                  </p>
+                  <span className="text-xs text-slate-400">
+                    Innovation Score
+                  </span>
+                </div>
+
+                <div className="hidden md:block h-10 w-px bg-slate-700" />
+
+                {/* Matching */}
+                <div className="text-center">
+                  <div className="text-cyan-400 text-2xl font-bold">
+                    Smart Match
+                  </div>
+
+                  <span className="text-xs text-slate-400">
+                    Relevant organizations &amp; opportunities
+                  </span>
                 </div>
 
               </div>
-
             </div>
+
+            {/* Final Flow */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.5 }}
+              className="mt-8 text-center"
+            >
+              <p className="text-slate-500 text-sm tracking-wide">
+
+                <span className="text-purple-400">
+                  Discover
+                </span>
+
+                {" → "}
+
+                <span className="text-purple-400">
+                  Evaluate
+                </span>
+
+                {" → "}
+
+                <span className="text-purple-400">
+                  Connect
+                </span>
+
+              </p>
+            </motion.div>
 
           </div>
         </motion.div>
 
-        {/* Bottom tagline */}
+        {/* =====================================================
+            CORE PROBLEM STATEMENT
+        ====================================================== */}
+
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 1.5, duration: 1 }}
-          className="text-center mt-12"
+          transition={{ delay: 1.7, duration: 1 }}
+          className="max-w-4xl mx-auto mt-16 text-center"
         >
-          <p className="text-slate-500 text-sm tracking-wide">
-            <span className="text-purple-400">
-              Build
-            </span>
-            {" → "}
-            <span className="text-purple-400">
-              Prove
-            </span>
-            {" → "}
-            <span className="text-purple-400">
-              Discover
-            </span>
-            {" → "}
-            <span className="text-purple-400">
-              Match
-            </span>
-            {" → "}
-            <span className="text-purple-400">
-              Impact
-            </span>
+          <p className="text-slate-500 text-sm leading-7">
+            The problem is not a lack of innovation;
+            <span className="text-slate-300">
+              {" "}
+              it is the lack of an efficient way to discover,
+              evaluate, and connect innovators
+            </span>{" "}
+            with the organizations that need them.
           </p>
         </motion.div>
 

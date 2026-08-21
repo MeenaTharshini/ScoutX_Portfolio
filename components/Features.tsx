@@ -2,124 +2,182 @@
 
 import { motion } from "framer-motion";
 import {
-  FaIdCard,
-  FaBullseye,
-  FaProjectDiagram,
-  FaChartLine,
-  FaShieldAlt,
-  FaSearch,
-  FaHandshake,
-  FaRocket,
-  FaGithub,
-  FaExternalLinkAlt,
+  FaUserCircle,
+  FaLightbulb,
+  FaCode,
   FaCheckCircle,
+  FaChartLine,
+  FaSearch,
+  FaBuilding,
+  FaHandshake,
+  FaGithub,
+  FaTrophy,
+  FaExternalLinkAlt,
   FaArrowRight,
+  FaStar,
+  FaRocket,
+  FaUsers,
+  FaBullseye,
 } from "react-icons/fa";
 
 const features = [
   {
-    icon: FaIdCard,
+    icon: FaUserCircle,
     number: "01",
-    title: "Innovation Passport",
+    title: "Structured Innovation Profiles",
     description:
-      "A structured identity for what an innovator has actually built — beyond a traditional resume.",
+      "A profile designed around what an innovator has actually built, demonstrated, and achieved.",
     points: [
-      "Problem solved",
-      "Technology used",
-      "Prototype stage",
-      "Impact and applications",
+      "Builder identity",
+      "Skills & technologies",
+      "Projects & achievements",
+      "Innovation interests",
     ],
   },
   {
-    icon: FaBullseye,
+    icon: FaLightbulb,
     number: "02",
-    title: "Problem Board",
+    title: "Project & Prototype Showcase",
     description:
-      "Organizations can publish real-world challenges and describe the capabilities or solutions they are looking for.",
+      "Turn projects into structured innovation records that clearly explain the problem, solution, technology, and development stage.",
     points: [
-      "Real-world challenges",
-      "Domain requirements",
-      "Technical requirements",
-      "Expected outcomes",
+      "Problem addressed",
+      "Solution overview",
+      "Prototype stage",
+      "Potential applications",
     ],
   },
   {
-    icon: FaProjectDiagram,
+    icon: FaCheckCircle,
     number: "03",
-    title: "Problem ↔ Innovation Matching",
+    title: "Evidence Layer",
     description:
-      "ScoutX connects organizational problems with relevant existing prototypes and capabilities.",
+      "Move beyond claims by connecting innovation profiles with evidence from the actual work.",
     points: [
-      "Technology matching",
-      "Domain relevance",
-      "Capability matching",
-      "Potential use cases",
+      "GitHub repositories",
+      "Live demonstrations",
+      "Documentation",
+      "Awards & achievements",
     ],
   },
   {
     icon: FaChartLine,
     number: "04",
-    title: "Innovation Readiness",
+    title: "Innovation Evaluation",
     description:
-      "A structured view of how mature and usable an innovation is, from concept to validated prototype.",
+      "Provide structured signals that help organizations understand the strength, maturity, and potential of an innovation.",
     points: [
-      "Development stage",
-      "Prototype status",
-      "Validation signals",
-      "Deployment potential",
-    ],
-  },
-  {
-    icon: FaShieldAlt,
-    number: "05",
-    title: "Evidence-Based Profiles",
-    description:
-      "Projects are supported by evidence so organizations can evaluate what has actually been built.",
-    points: [
-      "GitHub repositories",
-      "Live demonstrations",
-      "Documentation",
-      "Project outcomes",
+      "Build quality",
+      "Evidence strength",
+      "Impact potential",
+      "Development maturity",
     ],
   },
   {
     icon: FaSearch,
-    number: "06",
+    number: "05",
     title: "Innovation Discovery",
     description:
-      "Search beyond resumes and job titles to discover people based on the solutions they have created.",
+      "Discover innovators based on what they have built, the technologies they use, and the problems they solve.",
     points: [
-      "Search by technology",
-      "Search by domain",
-      "Search by problem",
-      "Search by prototype stage",
+      "Technology",
+      "Domain",
+      "Project type",
+      "Prototype stage",
+    ],
+  },
+  {
+    icon: FaStar,
+    number: "06",
+    title: "Relevant Matching",
+    description:
+      "Connect organizational needs with relevant capabilities, technologies, domains, and existing innovations.",
+    points: [
+      "Technology relevance",
+      "Domain relevance",
+      "Capability alignment",
+      "Potential applications",
+    ],
+  },
+  {
+    icon: FaBuilding,
+    number: "07",
+    title: "Organization Discovery",
+    description:
+      "Give companies, incubators, and innovation ecosystems a structured way to discover promising builders and prototypes.",
+    points: [
+      "Discover talent",
+      "Find prototypes",
+      "Explore innovation",
+      "Evaluate evidence",
     ],
   },
   {
     icon: FaHandshake,
-    number: "07",
-    title: "Opportunity Matching",
+    number: "08",
+    title: "Opportunity & Connection",
     description:
-      "Relevant innovators can be connected to internships, pilots, collaborations, incubation, and other opportunities.",
+      "Turn discovery into meaningful next steps such as collaboration, internships, pilots, mentorship, and incubation.",
     points: [
       "Internships",
-      "Pilot projects",
       "Collaborations",
-      "Incubation opportunities",
+      "Pilot opportunities",
+      "Incubation",
     ],
   },
+];
+
+const differences = [
   {
-    icon: FaRocket,
-    number: "08",
-    title: "Innovation Growth Pipeline",
+    icon: FaUsers,
+    title: "People-first platforms",
+    traditional: "Focus on resumes, job titles, profiles and connections.",
+    scoutx: "Focuses on what people have actually built and demonstrated.",
+  },
+  {
+    icon: FaCode,
+    title: "Project repositories",
+    traditional: "Show technical work, but often lack the complete context around the builder and opportunity.",
+    scoutx: "Connects the project, builder, evidence, capabilities and potential applications.",
+  },
+  {
+    icon: FaBuilding,
+    title: "Job platforms",
+    traditional: "Organizations primarily search for candidates against predefined roles.",
+    scoutx: "Organizations can discover existing innovations and capabilities before defining the opportunity.",
+  },
+  {
+    icon: FaSearch,
+    title: "Innovation discovery",
+    traditional: "Finding promising projects often requires searching across multiple disconnected sources.",
+    scoutx: "Creates one structured discovery layer for projects, prototypes, builders and evidence.",
+  },
+];
+
+const advantages = [
+  {
+    icon: FaBullseye,
+    title: "Evidence over claims",
     description:
-      "Help promising projects move from a college prototype toward real-world validation and adoption.",
-    points: [
-      "Discover",
-      "Evaluate",
-      "Connect",
-      "Collaborate",
-    ],
+      "Organizations can understand what has actually been built instead of relying only on resumes or self-described skills.",
+  },
+  {
+    icon: FaCode,
+    title: "Prototype visibility",
+    description:
+      "Promising prototypes can remain discoverable even after a hackathon, academic project, or competition ends.",
+  },
+  {
+    icon: FaSearch,
+    title: "Faster discovery",
+    description:
+      "Relevant innovators and projects can be discovered through technologies, domains, problems, and capabilities.",
+  },
+  {
+    icon: FaHandshake,
+    title: "More paths to opportunity",
+    description:
+      "A project can lead to collaboration, internships, pilots, incubation, mentorship, or other opportunities.",
   },
 ];
 
@@ -127,15 +185,20 @@ export default function Features() {
   return (
     <section
       id="features"
-      className="relative bg-slate-900 text-white py-24 px-6 overflow-hidden"
+      className="relative bg-slate-900 text-white py-24 md:py-32 px-6 overflow-hidden"
     >
-      {/* Background decoration */}
+      {/* Background */}
+
       <div className="absolute top-20 right-[-200px] w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-3xl" />
+
       <div className="absolute bottom-20 left-[-200px] w-[500px] h-[500px] bg-violet-600/5 rounded-full blur-3xl" />
 
       <div className="max-w-7xl mx-auto relative z-10">
 
-        {/* Header */}
+        {/* =====================================================
+            HEADER
+        ====================================================== */}
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -148,25 +211,25 @@ export default function Features() {
           </p>
 
           <h2 className="text-4xl md:text-6xl font-bold mt-4 leading-tight">
-            Built around
+            Everything needed to make
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-600">
-              innovation discovery
+              innovation discoverable.
             </span>
           </h2>
 
           <p className="text-slate-400 text-lg md:text-xl leading-8 mt-6 max-w-3xl mx-auto">
-            ScoutX focuses on the things that traditional professional
-            networks don't prioritize:
+            ScoutX connects the complete innovation story —
             <span className="text-purple-400 font-medium">
-              {" "}
-              problems, prototypes, evidence, readiness, and potential impact.
+              {" "}builder, idea, prototype, evidence, evaluation, and opportunity.
             </span>
           </p>
         </motion.div>
 
-        {/* Feature Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-16">
+        {/* =====================================================
+            FEATURE GRID
+        ====================================================== */}
 
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-16">
           {features.map((feature, index) => {
             const Icon = feature.icon;
 
@@ -178,14 +241,11 @@ export default function Features() {
                 viewport={{ once: true }}
                 transition={{
                   duration: 0.6,
-                  delay: index * 0.07,
+                  delay: index * 0.06,
                 }}
                 className="group bg-[#151B2E] border border-slate-800 hover:border-purple-500/30 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
               >
-
-                {/* Icon + Number */}
                 <div className="flex items-center justify-between">
-
                   <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/10 text-purple-400 flex items-center justify-center text-lg group-hover:bg-purple-500/20 transition">
                     <Icon />
                   </div>
@@ -193,22 +253,17 @@ export default function Features() {
                   <span className="text-slate-700 text-lg font-bold">
                     {feature.number}
                   </span>
-
                 </div>
 
-                {/* Title */}
                 <h3 className="text-xl font-bold mt-6">
                   {feature.title}
                 </h3>
 
-                {/* Description */}
                 <p className="text-slate-500 text-sm leading-6 mt-3">
                   {feature.description}
                 </p>
 
-                {/* Points */}
                 <div className="mt-5 space-y-2">
-
                   {feature.points.map((point) => (
                     <div
                       key={point}
@@ -221,16 +276,191 @@ export default function Features() {
                       </span>
                     </div>
                   ))}
-
                 </div>
-
               </motion.div>
             );
           })}
-
         </div>
 
-        {/* Feature Spotlight */}
+        {/* =====================================================
+            WHY SCOUTX IS DIFFERENT
+        ====================================================== */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 35 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="mt-28"
+        >
+          <div className="text-center max-w-3xl mx-auto">
+            <p className="text-purple-400 uppercase tracking-widest text-sm font-semibold">
+              Why ScoutX?
+            </p>
+
+            <h3 className="text-3xl md:text-5xl font-bold mt-4">
+              Not another resume platform.
+              <span className="block text-purple-400">
+                Not just another project showcase.
+              </span>
+            </h3>
+
+            <p className="text-slate-400 text-lg leading-8 mt-6">
+              ScoutX creates a connection between the person, the problem,
+              the prototype, the evidence, and the organization looking for
+              relevant innovation.
+            </p>
+          </div>
+
+          {/* Comparison */}
+
+          <div className="grid lg:grid-cols-2 gap-6 mt-12 max-w-5xl mx-auto">
+
+            {/* Traditional */}
+
+            <div className="bg-[#111827] border border-slate-800 rounded-3xl p-8">
+              <div className="flex items-center gap-3">
+                <div className="w-11 h-11 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400">
+                  <FaUsers />
+                </div>
+
+                <div>
+                  <p className="text-xs text-slate-500 uppercase tracking-widest">
+                    Traditional Platforms
+                  </p>
+
+                  <h4 className="text-xl font-bold mt-1">
+                    Search around people
+                  </h4>
+                </div>
+              </div>
+
+              <div className="mt-7 space-y-4">
+                {[
+                  "Resume → Skills",
+                  "Profile → Job",
+                  "Application → Selection",
+                  "Project → Separate repository",
+                  "Evidence → Scattered across platforms",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-3 text-slate-500"
+                  >
+                    <span className="text-slate-700 text-lg">
+                      ×
+                    </span>
+
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* ScoutX */}
+
+            <div className="bg-purple-500/5 border border-purple-500/20 rounded-3xl p-8">
+              <div className="flex items-center gap-3">
+                <div className="w-11 h-11 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400">
+                  <FaRocket />
+                </div>
+
+                <div>
+                  <p className="text-purple-400 text-xs uppercase tracking-widest">
+                    ScoutX
+                  </p>
+
+                  <h4 className="text-xl font-bold mt-1">
+                    Search around innovation
+                  </h4>
+                </div>
+              </div>
+
+              <div className="mt-7 space-y-4">
+                {[
+                  "Problem → Innovation",
+                  "Project → Prototype",
+                  "Builder → Capability",
+                  "Prototype → Evidence",
+                  "Innovation → Opportunity",
+                ].map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-center gap-3 text-slate-300"
+                  >
+                    <FaCheckCircle className="text-purple-400 shrink-0" />
+
+                    <span>{item}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+        </motion.div>
+
+        {/* =====================================================
+            ADVANTAGES
+        ====================================================== */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-24"
+        >
+          <div className="text-center max-w-3xl mx-auto">
+            <p className="text-purple-400 uppercase tracking-widest text-sm font-semibold">
+              The ScoutX Advantage
+            </p>
+
+            <h3 className="text-3xl md:text-5xl font-bold mt-4">
+              Why this approach matters
+            </h3>
+
+            <p className="text-slate-500 mt-5 text-lg">
+              ScoutX is designed to reduce the gap between building something
+              valuable and getting it discovered by the right people.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
+            {advantages.map((advantage, index) => {
+              const Icon = advantage.icon;
+
+              return (
+                <motion.div
+                  key={advantage.title}
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{
+                    delay: index * 0.08,
+                    duration: 0.6,
+                  }}
+                  className="bg-[#151B2E] border border-slate-800 hover:border-purple-500/30 rounded-2xl p-7 transition-all hover:-translate-y-1"
+                >
+                  <div className="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
+                    <Icon />
+                  </div>
+
+                  <h4 className="text-lg font-bold mt-5">
+                    {advantage.title}
+                  </h4>
+
+                  <p className="text-slate-500 text-sm leading-6 mt-3">
+                    {advantage.description}
+                  </p>
+                </motion.div>
+              );
+            })}
+          </div>
+        </motion.div>
+
+        {/* =====================================================
+            FEATURE SPOTLIGHT
+        ====================================================== */}
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -238,12 +468,11 @@ export default function Features() {
           transition={{ duration: 0.8 }}
           className="mt-24"
         >
-
           <div className="grid lg:grid-cols-2 gap-10 items-center bg-[#151B2E] border border-purple-500/10 rounded-3xl p-8 md:p-12">
 
-            {/* Left */}
-            <div>
+            {/* LEFT */}
 
+            <div>
               <p className="text-purple-400 uppercase tracking-widest text-sm font-semibold">
                 Core Product
               </p>
@@ -251,27 +480,27 @@ export default function Features() {
               <h3 className="text-3xl md:text-5xl font-bold mt-4 leading-tight">
                 Don't just say
                 <span className="text-purple-400">
-                  {" "}
-                  "I can build."
+                  {" "}“I can build.”
                 </span>
+
                 <br />
+
                 Show what you built.
               </h3>
 
               <p className="text-slate-400 text-lg leading-8 mt-6">
-                ScoutX transforms a conventional profile into an
-                evidence-backed Innovation Passport that helps organizations
-                understand the actual capability behind a project.
+                ScoutX shifts the focus from claims to evidence. Every
+                innovation can communicate what was built, how it works,
+                who built it, and what supports its progress.
               </p>
 
               <div className="space-y-4 mt-8">
-
                 {[
-                  "What problem was solved?",
-                  "What technology was used?",
-                  "How far has the prototype progressed?",
-                  "What evidence supports the work?",
-                  "Where could the solution be applied?",
+                  "What problem does the project address?",
+                  "What has actually been built?",
+                  "Which technologies were used?",
+                  "What evidence supports the project?",
+                  "What impact or applications are possible?",
                 ].map((question) => (
                   <div
                     key={question}
@@ -284,25 +513,22 @@ export default function Features() {
                     </span>
                   </div>
                 ))}
-
               </div>
-
             </div>
 
-            {/* Innovation Passport Preview */}
-            <div className="relative">
+            {/* RIGHT */}
 
-              {/* Glow */}
+            <div className="relative">
               <div className="absolute inset-0 bg-purple-500/10 blur-3xl rounded-full" />
 
               <div className="relative bg-slate-900 border border-slate-700 rounded-3xl p-6 shadow-2xl">
 
                 {/* Header */}
-                <div className="flex items-center justify-between">
 
+                <div className="flex items-center justify-between">
                   <div>
                     <p className="text-slate-500 text-xs uppercase tracking-widest">
-                      Innovation Passport
+                      Innovation Profile
                     </p>
 
                     <h4 className="text-2xl font-bold mt-2">
@@ -311,16 +537,15 @@ export default function Features() {
                   </div>
 
                   <div className="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
-                    <FaRocket />
+                    <FaLightbulb />
                   </div>
-
                 </div>
 
                 {/* Builder */}
-                <div className="mt-6 flex items-center gap-3">
 
+                <div className="mt-6 flex items-center gap-3">
                   <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-300 font-bold">
-                    A
+                    S
                   </div>
 
                   <div>
@@ -332,25 +557,24 @@ export default function Features() {
                       AI • Healthcare • Full Stack
                     </p>
                   </div>
-
                 </div>
 
-                {/* Problem */}
-                <div className="mt-6 p-4 rounded-xl bg-slate-800/60">
+                {/* Project */}
 
+                <div className="mt-6 p-4 rounded-xl bg-slate-800/60">
                   <p className="text-xs text-slate-500 uppercase tracking-widest">
-                    Problem Solved
+                    Prototype
                   </p>
 
                   <p className="text-sm text-slate-300 mt-2 leading-6">
-                    Helps patients navigate healthcare information and
-                    appointment workflows through an AI-assisted interface.
+                    AI-assisted healthcare information and appointment
+                    support prototype.
                   </p>
-
                 </div>
 
                 {/* Evidence */}
-                <div className="grid grid-cols-2 gap-3 mt-4">
+
+                <div className="grid grid-cols-3 gap-3 mt-4">
 
                   <div className="p-4 rounded-xl bg-slate-800/60">
                     <FaGithub className="text-slate-300" />
@@ -360,7 +584,7 @@ export default function Features() {
                     </p>
 
                     <p className="text-xs text-green-400 mt-1">
-                      Verified
+                      Available
                     </p>
                   </div>
 
@@ -376,21 +600,32 @@ export default function Features() {
                     </p>
                   </div>
 
+                  <div className="p-4 rounded-xl bg-slate-800/60">
+                    <FaTrophy className="text-yellow-400" />
+
+                    <p className="text-xs text-slate-400 mt-3">
+                      Achievement
+                    </p>
+
+                    <p className="text-xs text-green-400 mt-1">
+                      Verified
+                    </p>
+                  </div>
+
                 </div>
 
-                {/* Readiness */}
+                {/* Score */}
+
                 <div className="mt-4 p-4 rounded-xl bg-purple-500/5 border border-purple-500/10">
 
                   <div className="flex justify-between items-center">
-
                     <span className="text-xs text-slate-400">
-                      Innovation Readiness
+                      Innovation Score
                     </span>
 
                     <span className="text-purple-400 font-bold">
-                      87%
+                      87 / 100
                     </span>
-
                   </div>
 
                   <div className="h-2 bg-slate-800 rounded-full mt-3 overflow-hidden">
@@ -400,21 +635,20 @@ export default function Features() {
                 </div>
 
               </div>
-
             </div>
-
           </div>
-
         </motion.div>
 
-        {/* Matching Feature */}
+        {/* =====================================================
+            INTELLIGENT DISCOVERY
+        ====================================================== */}
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-20"
+          className="mt-24"
         >
-
           <div className="text-center">
 
             <p className="text-purple-400 uppercase tracking-widest text-sm font-semibold">
@@ -422,134 +656,225 @@ export default function Features() {
             </p>
 
             <h3 className="text-3xl md:text-5xl font-bold mt-4">
-              From searching people
-              <span className="text-slate-500">
-                {" "}
-                to discovering solutions.
+              Search for
+              <span className="text-purple-400">
+                {" "}what people have built.
               </span>
             </h3>
 
+            <p className="text-slate-500 max-w-2xl mx-auto mt-4">
+              Organizations can discover innovators and projects using
+              meaningful innovation signals instead of relying only on
+              conventional resumes.
+            </p>
           </div>
 
-          {/* Matching visualization */}
-          <div className="max-w-5xl mx-auto mt-12 grid md:grid-cols-3 items-center gap-5">
+          <div className="max-w-4xl mx-auto mt-10 bg-[#151B2E] border border-slate-700 rounded-3xl p-7">
 
-            {/* Problem */}
-            <div className="bg-[#151B2E] border border-blue-500/10 rounded-2xl p-6">
+            <div className="flex items-center gap-3 bg-slate-900 border border-slate-700 rounded-xl px-5 py-4">
+              <FaSearch className="text-purple-400" />
 
-              <p className="text-blue-400 text-xs uppercase tracking-widest">
-                Organization Problem
-              </p>
-
-              <h4 className="text-xl font-bold mt-4">
-                Smart Agriculture
-              </h4>
-
-              <p className="text-slate-500 text-sm leading-6 mt-3">
-                Need a low-cost system for detecting crop diseases using
-                computer vision.
-              </p>
-
-              <div className="flex flex-wrap gap-2 mt-5">
-
-                {["AI", "Computer Vision", "Agriculture"].map((tag) => (
-                  <span
-                    key={tag}
-                    className="px-2 py-1 rounded-lg bg-blue-500/10 text-blue-300 text-xs"
-                  >
-                    {tag}
-                  </span>
-                ))}
-
-              </div>
-
+              <span className="text-slate-500">
+                Search innovations by technology, domain, problem...
+              </span>
             </div>
 
-            {/* Matching */}
-            <div className="text-center">
-
-              <div className="w-20 h-20 mx-auto rounded-full bg-purple-500/10 border border-purple-500/30 text-purple-400 flex items-center justify-center text-2xl">
-                <FaProjectDiagram />
-              </div>
-
-              <h4 className="font-bold text-purple-300 mt-5">
-                ScoutX Match
-              </h4>
-
-              <p className="text-slate-500 text-sm mt-2">
-                Problem ↔ Prototype
-              </p>
-
-              <div className="flex justify-center items-center gap-2 mt-5 text-purple-400">
-                <span>←</span>
-                <span className="text-xs">
-                  Relevant capability
+            <div className="flex flex-wrap gap-3 mt-5">
+              {[
+                "Artificial Intelligence",
+                "Healthcare",
+                "IoT",
+                "Computer Vision",
+                "Sustainability",
+                "Robotics",
+              ].map((tag) => (
+                <span
+                  key={tag}
+                  className="px-3 py-2 rounded-xl bg-purple-500/10 border border-purple-500/10 text-purple-300 text-xs"
+                >
+                  {tag}
                 </span>
-                <span>→</span>
-              </div>
-
+              ))}
             </div>
-
-            {/* Innovation */}
-            <div className="bg-[#151B2E] border border-purple-500/10 rounded-2xl p-6">
-
-              <p className="text-purple-400 text-xs uppercase tracking-widest">
-                Matching Innovation
-              </p>
-
-              <h4 className="text-xl font-bold mt-4">
-                CropVision AI
-              </h4>
-
-              <p className="text-slate-500 text-sm leading-6 mt-3">
-                Existing student prototype that identifies crop diseases
-                using image classification.
-              </p>
-
-              <div className="flex items-center justify-between mt-5">
-
-                <div className="flex flex-wrap gap-2">
-
-                  {["AI", "CV", "Agriculture"].map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 rounded-lg bg-purple-500/10 text-purple-300 text-xs"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-
-                </div>
-
-                <span className="text-green-400 text-sm font-bold">
-                  91%
-                </span>
-
-              </div>
-
-            </div>
-
           </div>
-
         </motion.div>
 
-        {/* Final CTA */}
+        {/* =====================================================
+            SCOUTX DIFFERENTIATOR
+        ====================================================== */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-24"
+        >
+          <div className="relative overflow-hidden bg-gradient-to-br from-purple-500/10 via-[#151B2E] to-cyan-500/5 border border-purple-500/20 rounded-3xl p-8 md:p-12">
+
+            <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl" />
+
+            <div className="relative text-center max-w-4xl mx-auto">
+
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs uppercase tracking-widest">
+                <FaStar />
+                ScoutX Differentiator
+              </div>
+
+              <h3 className="text-3xl md:text-5xl font-bold mt-6">
+                From
+                <span className="text-slate-500">
+                  {" "}“Who are you?”
+                </span>
+
+                <br />
+
+                to
+                <span className="text-purple-400">
+                  {" "}“What have you built?”
+                </span>
+              </h3>
+
+              <p className="text-slate-400 text-lg leading-8 mt-6">
+                ScoutX changes the discovery model from searching only for
+                people and credentials to discovering the innovations,
+                capabilities, evidence, and opportunities behind them.
+              </p>
+
+              <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mt-10">
+
+                <div className="px-6 py-4 rounded-2xl bg-slate-900/70 border border-slate-800">
+                  <p className="text-xs text-slate-500 uppercase tracking-widest">
+                    Traditional
+                  </p>
+
+                  <p className="font-semibold mt-2">
+                    Resume → Job
+                  </p>
+                </div>
+
+                <FaArrowRight className="text-purple-400 hidden md:block" />
+
+                <div className="px-6 py-4 rounded-2xl bg-purple-500/10 border border-purple-500/20">
+                  <p className="text-xs text-purple-400 uppercase tracking-widest">
+                    ScoutX
+                  </p>
+
+                  <p className="font-semibold mt-2">
+                    Innovation → Opportunity
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+          </div>
+        </motion.div>
+
+        {/* =====================================================
+            FINAL FLOW
+        ====================================================== */}
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="mt-24"
+        >
+          <div className="bg-gradient-to-r from-purple-500/10 via-violet-500/10 to-cyan-500/10 border border-purple-500/20 rounded-3xl p-8 md:p-10 text-center">
+
+            <p className="text-purple-400 uppercase tracking-widest text-xs font-semibold">
+              ScoutX Discovery Flow
+            </p>
+
+            <div className="flex flex-col md:flex-row items-center justify-center gap-5 md:gap-8 mt-7">
+
+              <div>
+                <div className="text-lg font-semibold">
+                  Build
+                </div>
+
+                <p className="text-xs text-slate-500 mt-1">
+                  Create innovation
+                </p>
+              </div>
+
+              <FaArrowRight className="text-purple-400 hidden md:block" />
+
+              <div>
+                <div className="text-lg font-semibold">
+                  Prove
+                </div>
+
+                <p className="text-xs text-slate-500 mt-1">
+                  Show evidence
+                </p>
+              </div>
+
+              <FaArrowRight className="text-purple-400 hidden md:block" />
+
+              <div>
+                <div className="text-lg font-semibold">
+                  Discover
+                </div>
+
+                <p className="text-xs text-slate-500 mt-1">
+                  Find relevance
+                </p>
+              </div>
+
+              <FaArrowRight className="text-purple-400 hidden md:block" />
+
+              <div>
+                <div className="text-lg font-semibold">
+                  Match
+                </div>
+
+                <p className="text-xs text-slate-500 mt-1">
+                  Identify opportunity
+                </p>
+              </div>
+
+              <FaArrowRight className="text-purple-400 hidden md:block" />
+
+              <div>
+                <div className="text-lg font-semibold text-cyan-400">
+                  Connect
+                </div>
+
+                <p className="text-xs text-slate-500 mt-1">
+                  Create collaboration
+                </p>
+              </div>
+
+            </div>
+
+            <p className="text-slate-400 text-sm mt-7 max-w-2xl mx-auto">
+              ScoutX turns scattered projects into structured,
+              discoverable innovation and creates a path from building
+              to real-world opportunity.
+            </p>
+
+          </div>
+        </motion.div>
+
+        {/* =====================================================
+            CTA
+        ====================================================== */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mt-24"
+          className="text-center mt-20"
         >
-
           <p className="text-slate-500">
-            Every feature serves one purpose.
+            The goal is simple.
           </p>
 
           <h3 className="text-2xl md:text-4xl font-bold mt-3">
             Make valuable innovation
             <span className="text-purple-400">
-              {" "}
-              discoverable.
+              {" "}discoverable.
             </span>
           </h3>
 
@@ -560,7 +885,6 @@ export default function Features() {
             Explore the Ecosystem
             <FaArrowRight />
           </a>
-
         </motion.div>
 
       </div>
