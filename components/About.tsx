@@ -1,178 +1,177 @@
 "use client";
 
+import { motion } from "framer-motion";
 import {
-  FaLightbulb,
-  FaRobot,
-  FaBuilding,
   FaUsers,
-  FaCode,
-  FaBullseye,
-  FaHandshake,
+  FaBuilding,
+  FaLightbulb,
+  FaSearch,
+  FaArrowRight,
 } from "react-icons/fa";
-
-const flow = [
-  [FaLightbulb, "Build", "Idea, project or prototype"],
-  [FaRobot, "Evaluate", "AI analyzes the innovation"],
-  [FaBullseye, "Match", "Find relevant opportunities"],
-  [FaHandshake, "Connect", "Innovators ↔ Organizations"],
-] as const;
-
-const innovators = [
-  [FaLightbulb, "Showcase", "Share ideas, projects and prototypes."],
-  [FaCode, "Evidence", "Connect demos, GitHub and technical work."],
-  [FaRobot, "Evaluate", "AI provides value and feasibility insights."],
-] as const;
-
-const organizations = [
-  [FaBuilding, "Define Need", "Describe a problem, domain or technology."],
-  [FaRobot, "Discover", "AI identifies relevant innovations."],
-  [FaHandshake, "Connect", "Engage with promising builders."],
-] as const;
 
 export default function About() {
   return (
     <section
       id="about"
-      className="relative overflow-hidden bg-[#0B0B09] px-6 py-20 text-[#F7F2E8] md:py-28"
+      className="relative overflow-hidden bg-[#0B0B09] px-6 py-16 text-[#F7F2E8] md:py-20"
     >
-      {/* Background */}
-      <div className="pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full bg-[#D4AF37]/[0.07] blur-[120px]" />
-      <div className="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-[#D4AF37]/[0.05] blur-[120px]" />
+      {/* Subtle background glow */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -left-40 -top-40 h-80 w-80 rounded-full bg-[#D4AF37]/[0.05] blur-[110px]"
+      />
 
-      <div className="relative z-10 mx-auto max-w-7xl">
+      <div className="relative z-10 mx-auto max-w-6xl">
 
-        {/* Header */}
-        <div className="mx-auto max-w-3xl text-center">
-          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#D4AF37]">
+        {/* HEADER */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mx-auto max-w-2xl text-center"
+        >
+          <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4AF37]">
             About ScoutX
           </p>
 
-          <h2 className="mt-5 text-4xl font-bold leading-tight md:text-6xl">
+          <h2 className="mt-3 text-3xl font-bold leading-tight md:text-5xl">
             Where{" "}
-            <span className="bg-gradient-to-r from-[#E7C979] via-[#D4AF37] to-[#A67C00] bg-clip-text text-transparent">
+            <span className="text-gradient">
               Ideas Meet Opportunity
             </span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[#A9A293] md:text-lg">
+          <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-[#A9A293] md:text-base">
             ScoutX is an AI-powered innovation discovery platform connecting
             people who build ideas with organizations looking for relevant
             solutions.
           </p>
-        </div>
+        </motion.div>
 
-        {/* Two Sides */}
-        <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          <AboutCard
+        {/* TWO SIDES */}
+        <div className="mt-9 grid gap-4 md:grid-cols-2">
+
+          {/* INNOVATORS */}
+          <AudienceCard
             icon={FaUsers}
             label="For Innovators"
-            title="Turn what you build into something discoverable."
-            description="Students, developers, researchers and creators can showcase their work, add evidence and become visible to organizations."
-            points={innovators}
+            title="Make what you build discoverable."
+            description="Showcase projects, prototypes, and evidence while getting AI-assisted insights about your innovation."
+            items={[
+              [FaLightbulb, "Showcase", "Ideas, projects & prototypes"],
+              [FaSearch, "Get Insights", "Innovation & related-work signals"],
+            ]}
           />
 
-          <AboutCard
+          {/* ORGANIZATIONS */}
+          <AudienceCard
             icon={FaBuilding}
             label="For Organizations"
-            title="Find ideas that can solve real problems."
-            description="Companies and organizations can define their needs and discover relevant innovations beyond traditional hiring or hackathons."
-            points={organizations}
+            title="Find ideas that solve real problems."
+            description="Search for relevant innovation or post a problem when the right solution does not yet exist."
+            items={[
+              [FaSearch, "Discover", "Search by technology & domain"],
+              [FaArrowRight, "Post Problems", "Let innovators build solutions"],
+            ]}
           />
+
         </div>
 
-        {/* How It Works */}
-        <div className="mt-10 rounded-3xl border border-[#D4AF37]/10 bg-[#11100D] p-7 md:p-10">
-          <div className="text-center">
-            <p className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
-              How ScoutX Works
-            </p>
+        {/* CORE STATEMENT */}
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mx-auto mt-9 max-w-3xl text-center"
+        >
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
+            The ScoutX Idea
+          </p>
 
-            <h3 className="mt-3 text-3xl font-bold md:text-4xl">
-              Build <span className="text-[#D4AF37]">→</span> Evaluate{" "}
-              <span className="text-[#D4AF37]">→</span> Match{" "}
-              <span className="text-[#D4AF37]">→</span> Connect
-            </h3>
-          </div>
+          <h3 className="mt-3 text-2xl font-bold md:text-3xl">
+            Discover what people{" "}
+            <span className="text-gradient">
+              actually build.
+            </span>
+          </h3>
 
-          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {flow.map(([Icon, title, description]) => (
-              <div
-                key={title}
-                className="rounded-2xl border border-[#D4AF37]/10 bg-[#0B0B09] p-5 text-center transition hover:-translate-y-1 hover:border-[#D4AF37]/25"
-              >
-                <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-xl border border-[#D4AF37]/15 bg-[#D4AF37]/10 text-[#E7C979]">
-                  <Icon />
-                </div>
-
-                <h4 className="mt-3 font-semibold">{title}</h4>
-
-                <p className="mt-2 text-xs leading-5 text-[#8F887B]">
-                  {description}
-                </p>
-              </div>
-            ))}
-          </div>
-        </div>
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[#8F887B]">
+            ScoutX creates a discovery layer between real projects,
+            innovators, and organizations looking for new solutions.
+          </p>
+        </motion.div>
 
       </div>
     </section>
   );
 }
 
-function AboutCard({
+function AudienceCard({
   icon: Icon,
   label,
   title,
   description,
-  points,
+  items,
 }: {
   icon: React.ElementType;
   label: string;
   title: string;
   description: string;
-  points: readonly (readonly [
-    React.ElementType,
-    string,
-    string
-  ])[];
+  items: readonly (
+    readonly [React.ElementType, string, string]
+  )[];
 }) {
   return (
-    <div className="rounded-3xl border border-[#D4AF37]/10 bg-[#11100D] p-7 transition hover:border-[#D4AF37]/20 md:p-8">
-      <div className="flex items-center gap-4">
-        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-[#D4AF37]/15 bg-[#D4AF37]/10 text-[#E7C979]">
-          <Icon />
+    <motion.div
+      initial={{ opacity: 0, y: 15 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      whileHover={{ y: -3 }}
+      className="rounded-2xl border border-[#D4AF37]/10 bg-[#11100D] p-5 transition hover:border-[#D4AF37]/25 md:p-6"
+    >
+      {/* Header */}
+      <div className="flex items-center gap-3">
+        <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-[#D4AF37]/15 bg-[#D4AF37]/[0.07] text-[#E7C979]">
+          <Icon className="text-sm" />
         </div>
 
         <div>
-          <p className="text-[11px] font-bold uppercase tracking-widest text-[#D4AF37]">
+          <p className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#D4AF37]">
             {label}
           </p>
 
-          <h3 className="mt-1 text-2xl font-bold">{title}</h3>
+          <h3 className="mt-1 text-lg font-bold md:text-xl">
+            {title}
+          </h3>
         </div>
       </div>
 
-      <p className="mt-5 leading-7 text-[#A9A293]">{description}</p>
+      {/* Description */}
+      <p className="mt-4 text-sm leading-6 text-[#A9A293]">
+        {description}
+      </p>
 
-      <div className="mt-6 space-y-3">
-        {points.map(([PointIcon, title, text]) => (
+      {/* Key features */}
+      <div className="mt-5 grid grid-cols-2 gap-2">
+        {items.map(([ItemIcon, itemTitle, text]) => (
           <div
-            key={title}
-            className="flex gap-3 rounded-2xl border border-[#D4AF37]/10 bg-[#0B0B09] p-4"
+            key={itemTitle}
+            className="rounded-xl border border-white/[0.05] bg-[#0B0B09] p-3"
           >
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg border border-[#D4AF37]/10 bg-[#D4AF37]/10 text-[#E7C979]">
-              <PointIcon className="text-sm" />
-            </div>
+            <ItemIcon className="text-xs text-[#D4AF37]" />
 
-            <div>
-              <h4 className="font-semibold">{title}</h4>
-              <p className="mt-1 text-sm leading-6 text-[#8F887B]">
-                {text}
-              </p>
-            </div>
+            <p className="mt-2 text-xs font-semibold">
+              {itemTitle}
+            </p>
+
+            <p className="mt-1 text-[11px] leading-5 text-[#777166]">
+              {text}
+            </p>
           </div>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 }
