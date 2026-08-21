@@ -1,5 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
+import About from "@/components/About";
 import Problem from "@/components/Problem";
 import Solution from "@/components/Solution";
 import Features from "@/components/Features";
@@ -12,33 +13,71 @@ import BackToTop from "@/components/BackToTop";
 export default function Home() {
   return (
     <>
+      {/* =====================================================
+          NAVIGATION
+      ====================================================== */}
       <Navbar />
 
       <main>
-        {/* 01 — First impression */}
+
+        {/* =====================================================
+            01 — FIRST IMPRESSION
+            What is ScoutX?
+        ====================================================== */}
         <Hero />
 
-        {/* 02 — Why ScoutX exists */}
+        {/* =====================================================
+            02 — CONTEXT
+            Why does ScoutX need to exist?
+        ====================================================== */}
+        <About />
+
+        {/* =====================================================
+            03 — THE PROBLEM
+            What is broken today?
+        ====================================================== */}
         <Problem />
 
-        {/* 03 — How ScoutX solves the problem */}
+        {/* =====================================================
+            04 — THE SOLUTION
+            How does ScoutX solve the problem?
+        ====================================================== */}
         <Solution />
 
-        {/* 04 — What the product actually provides */}
+        {/* =====================================================
+            05 — PRODUCT CAPABILITIES
+            What can ScoutX actually do?
+        ====================================================== */}
         <Features />
 
-        {/* 05 — Who participates in the ecosystem */}
+        {/* =====================================================
+            06 — USERS & ECOSYSTEM
+            Who gets value from ScoutX?
+        ====================================================== */}
         <Users />
 
-        {/* 06 — Who is building ScoutX */}
+        {/* =====================================================
+            07 — TEAM
+            Who is building ScoutX?
+        ====================================================== */}
         <Team />
 
-        {/* 07 — Final conversion */}
+        {/* =====================================================
+            08 — FINAL CTA / CONTACT
+            What should the visitor do next?
+        ====================================================== */}
         <Contact />
+
       </main>
 
+      {/* =====================================================
+          FOOTER
+      ====================================================== */}
       <Footer />
 
+      {/* =====================================================
+          UTILITY
+      ====================================================== */}
       <BackToTop />
     </>
   );
