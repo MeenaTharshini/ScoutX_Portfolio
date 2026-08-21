@@ -30,6 +30,8 @@ export default function Navbar() {
       setScrolled(window.scrollY > 30);
     };
 
+    handleScroll();
+
     window.addEventListener("scroll", handleScroll);
 
     return () => {
@@ -49,17 +51,43 @@ export default function Navbar() {
         duration: 0.6,
         ease: "easeOut",
       }}
-      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
-        scrolled
-          ? "navbar-glass shadow-[0_10px_40px_rgba(0,0,0,0.25)]"
-          : "bg-transparent"
-      }`}
+      className={`
+        fixed
+        top-0
+        left-0
+        w-full
+        z-50
+        transition-all
+        duration-500
+        ${
+          scrolled
+            ? `
+              bg-[#0B0B09]/92
+              backdrop-blur-2xl
+              border-b
+              border-[#F7F2E8]/10
+              shadow-[0_10px_40px_rgba(0,0,0,0.30)]
+            `
+            : `
+              bg-[#FFFDF8]/95
+              backdrop-blur-xl
+              border-b
+              border-[#0B0B09]/8
+              shadow-[0_5px_25px_rgba(0,0,0,0.06)]
+            `
+        }
+      `}
     >
       <nav className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
         <div
-          className={`flex items-center justify-between transition-all duration-300 ${
-            scrolled ? "h-16" : "h-20"
-          }`}
+          className={`
+            flex
+            items-center
+            justify-between
+            transition-all
+            duration-500
+            ${scrolled ? "h-16" : "h-20"}
+          `}
         >
           {/* =====================================================
               LOGO
@@ -93,13 +121,12 @@ export default function Navbar() {
             >
               <FaRocket className="text-[#0B0B09] text-sm -rotate-12" />
 
-              {/* Small shine */}
               <span
                 className="
                   absolute
                   inset-0
                   rounded-xl
-                  bg-white/10
+                  bg-white/15
                   opacity-0
                   group-hover:opacity-100
                   transition-opacity
@@ -109,7 +136,20 @@ export default function Navbar() {
 
             {/* Logo Name */}
 
-            <div className="text-2xl font-bold tracking-tight text-[#F7F2E8]">
+            <div
+              className={`
+                text-2xl
+                font-bold
+                tracking-tight
+                transition-colors
+                duration-500
+                ${
+                  scrolled
+                    ? "text-[#F7F2E8]"
+                    : "text-[#0B0B09]"
+                }
+              `}
+            >
               Scout
               <span className="text-gradient">X</span>
             </div>
@@ -128,18 +168,25 @@ export default function Navbar() {
                   duration={600}
                   offset={-80}
                   spy
-                  activeClass="!text-[#D4AF37]"
-                  className="
+                  activeClass={
+                    scrolled
+                      ? "!text-[#E7C979]"
+                      : "!text-[#AD8930]"
+                  }
+                  className={`
                     relative
-                    text-[#B7B0A2]
-                    hover:text-[#F7F2E8]
                     text-sm
                     font-medium
                     cursor-pointer
                     transition-colors
-                    duration-200
+                    duration-500
                     group
-                  "
+                    ${
+                      scrolled
+                        ? "text-[#B7B0A2] hover:text-[#F7F2E8]"
+                        : "text-[#625D52] hover:text-[#0B0B09]"
+                    }
+                  `}
                 >
                   {link.name}
 
@@ -218,24 +265,35 @@ export default function Navbar() {
           <button
             type="button"
             onClick={() => setMenuOpen((prev) => !prev)}
-            className="
+            className={`
               lg:hidden
               w-10
               h-10
               rounded-xl
               border
-              border-[#D4AF37]/20
-              bg-[#12120F]/80
-              backdrop-blur-md
-              text-[#E7C979]
               flex
               items-center
               justify-center
-              hover:border-[#D4AF37]/50
-              hover:bg-[#D4AF37]/10
               transition-all
-              duration-200
-            "
+              duration-500
+              ${
+                scrolled
+                  ? `
+                    border-[#D4AF37]/25
+                    bg-[#12120F]/80
+                    text-[#E7C979]
+                    hover:bg-[#D4AF37]/10
+                    hover:border-[#D4AF37]/50
+                  `
+                  : `
+                    border-[#0B0B09]/15
+                    bg-[#F4EEE2]/80
+                    text-[#8D6D25]
+                    hover:bg-[#D4AF37]/10
+                    hover:border-[#AD8930]/40
+                  `
+              }
+            `}
             aria-label={
               menuOpen
                 ? "Close navigation menu"
@@ -271,17 +329,28 @@ export default function Navbar() {
               duration: 0.25,
               ease: "easeInOut",
             }}
-            className="
+            className={`
               lg:hidden
               overflow-hidden
-              bg-[#0B0B09]/95
               backdrop-blur-2xl
               border-t
-              border-[#F7F2E8]/8
-              shadow-[0_20px_50px_rgba(0,0,0,0.35)]
-            "
+              transition-colors
+              duration-500
+              ${
+                scrolled
+                  ? `
+                    bg-[#0B0B09]/96
+                    border-[#F7F2E8]/10
+                  `
+                  : `
+                    bg-[#FFFDF8]/97
+                    border-[#0B0B09]/10
+                  `
+              }
+            `}
           >
             <div className="px-5 sm:px-6 py-6">
+
               {/* Mobile Navigation */}
 
               <ul className="flex flex-col gap-1.5">
@@ -307,13 +376,21 @@ export default function Navbar() {
                       duration={600}
                       offset={-75}
                       spy
-                      activeClass="
-                        !text-[#D4AF37]
-                        !bg-[#D4AF37]/10
-                        !border-[#D4AF37]/20
-                      "
+                      activeClass={
+                        scrolled
+                          ? `
+                            !text-[#E7C979]
+                            !bg-[#D4AF37]/10
+                            !border-[#D4AF37]/20
+                          `
+                          : `
+                            !text-[#8D6D25]
+                            !bg-[#D4AF37]/10
+                            !border-[#AD8930]/20
+                          `
+                      }
                       onClick={closeMenu}
-                      className="
+                      className={`
                         flex
                         items-center
                         justify-between
@@ -322,24 +399,40 @@ export default function Navbar() {
                         rounded-xl
                         border
                         border-transparent
-                        text-[#B7B0A2]
-                        hover:text-[#F7F2E8]
-                        hover:bg-[#D4AF37]/5
-                        hover:border-[#D4AF37]/10
                         text-sm
                         font-medium
                         cursor-pointer
                         transition-all
-                        duration-200
-                      "
+                        duration-300
+                        ${
+                          scrolled
+                            ? `
+                              text-[#B7B0A2]
+                              hover:text-[#F7F2E8]
+                              hover:bg-[#D4AF37]/5
+                              hover:border-[#D4AF37]/10
+                            `
+                            : `
+                              text-[#625D52]
+                              hover:text-[#0B0B09]
+                              hover:bg-[#D4AF37]/7
+                              hover:border-[#AD8930]/10
+                            `
+                        }
+                      `}
                     >
                       <span>{link.name}</span>
 
                       <FaArrowRight
-                        className="
+                        className={`
                           text-[10px]
-                          text-[#8D6D25]
-                        "
+                          transition-colors
+                          ${
+                            scrolled
+                              ? "text-[#8D6D25]"
+                              : "text-[#AD8930]"
+                          }
+                        `}
                       />
                     </Link>
                   </motion.li>
@@ -350,7 +443,18 @@ export default function Navbar() {
                   MOBILE CTA
               ================================================== */}
 
-              <div className="mt-6 pt-6 border-t border-[#F7F2E8]/8">
+              <div
+                className={`
+                  mt-6
+                  pt-6
+                  border-t
+                  ${
+                    scrolled
+                      ? "border-[#F7F2E8]/10"
+                      : "border-[#0B0B09]/10"
+                  }
+                `}
+              >
                 <Link
                   to="contact"
                   smooth
