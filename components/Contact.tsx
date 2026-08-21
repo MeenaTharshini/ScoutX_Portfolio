@@ -1,138 +1,375 @@
 "use client";
 
-import React from "react";
+import { motion } from "framer-motion";
 import {
   FaEnvelope,
-  FaPhoneAlt,
-  FaGithub,
+  FaBuilding,
+  FaLightbulb,
+  FaUniversity,
+  FaTrophy,
+  FaArrowRight,
+  FaRocket,
+  FaPaperPlane,
   FaLinkedin,
+  FaGithub,
 } from "react-icons/fa";
-import { SiLeetcode } from "react-icons/si";
-const Contact = () => {
-  const links = [
+
+const contactTypes = [
   {
-    icon: <FaEnvelope />,
-    label: "Email",
-    href: "mailto:meenatharshiniiyappan@gmail.com",
-    external: false,
+    icon: FaBuilding,
+    title: "For Organizations",
+    description:
+      "Have a real-world problem or looking for emerging solutions?",
+    action: "Partner with ScoutX",
   },
   {
-    icon: <FaPhoneAlt />,
-    label: "Call",
-    href: "tel:+916374093373",
-    external: false,
+    icon: FaLightbulb,
+    title: "For Innovators",
+    description:
+      "Have a prototype that deserves more visibility and real-world opportunities?",
+    action: "Showcase Your Innovation",
   },
   {
-    icon: <FaGithub />,
-    label: "GitHub",
-    href: "https://github.com/MeenaTharshini",
-    external: true,
+    icon: FaUniversity,
+    title: "For Institutions",
+    description:
+      "Want to help your students take their projects beyond the classroom?",
+    action: "Explore Collaboration",
   },
   {
-    icon: <FaLinkedin />,
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/meena-tharshini-i-410343301/",
-    external: true,
-  },
-  {
-    icon: <SiLeetcode />,
-    label: "LeetCode",
-    href: "https://leetcode.com/u/MeenaTharshiniI/",
-    external: true,
+    icon: FaTrophy,
+    title: "For Hackathons & Incubators",
+    description:
+      "Want promising projects to remain discoverable after your program ends?",
+    action: "Join the Ecosystem",
   },
 ];
 
+export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-screen bg-slate-900 text-white py-24 px-6"
+      className="relative bg-slate-900 text-white py-24 px-6 overflow-hidden"
     >
-      <div className="max-w-5xl mx-auto">
+      {/* Background decoration */}
+      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-purple-600/10 rounded-full blur-3xl" />
 
-        {/* Heading */}
-        <div className="text-center mb-14">
-          <p className="text-purple-400 uppercase tracking-widest text-sm">
-            Contact
+      <div className="absolute bottom-0 left-[-200px] w-[400px] h-[400px] bg-violet-600/5 rounded-full blur-3xl" />
+
+      <div className="max-w-7xl mx-auto relative z-10">
+
+        {/* Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
+          className="text-center max-w-4xl mx-auto"
+        >
+          <p className="text-purple-400 uppercase tracking-[0.25em] text-sm font-semibold">
+            Connect With ScoutX
           </p>
 
-          <h2 className="text-4xl md:text-5xl font-bold mt-3">
-            Let’s <span className="text-purple-500">Connect</span>
+          <h2 className="text-4xl md:text-6xl font-bold mt-4 leading-tight">
+            Have a problem?
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-600">
+              There may already be a solution.
+            </span>
           </h2>
 
-          <p className="text-slate-400 mt-4 max-w-2xl mx-auto">
-            Open to internships, freelance opportunities, and software engineering roles.
+          <p className="text-slate-400 text-lg md:text-xl leading-8 mt-6 max-w-3xl mx-auto">
+            Whether you are an innovator, organization, institution, or
+            innovation partner, ScoutX is built to help you find the right
+            connection.
           </p>
+        </motion.div>
+
+        {/* Contact Types */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-16">
+
+          {contactTypes.map((item, index) => {
+            const Icon = item.icon;
+
+            return (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 35 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{
+                  delay: index * 0.1,
+                  duration: 0.6,
+                }}
+                className="group bg-[#151B2E] border border-slate-800 hover:border-purple-500/30 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
+              >
+
+                <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/10 text-purple-400 flex items-center justify-center text-lg">
+                  <Icon />
+                </div>
+
+                <h3 className="text-lg font-bold mt-6">
+                  {item.title}
+                </h3>
+
+                <p className="text-slate-500 text-sm leading-6 mt-3 min-h-[72px]">
+                  {item.description}
+                </p>
+
+                <a
+                  href="#contact-form"
+                  className="inline-flex items-center gap-2 text-purple-400 text-sm font-medium mt-5 group-hover:text-purple-300 transition"
+                >
+                  {item.action}
+                  <FaArrowRight className="text-xs" />
+                </a>
+
+              </motion.div>
+            );
+          })}
+
         </div>
 
-        {/* Contact Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-  {links.map((item, index) => (
-    <a
-      key={index}
-      href={item.href}
-      target={item.external ? "_blank" : undefined}
-      rel={item.external ? "noreferrer" : undefined}
-      aria-label={item.label}
-      className="
-        group
-        min-h-[160px]
-        bg-[#151B2E]
-        border border-purple-500/10
-        rounded-2xl
-        flex flex-col
-        items-center
-        justify-center
-        gap-4
-        transition-all
-        duration-300
-        hover:-translate-y-2
-        hover:border-purple-500/50
-        hover:shadow-[0_0_30px_rgba(168,85,247,0.2)]
-      "
-    >
-      {/* Icon */}
-      <div
-        className="
-          w-14
-          h-14
-          rounded-full
-          bg-purple-500/10
-          flex
-          items-center
-          justify-center
-          text-3xl
-          text-purple-400
-          transition-all
-          duration-300
-          group-hover:bg-purple-500
-          group-hover:text-white
-          group-hover:scale-110
-        "
-      >
-        {item.icon}
-      </div>
+        {/* Main Contact Area */}
+        <motion.div
+          id="contact-form"
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+          className="grid lg:grid-cols-2 gap-10 mt-20"
+        >
 
-      {/* Label */}
-      <span className="text-base font-semibold text-slate-300 group-hover:text-white transition">
-        {item.label}
-      </span>
-    </a>
-  ))}
-</div>
+          {/* Left */}
+          <div className="bg-[#151B2E] border border-purple-500/10 rounded-3xl p-8 md:p-10">
 
-        {/* Contact Info */}
-        <div className="mt-14 text-center text-slate-400 text-sm space-y-2">
-          <p className="hover:text-purple-400 transition">
-             meenatharshiniiyappan@gmail.com
-          </p>
-          <p className="hover:text-purple-400 transition">
-             +91 63740 93373
-          </p>
-        </div>
+            <p className="text-purple-400 uppercase tracking-widest text-sm font-semibold">
+              Start a Conversation
+            </p>
+
+            <h3 className="text-3xl md:text-4xl font-bold mt-4">
+              Let's discover what we can
+              <span className="text-purple-400">
+                {" "}
+                build together.
+              </span>
+            </h3>
+
+            <p className="text-slate-400 leading-7 mt-6">
+              ScoutX is currently being developed as a platform for
+              discovering, evaluating, and connecting emerging innovations
+              with real-world opportunities.
+            </p>
+
+            <div className="space-y-5 mt-10">
+
+              <div className="flex items-center gap-4">
+
+                <div className="w-11 h-11 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
+                  <FaEnvelope />
+                </div>
+
+                <div>
+                  <p className="text-xs text-slate-500 uppercase tracking-wider">
+                    Email
+                  </p>
+
+                  <a
+                    href="mailto:hello@scoutx.in"
+                    className="text-slate-300 hover:text-purple-400 transition"
+                  >
+                    hello@scoutx.in
+                  </a>
+                </div>
+
+              </div>
+
+              <div className="flex items-center gap-4">
+
+                <div className="w-11 h-11 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
+                  <FaRocket />
+                </div>
+
+                <div>
+                  <p className="text-xs text-slate-500 uppercase tracking-wider">
+                    Product
+                  </p>
+
+                  <p className="text-slate-300">
+                    ScoutX Innovation Platform
+                  </p>
+                </div>
+
+              </div>
+
+            </div>
+
+            {/* Social */}
+            <div className="flex gap-3 mt-10 pt-7 border-t border-slate-800">
+
+              <a
+                href="#"
+                className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400 hover:text-purple-400 hover:bg-purple-500/10 transition"
+                aria-label="ScoutX LinkedIn"
+              >
+                <FaLinkedin />
+              </a>
+
+              <a
+                href="#"
+                className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400 hover:text-purple-400 hover:bg-purple-500/10 transition"
+                aria-label="ScoutX GitHub"
+              >
+                <FaGithub />
+              </a>
+
+            </div>
+
+          </div>
+
+          {/* Right - Form */}
+          <div className="bg-[#151B2E] border border-slate-800 rounded-3xl p-8 md:p-10">
+
+            <div className="flex items-center gap-3 mb-7">
+
+              <div className="w-11 h-11 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
+                <FaPaperPlane />
+              </div>
+
+              <div>
+                <h3 className="font-bold text-xl">
+                  Tell us about your idea
+                </h3>
+
+                <p className="text-slate-500 text-sm">
+                  We would love to hear from you.
+                </p>
+              </div>
+
+            </div>
+
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                alert(
+                  "Thank you for reaching out to ScoutX! We will get back to you soon."
+                );
+              }}
+              className="space-y-5"
+            >
+
+              {/* Name */}
+              <div>
+                <label className="block text-sm text-slate-400 mb-2">
+                  Name
+                </label>
+
+                <input
+                  type="text"
+                  placeholder="Your name"
+                  required
+                  className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-purple-500 transition"
+                />
+              </div>
+
+              {/* Email */}
+              <div>
+                <label className="block text-sm text-slate-400 mb-2">
+                  Email
+                </label>
+
+                <input
+                  type="email"
+                  placeholder="you@example.com"
+                  required
+                  className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-purple-500 transition"
+                />
+              </div>
+
+              {/* User Type */}
+              <div>
+                <label className="block text-sm text-slate-400 mb-2">
+                  I am a...
+                </label>
+
+                <select
+                  required
+                  defaultValue=""
+                  className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-300 focus:outline-none focus:border-purple-500 transition"
+                >
+                  <option value="" disabled>
+                    Select an option
+                  </option>
+                  <option value="innovator">
+                    Innovator / Student
+                  </option>
+                  <option value="company">
+                    Company / Startup
+                  </option>
+                  <option value="college">
+                    College / Institution
+                  </option>
+                  <option value="hackathon">
+                    Hackathon / Incubator
+                  </option>
+                  <option value="investor">
+                    Investor / Partner
+                  </option>
+                  <option value="other">
+                    Other
+                  </option>
+                </select>
+              </div>
+
+              {/* Message */}
+              <div>
+                <label className="block text-sm text-slate-400 mb-2">
+                  Message
+                </label>
+
+                <textarea
+                  rows={5}
+                  placeholder="Tell us what you are looking for..."
+                  required
+                  className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-purple-500 transition resize-none"
+                />
+              </div>
+
+              {/* Submit */}
+              <button
+                type="submit"
+                className="w-full bg-purple-600 hover:bg-purple-700 rounded-xl px-6 py-3.5 flex items-center justify-center gap-3 font-medium transition"
+              >
+                Start the Conversation
+                <FaArrowRight />
+              </button>
+
+            </form>
+
+          </div>
+
+        </motion.div>
+
+        {/* Bottom CTA */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-center mt-24"
+        >
+
+          <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-purple-500/5 border border-purple-500/10">
+
+            <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
+
+            <span className="text-slate-400 text-sm">
+              ScoutX — Discover what people can build.
+            </span>
+
+          </div>
+
+        </motion.div>
 
       </div>
     </section>
   );
-};
-
-export default Contact;
+}
