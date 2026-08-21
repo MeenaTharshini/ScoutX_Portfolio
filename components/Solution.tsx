@@ -70,7 +70,7 @@ export default function Solution() {
 
           <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-[#A9A293] md:text-lg">
             ScoutX gives innovators a structured way to showcase what they
-            build and gives organizations a smarter way to discover relevant
+            build and organizations a smarter way to discover relevant
             solutions.
           </p>
         </motion.div>
@@ -93,24 +93,20 @@ export default function Solution() {
             </h3>
           </div>
 
-          <div className="mt-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-5">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-5">
             {steps.map((step, index) => {
               const Icon = step.icon;
 
               return (
-                <motion.div
+                <div
                   key={step.title}
-                  initial={{ opacity: 0, y: 15 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.07 }}
                   className="relative text-center"
                 >
-                  <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-[#D4AF37]/20 bg-[#0B0B09] text-[#E7C979]">
+                  <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl border border-[#D4AF37]/20 bg-[#0B0B09] text-[#E7C979]">
                     <Icon />
                   </div>
 
-                  <span className="mt-4 block text-[10px] font-bold tracking-[0.2em] text-[#D4AF37]">
+                  <span className="mt-3 block text-[10px] font-bold tracking-[0.2em] text-[#D4AF37]">
                     0{index + 1}
                   </span>
 
@@ -123,9 +119,9 @@ export default function Solution() {
                   </p>
 
                   {index < steps.length - 1 && (
-                    <FaArrowRight className="absolute -right-4 top-7 hidden text-xs text-[#D4AF37]/40 lg:block" />
+                    <FaArrowRight className="absolute -right-3 top-6 hidden text-xs text-[#D4AF37]/40 lg:block" />
                   )}
-                </motion.div>
+                </div>
               );
             })}
           </div>
@@ -134,18 +130,14 @@ export default function Solution() {
         {/* TWO SIDES */}
         <div className="mt-6 grid gap-6 lg:grid-cols-2">
 
-          {/* INNOVATORS */}
           <AudienceCard
-            icon={<FaLightbulb />}
             label="For Innovators"
             title="Make your work discoverable."
             text="Turn ideas, projects, and prototypes into structured innovation profiles that organizations can discover."
             tags={["Ideas", "Projects", "Prototypes", "Evidence"]}
           />
 
-          {/* ORGANIZATIONS */}
           <AudienceCard
-            icon={<FaBuilding />}
             label="For Organizations"
             title="Find solutions to real problems."
             text="Describe a problem, domain, or technology need and discover relevant innovations from the ecosystem."
@@ -159,7 +151,7 @@ export default function Solution() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mx-auto mt-16 max-w-3xl text-center"
+          className="mx-auto mt-14 max-w-3xl text-center"
         >
           <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
             The Difference
@@ -172,18 +164,18 @@ export default function Solution() {
             </span>
           </h3>
 
-          <p className="mt-5 text-[#A9A293] leading-7">
+          <p className="mt-5 leading-7 text-[#A9A293]">
             ScoutX helps organizations discover what people have actually
             built — and connects promising innovation to real opportunities.
           </p>
 
           <motion.a
-            href="#features"
+            href="#advantage"
             whileHover={{ y: -2 }}
             whileTap={{ scale: 0.98 }}
-            className="mt-8 inline-flex items-center gap-3 rounded-xl bg-gradient-to-br from-[#E7C979] via-[#D4AF37] to-[#A67C00] px-7 py-3.5 text-sm font-bold text-[#0B0B09]"
+            className="mt-7 inline-flex items-center gap-3 rounded-xl bg-gradient-to-br from-[#E7C979] via-[#D4AF37] to-[#A67C00] px-7 py-3.5 text-sm font-bold text-[#0B0B09]"
           >
-            Explore ScoutX
+            Why ScoutX
             <FaArrowRight className="text-xs" />
           </motion.a>
         </motion.div>
@@ -194,13 +186,11 @@ export default function Solution() {
 }
 
 function AudienceCard({
-  icon,
   label,
   title,
   text,
   tags,
 }: {
-  icon: React.ReactNode;
   label: string;
   title: string;
   text: string;
@@ -214,27 +204,19 @@ function AudienceCard({
       whileHover={{ y: -4 }}
       className="rounded-[2rem] border border-[#D4AF37]/10 bg-[#11100D] p-7 transition hover:border-[#D4AF37]/30 md:p-9"
     >
-      <div className="flex items-center gap-4">
-        <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-[#D4AF37]/15 bg-[#D4AF37]/10 text-[#E7C979]">
-          {icon}
-        </div>
+      <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
+        {label}
+      </p>
 
-        <div>
-          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
-            {label}
-          </p>
+      <h3 className="mt-2 text-2xl font-bold">
+        {title}
+      </h3>
 
-          <h3 className="mt-1 text-2xl font-bold">
-            {title}
-          </h3>
-        </div>
-      </div>
-
-      <p className="mt-6 leading-7 text-[#A9A293]">
+      <p className="mt-5 leading-7 text-[#A9A293]">
         {text}
       </p>
 
-      <div className="mt-6 flex flex-wrap gap-2">
+      <div className="mt-5 flex flex-wrap gap-2">
         {tags.map((tag) => (
           <span
             key={tag}

@@ -8,14 +8,12 @@ import {
   FaCode,
   FaBullseye,
   FaHandshake,
-  FaArrowRight,
-  FaRocket,
 } from "react-icons/fa";
 
 const innovationFlow = [
   {
     icon: FaLightbulb,
-    title: "Submit",
+    title: "Build",
     description: "Idea, project or prototype",
   },
   {
@@ -79,9 +77,7 @@ export default function About() {
     >
       {/* Background */}
       <div className="pointer-events-none absolute -left-40 -top-48 h-[500px] w-[500px] rounded-full bg-[#D4AF37]/7 blur-[130px]" />
-
       <div className="pointer-events-none absolute -bottom-48 -right-40 h-[500px] w-[500px] rounded-full bg-[#D4AF37]/5 blur-[140px]" />
-
       <div className="pointer-events-none absolute inset-0 bg-grid-fade opacity-[0.06]" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
@@ -93,7 +89,7 @@ export default function About() {
 
           <div className="mx-auto mt-4 h-px w-16 bg-gradient-to-r from-transparent via-[#D4AF37] to-transparent" />
 
-          <h2 className="mt-5 text-4xl font-bold leading-tight tracking-tight text-[#F7F2E8] md:text-6xl">
+          <h2 className="mt-5 text-4xl font-bold leading-tight tracking-tight md:text-6xl">
             Where{" "}
             <span className="bg-gradient-to-r from-[#E7C979] via-[#D4AF37] to-[#A67C00] bg-clip-text text-transparent">
               Ideas Meet Opportunity
@@ -107,9 +103,8 @@ export default function About() {
           </p>
         </div>
 
-        {/* TWO SIDES */}
+        {/* INNOVATORS / ORGANIZATIONS */}
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {/* INNOVATORS */}
           <AboutCard
             eyebrow="For Innovators"
             title="Turn what you build into something discoverable."
@@ -118,24 +113,23 @@ export default function About() {
             points={innovatorPoints}
           />
 
-          {/* ORGANIZATIONS */}
           <AboutCard
             eyebrow="For Organizations"
             title="Find ideas that can solve real problems."
             icon={FaBuilding}
-            description="Companies and organizations can define their needs and discover relevant innovations without relying only on traditional hiring or hackathons."
+            description="Companies and organizations can define their needs and discover relevant innovations beyond traditional hiring or hackathons."
             points={companyPoints}
           />
         </div>
 
-        {/* FLOW */}
-        <div className="mt-12 rounded-3xl border border-[#D4AF37]/10 bg-[#11100D] p-7 shadow-[0_20px_60px_rgba(0,0,0,0.25)] md:p-10">
+        {/* HOW IT WORKS */}
+        <div className="mt-10 rounded-3xl border border-[#D4AF37]/10 bg-[#11100D] p-7 shadow-[0_20px_60px_rgba(0,0,0,0.25)] md:p-10">
           <div className="text-center">
             <p className="text-xs font-bold uppercase tracking-widest text-[#D4AF37]">
               How ScoutX Works
             </p>
 
-            <h3 className="mt-3 text-3xl font-bold text-[#F7F2E8] md:text-4xl">
+            <h3 className="mt-3 text-3xl font-bold md:text-4xl">
               Build{" "}
               <span className="text-[#D4AF37]">→</span> Evaluate{" "}
               <span className="text-[#D4AF37]">→</span> Match{" "}
@@ -154,7 +148,7 @@ export default function About() {
                       <Icon />
                     </div>
 
-                    <h4 className="mt-3 font-semibold text-[#F7F2E8]">
+                    <h4 className="mt-3 font-semibold">
                       {item.title}
                     </h4>
 
@@ -164,31 +158,14 @@ export default function About() {
                   </div>
 
                   {index < innovationFlow.length - 1 && (
-                    <FaArrowRight className="absolute -right-3 top-1/2 hidden -translate-y-1/2 text-xs text-[#D4AF37] lg:block" />
+                    <span className="absolute -right-3 top-1/2 hidden -translate-y-1/2 text-xs text-[#D4AF37] lg:block">
+                      →
+                    </span>
                   )}
                 </div>
               );
             })}
           </div>
-        </div>
-
-        {/* CLOSING MESSAGE */}
-        <div className="mx-auto mt-14 max-w-3xl text-center">
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-2xl border border-[#D4AF37]/20 bg-[#D4AF37]/10 text-[#E7C979]">
-            <FaRocket />
-          </div>
-
-          <h3 className="mt-5 text-3xl font-bold leading-tight text-[#F7F2E8] md:text-4xl">
-            Great ideas should be{" "}
-            <span className="bg-gradient-to-r from-[#E7C979] via-[#D4AF37] to-[#A67C00] bg-clip-text text-transparent">
-              discoverable.
-            </span>
-          </h3>
-
-          <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-[#A9A293]">
-            ScoutX creates a continuous bridge between people who build
-            solutions and organizations that can discover and act on them.
-          </p>
         </div>
       </div>
     </section>
@@ -228,13 +205,15 @@ function AboutCard({
             {eyebrow}
           </p>
 
-          <h3 className="mt-1 text-2xl font-bold text-[#F7F2E8]">
+          <h3 className="mt-1 text-2xl font-bold">
             {title}
           </h3>
         </div>
       </div>
 
-      <p className="mt-5 leading-7 text-[#A9A293]">{description}</p>
+      <p className="mt-5 leading-7 text-[#A9A293]">
+        {description}
+      </p>
 
       <div className="mt-6 space-y-3">
         {points.map((item) => {
@@ -250,7 +229,7 @@ function AboutCard({
               </div>
 
               <div>
-                <h4 className="font-semibold text-[#F7F2E8]">
+                <h4 className="font-semibold">
                   {item.title}
                 </h4>
 

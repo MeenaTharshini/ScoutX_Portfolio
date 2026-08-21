@@ -28,7 +28,7 @@ const navLinks = [
     to: "advantage",
   },
   {
-    name: "Ecosystem",
+    name: "Target",
     to: "users",
   },
   {
