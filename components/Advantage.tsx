@@ -6,232 +6,214 @@ import {
   FaCheckCircle,
   FaComments,
   FaGlobe,
-  FaLightbulb,
   FaRobot,
-  FaRocket,
   FaSearch,
+  FaBullseye,
 } from "react-icons/fa";
 
 const advantages = [
   {
     icon: FaGlobe,
-    title: "Wider Reach",
-    text: "Discover ideas beyond hackathons and traditional recruitment.",
+    title: "Beyond Traditional Discovery",
+    text: "Discover innovators and projects beyond resumes, networks, and one-time events.",
   },
   {
     icon: FaRobot,
-    title: "AI Evaluation",
-    text: "Analyze value, uniqueness, relevance, feasibility, and potential.",
+    title: "AI-Assisted Evaluation",
+    text: "Understand innovation through project evidence, relevance, feasibility, and related work.",
   },
   {
-    icon: FaSearch,
-    title: "Smart Filtering",
-    text: "Find relevant ideas from a growing innovation ecosystem.",
+    icon: FaBullseye,
+    title: "Requirement-Based Matching",
+    text: "Match organizational technology and domain needs with relevant innovations.",
   },
   {
     icon: FaComments,
-    title: "Direct Connection",
-    text: "Move from discovery to communication, collaboration, pilots, or opportunities.",
+    title: "From Discovery to Connection",
+    text: "Shortlist promising ideas, connect with builders, or post problems for innovators to solve.",
   },
 ];
 
-const traditional = [
-  "Limited participant pool",
-  "Event planning and coordination",
-  "High operational overhead",
-  "Fixed event timeline",
+const fragmented = [
+  "Projects scattered across platforms",
+  "Manual searching and comparison",
+  "Limited visibility after events",
+  "Talent judged mainly through profiles",
 ];
 
 const scoutx = [
-  "Larger innovation pool",
-  "AI-assisted evaluation",
-  "Requirement-based matching",
-  "Focused shortlist",
-  "Direct communication",
+  "Structured innovation profiles",
+  "AI-assisted project insights",
+  "Technology & domain matching",
+  "Evidence-backed discovery",
+  "Direct connection with builders",
 ];
 
 export default function Advantage() {
   return (
     <section
       id="advantage"
-      className="relative overflow-hidden bg-[#0B0B09] px-6 py-20 text-[#F7F1E3] md:py-28"
+      className="relative overflow-hidden bg-[#0B0B09] px-6 py-16 text-[#F7F1E3] md:py-20"
     >
       {/* Background */}
-      <div className="pointer-events-none absolute -right-40 -top-40 h-96 w-96 rounded-full bg-[#D4AF37]/10 blur-[120px]" />
-      <div className="pointer-events-none absolute -bottom-40 -left-40 h-96 w-96 rounded-full bg-[#D4AF37]/5 blur-[120px]" />
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute -right-40 -top-40 h-80 w-80 rounded-full bg-[#D4AF37]/[0.06] blur-[110px]"
+      />
 
-      <div className="relative mx-auto max-w-7xl">
+      <div className="relative mx-auto max-w-6xl">
 
         {/* HEADER */}
         <motion.div
-          initial={{ opacity: 0, y: 25 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="mx-auto max-w-4xl text-center"
+          transition={{ duration: 0.5 }}
+          className="mx-auto max-w-3xl text-center"
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
             The ScoutX Advantage
           </p>
 
-          <h2 className="mt-5 text-4xl font-bold leading-tight md:text-6xl">
-            Innovation discovery{" "}
+          <h2 className="mt-3 text-3xl font-bold leading-tight md:text-5xl">
+            One discovery layer for{" "}
             <span className="gradient-text">
-              without depending on hackathons.
+              innovation.
             </span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-[#A9A293] md:text-lg">
-            Hackathons can be valuable, but they require planning,
-            participants, travel, infrastructure, time, and resources.
-            ScoutX provides another way: discover ideas already existing
-            in a continuously growing innovation ecosystem.
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#A9A293] md:text-base">
+            ScoutX brings projects, evidence, innovators, and organizational
+            requirements into one continuous discovery ecosystem.
           </p>
         </motion.div>
 
-        {/* CORE ADVANTAGES */}
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-          {advantages.map(({ icon: Icon, title, text }) => (
+        {/* ADVANTAGES */}
+        <div className="mt-9 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+          {advantages.map(({ icon: Icon, title, text }, index) => (
             <motion.div
               key={title}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              whileHover={{ y: -4 }}
-              className="rounded-3xl border border-[#D4AF37]/15 bg-[#11100D] p-6 transition hover:border-[#D4AF37]/35"
+              transition={{ delay: index * 0.06 }}
+              whileHover={{ y: -3 }}
+              className="rounded-2xl border border-[#D4AF37]/10 bg-[#11100D] p-5 transition hover:border-[#D4AF37]/25"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#D4AF37]/10 text-[#E7C979]">
-                <Icon />
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-[#D4AF37]/10 bg-[#D4AF37]/[0.07] text-[#E7C979]">
+                <Icon className="text-sm" />
               </div>
 
-              <h3 className="mt-5 text-lg font-semibold">
+              <h3 className="mt-4 text-sm font-bold">
                 {title}
               </h3>
 
-              <p className="mt-2 text-sm leading-6 text-[#8F887B]">
+              <p className="mt-2 text-xs leading-5 text-[#8F887B]">
                 {text}
               </p>
             </motion.div>
           ))}
         </div>
 
-        {/* DIFFERENT APPROACH */}
-        <div className="mx-auto mt-20 max-w-4xl text-center">
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
-            A Different Approach
-          </p>
-
-          <h3 className="mt-4 text-3xl font-bold md:text-5xl">
-            Why wait for the next{" "}
-            <span className="gradient-text">hackathon?</span>
-          </h3>
-
-          <p className="mt-5 leading-7 text-[#A9A293]">
-            ScoutX changes innovation discovery from an event-based
-            process into a continuous discovery ecosystem.
-          </p>
-        </div>
-
         {/* COMPARISON */}
-        <div className="mt-10 grid gap-5 lg:grid-cols-2">
-
-          {/* Traditional */}
-          <div className="rounded-3xl border border-white/10 bg-[#11100D] p-7 md:p-8">
-            <p className="text-xs font-semibold uppercase tracking-widest text-[#777267]">
-              Traditional Discovery
+        <div className="mt-10">
+          <div className="mx-auto max-w-2xl text-center">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#D4AF37]">
+              The Difference
             </p>
 
-            <h3 className="mt-3 text-2xl font-bold">
-              Organize a Hackathon
+            <h3 className="mt-3 text-2xl font-bold md:text-3xl">
+              From fragmented discovery to{" "}
+              <span className="gradient-text">
+                focused discovery.
+              </span>
             </h3>
-
-            <div className="mt-7 space-y-4">
-              {traditional.map((item) => (
-                <div
-                  key={item}
-                  className="flex gap-3 text-sm text-[#918A7D]"
-                >
-                  <span className="text-[#6D675D]">×</span>
-                  {item}
-                </div>
-              ))}
-            </div>
           </div>
 
-          {/* ScoutX */}
-          <div className="rounded-3xl border border-[#D4AF37]/30 bg-[#17150F] p-7 md:p-8">
-            <div className="flex items-center gap-3">
-              <FaRocket className="text-[#E7C979]" />
+          <div className="mt-7 grid gap-4 md:grid-cols-2">
 
-              <p className="text-xs font-semibold uppercase tracking-widest text-[#D4AF37]">
-                ScoutX
+            {/* Fragmented */}
+            <div className="rounded-2xl border border-white/[0.06] bg-[#11100D] p-6">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#777267]">
+                Today
               </p>
+
+              <h3 className="mt-2 text-xl font-bold">
+                Fragmented Discovery
+              </h3>
+
+              <div className="mt-5 space-y-3">
+                {fragmented.map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-start gap-3 text-sm text-[#8F887B]"
+                  >
+                    <span className="mt-0.5 text-[#6D675D]">
+                      ×
+                    </span>
+
+                    {item}
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <h3 className="mt-3 text-2xl font-bold">
-              Continuous Innovation Discovery
-            </h3>
+            {/* ScoutX */}
+            <div className="rounded-2xl border border-[#D4AF37]/25 bg-[#15130E] p-6">
+              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
+                With ScoutX
+              </p>
 
-            <p className="mt-3 text-sm leading-6 text-[#A9A293]">
-              AI connects company requirements with relevant ideas
-              already available on the platform.
-            </p>
+              <h3 className="mt-2 text-xl font-bold">
+                Continuous Innovation Discovery
+              </h3>
 
-            <div className="mt-7 space-y-4">
-              {scoutx.map((item) => (
-                <div
-                  key={item}
-                  className="flex gap-3 text-sm text-[#C0B8A9]"
-                >
-                  <FaCheckCircle className="mt-0.5 shrink-0 text-[#D4AF37]" />
-                  {item}
-                </div>
-              ))}
+              <p className="mt-2 text-xs leading-5 text-[#A9A293]">
+                Organizations can discover existing innovation or post
+                problems when the right solution does not yet exist.
+              </p>
+
+              <div className="mt-5 space-y-3">
+                {scoutx.map((item) => (
+                  <div
+                    key={item}
+                    className="flex items-start gap-3 text-sm text-[#C0B8A9]"
+                  >
+                    <FaCheckCircle className="mt-0.5 shrink-0 text-xs text-[#D4AF37]" />
+
+                    {item}
+                  </div>
+                ))}
+              </div>
             </div>
+
           </div>
         </div>
 
-        {/* DIFFERENTIATOR */}
+        {/* CORE DIFFERENTIATOR */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mx-auto mt-20 max-w-4xl text-center"
+          className="mx-auto mt-10 max-w-3xl text-center"
         >
-          <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#D4AF37]">
             Why ScoutX?
           </p>
 
-          <h3 className="mt-4 text-3xl font-bold md:text-5xl">
-            From scattered ideas to{" "}
+          <h3 className="mt-3 text-2xl font-bold md:text-4xl">
+            Discover what people{" "}
             <span className="gradient-text">
-              discoverable innovation.
+              actually build.
             </span>
           </h3>
 
-          <p className="mx-auto mt-5 max-w-3xl leading-7 text-[#A9A293]">
-            ScoutX creates a structured layer between builders, their
-            work, and organizations looking for relevant innovation.
+          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[#A9A293]">
+            Instead of relying only on resumes, networks, or events,
+            ScoutX connects real project evidence with real organizational
+            needs.
           </p>
         </motion.div>
-
-        {/* FINAL MESSAGE */}
-        <div className="mx-auto mt-16 max-w-3xl text-center">
-          <FaRocket className="mx-auto text-3xl text-[#D4AF37]" />
-
-          <h3 className="mt-5 text-3xl font-bold md:text-4xl">
-            Make valuable innovation{" "}
-            <span className="gradient-text">
-              discoverable.
-            </span>
-          </h3>
-
-          <p className="mt-4 leading-7 text-[#A9A293]">
-            ScoutX turns scattered projects and prototypes into
-            structured, discoverable innovation — creating a path from
-            building to real-world opportunity.
-          </p>
-        </div>
 
       </div>
     </section>
