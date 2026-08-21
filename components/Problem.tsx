@@ -3,41 +3,51 @@
 import { motion } from "framer-motion";
 import {
   FaGlobe,
-  FaUsers,
   FaSearch,
+  FaClock,
   FaTrophy,
   FaGithub,
   FaLinkedin,
   FaCode,
-  FaExclamationTriangle,
+  FaLightbulb,
+  FaBuilding,
+  FaArrowRight,
 } from "react-icons/fa";
 
 const problems = [
-  [
-    FaGlobe,
-    "Innovation is scattered",
-    "Ideas, prototypes, repositories, portfolios, and achievements live across disconnected platforms.",
-  ],
-  [
-    FaUsers,
-    "Great builders stay invisible",
-    "Capable innovators are often missed outside traditional hiring and hackathon channels.",
-  ],
-  [
-    FaSearch,
-    "Discovery is inefficient",
-    "Organizations waste time searching across profiles, repositories, events, and networks.",
-  ],
-  [
-    FaTrophy,
-    "Hackathons are not enough",
-    "Hackathons require time, money, coordination, and resources, while promising projects can lose visibility after the event.",
-  ],
+  {
+    Icon: FaGlobe,
+    number: "01",
+    title: "Innovation is scattered",
+    description:
+      "Ideas, prototypes, research, repositories, and independent projects live across GitHub, portfolios, hackathons, colleges, and countless disconnected places.",
+  },
+  {
+    Icon: FaSearch,
+    number: "02",
+    title: "Existing solutions are hard to find",
+    description:
+      "When an organization faces a problem, there is no single place to search for people who may have already built, tested, or explored a solution.",
+  },
+  {
+    Icon: FaClock,
+    number: "03",
+    title: "Finding solutions is expensive",
+    description:
+      "Organizations often depend on networking, research, R&D, innovation programs, or custom challenges to discover relevant ideas — processes that take time and resources.",
+  },
+  {
+    Icon: FaTrophy,
+    number: "04",
+    title: "Hackathons are temporary",
+    description:
+      "Hackathons can generate great ideas, but they require significant coordination and time. Promising solutions can also disappear once the event ends.",
+  },
 ] as const;
 
 const sources = [
   [FaGithub, "GitHub"],
-  [FaLinkedin, "LinkedIn"],
+  [FaLinkedin, "Networks"],
   [FaTrophy, "Hackathons"],
   [FaCode, "Portfolios"],
 ] as const;
@@ -53,7 +63,6 @@ export default function Problem() {
       <div className="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-[#D4AF37]/[0.05] blur-[120px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
-
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -63,35 +72,44 @@ export default function Problem() {
           className="mx-auto max-w-4xl text-center"
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#E7C979]">
-            <FaExclamationTriangle className="text-[10px]" />
+            <FaLightbulb className="text-[10px]" />
             The Problem
           </div>
 
           <h2 className="mt-6 text-4xl font-bold leading-tight md:text-6xl">
-            Innovation exists.
+            Great ideas are being built.
             <br />
             <span className="bg-gradient-to-r from-[#E7C979] via-[#D4AF37] to-[#A67C00] bg-clip-text text-transparent">
-              Discovery is broken.
+              The world struggles to find them.
             </span>
           </h2>
 
           <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-[#A9A293] md:text-lg">
-            Students, developers, researchers, and builders create valuable
-            solutions every day, but the organizations that need them often
-            never find them.
+            Every day, people build ideas, prototypes, and technical
+            solutions. But when organizations need something new, discovering
+            the right existing innovation is still difficult.
           </p>
         </motion.div>
 
         {/* Discovery Gap */}
-        <div className="mt-12 rounded-[2rem] border border-[#D4AF37]/15 bg-[#11100D] p-7 md:p-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="mt-12 rounded-[2rem] border border-[#D4AF37]/15 bg-[#11100D] p-7 md:p-10"
+        >
           <div className="text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
               The Discovery Gap
             </p>
 
             <h3 className="mt-3 text-2xl font-bold md:text-4xl">
-              Valuable work is everywhere.{" "}
-              <span className="text-[#8F887B]">Discovery isn't.</span>
+              Innovation is everywhere.
+              <br />
+              <span className="text-[#8F887B]">
+                But discovery is fragmented.
+              </span>
             </h3>
           </div>
 
@@ -109,51 +127,56 @@ export default function Problem() {
             ))}
           </div>
 
-          <div className="mt-7 flex flex-wrap justify-center gap-2 text-sm text-[#A9A293]">
-            {["Projects", "Evidence", "Capabilities", "Opportunity"].map(
-              (item, i) => (
+          <div className="mx-auto mt-8 flex max-w-4xl flex-wrap items-center justify-center gap-2 text-sm text-[#A9A293]">
+            {["Ideas", "Projects", "Prototypes", "Research", "Evidence"].map(
+              (item) => (
                 <span
                   key={item}
-                  className={`rounded-xl border px-4 py-2 ${
-                    i === 3
-                      ? "border-[#D4AF37]/30 bg-[#D4AF37]/10 font-semibold text-[#E7C979]"
-                      : "border-[#D4AF37]/10"
-                  }`}
+                  className="rounded-xl border border-[#D4AF37]/10 px-4 py-2"
                 >
                   {item}
                 </span>
               )
             )}
+
+            <FaArrowRight className="mx-2 hidden text-[#D4AF37]/40 sm:block" />
+
+            <span className="rounded-xl border border-[#D4AF37]/30 bg-[#D4AF37]/10 px-4 py-2 font-semibold text-[#E7C979]">
+              Opportunity
+            </span>
           </div>
-        </div>
+        </motion.div>
 
         {/* Problems */}
         <div className="mt-16">
           <div className="mb-8 text-center">
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
-              Why Discovery Fails
+              Why the Gap Exists
             </p>
 
             <h3 className="mt-3 text-3xl font-bold md:text-4xl">
-              Four gaps keep innovation hidden.
+              Four problems make discovery difficult.
             </h3>
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
-            {problems.map(([Icon, title, description], index) => (
+            {problems.map(({ Icon, number, title, description }, index) => (
               <motion.div
                 key={title}
                 initial={{ opacity: 0, y: 15 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.4, delay: index * 0.05 }}
-                className="rounded-2xl border border-[#D4AF37]/10 bg-[#11100D] p-6 transition hover:-translate-y-1 hover:border-[#D4AF37]/25"
+                transition={{
+                  duration: 0.4,
+                  delay: index * 0.05,
+                }}
+                className="group rounded-2xl border border-[#D4AF37]/10 bg-[#11100D] p-6 transition duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/25"
               >
                 <span className="text-xs font-bold tracking-widest text-[#D4AF37]/30">
-                  0{index + 1}
+                  {number}
                 </span>
 
-                <div className="mt-4 flex h-11 w-11 items-center justify-center rounded-xl border border-[#D4AF37]/15 bg-[#D4AF37]/10 text-[#E7C979]">
+                <div className="mt-4 flex h-11 w-11 items-center justify-center rounded-xl border border-[#D4AF37]/15 bg-[#D4AF37]/10 text-[#E7C979] transition group-hover:bg-[#D4AF37]/15">
                   <Icon />
                 </div>
 
@@ -167,6 +190,89 @@ export default function Problem() {
           </div>
         </div>
 
+        {/* Real-world scenario */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mt-16 grid gap-6 overflow-hidden rounded-[2rem] border border-[#D4AF37]/15 bg-[#11100D] md:grid-cols-2"
+        >
+          {/* Organization */}
+          <div className="p-8 md:p-10">
+            <div className="flex items-center gap-3">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#D4AF37]/15 bg-[#D4AF37]/10 text-[#E7C979]">
+                <FaBuilding />
+              </div>
+
+              <div>
+                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
+                  The Organization
+                </p>
+                <h3 className="mt-1 text-xl font-bold">
+                  “We need a solution.”
+                </h3>
+              </div>
+            </div>
+
+            <p className="mt-6 text-base leading-7 text-[#A9A293]">
+              A company has a real problem but doesn't know whether someone
+              has already built a solution for it.
+            </p>
+
+            <div className="mt-6 rounded-2xl border border-[#D4AF37]/10 bg-white/[0.03] p-5">
+              <p className="text-xs uppercase tracking-wider text-[#817A6E]">
+                The usual options
+              </p>
+
+              <div className="mt-3 flex flex-wrap gap-2">
+                {[
+                  "Search networks",
+                  "Contact institutions",
+                  "Run R&D",
+                  "Launch a challenge",
+                  "Organize a hackathon",
+                ].map((item) => (
+                  <span
+                    key={item}
+                    className="rounded-lg border border-[#D4AF37]/10 px-3 py-2 text-xs text-[#A9A293]"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Missing layer */}
+          <div className="flex flex-col justify-center border-t border-[#D4AF37]/10 bg-gradient-to-br from-[#17150F] to-[#0F0E0B] p-8 md:border-l md:border-t-0 md:p-10">
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
+              The Missing Layer
+            </p>
+
+            <h3 className="mt-3 text-2xl font-bold leading-tight md:text-3xl">
+              What if the solution
+              <br />
+              <span className="bg-gradient-to-r from-[#E7C979] via-[#D4AF37] to-[#A67C00] bg-clip-text text-transparent">
+                already exists?
+              </span>
+            </h3>
+
+            <p className="mt-5 text-base leading-7 text-[#A9A293]">
+              Somewhere, someone may already have the idea, prototype, or
+              technology the organization needs. The problem is finding it.
+            </p>
+
+            <div className="mt-6 flex items-center gap-3">
+              <div className="h-px flex-1 bg-[#D4AF37]/15" />
+              <span className="text-sm font-semibold text-[#E7C979]">
+                That is the discovery gap.
+              </span>
+              <div className="h-px flex-1 bg-[#D4AF37]/15" />
+            </div>
+          </div>
+        </motion.div>
+
         {/* Core Gap */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
@@ -176,25 +282,28 @@ export default function Problem() {
           className="mx-auto mt-16 max-w-5xl rounded-[2rem] border border-[#D4AF37]/20 bg-gradient-to-br from-[#17150F] via-[#11100D] to-[#0B0B09] p-8 text-center md:p-12"
         >
           <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
-            The Core Gap
+            The Core Problem
           </p>
 
           <h3 className="mt-4 text-3xl font-bold leading-tight md:text-5xl">
-            Companies don't lack problems.
+            Organizations don't need
             <br />
             <span className="bg-gradient-to-r from-[#E7C979] via-[#D4AF37] to-[#A67C00] bg-clip-text text-transparent">
-              They lack access to the right ideas.
+              more ideas.
             </span>
+            <br />
+            They need access to the right ones.
           </h3>
 
           <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-[#A9A293] md:text-lg">
-            The challenge is not creating more innovation. It is creating a
-            reliable discovery layer that helps organizations find, understand,
-            and connect with innovation that already exists.
+            The challenge is not simply creating new innovation. It is
+            discovering, understanding, and connecting with innovation that
+            already exists — before spending the time and resources to create
+            it again.
           </p>
 
-          <div className="mt-7 flex justify-center gap-3">
-            {["Find", "Understand", "Connect"].map((item, index) => (
+          <div className="mt-8 flex flex-wrap justify-center gap-3">
+            {["Find", "Evaluate", "Connect"].map((item, index) => (
               <span
                 key={item}
                 className={`rounded-xl border px-5 py-3 text-sm font-semibold ${
@@ -210,18 +319,24 @@ export default function Problem() {
         </motion.div>
 
         {/* Transition */}
-        <div className="mt-12 text-center">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="mt-12 text-center"
+        >
           <p className="text-sm text-[#817A6E]">
-            The missing layer isn't another social network.
+            The answer isn't another social network.
           </p>
 
           <h3 className="mt-2 text-2xl font-bold md:text-3xl">
             It's a smarter way to{" "}
             <span className="bg-gradient-to-r from-[#E7C979] via-[#D4AF37] to-[#A67C00] bg-clip-text text-transparent">
-              discover innovation.
+              discover what already exists.
             </span>
           </h3>
-        </div>
+        </motion.div>
       </div>
     </section>
   );
