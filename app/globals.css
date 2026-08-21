@@ -1,73 +1,104 @@
 @import "tailwindcss";
 
 /* =========================================================
-   SCOUTX — PRODUCT / STARTUP DESIGN SYSTEM
-   Dark-first • SaaS • AI • Modern • Premium
+   SCOUTX — PREMIUM STARTUP DESIGN SYSTEM
+   Innovation Discovery Platform
+   Theme: Black • Cream • Gold
    ========================================================= */
 
 :root {
-  /* ---------- Base ---------- */
-  --background: #070914;
-  --foreground: #f8fafc;
+  /* =======================================================
+     CORE COLORS
+     ======================================================= */
 
-  --muted: #94a3b8;
-  --muted-foreground: #64748b;
+  --background: #0b0b09;
+  --foreground: #f7f2e8;
 
-  /* ---------- Brand ---------- */
-  --brand-50: #f5f3ff;
-  --brand-100: #ede9fe;
-  --brand-200: #ddd6fe;
-  --brand-300: #c4b5fd;
-  --brand-400: #a78bfa;
-  --brand-500: #8b5cf6;
-  --brand-600: #7c3aed;
-  --brand-700: #6d28d9;
-  --brand-800: #5b21b6;
+  /* Cream */
+  --cream-50: #fffdf8;
+  --cream-100: #f8f3e8;
+  --cream-200: #eee6d5;
+  --cream-300: #ded3bd;
 
-  /* ---------- Surfaces ---------- */
-  --surface: #0d1120;
-  --surface-elevated: #111729;
-  --surface-hover: #161c31;
+  /* Gold */
+  --gold-300: #e7c979;
+  --gold-400: #dcb85c;
+  --gold-500: #c9a646;
+  --gold-600: #ad8930;
+  --gold-700: #8d6d25;
 
-  --surface-border: rgba(148, 163, 184, 0.10);
-  --surface-border-hover: rgba(167, 139, 250, 0.30);
+  /* Neutral */
+  --muted: #b7b0a2;
+  --muted-foreground: #817a6e;
 
-  /* ---------- Effects ---------- */
-  --glow-brand: rgba(124, 58, 237, 0.28);
-  --glow-purple: rgba(139, 92, 246, 0.20);
+  /* =======================================================
+     SURFACES
+     ======================================================= */
 
-  /* ---------- Layout ---------- */
-  --container-width: 1200px;
-  --header-height: 72px;
+  --surface: #12120f;
+  --surface-elevated: #181813;
+  --surface-hover: #211f18;
 
-  /* ---------- Radius ---------- */
-  --radius-sm: 0.5rem;
-  --radius-md: 0.75rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
-  --radius-2xl: 2rem;
+  --surface-light: #f4eee2;
+  --surface-light-elevated: #fffaf0;
 
-  /* ---------- Typography ---------- */
+  --surface-border: rgba(247, 242, 232, 0.09);
+  --surface-border-hover: rgba(201, 166, 70, 0.42);
+
+  /* =======================================================
+     EFFECTS
+     ======================================================= */
+
+  --glow-gold: rgba(201, 166, 70, 0.18);
+  --glow-cream: rgba(247, 242, 232, 0.06);
+
+  /* =======================================================
+     LAYOUT
+     ======================================================= */
+
+  --container-width: 1180px;
+  --header-height: 76px;
+
+  /* =======================================================
+     RADIUS
+     ======================================================= */
+
+  --radius-sm: 0.45rem;
+  --radius-md: 0.7rem;
+  --radius-lg: 0.95rem;
+  --radius-xl: 1.35rem;
+  --radius-2xl: 1.8rem;
+
+  /* =======================================================
+     TYPOGRAPHY
+     ======================================================= */
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
+
+
+/* =========================================================
+   TAILWIND THEME
+   ========================================================= */
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
 
+  --color-cream-50: var(--cream-50);
+  --color-cream-100: var(--cream-100);
+  --color-cream-200: var(--cream-200);
+  --color-cream-300: var(--cream-300);
+
+  --color-gold-300: var(--gold-300);
+  --color-gold-400: var(--gold-400);
+  --color-gold-500: var(--gold-500);
+  --color-gold-600: var(--gold-600);
+  --color-gold-700: var(--gold-700);
+
   --color-muted: var(--muted);
   --color-muted-foreground: var(--muted-foreground);
-
-  --color-brand-50: var(--brand-50);
-  --color-brand-100: var(--brand-100);
-  --color-brand-200: var(--brand-200);
-  --color-brand-300: var(--brand-300);
-  --color-brand-400: var(--brand-400);
-  --color-brand-500: var(--brand-500);
-  --color-brand-600: var(--brand-600);
-  --color-brand-700: var(--brand-700);
-  --color-brand-800: var(--brand-800);
 
   --color-surface: var(--surface);
   --color-surface-elevated: var(--surface-elevated);
@@ -76,6 +107,7 @@
   --font-sans: var(--font-sans);
   --font-mono: var(--font-mono);
 }
+
 
 /* =========================================================
    RESET
@@ -97,9 +129,9 @@ body {
 
   background:
     radial-gradient(
-      circle at 50% -20%,
-      rgba(124, 58, 237, 0.10),
-      transparent 38%
+      circle at 50% -15%,
+      rgba(201, 166, 70, 0.09),
+      transparent 34%
     ),
     var(--background);
 
@@ -117,79 +149,98 @@ body {
   text-rendering: optimizeLegibility;
 }
 
-/* Prevent accidental horizontal overflow */
 html,
 body {
   overflow-x: hidden;
 }
 
-/* Images */
+
+/* =========================================================
+   MEDIA
+   ========================================================= */
+
 img,
-svg {
+svg,
+video {
   max-width: 100%;
 }
 
-/* Links */
+img {
+  display: block;
+}
+
+
+/* =========================================================
+   LINKS
+   ========================================================= */
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
-/* Buttons */
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
 button,
 a {
   -webkit-tap-highlight-color: transparent;
 }
+
 
 /* =========================================================
    SELECTION
    ========================================================= */
 
 ::selection {
-  background: rgba(124, 58, 237, 0.85);
-  color: white;
+  background: var(--gold-500);
+  color: #0b0b09;
 }
+
 
 /* =========================================================
    SCROLLBAR
    ========================================================= */
 
 ::-webkit-scrollbar {
-  width: 9px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: #0b0b09;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e2538;
-  border: 2px solid var(--background);
+  background: #38352d;
+  border: 2px solid #0b0b09;
   border-radius: 999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--brand-700);
+  background: var(--gold-600);
 }
 
-/* Firefox */
 html {
-  scrollbar-color: #1e2538 var(--background);
+  scrollbar-color: #38352d #0b0b09;
   scrollbar-width: thin;
 }
+
 
 /* =========================================================
    ACCESSIBILITY
    ========================================================= */
 
 :focus-visible {
-  outline: 2px solid var(--brand-400);
+  outline: 2px solid var(--gold-400);
   outline-offset: 4px;
   border-radius: var(--radius-sm);
 }
 
+
 /* =========================================================
-   GLOBAL CONTAINER
+   CONTAINER
    ========================================================= */
 
 .container-app {
@@ -201,7 +252,6 @@ html {
   margin-inline: auto;
 }
 
-/* Larger screens */
 @media (min-width: 768px) {
   .container-app {
     width: min(
@@ -211,13 +261,16 @@ html {
   }
 }
 
+
 /* =========================================================
    SECTION SYSTEM
    ========================================================= */
 
 section {
   position: relative;
-  scroll-margin-top: calc(var(--header-height) + 2rem);
+  scroll-margin-top: calc(
+    var(--header-height) + 2rem
+  );
 }
 
 .section {
@@ -246,39 +299,42 @@ section {
   }
 }
 
+
 /* =========================================================
-   BACKGROUND GRID
+   SUBTLE GRID
    ========================================================= */
 
 .bg-grid {
   background-image:
     linear-gradient(
-      rgba(148, 163, 184, 0.035) 1px,
+      rgba(247, 242, 232, 0.035) 1px,
       transparent 1px
     ),
     linear-gradient(
       90deg,
-      rgba(148, 163, 184, 0.035) 1px,
+      rgba(247, 242, 232, 0.035) 1px,
       transparent 1px
     );
 
-  background-size: 42px 42px;
+  background-size: 44px 44px;
 }
 
-/* Faded grid */
 .bg-grid-fade {
-  mask-image: linear-gradient(
-    to bottom,
-    black,
-    transparent 80%
-  );
+  mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent 80%
+    );
 
-  -webkit-mask-image: linear-gradient(
-    to bottom,
-    black,
-    transparent 80%
-  );
+  -webkit-mask-image:
+    linear-gradient(
+      to bottom,
+      black,
+      transparent 80%
+    );
 }
+
 
 /* =========================================================
    RADIAL BACKGROUND
@@ -288,22 +344,23 @@ section {
   background:
     radial-gradient(
       circle at 50% 0%,
-      rgba(124, 58, 237, 0.18),
-      transparent 40%
+      rgba(201, 166, 70, 0.13),
+      transparent 42%
     );
 }
 
+
 /* =========================================================
-   BRAND GRADIENTS
+   GOLD GRADIENT
    ========================================================= */
 
 .brand-gradient {
   background:
     linear-gradient(
       135deg,
-      var(--brand-400),
-      var(--brand-600) 55%,
-      var(--brand-800)
+      var(--gold-300),
+      var(--gold-500) 55%,
+      var(--gold-700)
     );
 }
 
@@ -311,18 +368,23 @@ section {
   background:
     linear-gradient(
       135deg,
-      rgba(167, 139, 250, 0.18),
-      rgba(124, 58, 237, 0.06)
+      rgba(201, 166, 70, 0.16),
+      rgba(201, 166, 70, 0.035)
     );
 }
+
+
+/* =========================================================
+   GOLD TEXT
+   ========================================================= */
 
 .text-gradient {
   background:
     linear-gradient(
       90deg,
-      var(--brand-300),
-      var(--brand-500),
-      var(--brand-700)
+      var(--gold-300),
+      var(--gold-500),
+      var(--gold-300)
     );
 
   -webkit-background-clip: text;
@@ -331,35 +393,26 @@ section {
   color: transparent;
 }
 
-/* Animated gradient text */
-.text-gradient-animated {
+
+/* =========================================================
+   PREMIUM GOLD LINE
+   ========================================================= */
+
+.gold-line {
+  width: 56px;
+  height: 2px;
+
   background:
     linear-gradient(
       90deg,
-      var(--brand-300),
-      var(--brand-500),
-      #c084fc,
-      var(--brand-300)
+      var(--gold-400),
+      transparent
     );
-
-  background-size: 200% auto;
-
-  -webkit-background-clip: text;
-  background-clip: text;
-
-  color: transparent;
-
-  animation: gradient-shift 5s linear infinite;
 }
 
-@keyframes gradient-shift {
-  to {
-    background-position: 200% center;
-  }
-}
 
 /* =========================================================
-   SURFACES / CARDS
+   SURFACE CARDS
    ========================================================= */
 
 .surface-card {
@@ -367,76 +420,98 @@ section {
 
   background:
     linear-gradient(
-      180deg,
-      rgba(17, 23, 41, 0.96),
-      rgba(13, 17, 32, 0.96)
+      145deg,
+      rgba(28, 27, 22, 0.96),
+      rgba(15, 15, 12, 0.96)
     );
 
-  border: 1px solid var(--surface-border);
+  border:
+    1px solid
+    rgba(247, 242, 232, 0.08);
 
   border-radius: var(--radius-xl);
 
   box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.20),
-    inset 0 1px 0 rgba(255, 255, 255, 0.025);
+    0 20px 60px rgba(0, 0, 0, 0.28),
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.025);
 
   transition:
     transform 250ms ease,
     border-color 250ms ease,
-    box-shadow 250ms ease,
-    background 250ms ease;
+    box-shadow 250ms ease;
 }
 
 .surface-card:hover {
-  border-color: var(--surface-border-hover);
+  transform: translateY(-4px);
+
+  border-color:
+    rgba(201, 166, 70, 0.32);
 
   box-shadow:
-    0 25px 70px rgba(0, 0, 0, 0.28),
-    0 0 40px rgba(124, 58, 237, 0.08);
-
-  transform: translateY(-3px);
+    0 28px 70px rgba(0, 0, 0, 0.35),
+    0 0 45px
+      rgba(201, 166, 70, 0.06);
 }
 
-/* Smaller card */
+
+/* =========================================================
+   SMALL CARD
+   ========================================================= */
+
 .surface-card-sm {
-  border: 1px solid var(--surface-border);
+  border:
+    1px solid
+    rgba(247, 242, 232, 0.08);
+
   border-radius: var(--radius-lg);
 
-  background: rgba(17, 23, 41, 0.72);
+  background:
+    rgba(24, 24, 19, 0.75);
 
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
 }
+
 
 /* =========================================================
    GLASS
    ========================================================= */
 
 .glass {
-  background: rgba(13, 17, 32, 0.65);
+  background:
+    rgba(12, 12, 10, 0.72);
 
-  border: 1px solid rgba(148, 163, 184, 0.10);
-
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
-
-  box-shadow:
-    0 10px 40px rgba(0, 0, 0, 0.16),
-    inset 0 1px 0 rgba(255, 255, 255, 0.03);
-}
-
-/* =========================================================
-   HEADER / NAVIGATION
-   ========================================================= */
-
-.navbar-glass {
-  background: rgba(7, 9, 20, 0.72);
-
-  border-bottom: 1px solid rgba(148, 163, 184, 0.08);
+  border:
+    1px solid
+    rgba(247, 242, 232, 0.08);
 
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.18),
+    inset 0 1px 0
+      rgba(255, 255, 255, 0.035);
 }
+
+
+/* =========================================================
+   NAVBAR
+   ========================================================= */
+
+.navbar-glass {
+  background:
+    rgba(11, 11, 9, 0.78);
+
+  border-bottom:
+    1px solid
+    rgba(247, 242, 232, 0.07);
+
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+}
+
 
 /* =========================================================
    BUTTON SYSTEM
@@ -453,27 +528,30 @@ section {
   min-height: 44px;
 
   padding:
-    0.7rem
-    1.15rem;
+    0.72rem
+    1.2rem;
 
-  border-radius: 0.75rem;
+  border-radius: 0.7rem;
 
   background:
     linear-gradient(
       135deg,
-      var(--brand-500),
-      var(--brand-700)
+      var(--gold-400),
+      var(--gold-600)
     );
 
-  color: white;
+  color: #0b0b09;
 
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
 
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border:
+    1px solid
+    rgba(255, 255, 255, 0.12);
 
   box-shadow:
-    0 10px 30px rgba(124, 58, 237, 0.25);
+    0 10px 30px
+    rgba(201, 166, 70, 0.18);
 
   transition:
     transform 180ms ease,
@@ -484,15 +562,21 @@ section {
 .btn-primary:hover {
   transform: translateY(-2px);
 
-  filter: brightness(1.08);
+  filter: brightness(1.06);
 
   box-shadow:
-    0 14px 38px rgba(124, 58, 237, 0.35);
+    0 15px 40px
+    rgba(201, 166, 70, 0.27);
 }
 
 .btn-primary:active {
   transform: translateY(0);
 }
+
+
+/* =========================================================
+   SECONDARY BUTTON
+   ========================================================= */
 
 .btn-secondary {
   display: inline-flex;
@@ -505,16 +589,19 @@ section {
   min-height: 44px;
 
   padding:
-    0.7rem
-    1.15rem;
+    0.72rem
+    1.2rem;
 
-  border-radius: 0.75rem;
+  border-radius: 0.7rem;
 
-  background: rgba(255, 255, 255, 0.025);
+  background:
+    rgba(247, 242, 232, 0.025);
 
-  color: #e2e8f0;
+  color: var(--cream-200);
 
-  border: 1px solid rgba(148, 163, 184, 0.14);
+  border:
+    1px solid
+    rgba(247, 242, 232, 0.14);
 
   font-size: 0.9rem;
   font-weight: 600;
@@ -526,16 +613,18 @@ section {
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background:
+    rgba(247, 242, 232, 0.06);
 
   border-color:
-    rgba(167, 139, 250, 0.28);
+    rgba(201, 166, 70, 0.35);
 
   transform: translateY(-2px);
 }
 
+
 /* =========================================================
-   BADGES
+   BADGE
    ========================================================= */
 
 .badge {
@@ -546,21 +635,24 @@ section {
 
   padding:
     0.35rem
-    0.7rem;
+    0.72rem;
 
   border-radius: 999px;
 
-  background: rgba(124, 58, 237, 0.09);
+  background:
+    rgba(201, 166, 70, 0.08);
 
   border:
-    1px solid rgba(167, 139, 250, 0.18);
+    1px solid
+    rgba(201, 166, 70, 0.20);
 
-  color: var(--brand-300);
+  color: var(--gold-300);
 
-  font-size: 0.75rem;
-  font-weight: 600;
+  font-size: 0.74rem;
+  font-weight: 700;
 
-  letter-spacing: 0.01em;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
 }
 
 .badge-dot {
@@ -569,11 +661,13 @@ section {
 
   border-radius: 50%;
 
-  background: var(--brand-400);
+  background: var(--gold-400);
 
   box-shadow:
-    0 0 10px var(--brand-400);
+    0 0 10px
+    rgba(201, 166, 70, 0.75);
 }
+
 
 /* =========================================================
    TYPOGRAPHY
@@ -582,24 +676,25 @@ section {
 .eyebrow {
   margin-bottom: 0.85rem;
 
-  color: var(--brand-300);
+  color: var(--gold-400);
 
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 700;
 
   text-transform: uppercase;
 
-  letter-spacing: 0.14em;
+  letter-spacing: 0.16em;
 }
 
 .display-heading {
   max-width: 900px;
 
-  font-size: clamp(
-    2.7rem,
-    7vw,
-    5.5rem
-  );
+  font-size:
+    clamp(
+      2.7rem,
+      7vw,
+      5.6rem
+    );
 
   line-height: 0.98;
 
@@ -611,15 +706,16 @@ section {
 .section-heading {
   max-width: 760px;
 
-  font-size: clamp(
-    2rem,
-    4vw,
-    3.5rem
-  );
+  font-size:
+    clamp(
+      2rem,
+      4vw,
+      3.4rem
+    );
 
   line-height: 1.05;
 
-  letter-spacing: -0.04em;
+  letter-spacing: -0.045em;
 
   font-weight: 700;
 }
@@ -629,13 +725,14 @@ section {
 
   color: var(--muted);
 
-  font-size: 1.05rem;
+  font-size: 1rem;
 
   line-height: 1.75;
 }
 
+
 /* =========================================================
-   ICON CONTAINERS
+   ICON BOX
    ========================================================= */
 
 .icon-box {
@@ -647,26 +744,29 @@ section {
   width: 46px;
   height: 46px;
 
-  border-radius: 0.9rem;
+  border-radius: 0.85rem;
 
   background:
     linear-gradient(
       135deg,
-      rgba(139, 92, 246, 0.16),
-      rgba(124, 58, 237, 0.05)
+      rgba(201, 166, 70, 0.15),
+      rgba(201, 166, 70, 0.035)
     );
 
   border:
-    1px solid rgba(167, 139, 250, 0.15);
+    1px solid
+    rgba(201, 166, 70, 0.18);
 
-  color: var(--brand-300);
+  color: var(--gold-300);
 
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.04);
+    inset 0 1px 0
+    rgba(255, 255, 255, 0.04);
 }
 
+
 /* =========================================================
-   GLOW EFFECT
+   GLOW
    ========================================================= */
 
 .glow {
@@ -686,45 +786,51 @@ section {
   background:
     radial-gradient(
       circle,
-      var(--glow-brand) 0%,
+      var(--glow-gold),
       transparent 68%
     );
 
-  filter: blur(60px);
+  filter: blur(65px);
 
-  opacity: 0.7;
+  opacity: 0.65;
 
   pointer-events: none;
 }
 
 .glow-sm::before {
-  filter: blur(35px);
-  opacity: 0.45;
+  filter: blur(38px);
+  opacity: 0.4;
 }
 
+
 /* =========================================================
-   HERO ART / PRODUCT MOCKUP
+   HERO ORB
    ========================================================= */
 
 .hero-orb {
   position: absolute;
 
-  width: 420px;
-  height: 420px;
+  width: 440px;
+  height: 440px;
 
   border-radius: 50%;
 
   background:
     radial-gradient(
       circle,
-      rgba(139, 92, 246, 0.20),
+      rgba(201, 166, 70, 0.15),
       transparent 68%
     );
 
-  filter: blur(20px);
+  filter: blur(22px);
 
   pointer-events: none;
 }
+
+
+/* =========================================================
+   PRODUCT FRAME
+   ========================================================= */
 
 .product-frame {
   position: relative;
@@ -732,24 +838,28 @@ section {
   border-radius: var(--radius-2xl);
 
   border:
-    1px solid rgba(167, 139, 250, 0.16);
+    1px solid
+    rgba(201, 166, 70, 0.16);
 
   background:
     linear-gradient(
       180deg,
-      rgba(17, 23, 41, 0.96),
-      rgba(7, 9, 20, 0.96)
+      rgba(25, 25, 20, 0.97),
+      rgba(9, 9, 8, 0.97)
     );
 
   box-shadow:
-    0 40px 100px rgba(0, 0, 0, 0.45),
-    0 0 80px rgba(124, 58, 237, 0.10);
+    0 40px 100px
+      rgba(0, 0, 0, 0.45),
+    0 0 80px
+      rgba(201, 166, 70, 0.07);
 
   overflow: hidden;
 }
 
+
 /* =========================================================
-   DIVIDERS
+   DIVIDER
    ========================================================= */
 
 .divider {
@@ -759,10 +869,11 @@ section {
     linear-gradient(
       90deg,
       transparent,
-      rgba(148, 163, 184, 0.12),
+      rgba(247, 242, 232, 0.13),
       transparent
     );
 }
+
 
 /* =========================================================
    FEATURE GRID
@@ -790,16 +901,18 @@ section {
   }
 }
 
+
 /* =========================================================
-   STAT / METRIC
+   STATISTICS
    ========================================================= */
 
 .stat-value {
-  font-size: clamp(
-    1.8rem,
-    4vw,
-    2.8rem
-  );
+  font-size:
+    clamp(
+      1.8rem,
+      4vw,
+      2.8rem
+    );
 
   font-weight: 700;
 
@@ -813,6 +926,7 @@ section {
 
   font-size: 0.85rem;
 }
+
 
 /* =========================================================
    MARQUEE
@@ -837,8 +951,9 @@ section {
   }
 }
 
+
 /* =========================================================
-   FLOATING ANIMATION
+   FLOATING
    ========================================================= */
 
 .float {
@@ -857,32 +972,34 @@ section {
   }
 }
 
+
 /* =========================================================
-   PULSE
+   GOLD PULSE
    ========================================================= */
 
 .pulse-brand {
   animation:
-    pulse-brand 2.5s ease-in-out infinite;
+    pulse-gold 2.5s ease-in-out infinite;
 }
 
-@keyframes pulse-brand {
+@keyframes pulse-gold {
   0%,
   100% {
     box-shadow:
       0 0 0 0
-      rgba(139, 92, 246, 0.30);
+      rgba(201, 166, 70, 0.28);
   }
 
   50% {
     box-shadow:
       0 0 0 10px
-      rgba(139, 92, 246, 0);
+      rgba(201, 166, 70, 0);
   }
 }
 
+
 /* =========================================================
-   FADE / REVEAL HELPERS
+   FADE MASK
    ========================================================= */
 
 .fade-mask {
@@ -901,21 +1018,71 @@ section {
     );
 }
 
+
 /* =========================================================
    FOOTER
    ========================================================= */
 
 .footer {
   border-top:
-    1px solid rgba(148, 163, 184, 0.08);
+    1px solid
+    rgba(247, 242, 232, 0.08);
 
   background:
     linear-gradient(
       180deg,
-      rgba(13, 17, 32, 0.45),
-      rgba(7, 9, 20, 0.95)
+      rgba(18, 18, 15, 0.65),
+      rgba(7, 7, 6, 0.98)
     );
 }
+
+
+/* =========================================================
+   LIGHT CREAM SECTION
+   Optional section for visual contrast
+   ========================================================= */
+
+.section-cream {
+  background:
+    var(--cream-100);
+
+  color: #11110e;
+}
+
+.section-cream .section-description {
+  color: #625d52;
+}
+
+.section-cream .eyebrow {
+  color: var(--gold-700);
+}
+
+
+/* =========================================================
+   PREMIUM BORDER
+   ========================================================= */
+
+.border-gold {
+  border-color:
+    rgba(201, 166, 70, 0.28);
+}
+
+
+/* =========================================================
+   HOVER GOLD
+   ========================================================= */
+
+.hover-gold {
+  transition:
+    color 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.hover-gold:hover {
+  color: var(--gold-300);
+}
+
 
 /* =========================================================
    REDUCED MOTION
