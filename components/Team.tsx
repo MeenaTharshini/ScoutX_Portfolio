@@ -4,17 +4,14 @@ import { motion } from "framer-motion";
 import {
   FaLinkedin,
   FaGithub,
-  FaCode,
   FaLightbulb,
-  FaRocket,
+  FaCode,
+  FaBrain,
   FaUsers,
+  FaRocket,
+  FaCheckCircle,
   FaArrowRight,
   FaStar,
-  FaBolt,
-  FaBrain,
-  FaLayerGroup,
-  FaCheckCircle,
-  FaQuoteLeft,
 } from "react-icons/fa";
 
 const teamMembers = [
@@ -22,11 +19,9 @@ const teamMembers = [
     name: "Meena Tharshini I",
     role: "Founder & Product Lead",
     badge: "Founder",
-    description:
-      "Driving ScoutX from problem discovery to product vision, shaping the platform, user experience, and innovation discovery model.",
     initials: "MT",
-    linkedin: "#",
-    github: "#",
+    description:
+      "Driving ScoutX's product vision, user experience, and innovation discovery model.",
     skills: ["Product Strategy", "Full Stack", "AI", "UI/UX"],
     icon: FaLightbulb,
   },
@@ -34,11 +29,9 @@ const teamMembers = [
     name: "Lithanya R",
     role: "Technology & Engineering",
     badge: "Engineering",
-    description:
-      "Building the technical foundation of ScoutX and developing the systems that power its core platform experience.",
     initials: "LR",
-    linkedin: "#",
-    github: "#",
+    description:
+      "Building the technical foundation and systems behind the ScoutX platform.",
     skills: ["Backend", "APIs", "Database", "Cloud"],
     icon: FaCode,
   },
@@ -46,11 +39,9 @@ const teamMembers = [
     name: "Magha Sri P",
     role: "Innovation & Research",
     badge: "Research",
-    description:
-      "Exploring innovation ecosystems, user needs, market opportunities, and pathways for real-world adoption.",
     initials: "MS",
-    linkedin: "#",
-    github: "#",
+    description:
+      "Exploring innovation ecosystems, user needs, market opportunities, and adoption.",
     skills: ["Research", "Innovation", "Market", "Strategy"],
     icon: FaBrain,
   },
@@ -58,32 +49,24 @@ const teamMembers = [
 
 const values = [
   {
-    number: "01",
     icon: FaLightbulb,
     title: "Build with Purpose",
-    description:
-      "Technology should solve meaningful problems and create measurable value, not simply add another product to the internet.",
+    description: "Technology should solve meaningful problems and create real value.",
   },
   {
-    number: "02",
     icon: FaCode,
     title: "Evidence Over Claims",
-    description:
-      "Real projects, prototypes, technical work, and outcomes should speak louder than credentials alone.",
+    description: "Real projects and outcomes should speak louder than credentials alone.",
   },
   {
-    number: "03",
     icon: FaUsers,
     title: "Connect the Ecosystem",
-    description:
-      "Innovators, organizations, institutions, and opportunities become more powerful when they can discover each other.",
+    description: "Better discovery connects innovators, organizations, and opportunities.",
   },
   {
-    number: "04",
     icon: FaRocket,
     title: "Move Ideas Forward",
-    description:
-      "We want promising ideas to progress from experimentation toward validation, collaboration, and real-world impact.",
+    description: "Help promising ideas progress toward validation and real-world impact.",
   },
 ];
 
@@ -94,1111 +77,282 @@ const missionPoints = [
   "Create pathways beyond competitions",
 ];
 
-const teamSignals = [
-  {
-    icon: FaBolt,
-    title: "Builder mindset",
-  },
-  {
-    icon: FaBrain,
-    title: "Research driven",
-  },
-  {
-    icon: FaCode,
-    title: "Technology focused",
-  },
-  {
-    icon: FaRocket,
-    title: "Impact oriented",
-  },
-];
-
 export default function Team() {
   return (
     <section
       id="team"
-      className="
-        relative
-        overflow-hidden
-        bg-[#080A12]
-        text-white
-        py-24
-        md:py-32
-        px-6
-      "
+      className="relative overflow-hidden bg-[#080A0F] px-6 py-20 text-white md:py-28"
     >
-      {/* =====================================================
-          BACKGROUND
-      ====================================================== */}
-
-      <div className="absolute inset-0 pointer-events-none">
-        {/* Ambient glows */}
-
+      {/* Background */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0"
+      >
+        <div className="absolute -top-48 left-1/2 h-[600px] w-[600px] -translate-x-1/2 rounded-full bg-purple-600/[0.07] blur-[130px]" />
+        <div className="absolute -bottom-48 -right-48 h-[500px] w-[500px] rounded-full bg-violet-600/[0.06] blur-[120px]" />
         <div
-          className="
-            absolute
-            -top-[220px]
-            left-1/2
-            -translate-x-1/2
-            w-[650px]
-            h-[650px]
-            rounded-full
-            bg-purple-600/[0.07]
-            blur-[140px]
-          "
-        />
-
-        <div
-          className="
-            absolute
-            bottom-[-250px]
-            right-[-180px]
-            w-[600px]
-            h-[600px]
-            rounded-full
-            bg-violet-600/[0.06]
-            blur-[140px]
-          "
-        />
-
-        <div
-          className="
-            absolute
-            top-1/3
-            left-[-250px]
-            w-[500px]
-            h-[500px]
-            rounded-full
-            bg-fuchsia-500/[0.025]
-            blur-[130px]
-          "
-        />
-
-        {/* Grid */}
-
-        <div
-          className="
-            absolute
-            inset-0
-            opacity-[0.025]
-            bg-[linear-gradient(rgba(255,255,255,0.8)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.8)_1px,transparent_1px)]
-            bg-[size:72px_72px]
-          "
-        />
-
-        {/* Top fade */}
-
-        <div
-          className="
-            absolute
-            top-0
-            left-0
-            right-0
-            h-40
-            bg-gradient-to-b
-            from-[#080A12]
-            to-transparent
-          "
+          className="absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
         />
       </div>
 
-      <div className="max-w-7xl mx-auto relative z-10">
-
-        {/* =====================================================
-            HEADER
-        ====================================================== */}
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
+      <div className="relative z-10 mx-auto max-w-7xl">
+        {/* Header */}
+        <motion.header
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="max-w-4xl mx-auto text-center"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+          className="mx-auto max-w-3xl text-center"
         >
-          {/* Eyebrow */}
-
-          <div
-            className="
-              inline-flex
-              items-center
-              gap-2
-              px-4
-              py-2
-              rounded-full
-              bg-purple-500/[0.07]
-              border
-              border-purple-500/20
-              text-purple-300
-              text-[10px]
-              md:text-xs
-              font-bold
-              uppercase
-              tracking-[0.22em]
-            "
-          >
-            <FaUsers className="text-[10px]" />
+          <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/20 bg-purple-500/[0.06] px-4 py-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-purple-300">
+            <FaUsers />
             The people behind ScoutX
           </div>
 
-          {/* Heading */}
-
-          <h2
-            className="
-              text-4xl
-              sm:text-5xl
-              md:text-6xl
-              lg:text-7xl
-              font-bold
-              mt-7
-              leading-[0.98]
-              tracking-[-0.04em]
-            "
-          >
+          <h2 className="mt-6 text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl">
             Small team.
-            <br />
-
-            <span
-              className="
-                text-transparent
-                bg-clip-text
-                bg-gradient-to-r
-                from-purple-200
-                via-purple-400
-                to-violet-500
-              "
-            >
+            <span className="block bg-gradient-to-r from-purple-300 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
               Big ambition.
             </span>
           </h2>
 
-          <p
-            className="
-              text-slate-400
-              text-base
-              md:text-lg
-              lg:text-xl
-              leading-8
-              mt-7
-              max-w-3xl
-              mx-auto
-            "
-          >
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-400 md:text-base">
             We are building ScoutX around one belief:
-            <span className="text-slate-200 font-medium">
-              {" "}valuable innovation should be easier to discover.
+            <span className="text-slate-200">
+              {" "}
+              valuable innovation should be easier to discover.
             </span>
           </p>
-        </motion.div>
+        </motion.header>
 
-        {/* =====================================================
-            TEAM SIGNALS
-        ====================================================== */}
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.7, delay: 0.1 }}
-          className="
-            flex
-            flex-wrap
-            justify-center
-            gap-2.5
-            md:gap-3
-            mt-12
-            md:mt-14
-          "
-        >
-          {teamSignals.map((item) => {
-            const Icon = item.icon;
-
-            return (
-              <div
-                key={item.title}
-                className="
-                  group
-                  inline-flex
-                  items-center
-                  gap-2.5
-                  px-4
-                  py-2.5
-                  rounded-full
-                  bg-white/[0.025]
-                  border
-                  border-white/[0.07]
-                  hover:border-purple-500/30
-                  hover:bg-purple-500/[0.05]
-                  transition-all
-                  duration-300
-                "
-              >
-                <Icon
-                  className="
-                    text-purple-400
-                    text-xs
-                    group-hover:text-purple-300
-                    transition-colors
-                  "
-                />
-
-                <span className="text-slate-400 text-xs md:text-sm">
-                  {item.title}
-                </span>
-              </div>
-            );
-          })}
-        </motion.div>
-
-        {/* =====================================================
-            TEAM SECTION LABEL
-        ====================================================== */}
-
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="flex items-center gap-4 mt-20 md:mt-24"
-        >
-          <div className="h-px flex-1 bg-white/[0.06]" />
-
-          <span
-            className="
-              text-[10px]
-              uppercase
-              tracking-[0.25em]
-              text-slate-600
-              font-bold
-            "
-          >
-            Meet the team
-          </span>
-
-          <div className="h-px flex-1 bg-white/[0.06]" />
-        </motion.div>
-
-        {/* =====================================================
-            TEAM CARDS
-        ====================================================== */}
-
-        <div className="grid lg:grid-cols-3 gap-5 md:gap-6 mt-10 max-w-6xl mx-auto">
+        {/* Team */}
+        <div className="mt-14 grid gap-5 md:grid-cols-3">
           {teamMembers.map((member, index) => {
             const Icon = member.icon;
-            const isFounder = index === 0;
+            const founder = index === 0;
 
             return (
-              <motion.div
+              <motion.article
                 key={member.name}
-                initial={{
-                  opacity: 0,
-                  y: 35,
-                }}
-                whileInView={{
-                  opacity: 1,
-                  y: 0,
-                }}
-                viewport={{ once: true }}
-                transition={{
-                  duration: 0.65,
-                  delay: index * 0.1,
-                }}
-                whileHover={{
-                  y: -7,
-                }}
-                className="group relative"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -6 }}
+                className="group relative overflow-hidden rounded-[26px] border border-white/[0.07] bg-white/[0.025] p-6 backdrop-blur-xl transition-all duration-300 hover:border-purple-500/30"
               >
-                {/* Gradient border */}
-
                 <div
-                  className={`
-                    absolute
-                    -inset-[1px]
-                    rounded-[26px]
-                    opacity-0
-                    group-hover:opacity-100
-                    transition-opacity
-                    duration-500
-                    ${
-                      isFounder
-                        ? "bg-gradient-to-b from-purple-400/50 via-purple-500/15 to-transparent"
-                        : "bg-gradient-to-b from-purple-500/30 via-transparent to-transparent"
-                    }
-                  `}
+                  aria-hidden="true"
+                  className="absolute -right-20 -top-20 h-48 w-48 rounded-full bg-purple-500/[0.07] blur-[80px] transition-opacity duration-500 group-hover:bg-purple-500/[0.14]"
                 />
 
-                {/* Card */}
+                <div className="relative z-10">
+                  <div className="flex items-center justify-between">
+                    <span
+                      className={`rounded-full border px-3 py-1 text-[9px] font-semibold uppercase tracking-[0.18em] ${
+                        founder
+                          ? "border-purple-500/20 bg-purple-500/10 text-purple-300"
+                          : "border-white/[0.07] bg-white/[0.03] text-slate-500"
+                      }`}
+                    >
+                      {member.badge}
+                    </span>
 
-                <div
-                  className="
-                    relative
-                    h-full
-                    rounded-[25px]
-                    bg-[#10131F]
-                    border
-                    border-white/[0.07]
-                    group-hover:border-transparent
-                    overflow-hidden
-                    transition-colors
-                    duration-500
-                  "
-                >
-                  {/* Card glow */}
+                    <Icon className="text-sm text-purple-400/50" />
+                  </div>
 
-                  <div
-                    className="
-                      absolute
-                      -top-28
-                      -right-24
-                      w-64
-                      h-64
-                      rounded-full
-                      bg-purple-500/[0.06]
-                      blur-3xl
-                      group-hover:bg-purple-500/[0.13]
-                      transition-all
-                      duration-700
-                    "
-                  />
-
-                  {/* Card top */}
-
-                  <div className="relative p-6 md:p-7">
-
-                    <div className="flex items-center justify-between">
-                      <span
-                        className={`
-                          inline-flex
-                          items-center
-                          gap-2
-                          px-3
-                          py-1.5
-                          rounded-full
-                          text-[9px]
-                          uppercase
-                          tracking-[0.18em]
-                          font-bold
-                          ${
-                            isFounder
-                              ? "bg-purple-500/10 text-purple-300 border border-purple-500/20"
-                              : "bg-white/[0.035] text-slate-500 border border-white/[0.07]"
-                          }
-                        `}
-                      >
-                        <span
-                          className={`
-                            w-1.5
-                            h-1.5
-                            rounded-full
-                            ${
-                              isFounder
-                                ? "bg-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.8)]"
-                                : "bg-slate-600"
-                            }
-                          `}
-                        />
-
-                        {member.badge}
+                  {/* Avatar */}
+                  <div className="mt-7 flex justify-center">
+                    <div className="flex h-24 w-24 items-center justify-center rounded-full border border-purple-400/20 bg-gradient-to-br from-purple-500/20 via-violet-500/10 to-[#080A0F] shadow-[0_0_45px_rgba(168,85,247,0.08)] transition-all duration-500 group-hover:border-purple-400/35">
+                      <span className="text-3xl font-bold text-transparent bg-gradient-to-r from-purple-200 to-violet-400 bg-clip-text">
+                        {member.initials}
                       </span>
-
-                      <Icon className="text-purple-400/40 text-sm" />
-                    </div>
-
-                    {/* Avatar */}
-
-                    <div className="flex justify-center mt-8">
-                      <div className="relative">
-
-                        <div
-                          className="
-                            absolute
-                            -inset-4
-                            rounded-full
-                            bg-purple-500/[0.07]
-                            blur-2xl
-                            group-hover:bg-purple-500/[0.14]
-                            transition-all
-                            duration-500
-                          "
-                        />
-
-                        <div
-                          className="
-                            relative
-                            w-28
-                            h-28
-                            md:w-32
-                            md:h-32
-                            rounded-full
-                            bg-gradient-to-br
-                            from-purple-500/20
-                            via-violet-500/10
-                            to-[#0B0E16]
-                            border
-                            border-purple-400/20
-                            flex
-                            items-center
-                            justify-center
-                            shadow-[0_0_60px_rgba(168,85,247,0.07)]
-                            group-hover:border-purple-400/35
-                            transition-all
-                            duration-500
-                          "
-                        >
-                          <span
-                            className="
-                              text-3xl
-                              md:text-4xl
-                              font-bold
-                              tracking-tight
-                              text-transparent
-                              bg-clip-text
-                              bg-gradient-to-r
-                              from-purple-200
-                              to-violet-400
-                            "
-                          >
-                            {member.initials}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Identity */}
-
-                    <div className="text-center mt-7">
-                      <h3
-                        className="
-                          text-xl
-                          md:text-2xl
-                          font-bold
-                          tracking-tight
-                        "
-                      >
-                        {member.name}
-                      </h3>
-
-                      <p className="text-purple-400 text-sm font-medium mt-2">
-                        {member.role}
-                      </p>
-                    </div>
-
-                    {/* Description */}
-
-                    <p
-                      className="
-                        text-slate-500
-                        text-sm
-                        leading-7
-                        text-center
-                        mt-5
-                        min-h-[98px]
-                      "
-                    >
-                      {member.description}
-                    </p>
-
-                    {/* Skills */}
-
-                    <div className="flex flex-wrap justify-center gap-2 mt-6">
-                      {member.skills.map((skill) => (
-                        <span
-                          key={skill}
-                          className="
-                            px-3
-                            py-1.5
-                            rounded-lg
-                            bg-[#0B0E16]
-                            border
-                            border-white/[0.06]
-                            text-slate-500
-                            text-[10px]
-                            font-medium
-                            hover:text-purple-300
-                            hover:border-purple-500/20
-                            transition-all
-                          "
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-
-                    {/* Social */}
-
-                    <div
-                      className="
-                        flex
-                        justify-center
-                        gap-2.5
-                        mt-7
-                        pt-6
-                        border-t
-                        border-white/[0.06]
-                      "
-                    >
-                      <a
-                        href={member.linkedin}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${member.name} LinkedIn`}
-                        className="
-                          w-10
-                          h-10
-                          rounded-xl
-                          bg-[#0B0E16]
-                          border
-                          border-white/[0.06]
-                          flex
-                          items-center
-                          justify-center
-                          text-slate-600
-                          hover:text-white
-                          hover:bg-purple-600
-                          hover:border-purple-500
-                          transition-all
-                        "
-                      >
-                        <FaLinkedin />
-                      </a>
-
-                      <a
-                        href={member.github}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        aria-label={`${member.name} GitHub`}
-                        className="
-                          w-10
-                          h-10
-                          rounded-xl
-                          bg-[#0B0E16]
-                          border
-                          border-white/[0.06]
-                          flex
-                          items-center
-                          justify-center
-                          text-slate-600
-                          hover:text-white
-                          hover:bg-purple-600
-                          hover:border-purple-500
-                          transition-all
-                        "
-                      >
-                        <FaGithub />
-                      </a>
                     </div>
                   </div>
+
+                  <div className="mt-6 text-center">
+                    <h3 className="text-xl font-bold tracking-tight">
+                      {member.name}
+                    </h3>
+
+                    <p className="mt-1.5 text-sm font-medium text-purple-400">
+                      {member.role}
+                    </p>
+
+                    <p className="mt-4 text-sm leading-6 text-slate-500">
+                      {member.description}
+                    </p>
+                  </div>
+
+                  {/* Skills */}
+                  <div className="mt-5 flex flex-wrap justify-center gap-2">
+                    {member.skills.map((skill) => (
+                      <span
+                        key={skill}
+                        className="rounded-lg border border-white/[0.06] bg-[#0B0E16] px-2.5 py-1.5 text-[10px] text-slate-500 transition hover:border-purple-500/20 hover:text-purple-300"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+
+                  {/* Social */}
+                  <div className="mt-6 flex justify-center gap-2 border-t border-white/[0.06] pt-5">
+                    <a
+                      href="#"
+                      aria-label={`${member.name} LinkedIn`}
+                      className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/[0.06] bg-[#0B0E16] text-slate-600 transition hover:border-purple-500 hover:bg-purple-600 hover:text-white"
+                    >
+                      <FaLinkedin />
+                    </a>
+
+                    <a
+                      href="#"
+                      aria-label={`${member.name} GitHub`}
+                      className="flex h-9 w-9 items-center justify-center rounded-xl border border-white/[0.06] bg-[#0B0E16] text-slate-600 transition hover:border-purple-500 hover:bg-purple-600 hover:text-white"
+                    >
+                      <FaGithub />
+                    </a>
+                  </div>
                 </div>
-              </motion.div>
+              </motion.article>
             );
           })}
         </div>
 
-        {/* =====================================================
-            MISSION
-        ====================================================== */}
-
+        {/* Mission */}
         <motion.div
-          initial={{ opacity: 0, y: 35 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="mt-24 md:mt-28"
+          viewport={{ once: true, amount: 0.15 }}
+          transition={{ duration: 0.6 }}
+          className="mt-16"
         >
-          <div
-            className="
-              relative
-              max-w-6xl
-              mx-auto
-              overflow-hidden
-              rounded-[2rem]
-              border
-              border-purple-500/15
-              bg-[#10131F]
-            "
-          >
-            {/* Background glow */}
-
+          <div className="relative overflow-hidden rounded-[30px] border border-purple-500/15 bg-gradient-to-br from-white/[0.04] to-purple-500/[0.04] p-7 md:p-10">
             <div
-              className="
-                absolute
-                -top-40
-                -right-32
-                w-[500px]
-                h-[500px]
-                rounded-full
-                bg-purple-500/[0.07]
-                blur-[110px]
-              "
+              aria-hidden="true"
+              className="absolute -right-32 -top-32 h-72 w-72 rounded-full bg-purple-600/10 blur-[100px]"
             />
 
-            <div
-              className="
-                absolute
-                bottom-[-200px]
-                left-[-150px]
-                w-[400px]
-                h-[400px]
-                rounded-full
-                bg-violet-500/[0.04]
-                blur-[100px]
-              "
-            />
-
-            <div
-              className="
-                relative
-                grid
-                lg:grid-cols-[1.1fr_0.9fr]
-                gap-10
-                lg:gap-16
-                p-8
-                md:p-12
-                lg:p-14
-              "
-            >
-              {/* LEFT */}
-
+            <div className="relative grid gap-8 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
               <div>
-                <div
-                  className="
-                    inline-flex
-                    items-center
-                    gap-2
-                    text-purple-400
-                    text-[10px]
-                    uppercase
-                    tracking-[0.22em]
-                    font-bold
-                  "
-                >
+                <div className="flex items-center gap-2 text-[10px] font-semibold uppercase tracking-[0.2em] text-purple-400">
                   <FaStar />
                   Why ScoutX exists
                 </div>
 
-                <h3
-                  className="
-                    text-3xl
-                    md:text-5xl
-                    font-bold
-                    mt-5
-                    leading-[1.08]
-                    tracking-tight
-                  "
-                >
+                <h3 className="mt-4 text-3xl font-bold leading-tight md:text-4xl">
                   Great innovation should not depend on
-
-                  <span
-                    className="
-                      block
-                      mt-1
-                      text-transparent
-                      bg-clip-text
-                      bg-gradient-to-r
-                      from-purple-200
-                      via-purple-400
-                      to-violet-500
-                    "
-                  >
+                  <span className="block bg-gradient-to-r from-purple-300 to-violet-500 bg-clip-text text-transparent">
                     who happens to discover it.
                   </span>
                 </h3>
 
-                <p
-                  className="
-                    text-slate-400
-                    text-sm
-                    md:text-base
-                    leading-8
-                    mt-6
-                    max-w-2xl
-                  "
-                >
-                  Students, independent builders, researchers, and early-stage
-                  teams create valuable solutions every day. But many of those
-                  projects lose visibility once a competition, hackathon, or
-                  academic event ends.
+                <p className="mt-5 max-w-2xl text-sm leading-7 text-slate-400">
+                  Valuable projects are created every day, but many lose
+                  visibility after hackathons, competitions, and academic
+                  events. ScoutX creates a continuous discovery layer between
+                  builders and organizations.
                 </p>
-
-                <p
-                  className="
-                    text-slate-500
-                    text-sm
-                    md:text-base
-                    leading-7
-                    mt-4
-                    max-w-2xl
-                  "
-                >
-                  ScoutX is being built to create a continuous discovery layer
-                  between the people building solutions and the organizations
-                  that can help validate, adopt, fund, or scale them.
-                </p>
-
-                {/* Quote */}
-
-                <div
-                  className="
-                    flex
-                    gap-3
-                    mt-7
-                    pt-6
-                    border-t
-                    border-white/[0.06]
-                  "
-                >
-                  <FaQuoteLeft className="text-purple-400/50 mt-1 shrink-0" />
-
-                  <p className="text-slate-300 text-sm italic leading-6">
-                    Valuable innovation deserves a path from being built to
-                    being discovered.
-                  </p>
-                </div>
               </div>
 
-              {/* RIGHT */}
-
-              <div className="flex flex-col justify-center">
-                <p
-                  className="
-                    text-[10px]
-                    uppercase
-                    tracking-[0.2em]
-                    font-bold
-                    text-slate-600
-                    mb-4
-                  "
-                >
+              <div className="space-y-2.5">
+                <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-slate-600">
                   What we are solving
                 </p>
 
-                <div className="space-y-2.5">
-                  {missionPoints.map((item, index) => (
-                    <motion.div
-                      key={item}
-                      initial={{
-                        opacity: 0,
-                        x: 20,
-                      }}
-                      whileInView={{
-                        opacity: 1,
-                        x: 0,
-                      }}
-                      viewport={{ once: true }}
-                      transition={{
-                        delay: index * 0.08,
-                        duration: 0.45,
-                      }}
-                      className="
-                        group
-                        flex
-                        items-center
-                        gap-4
-                        p-4
-                        rounded-2xl
-                        bg-[#0B0E16]/80
-                        border
-                        border-white/[0.06]
-                        hover:border-purple-500/25
-                        hover:bg-purple-500/[0.04]
-                        transition-all
-                        duration-300
-                      "
-                    >
-                      <div
-                        className="
-                          w-10
-                          h-10
-                          rounded-xl
-                          bg-purple-500/[0.08]
-                          border
-                          border-purple-500/15
-                          flex
-                          items-center
-                          justify-center
-                          text-purple-400
-                          text-[10px]
-                          font-bold
-                          shrink-0
-                        "
-                      >
-                        0{index + 1}
-                      </div>
+                {missionPoints.map((point, index) => (
+                  <div
+                    key={point}
+                    className="flex items-center gap-3 rounded-xl border border-white/[0.06] bg-[#0B0E16]/70 p-3.5 transition hover:border-purple-500/20"
+                  >
+                    <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-purple-500/[0.08] text-[10px] font-bold text-purple-400">
+                      0{index + 1}
+                    </span>
 
-                      <span className="text-slate-300 text-sm font-medium">
-                        {item}
-                      </span>
+                    <span className="text-sm text-slate-300">{point}</span>
 
-                      <FaCheckCircle
-                        className="
-                          ml-auto
-                          text-purple-500/30
-                          group-hover:text-purple-400
-                          transition-colors
-                          shrink-0
-                        "
-                      />
-                    </motion.div>
-                  ))}
-                </div>
+                    <FaCheckCircle className="ml-auto shrink-0 text-xs text-purple-500/40" />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
         </motion.div>
 
-        {/* =====================================================
-            VALUES
-        ====================================================== */}
+        {/* Values */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="mt-16 text-center"
+        >
+          <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-purple-400">
+            Our principles
+          </p>
 
-        <div className="mt-24 md:mt-28">
-          <motion.div
-            initial={{ opacity: 0, y: 25 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="max-w-3xl mx-auto text-center"
-          >
-            <p
-              className="
-                text-purple-400
-                uppercase
-                tracking-[0.22em]
-                text-[10px]
-                font-bold
-              "
-            >
-              Our principles
-            </p>
+          <h3 className="mt-3 text-3xl font-bold md:text-4xl">
+            What drives the team
+          </h3>
 
-            <h3
-              className="
-                text-3xl
-                md:text-5xl
-                font-bold
-                mt-4
-                tracking-tight
-              "
-            >
-              What drives the team
-            </h3>
-
-            <p className="text-slate-500 text-sm md:text-base mt-5 leading-7">
-              The principles behind how we think about technology,
-              innovation, and the ecosystem we are building.
-            </p>
-          </motion.div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-5 mt-10 md:mt-12">
-            {values.map((value, index) => {
+          <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {values.map((value) => {
               const Icon = value.icon;
 
               return (
                 <motion.div
                   key={value.title}
-                  initial={{
-                    opacity: 0,
-                    y: 25,
-                  }}
-                  whileInView={{
-                    opacity: 1,
-                    y: 0,
-                  }}
-                  viewport={{ once: true }}
-                  transition={{
-                    duration: 0.55,
-                    delay: index * 0.07,
-                  }}
-                  whileHover={{
-                    y: -5,
-                  }}
-                  className="
-                    group
-                    relative
-                    overflow-hidden
-                    rounded-2xl
-                    bg-[#10131F]
-                    border
-                    border-white/[0.07]
-                    hover:border-purple-500/25
-                    p-6
-                    transition-all
-                    duration-300
-                  "
+                  whileHover={{ y: -4 }}
+                  className="rounded-2xl border border-white/[0.07] bg-white/[0.025] p-5 text-left transition hover:border-purple-500/25"
                 >
-                  {/* Number */}
-
-                  <span
-                    className="
-                      absolute
-                      top-5
-                      right-5
-                      text-[10px]
-                      font-bold
-                      tracking-widest
-                      text-slate-700
-                      group-hover:text-purple-500/50
-                      transition-colors
-                    "
-                  >
-                    {value.number}
-                  </span>
-
-                  {/* Glow */}
-
-                  <div
-                    className="
-                      absolute
-                      -top-10
-                      -right-10
-                      w-28
-                      h-28
-                      rounded-full
-                      bg-purple-500/[0.05]
-                      blur-2xl
-                      group-hover:bg-purple-500/[0.1]
-                      transition
-                    "
-                  />
-
-                  {/* Icon */}
-
-                  <div
-                    className="
-                      relative
-                      w-11
-                      h-11
-                      rounded-xl
-                      bg-purple-500/[0.08]
-                      border
-                      border-purple-500/10
-                      text-purple-400
-                      flex
-                      items-center
-                      justify-center
-                    "
-                  >
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl border border-purple-500/10 bg-purple-500/[0.08] text-purple-400">
                     <Icon />
                   </div>
 
-                  <h4 className="relative font-bold text-lg mt-5">
-                    {value.title}
-                  </h4>
+                  <h4 className="mt-4 font-bold">{value.title}</h4>
 
-                  <p
-                    className="
-                      relative
-                      text-slate-500
-                      text-sm
-                      leading-6
-                      mt-3
-                    "
-                  >
+                  <p className="mt-2 text-sm leading-6 text-slate-500">
                     {value.description}
                   </p>
                 </motion.div>
               );
             })}
           </div>
-        </div>
+        </motion.div>
 
-        {/* =====================================================
-            FINAL CTA
-        ====================================================== */}
-
+        {/* CTA */}
         <motion.div
-          initial={{
-            opacity: 0,
-            y: 25,
-          }}
-          whileInView={{
-            opacity: 1,
-            y: 0,
-          }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.7 }}
-          className="text-center mt-24 md:mt-28"
+          transition={{ duration: 0.6 }}
+          className="mt-16 text-center"
         >
-          <div
-            className="
-              inline-flex
-              items-center
-              gap-2
-              text-slate-500
-              text-xs
-              md:text-sm
-            "
-          >
-            <FaLayerGroup className="text-purple-400" />
-            More than a platform
-          </div>
+          <p className="text-sm text-slate-600">
+            Building a better way to discover innovation.
+          </p>
 
-          <h3
-            className="
-              text-2xl
-              md:text-4xl
-              lg:text-5xl
-              font-bold
-              mt-4
-              tracking-tight
-            "
-          >
-            We are building a better way to
-
-            <span
-              className="
-                block
-                mt-1
-                text-transparent
-                bg-clip-text
-                bg-gradient-to-r
-                from-purple-200
-                via-purple-400
-                to-violet-500
-              "
-            >
-              discover what people can build.
+          <h3 className="mx-auto mt-3 max-w-2xl text-2xl font-bold md:text-4xl">
+            Discover what people can
+            <span className="bg-gradient-to-r from-purple-300 to-violet-500 bg-clip-text text-transparent">
+              {" "}
+              build.
             </span>
           </h3>
 
-          <motion.a
+          <a
             href="#contact"
-            whileHover={{
-              y: -3,
-            }}
-            whileTap={{
-              scale: 0.98,
-            }}
-            className="
-              group
-              inline-flex
-              items-center
-              gap-3
-              mt-8
-              px-7
-              py-3.5
-              rounded-xl
-              bg-gradient-to-r
-              from-purple-600
-              to-violet-600
-              hover:from-purple-500
-              hover:to-violet-500
-              shadow-[0_10px_40px_rgba(147,51,234,0.18)]
-              hover:shadow-[0_15px_55px_rgba(147,51,234,0.3)]
-              transition-all
-              duration-300
-              font-semibold
-              text-sm
-            "
+            className="group mt-6 inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 px-6 py-3 text-sm font-semibold shadow-[0_12px_35px_rgba(124,58,237,0.2)] transition hover:-translate-y-0.5 hover:from-purple-500 hover:to-violet-500"
           >
             Connect With ScoutX
-
-            <FaArrowRight
-              className="
-                text-xs
-                group-hover:translate-x-1
-                transition-transform
-              "
-            />
-          </motion.a>
+            <FaArrowRight className="text-[10px] transition-transform group-hover:translate-x-1" />
+          </a>
         </motion.div>
       </div>
     </section>
