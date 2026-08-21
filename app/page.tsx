@@ -3,18 +3,13 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Advantage from "@/components/Advantage";
 import Problem from "@/components/Problem";
 import Solution from "@/components/Solution";
-import Features from "@/components/Features";
+import Advantage from "@/components/Advantage";
 import Users from "@/components/Users";
 import Team from "@/components/Team";
-import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
-
-// Remove this if Advantage.tsx does not exist.
-// import Advantage from "@/components/Advantage";
 
 export const metadata: Metadata = {
   title: "ScoutX — Discover What People Can Build",
@@ -25,56 +20,33 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-[#080806] text-white antialiased">
-      {/* =========================================================
-          NAVIGATION
-      ========================================================== */}
       <Navbar />
 
-      {/* =========================================================
-          MAIN CONTENT
-      ========================================================== */}
       <main id="main-content" className="relative overflow-hidden">
-        {/* Hero */}
+        {/* 01 — What is ScoutX? */}
         <Hero />
 
-        {/* About ScoutX */}
+        {/* 02 — What ScoutX does */}
         <About />
 
-        {/* The problem ScoutX solves */}
+        {/* 03 — Why ScoutX exists */}
         <Problem />
 
-        {/* ScoutX solution */}
+        {/* 04 — How ScoutX solves it */}
         <Solution />
 
-        {/* =====================================================
-            ADVANTAGE
-            Uncomment when Advantage.tsx exists.
-        ====================================================== */}
-        {/*
+        {/* 05 — Why ScoutX is different */}
         <Advantage />
-        */}
 
-        {/* Platform features */}
-        <Features />
-        <Advantage/>
-        {/* Ecosystem / users */}
+        {/* 06 — Who ScoutX is for */}
         <Users />
 
-        {/* Team */}
+        {/* 07 — Who is building ScoutX */}
         <Team />
-
-        {/* Contact / conversion */}
-        <Contact />
       </main>
 
-      {/* =========================================================
-          FOOTER
-      ========================================================== */}
       <Footer />
 
-      {/* =========================================================
-          GLOBAL BACK TO TOP
-      ========================================================== */}
       <BackToTop />
     </div>
   );
