@@ -197,7 +197,7 @@ export default function Hero() {
                 py-4
                 rounded-xl
                 bg-[#171611]
-                text-[#F8F3E8]
+                text-white
                 font-semibold
                 border border-[#171611]
                 shadow-[0_12px_35px_rgba(23,22,17,0.18)]

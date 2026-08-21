@@ -27,7 +27,7 @@ export default function Navbar() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
+      setScrolled(window.scrollY > 50);
     };
 
     handleScroll();
@@ -49,36 +49,34 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{
         duration: 0.6,
-        ease: "easeOut",
+        ease: [0.22, 1, 0.36, 1],
       }}
       className={`
         fixed
         top-0
         left-0
-        w-full
+        right-0
         z-50
         transition-all
         duration-500
         ${
           scrolled
             ? `
-              bg-[#0B0B09]/92
+              bg-[#0B0B09]/90
               backdrop-blur-2xl
-              border-b
-              border-[#F7F2E8]/10
-              shadow-[0_10px_40px_rgba(0,0,0,0.30)]
+              border-b border-white/[0.07]
+              shadow-[0_12px_40px_rgba(0,0,0,0.25)]
             `
             : `
               bg-[#FFFDF8]/95
               backdrop-blur-xl
-              border-b
-              border-[#0B0B09]/8
-              shadow-[0_5px_25px_rgba(0,0,0,0.06)]
+              border-b border-[#D4AF37]/10
+              shadow-[0_5px_25px_rgba(80,60,20,0.05)]
             `
         }
       `}
     >
-      <nav className="max-w-7xl mx-auto px-5 sm:px-6 lg:px-8">
+      <nav className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
         <div
           className={`
             flex
@@ -86,9 +84,10 @@ export default function Navbar() {
             justify-between
             transition-all
             duration-500
-            ${scrolled ? "h-16" : "h-20"}
+            ${scrolled ? "h-[68px]" : "h-[76px]"}
           `}
         >
+
           {/* =====================================================
               LOGO
           ====================================================== */}
@@ -96,62 +95,90 @@ export default function Navbar() {
           <Link
             to="home"
             smooth
-            duration={600}
+            duration={700}
             offset={-80}
             onClick={closeMenu}
-            className="flex items-center gap-2.5 cursor-pointer group"
+            className="group flex cursor-pointer items-center gap-3"
           >
-            {/* Logo Mark */}
+            {/* Logo icon */}
 
             <div
               className="
                 relative
-                w-9
-                h-9
-                rounded-xl
                 flex
+                h-10
+                w-10
                 items-center
                 justify-center
-                brand-gradient
-                shadow-[0_8px_25px_rgba(201,166,70,0.18)]
-                group-hover:shadow-[0_10px_35px_rgba(201,166,70,0.35)]
+                overflow-hidden
+                rounded-xl
+                bg-gradient-to-br
+                from-[#F1D88A]
+                via-[#D4AF37]
+                to-[#A77D1D]
+                shadow-[0_8px_25px_rgba(201,166,70,0.20)]
                 transition-all
                 duration-300
+                group-hover:scale-105
+                group-hover:shadow-[0_10px_35px_rgba(201,166,70,0.35)]
               "
             >
-              <FaRocket className="text-[#0B0B09] text-sm -rotate-12" />
+              <FaRocket
+                className="
+                  relative
+                  z-10
+                  -rotate-12
+                  text-sm
+                  text-[#0B0B09]
+                "
+              />
 
-              <span
+              <div
                 className="
                   absolute
-                  inset-0
-                  rounded-xl
-                  bg-white/15
-                  opacity-0
-                  group-hover:opacity-100
-                  transition-opacity
+                  -left-8
+                  top-0
+                  h-full
+                  w-8
+                  rotate-12
+                  bg-white/30
+                  blur-sm
+                  transition-all
+                  duration-700
+                  group-hover:left-14
                 "
               />
             </div>
 
-            {/* Logo Name */}
+            {/* Brand */}
 
             <div
               className={`
-                text-2xl
+                text-[25px]
                 font-bold
-                tracking-tight
+                tracking-[-0.04em]
                 transition-colors
                 duration-500
                 ${
                   scrolled
                     ? "text-[#F7F2E8]"
-                    : "text-[#0B0B09]"
+                    : "text-[#17150F]"
                 }
               `}
             >
               Scout
-              <span className="text-gradient">X</span>
+              <span
+                className="
+                  bg-gradient-to-r
+                  from-[#D4AF37]
+                  via-[#E7C979]
+                  to-[#AD8930]
+                  bg-clip-text
+                  text-transparent
+                "
+              >
+                X
+              </span>
             </div>
           </Link>
 
@@ -159,147 +186,157 @@ export default function Navbar() {
               DESKTOP NAVIGATION
           ====================================================== */}
 
-          <ul className="hidden lg:flex items-center gap-5 xl:gap-7">
-            {navLinks.map((link) => (
-              <li key={link.to}>
-                <Link
-                  to={link.to}
-                  smooth
-                  duration={600}
-                  offset={-80}
-                  spy
-                  activeClass={
-                    scrolled
-                      ? "!text-[#E7C979]"
-                      : "!text-[#AD8930]"
-                  }
-                  className={`
-                    relative
-                    text-sm
-                    font-medium
-                    cursor-pointer
-                    transition-colors
-                    duration-500
-                    group
-                    ${
+          <div className="hidden lg:block">
+            <ul className="flex items-center gap-7 xl:gap-8">
+              {navLinks.map((link) => (
+                <li key={link.to}>
+                  <Link
+                    to={link.to}
+                    smooth
+                    duration={700}
+                    offset={-80}
+                    spy
+                    activeClass={
                       scrolled
-                        ? "text-[#B7B0A2] hover:text-[#F7F2E8]"
-                        : "text-[#625D52] hover:text-[#0B0B09]"
+                        ? "!text-[#E7C979]"
+                        : "!text-[#A87D19]"
                     }
-                  `}
-                >
-                  {link.name}
-
-                  {/* Gold underline */}
-
-                  <span
-                    className="
-                      absolute
-                      -bottom-2
-                      left-0
-                      h-[1.5px]
-                      w-0
-                      bg-gradient-to-r
-                      from-[#E7C979]
-                      to-[#AD8930]
-                      transition-all
+                    className={`
+                      group
+                      relative
+                      cursor-pointer
+                      py-2
+                      text-[13px]
+                      font-semibold
+                      tracking-[-0.01em]
+                      transition-colors
                       duration-300
-                      group-hover:w-full
-                    "
-                  />
-                </Link>
-              </li>
-            ))}
-          </ul>
+                      ${
+                        scrolled
+                          ? `
+                            text-[#AAA397]
+                            hover:text-[#F7F2E8]
+                          `
+                          : `
+                            text-[#5F594D]
+                            hover:text-[#17150F]
+                          `
+                      }
+                    `}
+                  >
+                    {link.name}
+
+                    {/* Underline */}
+
+                    <span
+                      className="
+                        absolute
+                        -bottom-0.5
+                        left-0
+                        h-[2px]
+                        w-0
+                        rounded-full
+                        bg-gradient-to-r
+                        from-[#E7C979]
+                        to-[#AD8930]
+                        transition-all
+                        duration-300
+                        group-hover:w-full
+                      "
+                    />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
           {/* =====================================================
               DESKTOP CTA
           ====================================================== */}
 
-          <div className="hidden lg:flex">
+          <div className="hidden lg:block">
             <Link
               to="contact"
               smooth
-              duration={600}
+              duration={700}
               offset={-80}
               className="
                 group
                 inline-flex
+                cursor-pointer
                 items-center
-                gap-2
-                px-5
-                py-2.5
-                rounded-xl
-                bg-gradient-to-br
+                gap-2.5
+                rounded-full
+                bg-gradient-to-r
                 from-[#E7C979]
                 via-[#D4AF37]
-                to-[#AD8930]
-                hover:brightness-110
-                text-[#0B0B09]
+                to-[#B88B25]
+                px-6
+                py-3
                 text-sm
                 font-bold
-                shadow-[0_10px_30px_rgba(201,166,70,0.18)]
-                hover:shadow-[0_15px_40px_rgba(201,166,70,0.30)]
+                text-[#17150F]
+                shadow-[0_8px_25px_rgba(201,166,70,0.18)]
                 transition-all
                 duration-300
-                cursor-pointer
+                hover:-translate-y-0.5
+                hover:brightness-105
+                hover:shadow-[0_12px_35px_rgba(201,166,70,0.32)]
               "
             >
               Join ScoutX
 
               <FaArrowRight
                 className="
-                  text-xs
-                  group-hover:translate-x-1
+                  text-[11px]
                   transition-transform
-                  duration-200
+                  duration-300
+                  group-hover:translate-x-1
                 "
               />
             </Link>
           </div>
 
           {/* =====================================================
-              MOBILE MENU BUTTON
+              MOBILE BUTTON
           ====================================================== */}
 
           <button
             type="button"
             onClick={() => setMenuOpen((prev) => !prev)}
-            className={`
-              lg:hidden
-              w-10
-              h-10
-              rounded-xl
-              border
-              flex
-              items-center
-              justify-center
-              transition-all
-              duration-500
-              ${
-                scrolled
-                  ? `
-                    border-[#D4AF37]/25
-                    bg-[#12120F]/80
-                    text-[#E7C979]
-                    hover:bg-[#D4AF37]/10
-                    hover:border-[#D4AF37]/50
-                  `
-                  : `
-                    border-[#0B0B09]/15
-                    bg-[#F4EEE2]/80
-                    text-[#8D6D25]
-                    hover:bg-[#D4AF37]/10
-                    hover:border-[#AD8930]/40
-                  `
-              }
-            `}
             aria-label={
               menuOpen
                 ? "Close navigation menu"
                 : "Open navigation menu"
             }
             aria-expanded={menuOpen}
+            className={`
+              flex
+              h-10
+              w-10
+              items-center
+              justify-center
+              rounded-xl
+              border
+              transition-all
+              duration-300
+              lg:hidden
+              ${
+                scrolled
+                  ? `
+                    border-[#D4AF37]/20
+                    bg-white/[0.04]
+                    text-[#E7C979]
+                    hover:bg-[#D4AF37]/10
+                  `
+                  : `
+                    border-[#B08A32]/20
+                    bg-[#F5EEDC]
+                    text-[#80601B]
+                    hover:bg-[#E8D8A9]/30
+                  `
+              }
+            `}
           >
             {menuOpen ? <FaTimes /> : <FaBars />}
           </button>
@@ -326,40 +363,36 @@ export default function Navbar() {
               height: 0,
             }}
             transition={{
-              duration: 0.25,
-              ease: "easeInOut",
+              duration: 0.3,
+              ease: [0.22, 1, 0.36, 1],
             }}
             className={`
-              lg:hidden
               overflow-hidden
-              backdrop-blur-2xl
               border-t
-              transition-colors
-              duration-500
+              backdrop-blur-2xl
+              lg:hidden
               ${
                 scrolled
                   ? `
-                    bg-[#0B0B09]/96
-                    border-[#F7F2E8]/10
+                    border-white/[0.07]
+                    bg-[#0B0B09]/97
                   `
                   : `
-                    bg-[#FFFDF8]/97
-                    border-[#0B0B09]/10
+                    border-[#D4AF37]/10
+                    bg-[#FFFDF8]/98
                   `
               }
             `}
           >
-            <div className="px-5 sm:px-6 py-6">
+            <div className="px-5 py-5 sm:px-6">
 
-              {/* Mobile Navigation */}
-
-              <ul className="flex flex-col gap-1.5">
+              <ul className="space-y-1">
                 {navLinks.map((link, index) => (
                   <motion.li
                     key={link.to}
                     initial={{
                       opacity: 0,
-                      x: -15,
+                      x: -12,
                     }}
                     animate={{
                       opacity: 1,
@@ -367,15 +400,16 @@ export default function Navbar() {
                     }}
                     transition={{
                       delay: index * 0.035,
-                      duration: 0.2,
+                      duration: 0.25,
                     }}
                   >
                     <Link
                       to={link.to}
                       smooth
-                      duration={600}
+                      duration={700}
                       offset={-75}
                       spy
+                      onClick={closeMenu}
                       activeClass={
                         scrolled
                           ? `
@@ -384,39 +418,36 @@ export default function Navbar() {
                             !border-[#D4AF37]/20
                           `
                           : `
-                            !text-[#8D6D25]
+                            !text-[#9B731D]
                             !bg-[#D4AF37]/10
-                            !border-[#AD8930]/20
+                            !border-[#D4AF37]/20
                           `
                       }
-                      onClick={closeMenu}
                       className={`
                         flex
+                        cursor-pointer
                         items-center
                         justify-between
-                        px-4
-                        py-3
                         rounded-xl
                         border
                         border-transparent
+                        px-4
+                        py-3.5
                         text-sm
-                        font-medium
-                        cursor-pointer
+                        font-semibold
                         transition-all
                         duration-300
                         ${
                           scrolled
                             ? `
-                              text-[#B7B0A2]
+                              text-[#AAA397]
+                              hover:bg-white/[0.03]
                               hover:text-[#F7F2E8]
-                              hover:bg-[#D4AF37]/5
-                              hover:border-[#D4AF37]/10
                             `
                             : `
-                              text-[#625D52]
-                              hover:text-[#0B0B09]
-                              hover:bg-[#D4AF37]/7
-                              hover:border-[#AD8930]/10
+                              text-[#5F594D]
+                              hover:bg-[#D4AF37]/5
+                              hover:text-[#17150F]
                             `
                         }
                       `}
@@ -426,7 +457,6 @@ export default function Navbar() {
                       <FaArrowRight
                         className={`
                           text-[10px]
-                          transition-colors
                           ${
                             scrolled
                               ? "text-[#8D6D25]"
@@ -439,18 +469,16 @@ export default function Navbar() {
                 ))}
               </ul>
 
-              {/* =================================================
-                  MOBILE CTA
-              ================================================== */}
+              {/* Mobile CTA */}
 
               <div
                 className={`
-                  mt-6
-                  pt-6
+                  mt-5
                   border-t
+                  pt-5
                   ${
                     scrolled
-                      ? "border-[#F7F2E8]/10"
+                      ? "border-white/[0.07]"
                       : "border-[#0B0B09]/10"
                   }
                 `}
@@ -458,41 +486,38 @@ export default function Navbar() {
                 <Link
                   to="contact"
                   smooth
-                  duration={600}
-                  offset={-80}
+                  duration={700}
+                  offset={-75}
                   onClick={closeMenu}
                   className="
                     group
                     flex
+                    w-full
+                    cursor-pointer
                     items-center
                     justify-center
-                    gap-2
-                    w-full
-                    px-5
-                    py-3.5
+                    gap-2.5
                     rounded-xl
-                    bg-gradient-to-br
+                    bg-gradient-to-r
                     from-[#E7C979]
                     via-[#D4AF37]
                     to-[#AD8930]
-                    hover:brightness-110
-                    text-[#0B0B09]
-                    font-bold
+                    px-5
+                    py-3.5
                     text-sm
-                    shadow-[0_10px_30px_rgba(201,166,70,0.18)]
-                    transition-all
-                    duration-300
-                    cursor-pointer
+                    font-bold
+                    text-[#17150F]
+                    shadow-[0_8px_25px_rgba(201,166,70,0.18)]
                   "
                 >
                   Join ScoutX
 
                   <FaRocket
                     className="
-                      text-xs
-                      group-hover:-rotate-12
+                      text-[11px]
                       transition-transform
-                      duration-200
+                      duration-300
+                      group-hover:-rotate-12
                     "
                   />
                 </Link>
