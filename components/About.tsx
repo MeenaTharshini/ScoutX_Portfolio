@@ -14,6 +14,9 @@ import {
   FaArrowRight,
   FaCode,
   FaGlobe,
+  FaBullseye,
+  FaListOl,
+  FaHandshake,
 } from "react-icons/fa";
 
 const content = {
@@ -33,8 +36,37 @@ const content = {
     "Our vision is to create an open innovation ecosystem where great ideas are not limited by geography, college, hackathon participation, or personal connections. Every promising idea should have a chance to be discovered by the organization that can take it further.",
 };
 
+const innovationFlow = [
+  {
+    icon: FaLightbulb,
+    title: "Submit",
+    description: "Idea / Prototype / Portfolio",
+  },
+  {
+    icon: FaRobot,
+    title: "Analyze",
+    description: "AI evaluates the innovation",
+  },
+  {
+    icon: FaBullseye,
+    title: "Match",
+    description: "Compare with company requirements",
+  },
+  {
+    icon: FaListOl,
+    title: "Shortlist",
+    description: "Top relevant ideas",
+  },
+  {
+    icon: FaHandshake,
+    title: "Connect",
+    description: "Company ↔ Innovator",
+  },
+];
+
 export default function About() {
-  const [active, setActive] = useState("mission");
+  const [active, setActive] =
+    useState<keyof typeof content>("mission");
 
   return (
     <section
@@ -73,14 +105,13 @@ export default function About() {
 
         </div>
 
-
         {/* ===================================================== */}
         {/* TWO SIDES OF SCOUTX */}
         {/* ===================================================== */}
 
         <div className="grid lg:grid-cols-2 gap-8 mt-16">
 
-          {/* ---------------- INNOVATOR ---------------- */}
+          {/* ==================== INNOVATORS ==================== */}
 
           <div className="bg-[#151B2E] border border-purple-500/10 rounded-3xl p-8 md:p-10">
 
@@ -91,7 +122,6 @@ export default function About() {
               </div>
 
               <div>
-
                 <p className="text-purple-400 text-xs uppercase tracking-widest">
                   Side 01
                 </p>
@@ -99,7 +129,6 @@ export default function About() {
                 <h3 className="text-2xl md:text-3xl font-bold mt-1">
                   Innovators
                 </h3>
-
               </div>
 
             </div>
@@ -110,21 +139,19 @@ export default function About() {
               promising idea or project can showcase it.
             </p>
 
-
             {/* Innovator Flow */}
 
             <div className="mt-8 space-y-4">
 
-              {/* Idea */}
+              {/* Submit Idea */}
 
               <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-800/60 border border-slate-700">
 
-                <div className="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center shrink-0">
                   <FaLightbulb />
                 </div>
 
                 <div>
-
                   <h4 className="font-semibold">
                     Submit Your Idea
                   </h4>
@@ -132,22 +159,19 @@ export default function About() {
                   <p className="text-slate-500 text-sm mt-1">
                     Share an idea through text, concept, or description.
                   </p>
-
                 </div>
 
               </div>
 
-
-              {/* Prototype */}
+              {/* Showcase */}
 
               <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-800/60 border border-slate-700">
 
-                <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center shrink-0">
                   <FaCode />
                 </div>
 
                 <div>
-
                   <h4 className="font-semibold">
                     Showcase Your Work
                   </h4>
@@ -155,22 +179,19 @@ export default function About() {
                   <p className="text-slate-500 text-sm mt-1">
                     Add prototypes, GitHub projects, demos, or portfolio links.
                   </p>
-
                 </div>
 
               </div>
-
 
               {/* AI */}
 
               <div className="flex items-center gap-4 p-4 rounded-2xl bg-purple-500/10 border border-purple-500/20">
 
-                <div className="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-300 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-300 flex items-center justify-center shrink-0">
                   <FaRobot />
                 </div>
 
                 <div>
-
                   <h4 className="font-semibold text-purple-300">
                     AI Evaluation & Improvement
                   </h4>
@@ -179,22 +200,19 @@ export default function About() {
                     Get AI insights about value, uniqueness, technology
                     relevance, and possible improvements.
                   </p>
-
                 </div>
 
               </div>
-
 
               {/* Discover */}
 
               <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-800/60 border border-slate-700">
 
-                <div className="w-10 h-10 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center shrink-0">
                   <FaGlobe />
                 </div>
 
                 <div>
-
                   <h4 className="font-semibold">
                     Become Discoverable
                   </h4>
@@ -203,7 +221,6 @@ export default function About() {
                     Make your innovation visible to organizations looking
                     for relevant ideas.
                   </p>
-
                 </div>
 
               </div>
@@ -212,8 +229,7 @@ export default function About() {
 
           </div>
 
-
-          {/* ---------------- COMPANY ---------------- */}
+          {/* ==================== COMPANIES ==================== */}
 
           <div className="bg-[#151B2E] border border-blue-500/10 rounded-3xl p-8 md:p-10">
 
@@ -224,7 +240,6 @@ export default function About() {
               </div>
 
               <div>
-
                 <p className="text-blue-400 text-xs uppercase tracking-widest">
                   Side 02
                 </p>
@@ -232,7 +247,6 @@ export default function About() {
                 <h3 className="text-2xl md:text-3xl font-bold mt-1">
                   Companies
                 </h3>
-
               </div>
 
             </div>
@@ -243,7 +257,6 @@ export default function About() {
               recruitment drives, or traditional searches.
             </p>
 
-
             {/* Company Flow */}
 
             <div className="mt-8 space-y-4">
@@ -252,12 +265,11 @@ export default function About() {
 
               <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-800/60 border border-slate-700">
 
-                <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-blue-500/10 text-blue-400 flex items-center justify-center shrink-0">
                   <FaBuilding />
                 </div>
 
                 <div>
-
                   <h4 className="font-semibold">
                     Post Innovation Requirement
                   </h4>
@@ -265,22 +277,19 @@ export default function About() {
                   <p className="text-slate-500 text-sm mt-1">
                     Define the idea, domain, problem, and technologies required.
                   </p>
-
                 </div>
 
               </div>
-
 
               {/* AI Matching */}
 
               <div className="flex items-center gap-4 p-4 rounded-2xl bg-purple-500/10 border border-purple-500/20">
 
-                <div className="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-300 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-purple-500/20 text-purple-300 flex items-center justify-center shrink-0">
                   <FaRobot />
                 </div>
 
                 <div>
-
                   <h4 className="font-semibold text-purple-300">
                     AI-Powered Matching
                   </h4>
@@ -289,22 +298,19 @@ export default function About() {
                     AI analyzes available ideas against the company's
                     requirements and technologies.
                   </p>
-
                 </div>
 
               </div>
 
-
-              {/* Top 20 / 50 */}
+              {/* Shortlist */}
 
               <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-800/60 border border-slate-700">
 
-                <div className="w-10 h-10 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-yellow-500/10 text-yellow-400 flex items-center justify-center shrink-0">
                   <FaChartLine />
                 </div>
 
                 <div>
-
                   <h4 className="font-semibold">
                     Focused Shortlist
                   </h4>
@@ -313,22 +319,19 @@ export default function About() {
                     Receive highly relevant ideas such as the top 20 or
                     top 50 matches.
                   </p>
-
                 </div>
 
               </div>
 
-
-              {/* Connection */}
+              {/* Communication */}
 
               <div className="flex items-center gap-4 p-4 rounded-2xl bg-slate-800/60 border border-slate-700">
 
-                <div className="w-10 h-10 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center">
+                <div className="w-10 h-10 rounded-xl bg-green-500/10 text-green-400 flex items-center justify-center shrink-0">
                   <FaComments />
                 </div>
 
                 <div>
-
                   <h4 className="font-semibold">
                     Direct Communication
                   </h4>
@@ -337,7 +340,6 @@ export default function About() {
                     Connect directly with promising innovators and explore
                     collaboration.
                   </p>
-
                 </div>
 
               </div>
@@ -347,7 +349,6 @@ export default function About() {
           </div>
 
         </div>
-
 
         {/* ===================================================== */}
         {/* MAIN VALUE PROPOSITION */}
@@ -378,7 +379,6 @@ export default function About() {
               </p>
 
             </div>
-
 
             {/* Advantage Cards */}
 
@@ -446,7 +446,6 @@ export default function About() {
 
         </div>
 
-
         {/* ===================================================== */}
         {/* WHY SCOUTX */}
         {/* ===================================================== */}
@@ -468,7 +467,6 @@ export default function About() {
 
           </div>
 
-
           {/* Tabs */}
 
           <div className="flex flex-wrap justify-center gap-3 mb-8">
@@ -483,8 +481,12 @@ export default function About() {
 
               <button
                 key={key}
-                onMouseEnter={() => setActive(key)}
-                onClick={() => setActive(key)}
+                onMouseEnter={() =>
+                  setActive(key as keyof typeof content)
+                }
+                onClick={() =>
+                  setActive(key as keyof typeof content)
+                }
                 className={`px-5 py-3 rounded-xl border transition-all duration-300 text-sm font-medium ${
                   active === key
                     ? "bg-purple-500 text-white border-purple-500"
@@ -498,19 +500,17 @@ export default function About() {
 
           </div>
 
-
           {/* Content */}
 
           <div className="max-w-4xl mx-auto bg-[#151B2E] border border-purple-500/10 rounded-3xl p-8 md:p-10 min-h-[200px] flex items-center">
 
             <p className="text-slate-300 text-lg md:text-xl leading-9 text-center w-full">
-              {content[active as keyof typeof content]}
+              {content[active]}
             </p>
 
           </div>
 
         </div>
-
 
         {/* ===================================================== */}
         {/* HACKATHON VS SCOUTX */}
@@ -532,7 +532,6 @@ export default function About() {
             </h3>
 
           </div>
-
 
           <div className="grid lg:grid-cols-3 gap-5 items-stretch">
 
@@ -562,7 +561,10 @@ export default function About() {
                     key={item}
                     className="flex items-center gap-3 text-slate-400 text-sm"
                   >
-                    <span className="text-slate-600">•</span>
+                    <span className="text-slate-600">
+                      •
+                    </span>
+
                     {item}
                   </div>
 
@@ -571,7 +573,6 @@ export default function About() {
               </div>
 
             </div>
-
 
             {/* ScoutX */}
 
@@ -592,9 +593,13 @@ export default function About() {
               <div className="flex justify-center items-center gap-3 mt-7 text-purple-400 font-semibold">
 
                 <span>Discover</span>
+
                 <FaArrowRight className="text-xs" />
+
                 <span>Evaluate</span>
+
                 <FaArrowRight className="text-xs" />
+
                 <span>Match</span>
 
               </div>
@@ -605,7 +610,6 @@ export default function About() {
               </p>
 
             </div>
-
 
             {/* Result */}
 
@@ -633,7 +637,8 @@ export default function About() {
                     key={item}
                     className="flex items-center gap-3 text-slate-400 text-sm"
                   >
-                    <FaCheckCircle className="text-green-400 text-xs" />
+                    <FaCheckCircle className="text-green-400 text-xs shrink-0" />
+
                     {item}
                   </div>
 
@@ -646,7 +651,6 @@ export default function About() {
           </div>
 
         </div>
-
 
         {/* ===================================================== */}
         {/* CORE FLOW */}
@@ -664,61 +668,70 @@ export default function About() {
 
               <h3 className="text-3xl md:text-5xl font-bold mt-4">
                 Idea
-                <span className="text-purple-400"> → </span>
+                <span className="text-purple-400">
+                  {" → "}
+                </span>
                 AI
-                <span className="text-purple-400"> → </span>
+                <span className="text-purple-400">
+                  {" → "}
+                </span>
                 Match
-                <span className="text-purple-400"> → </span>
+                <span className="text-purple-400">
+                  {" → "}
+                </span>
                 Opportunity
               </h3>
 
             </div>
 
+            {/* Innovation Flow */}
 
             <div className="grid md:grid-cols-5 gap-4 items-center mt-12">
 
-              {[
-                ["💡", "Submit", "Idea / Prototype / Portfolio"],
-                ["🤖", "Analyze", "AI evaluates the innovation"],
-                ["🎯", "Match", "Compare with company requirements"],
-                ["🏆", "Shortlist", "Top relevant ideas"],
-                ["🤝", "Connect", "Company ↔ Innovator"],
-              ].map(([icon, title, description], index) => (
+              {innovationFlow.map((item, index) => {
 
-                <div key={title} className="relative">
+                const Icon = item.icon;
 
-                  <div className="bg-slate-900 border border-slate-700 rounded-2xl p-5 text-center h-full">
+                return (
+                  <div
+                    key={item.title}
+                    className="relative"
+                  >
 
-                    <div className="text-2xl">
-                      {icon}
+                    <div className="bg-slate-900 border border-slate-700 rounded-2xl p-5 text-center h-full">
+
+                      <div className="w-12 h-12 mx-auto rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center text-xl">
+                        <Icon />
+                      </div>
+
+                      <h4 className="font-semibold mt-3">
+                        {item.title}
+                      </h4>
+
+                      <p className="text-slate-500 text-xs leading-5 mt-2">
+                        {item.description}
+                      </p>
+
                     </div>
 
-                    <h4 className="font-semibold mt-3">
-                      {title}
-                    </h4>
+                    {/* Arrow */}
 
-                    <p className="text-slate-500 text-xs leading-5 mt-2">
-                      {description}
-                    </p>
+                    {index < innovationFlow.length - 1 && (
+                      <div className="hidden md:block absolute top-1/2 -right-3 text-purple-400 z-10">
+                        <FaArrowRight />
+                      </div>
+                    )}
 
                   </div>
+                );
 
-                  {index < 4 && (
-                    <div className="hidden md:block absolute top-1/2 -right-3 text-purple-400 z-10">
-                      →
-                    </div>
-                  )}
-
-                </div>
-
-              ))}
+              })}
 
             </div>
 
           </div>
 
         </div>
-
 
         {/* ===================================================== */}
         {/* FINAL STATEMENT */}
