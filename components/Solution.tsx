@@ -9,7 +9,7 @@ import {
   FaComments,
   FaArrowRight,
   FaCheckCircle,
-  FaSparkles,
+  FaStar,
 } from "react-icons/fa";
 
 const steps = [
@@ -102,9 +102,8 @@ export default function Solution() {
           transition={{ duration: 0.7 }}
           className="max-w-4xl mx-auto text-center"
         >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#11100D] text-[#E7C979] border border-[#D4AF37]/20 text-xs font-semibold uppercase tracking-[0.2em]"
-          >
-            <FaSparkles className="text-[10px]" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#11100D] text-[#E7C979] border border-[#D4AF37]/20 text-xs font-semibold uppercase tracking-[0.2em]">
+            <FaStar className="text-[10px]" />
             The ScoutX Solution
           </div>
 
@@ -207,9 +206,7 @@ export default function Solution() {
 
         <div className="grid lg:grid-cols-2 gap-6 mt-7">
 
-          {/* =====================================================
-              INNOVATORS
-          ====================================================== */}
+          {/* INNOVATORS */}
 
           <motion.div
             initial={{ opacity: 0, x: -25 }}
@@ -218,9 +215,6 @@ export default function Solution() {
             transition={{ duration: 0.6 }}
             className="group relative overflow-hidden rounded-[2rem] bg-[#FFFDF7] border border-[#D4AF37]/20 p-7 md:p-9 shadow-[0_15px_50px_rgba(50,40,20,0.07)] hover:-translate-y-1 hover:border-[#D4AF37]/40 transition-all duration-300"
           >
-
-            {/* Decorative glow */}
-
             <div className="absolute top-[-80px] right-[-80px] w-40 h-40 rounded-full bg-[#D4AF37]/8 blur-3xl pointer-events-none" />
 
             <div className="relative z-10">
@@ -263,9 +257,7 @@ export default function Solution() {
             </div>
           </motion.div>
 
-          {/* =====================================================
-              ORGANIZATIONS
-          ====================================================== */}
+          {/* ORGANIZATIONS */}
 
           <motion.div
             initial={{ opacity: 0, x: 25 }}
@@ -274,7 +266,6 @@ export default function Solution() {
             transition={{ duration: 0.6 }}
             className="group relative overflow-hidden rounded-[2rem] bg-[#11100D] border border-[#D4AF37]/20 p-7 md:p-9 shadow-[0_15px_50px_rgba(50,40,20,0.12)] hover:-translate-y-1 hover:border-[#D4AF37]/40 transition-all duration-300"
           >
-
             <div className="absolute bottom-[-80px] right-[-80px] w-48 h-48 rounded-full bg-[#D4AF37]/10 blur-3xl pointer-events-none" />
 
             <div className="relative z-10">

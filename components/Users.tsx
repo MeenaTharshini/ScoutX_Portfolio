@@ -10,102 +10,81 @@ import {
   FaLightbulb,
   FaSearch,
   FaRocket,
-  FaHandshake,
   FaUniversity,
+  FaChevronRight,
 } from "react-icons/fa";
 
 const userGroups = [
   {
     icon: FaUserGraduate,
-    label: "01",
+    number: "01",
     title: "Innovators",
-    subtitle: "Students • Developers • Researchers • Early Builders",
+    subtitle: "Students • Developers • Researchers",
     description:
       "Turn projects, prototypes, and technical work into a discoverable innovation profile that goes beyond a traditional resume.",
     benefits: [
       "Create an Innovation Passport",
       "Showcase projects with real evidence",
-      "Build a visible track record",
+      "Build a visible innovation track record",
       "Get discovered for relevant opportunities",
     ],
-    color: "purple",
+    accent: "purple",
   },
   {
     icon: FaBuilding,
-    label: "02",
+    number: "02",
     title: "Organizations",
     subtitle: "Companies • Startups • Product Teams",
     description:
-      "Discover emerging talent and existing prototypes based on real work, technical capabilities, and evidence instead of relying only on resumes.",
+      "Discover emerging talent, working prototypes, and technical capabilities based on what people have actually built.",
     benefits: [
       "Post real-world problems",
       "Discover relevant innovations",
-      "Evaluate prototypes and evidence",
+      "Evaluate projects and evidence",
       "Connect directly with builders",
     ],
-    color: "blue",
+    accent: "blue",
   },
   {
     icon: FaTrophy,
-    label: "03",
+    number: "03",
     title: "Innovation Ecosystem",
-    subtitle: "Hackathons • Colleges • Incubators • Accelerators",
+    subtitle: "Colleges • Hackathons • Incubators",
     description:
-      "Keep promising innovations discoverable after competitions, programs, and academic activities while connecting them with organizations that can help them grow.",
+      "Keep promising innovations visible after competitions, programs, and academic activities while creating pathways toward real-world adoption.",
     benefits: [
       "Preserve projects beyond events",
       "Track emerging innovations",
       "Connect projects with industry",
-      "Create incubation and growth pathways",
+      "Create growth and incubation pathways",
     ],
-    color: "yellow",
+    accent: "gold",
   },
 ];
-
-const colorStyles = {
-  purple: {
-    icon: "bg-purple-500/10 text-purple-400 border-purple-500/20",
-    border: "hover:border-purple-500/40",
-    accent: "text-purple-400",
-    badge: "bg-purple-500/10 text-purple-300 border-purple-500/20",
-  },
-  blue: {
-    icon: "bg-blue-500/10 text-blue-400 border-blue-500/20",
-    border: "hover:border-blue-500/40",
-    accent: "text-blue-400",
-    badge: "bg-blue-500/10 text-blue-300 border-blue-500/20",
-  },
-  yellow: {
-    icon: "bg-yellow-500/10 text-yellow-400 border-yellow-500/20",
-    border: "hover:border-yellow-500/40",
-    accent: "text-yellow-400",
-    badge: "bg-yellow-500/10 text-yellow-300 border-yellow-500/20",
-  },
-};
 
 const marketSegments = [
   {
     title: "Students & Developers",
     description:
-      "Project builders looking for visibility, recognition, collaboration, and opportunities.",
+      "Builders looking for visibility, recognition, collaboration, and opportunities.",
     icon: FaUserGraduate,
   },
   {
     title: "Companies & Startups",
     description:
-      "Organizations looking for emerging talent, prototypes, technologies, and potential solutions.",
+      "Organizations searching for emerging talent, technologies, prototypes, and solutions.",
     icon: FaBuilding,
   },
   {
     title: "Colleges & Innovation Cells",
     description:
-      "Institutions supporting student innovation and wanting to preserve project outcomes.",
+      "Institutions supporting student innovation and preserving project outcomes.",
     icon: FaUniversity,
   },
   {
     title: "Hackathons & Incubators",
     description:
-      "Programs creating prototypes that need visibility and pathways beyond the event.",
+      "Programs creating prototypes that need visibility beyond the event.",
     icon: FaTrophy,
   },
 ];
@@ -114,17 +93,38 @@ export default function Users() {
   return (
     <section
       id="users"
-      className="relative overflow-hidden bg-slate-900 px-6 py-24 text-white md:py-32"
+      className="relative overflow-hidden bg-[#080A0F] px-6 py-28 text-white md:py-36"
     >
-      {/* Background */}
-      <div className="absolute right-[-180px] top-0 h-[500px] w-[500px] rounded-full bg-purple-600/5 blur-3xl" />
-      <div className="absolute bottom-0 left-[-180px] h-[500px] w-[500px] rounded-full bg-violet-600/5 blur-3xl" />
+      {/* =========================================================
+          BACKGROUND
+      ========================================================== */}
+
+      <div className="pointer-events-none absolute inset-0">
+        {/* Purple glow */}
+        <div className="absolute -left-48 top-20 h-[520px] w-[520px] rounded-full bg-purple-600/[0.07] blur-[120px]" />
+
+        {/* Blue glow */}
+        <div className="absolute -right-48 top-[35%] h-[520px] w-[520px] rounded-full bg-blue-600/[0.05] blur-[120px]" />
+
+        {/* Bottom glow */}
+        <div className="absolute bottom-[-200px] left-1/2 h-[500px] w-[700px] -translate-x-1/2 rounded-full bg-violet-600/[0.05] blur-[120px]" />
+
+        {/* Grid */}
+        <div
+          className="absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.5) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+      </div>
 
       <div className="relative z-10 mx-auto max-w-7xl">
 
-        {/* =====================================================
+        {/* =========================================================
             HEADER
-        ====================================================== */}
+        ========================================================== */}
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -133,43 +133,57 @@ export default function Users() {
           transition={{ duration: 0.7 }}
           className="mx-auto max-w-4xl text-center"
         >
-          <p className="text-sm font-semibold uppercase tracking-[0.25em] text-purple-400">
+          <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/20 bg-purple-500/[0.06] px-4 py-2 text-xs font-semibold uppercase tracking-[0.22em] text-purple-300">
+            <span className="h-1.5 w-1.5 rounded-full bg-purple-400 shadow-[0_0_10px_rgba(168,85,247,0.9)]" />
             Who is ScoutX for?
-          </p>
+          </div>
 
-          <h2 className="mt-4 text-4xl font-bold leading-tight md:text-6xl">
+          <h2 className="mt-7 text-4xl font-bold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
             One platform.
-            <span className="block bg-gradient-to-r from-purple-400 to-violet-600 bg-clip-text text-transparent">
+            <span className="block bg-gradient-to-r from-purple-300 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
               Three sides of innovation.
             </span>
           </h2>
 
-          <p className="mx-auto mt-6 max-w-3xl text-lg leading-8 text-slate-400 md:text-xl">
-            ScoutX connects the people who
-            <span className="font-medium text-purple-400">
-              {" "}build solutions
-            </span>
-            , the organizations that
-            <span className="font-medium text-purple-400">
-              {" "}need solutions
-            </span>
-            , and the ecosystem that helps
-            <span className="font-medium text-purple-400">
-              {" "}innovations grow.
-            </span>
+          <p className="mx-auto mt-7 max-w-3xl text-base leading-8 text-slate-400 md:text-lg">
+            ScoutX connects the people who{" "}
+            <span className="text-slate-200">build solutions</span>, the
+            organizations that{" "}
+            <span className="text-slate-200">need solutions</span>, and the
+            ecosystem that helps{" "}
+            <span className="text-purple-300">innovation grow.</span>
           </p>
         </motion.div>
 
-        {/* =====================================================
-            THREE USER GROUPS
-        ====================================================== */}
+        {/* =========================================================
+            USER GROUP CARDS
+        ========================================================== */}
 
-        <div className="mt-16 grid gap-6 lg:grid-cols-3">
+        <div className="mt-20 grid gap-6 lg:grid-cols-3">
           {userGroups.map((group, index) => {
             const Icon = group.icon;
 
-            const styles =
-              colorStyles[group.color as keyof typeof colorStyles];
+            const accent =
+              group.accent === "purple"
+                ? {
+                    text: "text-purple-300",
+                    icon: "bg-purple-500/10 text-purple-300 border-purple-500/20",
+                    border: "hover:border-purple-500/40",
+                    glow: "bg-purple-500",
+                  }
+                : group.accent === "blue"
+                ? {
+                    text: "text-blue-300",
+                    icon: "bg-blue-500/10 text-blue-300 border-blue-500/20",
+                    border: "hover:border-blue-500/40",
+                    glow: "bg-blue-500",
+                  }
+                : {
+                    text: "text-amber-300",
+                    icon: "bg-amber-500/10 text-amber-300 border-amber-500/20",
+                    border: "hover:border-amber-500/40",
+                    glow: "bg-amber-500",
+                  };
 
             return (
               <motion.div
@@ -178,54 +192,75 @@ export default function Users() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{
-                  delay: index * 0.12,
                   duration: 0.7,
+                  delay: index * 0.12,
                 }}
-                className={`group rounded-3xl border border-slate-800 bg-[#151B2E] p-7 transition-all duration-300 hover:-translate-y-2 md:p-8 ${styles.border}`}
+                className={`group relative overflow-hidden rounded-[28px] border border-white/[0.07] bg-white/[0.025] p-7 backdrop-blur-xl transition-all duration-500 hover:-translate-y-2 hover:bg-white/[0.04] md:p-8 ${accent.border}`}
               >
-                {/* Top */}
-                <div className="flex items-start justify-between">
-                  <div
-                    className={`flex h-14 w-14 items-center justify-center rounded-2xl border text-xl ${styles.icon}`}
-                  >
-                    <Icon />
+                {/* Hover glow */}
+
+                <div
+                  className={`pointer-events-none absolute -right-20 -top-20 h-48 w-48 rounded-full ${accent.glow} opacity-0 blur-[90px] transition-opacity duration-500 group-hover:opacity-20`}
+                />
+
+                {/* Top line */}
+
+                <div
+                  className={`absolute left-8 right-8 top-0 h-px opacity-40 ${accent.glow}`}
+                />
+
+                <div className="relative z-10">
+
+                  {/* Header */}
+
+                  <div className="flex items-start justify-between">
+                    <div
+                      className={`flex h-14 w-14 items-center justify-center rounded-2xl border text-xl transition-transform duration-500 group-hover:scale-110 group-hover:rotate-3 ${accent.icon}`}
+                    >
+                      <Icon />
+                    </div>
+
+                    <span className="font-mono text-4xl font-bold text-white/[0.06]">
+                      {group.number}
+                    </span>
                   </div>
 
-                  <span className="text-2xl font-bold text-slate-700">
-                    {group.label}
-                  </span>
-                </div>
+                  {/* Title */}
 
-                {/* Title */}
-                <h3 className="mt-7 text-2xl font-bold">
-                  {group.title}
-                </h3>
+                  <h3 className="mt-7 text-2xl font-bold tracking-tight">
+                    {group.title}
+                  </h3>
 
-                <p
-                  className={`mt-2 text-xs uppercase tracking-wider ${styles.accent}`}
-                >
-                  {group.subtitle}
-                </p>
+                  <p
+                    className={`mt-2 text-xs font-medium uppercase tracking-[0.15em] ${accent.text}`}
+                  >
+                    {group.subtitle}
+                  </p>
 
-                {/* Description */}
-                <p className="mt-5 leading-7 text-slate-400">
-                  {group.description}
-                </p>
+                  {/* Description */}
 
-                {/* Benefits */}
-                <div className="mt-7 border-t border-slate-800 pt-6">
-                  <p className="mb-4 text-xs uppercase tracking-widest text-slate-500">
+                  <p className="mt-6 text-sm leading-7 text-slate-400">
+                    {group.description}
+                  </p>
+
+                  {/* Divider */}
+
+                  <div className="my-7 h-px bg-white/[0.06]" />
+
+                  <p className="mb-4 text-[10px] font-semibold uppercase tracking-[0.22em] text-slate-600">
                     What they get
                   </p>
 
-                  <div className="space-y-3">
+                  {/* Benefits */}
+
+                  <div className="space-y-3.5">
                     {group.benefits.map((benefit) => (
                       <div
                         key={benefit}
                         className="flex items-start gap-3"
                       >
                         <FaCheckCircle
-                          className={`mt-1 shrink-0 ${styles.accent}`}
+                          className={`mt-1 shrink-0 text-xs ${accent.text}`}
                         />
 
                         <span className="text-sm leading-6 text-slate-300">
@@ -234,305 +269,393 @@ export default function Users() {
                       </div>
                     ))}
                   </div>
+
+                  {/* Bottom indicator */}
+
+                  <div className="mt-8 flex items-center gap-2 text-xs text-slate-600 transition-colors group-hover:text-slate-400">
+                    <span>Explore this side of ScoutX</span>
+                    <FaChevronRight className="text-[9px]" />
+                  </div>
                 </div>
               </motion.div>
             );
           })}
         </div>
 
-        {/* =====================================================
-            WHY THE THREE SIDES MATTER
-        ====================================================== */}
+        {/* =========================================================
+            DISCOVERY GAP
+        ========================================================== */}
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-24"
+          transition={{ duration: 0.7 }}
+          className="mt-28"
         >
           <div className="mx-auto max-w-3xl text-center">
-            <p className="text-sm font-semibold uppercase tracking-widest text-purple-400">
-              The Problem ScoutX Solves
-            </p>
 
-            <h3 className="mt-3 text-3xl font-bold md:text-5xl">
-              Innovation often exists.
-              <span className="block text-purple-400">
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-purple-400">
+              <span className="h-px w-8 bg-purple-500/40" />
+              The Discovery Layer
+              <span className="h-px w-8 bg-purple-500/40" />
+            </div>
+
+            <h3 className="mt-5 text-3xl font-bold tracking-tight md:text-5xl">
+              Innovation already exists.
+              <span className="block bg-gradient-to-r from-purple-300 to-violet-500 bg-clip-text text-transparent">
                 Discovery is the missing link.
               </span>
             </h3>
 
-            <p className="mt-5 leading-7 text-slate-500">
+            <p className="mt-6 text-base leading-8 text-slate-500 md:text-lg">
               Great projects can remain hidden inside college folders,
               GitHub repositories, hackathons, portfolios, and personal
-              networks. ScoutX creates a common layer where these
-              innovations can be structured, evaluated, discovered, and
-              connected.
+              networks. ScoutX creates a structured layer where innovation
+              can become easier to discover and connect.
             </p>
           </div>
 
-          {/* Problem → ScoutX → Outcome */}
-          <div className="mt-12 grid items-center gap-5 md:grid-cols-5">
+          {/* =====================================================
+              FLOW
+          ====================================================== */}
 
-            {/* Innovator */}
-            <div className="rounded-2xl border border-slate-800 bg-[#151B2E] p-6 text-center">
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-purple-500/10 text-purple-400">
-                <FaLightbulb />
-              </div>
+          <div className="relative mx-auto mt-14 max-w-5xl">
 
-              <h4 className="mt-4 font-semibold">
-                Innovation
-              </h4>
+            {/* Desktop connecting line */}
 
-              <p className="mt-2 text-sm leading-6 text-slate-500">
-                Ideas, projects, prototypes and technical work
-              </p>
-            </div>
+            <div className="absolute left-[17%] right-[17%] top-1/2 hidden h-px -translate-y-1/2 bg-gradient-to-r from-purple-500/0 via-purple-500/30 to-blue-500/0 md:block" />
 
-            <div className="hidden justify-center text-purple-400 md:flex">
-              <FaArrowRight />
-            </div>
+            <div className="relative grid gap-5 md:grid-cols-3">
 
-            {/* ScoutX */}
-            <div className="rounded-3xl border border-purple-500/30 bg-purple-500/5 p-7 text-center shadow-lg shadow-purple-500/5">
-              <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-purple-500/30 bg-purple-500/10 text-2xl text-purple-400">
-                <FaSearch />
-              </div>
+              {/* Innovation */}
 
-              <h4 className="mt-4 text-xl font-bold text-purple-300">
-                ScoutX
-              </h4>
+              <motion.div
+                whileHover={{ y: -6 }}
+                className="relative rounded-3xl border border-white/[0.07] bg-white/[0.025] p-7 text-center backdrop-blur-xl"
+              >
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-purple-500/20 bg-purple-500/10 text-xl text-purple-300 shadow-[0_0_30px_rgba(168,85,247,0.08)]">
+                  <FaLightbulb />
+                </div>
 
-              <p className="mt-2 text-sm leading-6 text-slate-400">
-                Structures, evaluates and discovers innovation
-              </p>
-            </div>
+                <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-purple-400">
+                  Input
+                </p>
 
-            <div className="hidden justify-center text-purple-400 md:flex">
-              <FaArrowRight />
-            </div>
+                <h4 className="mt-2 text-xl font-bold">
+                  Innovation
+                </h4>
 
-            {/* Opportunity */}
-            <div className="rounded-2xl border border-slate-800 bg-[#151B2E] p-6 text-center">
-              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-xl bg-blue-500/10 text-blue-400">
-                <FaRocket />
-              </div>
+                <p className="mt-3 text-sm leading-6 text-slate-500">
+                  Ideas, projects, prototypes and technical work created by
+                  real builders.
+                </p>
+              </motion.div>
 
-              <h4 className="mt-4 font-semibold">
-                Opportunity
-              </h4>
+              {/* ScoutX */}
 
-              <p className="mt-2 text-sm leading-6 text-slate-500">
-                Collaboration, pilots, internships and incubation
-              </p>
+              <motion.div
+                whileHover={{ y: -8, scale: 1.015 }}
+                className="relative rounded-3xl border border-purple-500/30 bg-gradient-to-b from-purple-500/[0.10] to-white/[0.02] p-8 text-center shadow-[0_20px_70px_rgba(124,58,237,0.12)]"
+              >
+                <div className="absolute inset-x-10 -top-px h-px bg-gradient-to-r from-transparent via-purple-400 to-transparent" />
+
+                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-purple-400/30 bg-purple-500/10 text-2xl text-purple-300 shadow-[0_0_40px_rgba(168,85,247,0.15)]">
+                  <FaSearch />
+                </div>
+
+                <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-purple-300">
+                  Discovery Layer
+                </p>
+
+                <h4 className="mt-2 text-2xl font-bold text-white">
+                  ScoutX
+                </h4>
+
+                <p className="mt-3 text-sm leading-6 text-slate-400">
+                  Structures, evaluates and makes promising innovation
+                  discoverable.
+                </p>
+              </motion.div>
+
+              {/* Opportunity */}
+
+              <motion.div
+                whileHover={{ y: -6 }}
+                className="relative rounded-3xl border border-white/[0.07] bg-white/[0.025] p-7 text-center backdrop-blur-xl"
+              >
+                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border border-blue-500/20 bg-blue-500/10 text-xl text-blue-300">
+                  <FaRocket />
+                </div>
+
+                <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-blue-400">
+                  Outcome
+                </p>
+
+                <h4 className="mt-2 text-xl font-bold">
+                  Opportunity
+                </h4>
+
+                <p className="mt-3 text-sm leading-6 text-slate-500">
+                  Collaboration, pilots, internships, investment and
+                  incubation.
+                </p>
+              </motion.div>
             </div>
           </div>
         </motion.div>
 
-        {/* =====================================================
+        {/* =========================================================
             ECOSYSTEM LOOP
-        ====================================================== */}
+        ========================================================== */}
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.97 }}
+          whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="mt-24"
+          transition={{ duration: 0.7 }}
+          className="mt-28"
         >
-          <div className="rounded-3xl border border-purple-500/10 bg-[#151B2E] p-8 md:p-12">
+          <div className="relative overflow-hidden rounded-[32px] border border-white/[0.07] bg-gradient-to-br from-white/[0.045] via-white/[0.02] to-purple-500/[0.04] p-8 md:p-12">
 
-            <div className="text-center">
-              <p className="text-sm uppercase tracking-widest text-purple-400">
+            {/* Decorative glow */}
+
+            <div className="pointer-events-none absolute -right-32 -top-32 h-80 w-80 rounded-full bg-purple-600/10 blur-[100px]" />
+
+            <div className="relative z-10 text-center">
+
+              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-purple-400">
                 The ScoutX Ecosystem
               </p>
 
-              <h3 className="mt-3 text-3xl font-bold md:text-4xl">
+              <h3 className="mt-4 text-3xl font-bold md:text-4xl">
                 Different goals.
                 <span className="text-purple-400">
                   {" "}One innovation loop.
                 </span>
               </h3>
+
+              <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-slate-500">
+                Every side of the ecosystem contributes something different,
+                creating a continuous flow from building to discovery to
+                opportunity.
+              </p>
             </div>
 
-            {/* Flow */}
-            <div className="mt-12 grid gap-8 md:grid-cols-3">
+            {/* Loop */}
 
-              {/* Innovator */}
-              <div className="relative text-center">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-purple-500/10 text-xl text-purple-400">
-                  <FaLightbulb />
-                </div>
+            <div className="relative z-10 mt-14 grid gap-8 md:grid-cols-3">
 
-                <h4 className="mt-4 font-semibold">
-                  Innovator
-                </h4>
+              {[
+                {
+                  icon: FaLightbulb,
+                  title: "Innovator",
+                  text: "Builds and documents a solution.",
+                  color: "purple",
+                },
+                {
+                  icon: FaSearch,
+                  title: "ScoutX",
+                  text: "Makes the innovation structured and discoverable.",
+                  color: "violet",
+                },
+                {
+                  icon: FaBuilding,
+                  title: "Organization",
+                  text: "Finds and connects with relevant solutions.",
+                  color: "blue",
+                },
+              ].map((item, index) => {
+                const Icon = item.icon;
 
-                <p className="mt-2 text-sm text-slate-500">
-                  Builds and documents a solution
-                </p>
-              </div>
+                return (
+                  <div
+                    key={item.title}
+                    className="relative text-center"
+                  >
+                    <div
+                      className={`mx-auto flex h-16 w-16 items-center justify-center rounded-2xl border ${
+                        item.color === "blue"
+                          ? "border-blue-500/20 bg-blue-500/10 text-blue-300"
+                          : "border-purple-500/20 bg-purple-500/10 text-purple-300"
+                      } text-xl`}
+                    >
+                      <Icon />
+                    </div>
 
-              {/* ScoutX */}
-              <div className="relative text-center">
-                <div className="mx-auto flex h-20 w-20 items-center justify-center rounded-full border border-purple-500/30 bg-purple-500/10 text-2xl text-purple-400 shadow-lg shadow-purple-500/10">
-                  <FaSearch />
-                </div>
+                    <h4 className="mt-5 font-bold">
+                      {item.title}
+                    </h4>
 
-                <h4 className="mt-4 font-bold text-purple-300">
-                  ScoutX
-                </h4>
+                    <p className="mx-auto mt-2 max-w-xs text-sm leading-6 text-slate-500">
+                      {item.text}
+                    </p>
 
-                <p className="mt-2 text-sm text-slate-500">
-                  Makes the innovation structured and discoverable
-                </p>
-              </div>
-
-              {/* Organization */}
-              <div className="relative text-center">
-                <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-blue-500/10 text-xl text-blue-400">
-                  <FaBuilding />
-                </div>
-
-                <h4 className="mt-4 font-semibold">
-                  Organization
-                </h4>
-
-                <p className="mt-2 text-sm text-slate-500">
-                  Finds and connects with relevant solutions
-                </p>
-              </div>
+                    {index < 2 && (
+                      <FaArrowRight className="absolute -right-4 top-8 hidden text-purple-500/30 md:block" />
+                    )}
+                  </div>
+                );
+              })}
             </div>
 
-            {/* Ecosystem support */}
-            <div className="mt-12 flex justify-center">
-              <div className="inline-flex items-center gap-3 rounded-full border border-purple-500/10 bg-purple-500/5 px-6 py-3">
-                <FaTrophy className="text-yellow-400" />
+            {/* Ecosystem partners */}
 
-                <span className="text-sm text-slate-400">
-                  Hackathons • Colleges • Incubators • Accelerators
+            <div className="relative z-10 mt-14 flex justify-center">
+              <div className="flex flex-wrap items-center justify-center gap-2 rounded-2xl border border-white/[0.06] bg-black/20 px-5 py-3">
+                <FaTrophy className="text-amber-400" />
+
+                <span className="text-xs text-slate-500">
+                  Hackathons
+                </span>
+
+                <span className="text-slate-700">•</span>
+
+                <span className="text-xs text-slate-500">
+                  Colleges
+                </span>
+
+                <span className="text-slate-700">•</span>
+
+                <span className="text-xs text-slate-500">
+                  Incubators
+                </span>
+
+                <span className="text-slate-700">•</span>
+
+                <span className="text-xs text-slate-500">
+                  Accelerators
                 </span>
               </div>
             </div>
-
-            <p className="mx-auto mt-6 max-w-2xl text-center text-sm leading-6 text-slate-500">
-              These ecosystem partners continuously introduce new
-              innovators, projects, prototypes, and opportunities into
-              the ScoutX network.
-            </p>
           </div>
         </motion.div>
 
-        {/* =====================================================
+        {/* =========================================================
             TARGET MARKET
-        ====================================================== */}
+        ========================================================== */}
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-24"
+          transition={{ duration: 0.7 }}
+          className="mt-28"
         >
-          <div className="grid items-center gap-10 lg:grid-cols-2">
+          <div className="grid items-center gap-14 lg:grid-cols-[0.9fr_1.1fr]">
 
             {/* Left */}
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-widest text-purple-400">
-                Initial Target Market
-              </p>
 
-              <h3 className="mt-4 text-3xl font-bold leading-tight md:text-5xl">
+            <div>
+              <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.2em] text-purple-400">
+                <span className="h-1.5 w-1.5 rounded-full bg-purple-400" />
+                Initial Target Market
+              </div>
+
+              <h3 className="mt-5 text-3xl font-bold leading-tight tracking-tight md:text-5xl">
                 Start where innovation is
-                <span className="text-purple-400">
-                  {" "}already happening.
+                <span className="block bg-gradient-to-r from-purple-300 to-violet-500 bg-clip-text text-transparent">
+                  already happening.
                 </span>
               </h3>
 
-              <p className="mt-6 text-lg leading-8 text-slate-400">
+              <p className="mt-6 text-base leading-8 text-slate-400 md:text-lg">
                 ScoutX can initially focus on the student and early-stage
-                innovation ecosystem where thousands of projects are
-                created through colleges, hackathons, clubs, internships,
-                and innovation programs.
+                innovation ecosystem, where thousands of projects emerge
+                through colleges, hackathons, clubs, internships and
+                innovation programs.
               </p>
 
-              <p className="mt-4 leading-7 text-slate-500">
+              <p className="mt-4 text-sm leading-7 text-slate-500">
                 As the platform grows, the resulting innovation database
                 becomes increasingly valuable to companies, startups,
-                incubators, accelerators, and industry partners looking
-                for emerging solutions.
+                incubators, accelerators and industry partners.
               </p>
 
-              <div className="mt-7 inline-flex items-center gap-2 rounded-full border border-purple-500/20 bg-purple-500/5 px-5 py-3 text-sm text-purple-300">
+              <div className="mt-8 inline-flex items-center gap-3 rounded-full border border-purple-500/20 bg-purple-500/[0.06] px-5 py-3 text-sm text-purple-300">
                 <FaRocket />
                 Build the innovation database first
               </div>
             </div>
 
             {/* Right */}
+
             <div className="space-y-3">
               {marketSegments.map((segment, index) => {
                 const Icon = segment.icon;
 
                 return (
-                  <div
+                  <motion.div
                     key={segment.title}
-                    className="group flex items-center gap-4 rounded-2xl border border-slate-800 bg-[#151B2E] p-5 transition hover:border-purple-500/20"
+                    whileHover={{ x: 5 }}
+                    transition={{ duration: 0.2 }}
+                    className="group flex items-center gap-5 rounded-2xl border border-white/[0.06] bg-white/[0.025] p-5 backdrop-blur-xl transition-all duration-300 hover:border-purple-500/20 hover:bg-white/[0.04]"
                   >
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-purple-500/10 text-purple-400">
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl border border-purple-500/10 bg-purple-500/[0.07] text-purple-300">
                       <Icon />
                     </div>
 
-                    <div>
-                      <h4 className="font-semibold">
-                        {segment.title}
-                      </h4>
+                    <div className="min-w-0">
+                      <div className="flex items-center gap-3">
+                        <span className="font-mono text-[10px] text-slate-700">
+                          0{index + 1}
+                        </span>
+
+                        <h4 className="font-semibold">
+                          {segment.title}
+                        </h4>
+                      </div>
 
                       <p className="mt-1 text-sm leading-6 text-slate-500">
                         {segment.description}
                       </p>
                     </div>
 
-                    <FaArrowRight className="ml-auto shrink-0 text-slate-700 transition group-hover:text-purple-400" />
-                  </div>
+                    <FaArrowRight className="ml-auto shrink-0 text-xs text-slate-700 transition-all duration-300 group-hover:translate-x-1 group-hover:text-purple-400" />
+                  </motion.div>
                 );
               })}
             </div>
           </div>
         </motion.div>
 
-        {/* =====================================================
-            FINAL MESSAGE
-        ====================================================== */}
+        {/* =========================================================
+            FINAL CTA
+        ========================================================== */}
 
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-24 text-center"
+          transition={{ duration: 0.7 }}
+          className="mt-28 text-center"
         >
-          <div className="mx-auto max-w-3xl">
-            <p className="text-slate-500">
-              The goal is not to create another professional network.
+          <div className="mx-auto max-w-4xl">
+
+            <p className="text-sm text-slate-600">
+              Not another professional network.
             </p>
 
-            <h3 className="mt-3 text-2xl font-bold md:text-4xl">
-              Create a network where
-              <span className="text-purple-400">
+            <h3 className="mt-4 text-3xl font-bold tracking-tight md:text-5xl">
+              A place where
+              <span className="bg-gradient-to-r from-purple-300 to-violet-500 bg-clip-text text-transparent">
                 {" "}innovation can actually be found.
               </span>
             </h3>
 
-            <p className="mx-auto mt-5 max-w-2xl leading-7 text-slate-500">
-              ScoutX connects builders, organizations, and the innovation
-              ecosystem through one discoverable layer of projects,
-              prototypes, evidence, and opportunities.
+            <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-slate-500 md:text-base">
+              ScoutX brings builders, organizations and the innovation
+              ecosystem together through one discoverable layer of projects,
+              prototypes, evidence and opportunities.
             </p>
 
             <a
               href="#features"
-              className="mt-8 inline-flex items-center gap-3 rounded-xl bg-purple-600 px-7 py-3 font-medium transition hover:bg-purple-700"
+              className="group mt-9 inline-flex items-center gap-3 rounded-xl bg-gradient-to-r from-purple-600 to-violet-600 px-7 py-3.5 text-sm font-semibold shadow-[0_15px_40px_rgba(124,58,237,0.2)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(124,58,237,0.3)]"
             >
               Explore ScoutX
-              <FaArrowRight />
+
+              <FaArrowRight className="transition-transform duration-300 group-hover:translate-x-1" />
             </a>
           </div>
         </motion.div>

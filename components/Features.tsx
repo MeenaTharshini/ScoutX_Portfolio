@@ -24,9 +24,9 @@ const features = [
   {
     icon: FaUserCircle,
     number: "01",
-    title: "Structured Innovation Profiles",
+    title: "Innovation Profiles",
     description:
-      "A profile designed around what an innovator has actually built, demonstrated, and achieved.",
+      "Create a structured identity around what an innovator has actually built, demonstrated, and achieved.",
     points: [
       "Builder identity",
       "Skills & technologies",
@@ -37,9 +37,9 @@ const features = [
   {
     icon: FaLightbulb,
     number: "02",
-    title: "Project & Prototype Showcase",
+    title: "Project Showcase",
     description:
-      "Turn projects into structured innovation records that clearly explain the problem, solution, technology, and development stage.",
+      "Transform projects and prototypes into clear innovation records that communicate their real value.",
     points: [
       "Problem addressed",
       "Solution overview",
@@ -52,7 +52,7 @@ const features = [
     number: "03",
     title: "Evidence Layer",
     description:
-      "Move beyond claims by connecting innovation profiles with evidence from the actual work.",
+      "Connect every innovation with evidence that demonstrates what has actually been built.",
     points: [
       "GitHub repositories",
       "Live demonstrations",
@@ -63,9 +63,9 @@ const features = [
   {
     icon: FaChartLine,
     number: "04",
-    title: "Innovation Evaluation",
+    title: "AI Evaluation",
     description:
-      "Provide structured signals that help organizations understand the strength, maturity, and potential of an innovation.",
+      "Generate structured signals that help organizations understand innovation quality, maturity, and potential.",
     points: [
       "Build quality",
       "Evidence strength",
@@ -78,7 +78,7 @@ const features = [
     number: "05",
     title: "Innovation Discovery",
     description:
-      "Discover innovators based on what they have built, the technologies they use, and the problems they solve.",
+      "Discover people and projects based on technologies, domains, problems, and capabilities.",
     points: [
       "Technology",
       "Domain",
@@ -89,14 +89,14 @@ const features = [
   {
     icon: FaStar,
     number: "06",
-    title: "Relevant Matching",
+    title: "Smart Matching",
     description:
-      "Connect organizational needs with relevant capabilities, technologies, domains, and existing innovations.",
+      "Connect organizational requirements with innovations that have relevant capabilities and potential applications.",
     points: [
       "Technology relevance",
       "Domain relevance",
       "Capability alignment",
-      "Potential applications",
+      "Application potential",
     ],
   },
   {
@@ -104,7 +104,7 @@ const features = [
     number: "07",
     title: "Organization Discovery",
     description:
-      "Give companies, incubators, and innovation ecosystems a structured way to discover promising builders and prototypes.",
+      "Give companies, incubators, and innovation ecosystems a structured way to discover promising builders.",
     points: [
       "Discover talent",
       "Find prototypes",
@@ -115,9 +115,9 @@ const features = [
   {
     icon: FaHandshake,
     number: "08",
-    title: "Opportunity & Connection",
+    title: "Opportunity Connection",
     description:
-      "Turn discovery into meaningful next steps such as collaboration, internships, pilots, mentorship, and incubation.",
+      "Turn discovery into meaningful opportunities such as collaboration, internships, pilots, and incubation.",
     points: [
       "Internships",
       "Collaborations",
@@ -127,71 +127,81 @@ const features = [
   },
 ];
 
-const differences = [
-  {
-    icon: FaUsers,
-    title: "People-first platforms",
-    traditional: "Focus on resumes, job titles, profiles and connections.",
-    scoutx: "Focuses on what people have actually built and demonstrated.",
-  },
-  {
-    icon: FaCode,
-    title: "Project repositories",
-    traditional: "Show technical work, but often lack the complete context around the builder and opportunity.",
-    scoutx: "Connects the project, builder, evidence, capabilities and potential applications.",
-  },
-  {
-    icon: FaBuilding,
-    title: "Job platforms",
-    traditional: "Organizations primarily search for candidates against predefined roles.",
-    scoutx: "Organizations can discover existing innovations and capabilities before defining the opportunity.",
-  },
-  {
-    icon: FaSearch,
-    title: "Innovation discovery",
-    traditional: "Finding promising projects often requires searching across multiple disconnected sources.",
-    scoutx: "Creates one structured discovery layer for projects, prototypes, builders and evidence.",
-  },
-];
-
 const advantages = [
   {
     icon: FaBullseye,
     title: "Evidence over claims",
     description:
-      "Organizations can understand what has actually been built instead of relying only on resumes or self-described skills.",
+      "Understand what has actually been built instead of relying only on resumes or self-described skills.",
   },
   {
     icon: FaCode,
     title: "Prototype visibility",
     description:
-      "Promising prototypes can remain discoverable even after a hackathon, academic project, or competition ends.",
+      "Keep promising projects discoverable even after hackathons, academic projects, or competitions end.",
   },
   {
     icon: FaSearch,
     title: "Faster discovery",
     description:
-      "Relevant innovators and projects can be discovered through technologies, domains, problems, and capabilities.",
+      "Find relevant innovators and projects through technologies, domains, problems, and capabilities.",
   },
   {
     icon: FaHandshake,
     title: "More paths to opportunity",
     description:
-      "A project can lead to collaboration, internships, pilots, incubation, mentorship, or other opportunities.",
+      "A project can lead to collaboration, internships, pilots, incubation, mentorship, and more.",
   },
+];
+
+const traditionalPoints = [
+  "Resume → Skills",
+  "Profile → Job",
+  "Application → Selection",
+  "Project → Separate repository",
+  "Evidence → Scattered across platforms",
+];
+
+const scoutxPoints = [
+  "Problem → Innovation",
+  "Project → Prototype",
+  "Builder → Capability",
+  "Prototype → Evidence",
+  "Innovation → Opportunity",
+];
+
+const discoveryTags = [
+  "Artificial Intelligence",
+  "Healthcare",
+  "IoT",
+  "Computer Vision",
+  "Sustainability",
+  "Robotics",
 ];
 
 export default function Features() {
   return (
     <section
       id="features"
-      className="relative bg-slate-900 text-white py-24 md:py-32 px-6 overflow-hidden"
+      className="
+        relative
+        overflow-hidden
+        bg-[#11100D]
+        text-[#F7F2E8]
+        py-24
+        md:py-32
+        px-6
+      "
     >
-      {/* Background */}
+      {/* =====================================================
+          BACKGROUND
+      ====================================================== */}
 
-      <div className="absolute top-20 right-[-200px] w-[500px] h-[500px] bg-purple-600/5 rounded-full blur-3xl" />
+      <div className="absolute top-[-180px] right-[-180px] w-[500px] h-[500px] rounded-full bg-[#D4AF37]/8 blur-[120px] pointer-events-none" />
 
-      <div className="absolute bottom-20 left-[-200px] w-[500px] h-[500px] bg-violet-600/5 rounded-full blur-3xl" />
+      <div className="absolute bottom-[-180px] left-[-180px] w-[500px] h-[500px] rounded-full bg-[#D4AF37]/6 blur-[120px] pointer-events-none" />
+
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[500px] rounded-full bg-[#D4AF37]/4 blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10">
 
@@ -200,26 +210,62 @@ export default function Features() {
         ====================================================== */}
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center max-w-4xl mx-auto"
+          className="max-w-4xl mx-auto text-center"
         >
-          <p className="text-purple-400 uppercase tracking-[0.25em] text-sm font-semibold">
+          <div
+            className="
+              inline-flex
+              items-center
+              gap-2
+              px-4
+              py-2
+              rounded-full
+              bg-[#F5F0E6]
+              text-[#A67C00]
+              border
+              border-[#D4AF37]/20
+              text-[11px]
+              font-bold
+              uppercase
+              tracking-[0.2em]
+            "
+          >
+            <FaStar className="text-[9px]" />
             Platform Features
-          </p>
+          </div>
 
-          <h2 className="text-4xl md:text-6xl font-bold mt-4 leading-tight">
-            Everything needed to make
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-600">
+          <h2
+            className="
+              text-4xl
+              md:text-6xl
+              font-bold
+              mt-6
+              leading-[1.08]
+              tracking-tight
+            "
+          >
+            Everything needed to make{" "}
+            <span
+              className="
+                text-transparent
+                bg-clip-text
+                bg-gradient-to-r
+                from-[#E7C979]
+                via-[#D4AF37]
+                to-[#A67C00]
+              "
+            >
               innovation discoverable.
             </span>
           </h2>
 
-          <p className="text-slate-400 text-lg md:text-xl leading-8 mt-6 max-w-3xl mx-auto">
+          <p className="text-[#A9A293] text-base md:text-lg leading-8 mt-6 max-w-3xl mx-auto">
             ScoutX connects the complete innovation story —
-            <span className="text-purple-400 font-medium">
+            <span className="text-[#E7C979] font-medium">
               {" "}builder, idea, prototype, evidence, evaluation, and opportunity.
             </span>
           </p>
@@ -229,53 +275,113 @@ export default function Features() {
             FEATURE GRID
         ====================================================== */}
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-16">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-16">
           {features.map((feature, index) => {
             const Icon = feature.icon;
 
             return (
               <motion.div
                 key={feature.number}
-                initial={{ opacity: 0, y: 35 }}
+                initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{
-                  duration: 0.6,
-                  delay: index * 0.06,
+                  duration: 0.55,
+                  delay: index * 0.05,
                 }}
-                className="group bg-[#151B2E] border border-slate-800 hover:border-purple-500/30 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
+                whileHover={{ y: -5 }}
+                className="
+                  group
+                  relative
+                  overflow-hidden
+                  rounded-[1.5rem]
+                  bg-[#171612]
+                  border
+                  border-[#F7F2E8]/8
+                  hover:border-[#D4AF37]/30
+                  p-6
+                  transition-all
+                  duration-300
+                "
               >
-                <div className="flex items-center justify-between">
-                  <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/10 text-purple-400 flex items-center justify-center text-lg group-hover:bg-purple-500/20 transition">
-                    <Icon />
+                {/* Card glow */}
+
+                <div
+                  className="
+                    absolute
+                    top-[-80px]
+                    right-[-80px]
+                    w-40
+                    h-40
+                    rounded-full
+                    bg-[#D4AF37]/8
+                    blur-3xl
+                    opacity-0
+                    group-hover:opacity-100
+                    transition-opacity
+                    duration-500
+                  "
+                />
+
+                <div className="relative z-10">
+
+                  {/* Icon + number */}
+
+                  <div className="flex items-center justify-between">
+                    <div
+                      className="
+                        w-12
+                        h-12
+                        rounded-xl
+                        bg-[#F5F0E6]
+                        text-[#A67C00]
+                        flex
+                        items-center
+                        justify-center
+                        border
+                        border-[#D4AF37]/20
+                        group-hover:-translate-y-1
+                        transition-transform
+                        duration-300
+                      "
+                    >
+                      <Icon />
+                    </div>
+
+                    <span className="text-[#514D44] text-sm font-bold tracking-widest">
+                      {feature.number}
+                    </span>
                   </div>
 
-                  <span className="text-slate-700 text-lg font-bold">
-                    {feature.number}
-                  </span>
-                </div>
+                  {/* Title */}
 
-                <h3 className="text-xl font-bold mt-6">
-                  {feature.title}
-                </h3>
+                  <h3 className="text-lg font-bold mt-6 text-[#F7F2E8]">
+                    {feature.title}
+                  </h3>
 
-                <p className="text-slate-500 text-sm leading-6 mt-3">
-                  {feature.description}
-                </p>
+                  {/* Description */}
 
-                <div className="mt-5 space-y-2">
-                  {feature.points.map((point) => (
-                    <div
-                      key={point}
-                      className="flex items-center gap-2"
-                    >
-                      <FaCheckCircle className="text-purple-400 text-xs shrink-0" />
+                  <p className="text-[#8F897D] text-sm leading-6 mt-3">
+                    {feature.description}
+                  </p>
 
-                      <span className="text-slate-400 text-xs">
-                        {point}
-                      </span>
-                    </div>
-                  ))}
+                  {/* Points */}
+
+                  <div className="mt-5 space-y-2.5">
+                    {feature.points.map((point) => (
+                      <div
+                        key={point}
+                        className="flex items-center gap-2"
+                      >
+                        <FaCheckCircle className="text-[#D4AF37] text-[10px] shrink-0" />
+
+                        <span className="text-[#B8B1A4] text-xs">
+                          {point}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+
                 </div>
               </motion.div>
             );
@@ -283,33 +389,35 @@ export default function Features() {
         </div>
 
         {/* =====================================================
-            WHY SCOUTX IS DIFFERENT
+            DIFFERENCE
         ====================================================== */}
 
         <motion.div
-          initial={{ opacity: 0, y: 35 }}
+          initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          transition={{ duration: 0.7 }}
           className="mt-28"
         >
           <div className="text-center max-w-3xl mx-auto">
-            <p className="text-purple-400 uppercase tracking-widest text-sm font-semibold">
+
+            <p className="text-[#D4AF37] uppercase tracking-[0.25em] text-xs font-bold">
               Why ScoutX?
             </p>
 
             <h3 className="text-3xl md:text-5xl font-bold mt-4">
               Not another resume platform.
-              <span className="block text-purple-400">
+              <span className="block text-[#D4AF37] mt-1">
                 Not just another project showcase.
               </span>
             </h3>
 
-            <p className="text-slate-400 text-lg leading-8 mt-6">
-              ScoutX creates a connection between the person, the problem,
-              the prototype, the evidence, and the organization looking for
-              relevant innovation.
+            <p className="text-[#8F897D] text-base md:text-lg leading-8 mt-6">
+              ScoutX connects the person, the problem, the prototype,
+              the evidence, and the organization looking for relevant
+              innovation.
             </p>
+
           </div>
 
           {/* Comparison */}
@@ -318,14 +426,36 @@ export default function Features() {
 
             {/* Traditional */}
 
-            <div className="bg-[#111827] border border-slate-800 rounded-3xl p-8">
-              <div className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400">
+            <motion.div
+              whileHover={{ y: -3 }}
+              className="
+                rounded-[2rem]
+                bg-[#171612]
+                border
+                border-[#F7F2E8]/8
+                p-7
+                md:p-8
+              "
+            >
+              <div className="flex items-center gap-4">
+
+                <div
+                  className="
+                    w-12
+                    h-12
+                    rounded-xl
+                    bg-[#24221D]
+                    text-[#817A6D]
+                    flex
+                    items-center
+                    justify-center
+                  "
+                >
                   <FaUsers />
                 </div>
 
                 <div>
-                  <p className="text-xs text-slate-500 uppercase tracking-widest">
+                  <p className="text-[10px] text-[#817A6D] uppercase tracking-[0.2em] font-bold">
                     Traditional Platforms
                   </p>
 
@@ -333,68 +463,95 @@ export default function Features() {
                     Search around people
                   </h4>
                 </div>
+
               </div>
 
               <div className="mt-7 space-y-4">
-                {[
-                  "Resume → Skills",
-                  "Profile → Job",
-                  "Application → Selection",
-                  "Project → Separate repository",
-                  "Evidence → Scattered across platforms",
-                ].map((item) => (
+                {traditionalPoints.map((item) => (
                   <div
                     key={item}
-                    className="flex items-center gap-3 text-slate-500"
+                    className="flex items-center gap-3 text-[#777166]"
                   >
-                    <span className="text-slate-700 text-lg">
+                    <span className="w-6 h-6 rounded-full bg-[#24221D] flex items-center justify-center text-xs">
                       ×
                     </span>
 
-                    <span>{item}</span>
+                    <span className="text-sm">
+                      {item}
+                    </span>
                   </div>
                 ))}
               </div>
-            </div>
+            </motion.div>
 
             {/* ScoutX */}
 
-            <div className="bg-purple-500/5 border border-purple-500/20 rounded-3xl p-8">
-              <div className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400">
-                  <FaRocket />
-                </div>
+            <motion.div
+              whileHover={{ y: -3 }}
+              className="
+                relative
+                overflow-hidden
+                rounded-[2rem]
+                bg-gradient-to-br
+                from-[#D4AF37]/10
+                via-[#171612]
+                to-[#11100D]
+                border
+                border-[#D4AF37]/25
+                p-7
+                md:p-8
+              "
+            >
+              <div className="absolute top-[-100px] right-[-100px] w-56 h-56 rounded-full bg-[#D4AF37]/10 blur-3xl" />
 
-                <div>
-                  <p className="text-purple-400 text-xs uppercase tracking-widest">
-                    ScoutX
-                  </p>
+              <div className="relative z-10">
 
-                  <h4 className="text-xl font-bold mt-1">
-                    Search around innovation
-                  </h4>
-                </div>
-              </div>
+                <div className="flex items-center gap-4">
 
-              <div className="mt-7 space-y-4">
-                {[
-                  "Problem → Innovation",
-                  "Project → Prototype",
-                  "Builder → Capability",
-                  "Prototype → Evidence",
-                  "Innovation → Opportunity",
-                ].map((item) => (
                   <div
-                    key={item}
-                    className="flex items-center gap-3 text-slate-300"
+                    className="
+                      w-12
+                      h-12
+                      rounded-xl
+                      bg-[#F5F0E6]
+                      text-[#A67C00]
+                      flex
+                      items-center
+                      justify-center
+                    "
                   >
-                    <FaCheckCircle className="text-purple-400 shrink-0" />
-
-                    <span>{item}</span>
+                    <FaRocket />
                   </div>
-                ))}
+
+                  <div>
+                    <p className="text-[10px] text-[#D4AF37] uppercase tracking-[0.2em] font-bold">
+                      ScoutX
+                    </p>
+
+                    <h4 className="text-xl font-bold mt-1">
+                      Search around innovation
+                    </h4>
+                  </div>
+
+                </div>
+
+                <div className="mt-7 space-y-4">
+                  {scoutxPoints.map((item) => (
+                    <div
+                      key={item}
+                      className="flex items-center gap-3 text-[#D5CEC0]"
+                    >
+                      <FaCheckCircle className="text-[#D4AF37] shrink-0 text-sm" />
+
+                      <span className="text-sm">
+                        {item}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+
               </div>
-            </div>
+            </motion.div>
 
           </div>
         </motion.div>
@@ -407,40 +564,66 @@ export default function Features() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
           className="mt-24"
         >
           <div className="text-center max-w-3xl mx-auto">
-            <p className="text-purple-400 uppercase tracking-widest text-sm font-semibold">
+
+            <p className="text-[#D4AF37] uppercase tracking-[0.25em] text-xs font-bold">
               The ScoutX Advantage
             </p>
 
             <h3 className="text-3xl md:text-5xl font-bold mt-4">
-              Why this approach matters
+              Why this approach matters.
             </h3>
 
-            <p className="text-slate-500 mt-5 text-lg">
-              ScoutX is designed to reduce the gap between building something
-              valuable and getting it discovered by the right people.
+            <p className="text-[#8F897D] text-base md:text-lg mt-5 leading-7">
+              ScoutX is designed to reduce the gap between building
+              something valuable and getting it discovered by the right people.
             </p>
+
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 mt-12">
+
             {advantages.map((advantage, index) => {
               const Icon = advantage.icon;
 
               return (
                 <motion.div
                   key={advantage.title}
-                  initial={{ opacity: 0, y: 25 }}
+                  initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{
-                    delay: index * 0.08,
-                    duration: 0.6,
+                    delay: index * 0.07,
+                    duration: 0.55,
                   }}
-                  className="bg-[#151B2E] border border-slate-800 hover:border-purple-500/30 rounded-2xl p-7 transition-all hover:-translate-y-1"
+                  whileHover={{ y: -4 }}
+                  className="
+                    rounded-[1.5rem]
+                    bg-[#171612]
+                    border
+                    border-[#F7F2E8]/8
+                    hover:border-[#D4AF37]/25
+                    p-7
+                    transition-all
+                    duration-300
+                  "
                 >
-                  <div className="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
+
+                  <div
+                    className="
+                      w-12
+                      h-12
+                      rounded-xl
+                      bg-[#F5F0E6]
+                      text-[#A67C00]
+                      flex
+                      items-center
+                      justify-center
+                    "
+                  >
                     <Icon />
                   </div>
 
@@ -448,12 +631,14 @@ export default function Features() {
                     {advantage.title}
                   </h4>
 
-                  <p className="text-slate-500 text-sm leading-6 mt-3">
+                  <p className="text-[#817A6D] text-sm leading-6 mt-3">
                     {advantage.description}
                   </p>
+
                 </motion.div>
               );
             })}
+
           </div>
         </motion.div>
 
@@ -468,18 +653,34 @@ export default function Features() {
           transition={{ duration: 0.8 }}
           className="mt-24"
         >
-          <div className="grid lg:grid-cols-2 gap-10 items-center bg-[#151B2E] border border-purple-500/10 rounded-3xl p-8 md:p-12">
+
+          <div
+            className="
+              grid
+              lg:grid-cols-2
+              gap-10
+              items-center
+              rounded-[2rem]
+              bg-[#171612]
+              border
+              border-[#D4AF37]/15
+              p-7
+              md:p-10
+              lg:p-12
+            "
+          >
 
             {/* LEFT */}
 
             <div>
-              <p className="text-purple-400 uppercase tracking-widest text-sm font-semibold">
+
+              <p className="text-[#D4AF37] uppercase tracking-[0.25em] text-xs font-bold">
                 Core Product
               </p>
 
               <h3 className="text-3xl md:text-5xl font-bold mt-4 leading-tight">
                 Don't just say
-                <span className="text-purple-400">
+                <span className="text-[#D4AF37]">
                   {" "}“I can build.”
                 </span>
 
@@ -488,13 +689,14 @@ export default function Features() {
                 Show what you built.
               </h3>
 
-              <p className="text-slate-400 text-lg leading-8 mt-6">
-                ScoutX shifts the focus from claims to evidence. Every
-                innovation can communicate what was built, how it works,
-                who built it, and what supports its progress.
+              <p className="text-[#8F897D] text-base md:text-lg leading-8 mt-6">
+                ScoutX shifts the focus from claims to evidence.
+                Every innovation can communicate what was built,
+                how it works, who built it, and what supports its progress.
               </p>
 
               <div className="space-y-4 mt-8">
+
                 {[
                   "What problem does the project address?",
                   "What has actually been built?",
@@ -506,45 +708,87 @@ export default function Features() {
                     key={question}
                     className="flex items-center gap-3"
                   >
-                    <FaCheckCircle className="text-purple-400 shrink-0" />
+                    <FaCheckCircle className="text-[#D4AF37] shrink-0" />
 
-                    <span className="text-slate-300">
+                    <span className="text-[#C6BFB2] text-sm md:text-base">
                       {question}
                     </span>
                   </div>
                 ))}
+
               </div>
+
             </div>
 
-            {/* RIGHT */}
+            {/* RIGHT — INNOVATION PROFILE */}
 
             <div className="relative">
-              <div className="absolute inset-0 bg-purple-500/10 blur-3xl rounded-full" />
 
-              <div className="relative bg-slate-900 border border-slate-700 rounded-3xl p-6 shadow-2xl">
+              <div className="absolute inset-0 bg-[#D4AF37]/10 blur-[80px] rounded-full" />
+
+              <div
+                className="
+                  relative
+                  rounded-[1.75rem]
+                  bg-[#0B0B09]
+                  border
+                  border-[#D4AF37]/20
+                  p-5
+                  md:p-6
+                  shadow-[0_25px_80px_rgba(0,0,0,0.35)]
+                "
+              >
 
                 {/* Header */}
 
                 <div className="flex items-center justify-between">
+
                   <div>
-                    <p className="text-slate-500 text-xs uppercase tracking-widest">
+                    <p className="text-[#6E685D] text-[10px] uppercase tracking-[0.2em]">
                       Innovation Profile
                     </p>
 
-                    <h4 className="text-2xl font-bold mt-2">
+                    <h4 className="text-xl md:text-2xl font-bold mt-2">
                       HealthAssist AI
                     </h4>
                   </div>
 
-                  <div className="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
+                  <div
+                    className="
+                      w-11
+                      h-11
+                      rounded-xl
+                      bg-[#F5F0E6]
+                      text-[#A67C00]
+                      flex
+                      items-center
+                      justify-center
+                    "
+                  >
                     <FaLightbulb />
                   </div>
+
                 </div>
 
                 {/* Builder */}
 
                 <div className="mt-6 flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-full bg-purple-500/20 flex items-center justify-center text-purple-300 font-bold">
+
+                  <div
+                    className="
+                      w-10
+                      h-10
+                      rounded-full
+                      bg-[#D4AF37]/10
+                      border
+                      border-[#D4AF37]/20
+                      flex
+                      items-center
+                      justify-center
+                      text-[#D4AF37]
+                      font-bold
+                    "
+                  >
                     S
                   </div>
 
@@ -553,20 +797,30 @@ export default function Features() {
                       Student Innovation Team
                     </p>
 
-                    <p className="text-xs text-slate-500">
+                    <p className="text-xs text-[#6E685D] mt-0.5">
                       AI • Healthcare • Full Stack
                     </p>
                   </div>
+
                 </div>
 
-                {/* Project */}
+                {/* Prototype */}
 
-                <div className="mt-6 p-4 rounded-xl bg-slate-800/60">
-                  <p className="text-xs text-slate-500 uppercase tracking-widest">
+                <div
+                  className="
+                    mt-6
+                    p-4
+                    rounded-xl
+                    bg-[#171612]
+                    border
+                    border-[#F7F2E8]/6
+                  "
+                >
+                  <p className="text-[10px] text-[#6E685D] uppercase tracking-[0.2em]">
                     Prototype
                   </p>
 
-                  <p className="text-sm text-slate-300 mt-2 leading-6">
+                  <p className="text-sm text-[#BEB7AA] mt-2 leading-6">
                     AI-assisted healthcare information and appointment
                     support prototype.
                   </p>
@@ -574,40 +828,40 @@ export default function Features() {
 
                 {/* Evidence */}
 
-                <div className="grid grid-cols-3 gap-3 mt-4">
+                <div className="grid grid-cols-3 gap-2.5 mt-3">
 
-                  <div className="p-4 rounded-xl bg-slate-800/60">
-                    <FaGithub className="text-slate-300" />
+                  <div className="p-3 rounded-xl bg-[#171612]">
+                    <FaGithub className="text-[#D5CEC0]" />
 
-                    <p className="text-xs text-slate-400 mt-3">
+                    <p className="text-[10px] text-[#817A6D] mt-3">
                       GitHub
                     </p>
 
-                    <p className="text-xs text-green-400 mt-1">
+                    <p className="text-[10px] text-[#D4AF37] mt-1">
                       Available
                     </p>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-slate-800/60">
-                    <FaExternalLinkAlt className="text-slate-300" />
+                  <div className="p-3 rounded-xl bg-[#171612]">
+                    <FaExternalLinkAlt className="text-[#D5CEC0]" />
 
-                    <p className="text-xs text-slate-400 mt-3">
+                    <p className="text-[10px] text-[#817A6D] mt-3">
                       Demo
                     </p>
 
-                    <p className="text-xs text-green-400 mt-1">
+                    <p className="text-[10px] text-[#D4AF37] mt-1">
                       Available
                     </p>
                   </div>
 
-                  <div className="p-4 rounded-xl bg-slate-800/60">
-                    <FaTrophy className="text-yellow-400" />
+                  <div className="p-3 rounded-xl bg-[#171612]">
+                    <FaTrophy className="text-[#D4AF37]" />
 
-                    <p className="text-xs text-slate-400 mt-3">
+                    <p className="text-[10px] text-[#817A6D] mt-3">
                       Achievement
                     </p>
 
-                    <p className="text-xs text-green-400 mt-1">
+                    <p className="text-[10px] text-[#D4AF37] mt-1">
                       Verified
                     </p>
                   </div>
@@ -616,20 +870,49 @@ export default function Features() {
 
                 {/* Score */}
 
-                <div className="mt-4 p-4 rounded-xl bg-purple-500/5 border border-purple-500/10">
+                <div
+                  className="
+                    mt-3
+                    p-4
+                    rounded-xl
+                    bg-[#D4AF37]/5
+                    border
+                    border-[#D4AF37]/15
+                  "
+                >
 
                   <div className="flex justify-between items-center">
-                    <span className="text-xs text-slate-400">
+
+                    <span className="text-xs text-[#817A6D]">
                       Innovation Score
                     </span>
 
-                    <span className="text-purple-400 font-bold">
+                    <span className="text-[#E7C979] font-bold">
                       87 / 100
                     </span>
+
                   </div>
 
-                  <div className="h-2 bg-slate-800 rounded-full mt-3 overflow-hidden">
-                    <div className="h-full w-[87%] bg-gradient-to-r from-purple-500 to-violet-500 rounded-full" />
+                  <div className="h-1.5 bg-[#24221D] rounded-full mt-3 overflow-hidden">
+
+                    <motion.div
+                      initial={{ width: 0 }}
+                      whileInView={{ width: "87%" }}
+                      viewport={{ once: true }}
+                      transition={{
+                        duration: 1.2,
+                        delay: 0.3,
+                      }}
+                      className="
+                        h-full
+                        bg-gradient-to-r
+                        from-[#AD8930]
+                        via-[#D4AF37]
+                        to-[#E7C979]
+                        rounded-full
+                      "
+                    />
+
                   </div>
 
                 </div>
@@ -647,103 +930,186 @@ export default function Features() {
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
           className="mt-24"
         >
+
           <div className="text-center">
 
-            <p className="text-purple-400 uppercase tracking-widest text-sm font-semibold">
+            <p className="text-[#D4AF37] uppercase tracking-[0.25em] text-xs font-bold">
               Intelligent Discovery
             </p>
 
             <h3 className="text-3xl md:text-5xl font-bold mt-4">
-              Search for
-              <span className="text-purple-400">
-                {" "}what people have built.
+              Search for{" "}
+              <span className="text-[#D4AF37]">
+                what people have built.
               </span>
             </h3>
 
-            <p className="text-slate-500 max-w-2xl mx-auto mt-4">
+            <p className="text-[#817A6D] max-w-2xl mx-auto mt-5 leading-7">
               Organizations can discover innovators and projects using
               meaningful innovation signals instead of relying only on
               conventional resumes.
             </p>
+
           </div>
 
-          <div className="max-w-4xl mx-auto mt-10 bg-[#151B2E] border border-slate-700 rounded-3xl p-7">
+          {/* Search UI */}
 
-            <div className="flex items-center gap-3 bg-slate-900 border border-slate-700 rounded-xl px-5 py-4">
-              <FaSearch className="text-purple-400" />
+          <div
+            className="
+              max-w-4xl
+              mx-auto
+              mt-10
+              rounded-[1.75rem]
+              bg-[#171612]
+              border
+              border-[#D4AF37]/15
+              p-5
+              md:p-7
+            "
+          >
 
-              <span className="text-slate-500">
+            <div
+              className="
+                flex
+                items-center
+                gap-3
+                bg-[#0B0B09]
+                border
+                border-[#F7F2E8]/8
+                rounded-xl
+                px-5
+                py-4
+              "
+            >
+              <FaSearch className="text-[#D4AF37]" />
+
+              <span className="text-[#6E685D] text-sm">
                 Search innovations by technology, domain, problem...
               </span>
             </div>
 
-            <div className="flex flex-wrap gap-3 mt-5">
-              {[
-                "Artificial Intelligence",
-                "Healthcare",
-                "IoT",
-                "Computer Vision",
-                "Sustainability",
-                "Robotics",
-              ].map((tag) => (
+            <div className="flex flex-wrap gap-2.5 mt-5">
+
+              {discoveryTags.map((tag) => (
                 <span
                   key={tag}
-                  className="px-3 py-2 rounded-xl bg-purple-500/10 border border-purple-500/10 text-purple-300 text-xs"
+                  className="
+                    px-3.5
+                    py-2
+                    rounded-full
+                    bg-[#F5F0E6]/5
+                    border
+                    border-[#D4AF37]/15
+                    text-[#BEB7AA]
+                    text-xs
+                    hover:border-[#D4AF37]/40
+                    hover:text-[#E7C979]
+                    transition-colors
+                  "
                 >
                   {tag}
                 </span>
               ))}
+
             </div>
           </div>
         </motion.div>
 
         {/* =====================================================
-            SCOUTX DIFFERENTIATOR
+            DIFFERENTIATOR
         ====================================================== */}
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
           className="mt-24"
         >
-          <div className="relative overflow-hidden bg-gradient-to-br from-purple-500/10 via-[#151B2E] to-cyan-500/5 border border-purple-500/20 rounded-3xl p-8 md:p-12">
 
-            <div className="absolute top-0 right-0 w-64 h-64 bg-purple-500/10 rounded-full blur-3xl" />
+          <div
+            className="
+              relative
+              overflow-hidden
+              rounded-[2rem]
+              bg-gradient-to-br
+              from-[#D4AF37]/10
+              via-[#171612]
+              to-[#11100D]
+              border
+              border-[#D4AF37]/20
+              p-8
+              md:p-12
+            "
+          >
+
+            <div className="absolute top-0 right-0 w-72 h-72 rounded-full bg-[#D4AF37]/8 blur-[100px]" />
 
             <div className="relative text-center max-w-4xl mx-auto">
 
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-purple-500/10 border border-purple-500/20 text-purple-300 text-xs uppercase tracking-widest">
+              <div
+                className="
+                  inline-flex
+                  items-center
+                  gap-2
+                  px-4
+                  py-2
+                  rounded-full
+                  bg-[#F5F0E6]/5
+                  border
+                  border-[#D4AF37]/20
+                  text-[#D4AF37]
+                  text-[10px]
+                  uppercase
+                  tracking-[0.2em]
+                  font-bold
+                "
+              >
                 <FaStar />
                 ScoutX Differentiator
               </div>
 
-              <h3 className="text-3xl md:text-5xl font-bold mt-6">
-                From
-                <span className="text-slate-500">
-                  {" "}“Who are you?”
+              <h3 className="text-3xl md:text-5xl font-bold mt-6 leading-tight">
+
+                From{" "}
+                <span className="text-[#777166]">
+                  “Who are you?”
                 </span>
 
                 <br />
 
-                to
-                <span className="text-purple-400">
-                  {" "}“What have you built?”
+                to{" "}
+
+                <span className="text-[#E7C979]">
+                  “What have you built?”
                 </span>
+
               </h3>
 
-              <p className="text-slate-400 text-lg leading-8 mt-6">
-                ScoutX changes the discovery model from searching only for
-                people and credentials to discovering the innovations,
+              <p className="text-[#8F897D] text-base md:text-lg leading-8 mt-6">
+                ScoutX changes the discovery model from searching only
+                for people and credentials to discovering the innovations,
                 capabilities, evidence, and opportunities behind them.
               </p>
 
-              <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 mt-10">
+              <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6 mt-10">
 
-                <div className="px-6 py-4 rounded-2xl bg-slate-900/70 border border-slate-800">
-                  <p className="text-xs text-slate-500 uppercase tracking-widest">
+                <div
+                  className="
+                    w-full
+                    md:w-auto
+                    px-7
+                    py-4
+                    rounded-2xl
+                    bg-[#0B0B09]/70
+                    border
+                    border-[#F7F2E8]/8
+                  "
+                >
+                  <p className="text-[10px] text-[#6E685D] uppercase tracking-[0.2em]">
                     Traditional
                   </p>
 
@@ -752,10 +1118,21 @@ export default function Features() {
                   </p>
                 </div>
 
-                <FaArrowRight className="text-purple-400 hidden md:block" />
+                <FaArrowRight className="text-[#D4AF37] rotate-90 md:rotate-0" />
 
-                <div className="px-6 py-4 rounded-2xl bg-purple-500/10 border border-purple-500/20">
-                  <p className="text-xs text-purple-400 uppercase tracking-widest">
+                <div
+                  className="
+                    w-full
+                    md:w-auto
+                    px-7
+                    py-4
+                    rounded-2xl
+                    bg-[#D4AF37]/10
+                    border
+                    border-[#D4AF37]/20
+                  "
+                >
+                  <p className="text-[10px] text-[#D4AF37] uppercase tracking-[0.2em]">
                     ScoutX
                   </p>
 
@@ -765,7 +1142,6 @@ export default function Features() {
                 </div>
 
               </div>
-
             </div>
           </div>
         </motion.div>
@@ -775,80 +1151,69 @@ export default function Features() {
         ====================================================== */}
 
         <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.7 }}
           className="mt-24"
         >
-          <div className="bg-gradient-to-r from-purple-500/10 via-violet-500/10 to-cyan-500/10 border border-purple-500/20 rounded-3xl p-8 md:p-10 text-center">
 
-            <p className="text-purple-400 uppercase tracking-widest text-xs font-semibold">
+          <div
+            className="
+              rounded-[2rem]
+              bg-[#171612]
+              border
+              border-[#D4AF37]/15
+              p-8
+              md:p-10
+              text-center
+            "
+          >
+
+            <p className="text-[#D4AF37] uppercase tracking-[0.25em] text-[10px] font-bold">
               ScoutX Discovery Flow
             </p>
 
-            <div className="flex flex-col md:flex-row items-center justify-center gap-5 md:gap-8 mt-7">
+            <div className="flex flex-col md:flex-row items-center justify-center gap-5 md:gap-7 mt-8">
 
-              <div>
-                <div className="text-lg font-semibold">
-                  Build
+              {[
+                ["Build", "Create innovation"],
+                ["Prove", "Show evidence"],
+                ["Discover", "Find relevance"],
+                ["Match", "Identify opportunity"],
+                ["Connect", "Create collaboration"],
+              ].map(([title, description], index) => (
+                <div
+                  key={title}
+                  className="flex items-center gap-5 md:gap-7"
+                >
+
+                  <div>
+                    <div
+                      className={`text-lg font-semibold ${
+                        index === 4
+                          ? "text-[#E7C979]"
+                          : "text-[#F7F2E8]"
+                      }`}
+                    >
+                      {title}
+                    </div>
+
+                    <p className="text-xs text-[#6E685D] mt-1">
+                      {description}
+                    </p>
+                  </div>
+
+                  {index < 4 && (
+                    <FaArrowRight className="text-[#D4AF37] hidden md:block text-xs" />
+                  )}
+
                 </div>
-
-                <p className="text-xs text-slate-500 mt-1">
-                  Create innovation
-                </p>
-              </div>
-
-              <FaArrowRight className="text-purple-400 hidden md:block" />
-
-              <div>
-                <div className="text-lg font-semibold">
-                  Prove
-                </div>
-
-                <p className="text-xs text-slate-500 mt-1">
-                  Show evidence
-                </p>
-              </div>
-
-              <FaArrowRight className="text-purple-400 hidden md:block" />
-
-              <div>
-                <div className="text-lg font-semibold">
-                  Discover
-                </div>
-
-                <p className="text-xs text-slate-500 mt-1">
-                  Find relevance
-                </p>
-              </div>
-
-              <FaArrowRight className="text-purple-400 hidden md:block" />
-
-              <div>
-                <div className="text-lg font-semibold">
-                  Match
-                </div>
-
-                <p className="text-xs text-slate-500 mt-1">
-                  Identify opportunity
-                </p>
-              </div>
-
-              <FaArrowRight className="text-purple-400 hidden md:block" />
-
-              <div>
-                <div className="text-lg font-semibold text-cyan-400">
-                  Connect
-                </div>
-
-                <p className="text-xs text-slate-500 mt-1">
-                  Create collaboration
-                </p>
-              </div>
+              ))}
 
             </div>
 
-            <p className="text-slate-400 text-sm mt-7 max-w-2xl mx-auto">
+            <p className="text-[#817A6D] text-sm mt-8 max-w-2xl mx-auto leading-6">
               ScoutX turns scattered projects into structured,
               discoverable innovation and creates a path from building
               to real-world opportunity.
@@ -865,26 +1230,50 @@ export default function Features() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
           className="text-center mt-20"
         >
-          <p className="text-slate-500">
+
+          <p className="text-[#6E685D] text-sm">
             The goal is simple.
           </p>
 
           <h3 className="text-2xl md:text-4xl font-bold mt-3">
-            Make valuable innovation
-            <span className="text-purple-400">
-              {" "}discoverable.
+            Make valuable innovation{" "}
+            <span className="text-[#D4AF37]">
+              discoverable.
             </span>
           </h3>
 
-          <a
+          <motion.a
             href="#users"
-            className="inline-flex items-center gap-3 mt-8 px-7 py-3 rounded-xl bg-purple-600 hover:bg-purple-700 transition"
+            whileHover={{ y: -2 }}
+            whileTap={{ scale: 0.98 }}
+            className="
+              inline-flex
+              items-center
+              gap-3
+              mt-8
+              px-7
+              py-3.5
+              rounded-xl
+              bg-gradient-to-br
+              from-[#E7C979]
+              via-[#D4AF37]
+              to-[#AD8930]
+              text-[#0B0B09]
+              font-bold
+              text-sm
+              shadow-[0_12px_35px_rgba(201,166,70,0.20)]
+              hover:shadow-[0_15px_45px_rgba(201,166,70,0.30)]
+              transition-all
+              duration-300
+            "
           >
             Explore the Ecosystem
-            <FaArrowRight />
-          </a>
+            <FaArrowRight className="text-xs" />
+          </motion.a>
+
         </motion.div>
 
       </div>

@@ -12,361 +12,576 @@ import {
   FaPaperPlane,
   FaLinkedin,
   FaGithub,
+  FaCheckCircle,
+  FaBolt,
 } from "react-icons/fa";
 
 const contactTypes = [
   {
     icon: FaBuilding,
-    title: "For Organizations",
+    number: "01",
+    title: "Organizations",
     description:
-      "Have a real-world problem or looking for emerging solutions?",
+      "Looking for emerging talent, prototypes, or solutions to real-world problems?",
     action: "Partner with ScoutX",
   },
   {
     icon: FaLightbulb,
-    title: "For Innovators",
+    number: "02",
+    title: "Innovators",
     description:
-      "Have a prototype that deserves more visibility and real-world opportunities?",
-    action: "Showcase Your Innovation",
+      "Have a project or prototype that deserves visibility beyond your classroom or competition?",
+    action: "Showcase your work",
   },
   {
     icon: FaUniversity,
-    title: "For Institutions",
+    number: "03",
+    title: "Institutions",
     description:
-      "Want to help your students take their projects beyond the classroom?",
-    action: "Explore Collaboration",
+      "Help your students turn academic projects into discoverable innovation and opportunities.",
+    action: "Explore collaboration",
   },
   {
     icon: FaTrophy,
-    title: "For Hackathons & Incubators",
+    number: "04",
+    title: "Programs & Incubators",
     description:
-      "Want promising projects to remain discoverable after your program ends?",
-    action: "Join the Ecosystem",
+      "Keep promising projects visible even after your hackathon, accelerator, or program ends.",
+    action: "Join the ecosystem",
   },
+];
+
+const reasons = [
+  "Share a real-world problem",
+  "Showcase an existing prototype",
+  "Explore a partnership",
+  "Discuss innovation opportunities",
 ];
 
 export default function Contact() {
   return (
     <section
       id="contact"
-      className="relative bg-slate-900 text-white py-24 px-6 overflow-hidden"
+      className="relative overflow-hidden bg-[#080B14] px-6 py-24 text-white md:py-32"
     >
-      {/* Background decoration */}
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[700px] h-[400px] bg-purple-600/10 rounded-full blur-3xl" />
+      {/* =========================================================
+          BACKGROUND
+      ========================================================== */}
 
-      <div className="absolute bottom-0 left-[-200px] w-[400px] h-[400px] bg-violet-600/5 rounded-full blur-3xl" />
+      <div className="pointer-events-none absolute inset-0">
+        {/* Main glow */}
+        <div className="absolute left-1/2 top-[-250px] h-[600px] w-[900px] -translate-x-1/2 rounded-full bg-purple-600/[0.08] blur-[120px]" />
 
-      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Side glows */}
+        <div className="absolute bottom-[-180px] left-[-180px] h-[450px] w-[450px] rounded-full bg-violet-600/[0.06] blur-[100px]" />
 
-        {/* Header */}
+        <div className="absolute right-[-180px] top-1/3 h-[450px] w-[450px] rounded-full bg-fuchsia-600/[0.04] blur-[100px]" />
+
+        {/* Grid */}
+        <div
+          className="absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage:
+              "linear-gradient(rgba(255,255,255,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.5) 1px, transparent 1px)",
+            backgroundSize: "60px 60px",
+          }}
+        />
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl">
+
+        {/* =========================================================
+            HEADER
+        ========================================================== */}
+
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.7 }}
-          className="text-center max-w-4xl mx-auto"
+          className="mx-auto max-w-4xl text-center"
         >
-          <p className="text-purple-400 uppercase tracking-[0.25em] text-sm font-semibold">
-            Connect With ScoutX
-          </p>
+          <div className="inline-flex items-center gap-2 rounded-full border border-purple-500/20 bg-purple-500/[0.06] px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-purple-300">
+            <FaBolt className="text-purple-400" />
+            Connect with ScoutX
+          </div>
 
-          <h2 className="text-4xl md:text-6xl font-bold mt-4 leading-tight">
+          <h2 className="mt-7 text-4xl font-bold leading-[1.08] tracking-tight md:text-6xl lg:text-7xl">
             Have a problem?
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-600">
-              There may already be a solution.
+            <span className="mt-2 block bg-gradient-to-r from-purple-300 via-violet-400 to-fuchsia-400 bg-clip-text text-transparent">
+              Someone may have built the answer.
             </span>
           </h2>
 
-          <p className="text-slate-400 text-lg md:text-xl leading-8 mt-6 max-w-3xl mx-auto">
-            Whether you are an innovator, organization, institution, or
-            innovation partner, ScoutX is built to help you find the right
-            connection.
+          <p className="mx-auto mt-7 max-w-3xl text-base leading-8 text-slate-400 md:text-xl">
+            ScoutX connects innovators, organizations, institutions, and
+            innovation programs through a single discovery layer for
+            projects, prototypes, capabilities, and opportunities.
           </p>
         </motion.div>
 
-        {/* Contact Types */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5 mt-16">
+        {/* =========================================================
+            CONTACT AUDIENCE CARDS
+        ========================================================== */}
 
+        <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-4">
           {contactTypes.map((item, index) => {
             const Icon = item.icon;
 
             return (
-              <motion.div
+              <motion.a
+                href="#contact-form"
                 key={item.title}
                 initial={{ opacity: 0, y: 35 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{
-                  delay: index * 0.1,
                   duration: 0.6,
+                  delay: index * 0.08,
                 }}
-                className="group bg-[#151B2E] border border-slate-800 hover:border-purple-500/30 rounded-2xl p-6 transition-all duration-300 hover:-translate-y-1"
+                className="
+                  group relative overflow-hidden rounded-2xl
+                  border border-white/[0.07]
+                  bg-white/[0.025]
+                  p-6
+                  backdrop-blur-xl
+                  transition-all duration-300
+                  hover:-translate-y-2
+                  hover:border-purple-500/30
+                  hover:bg-purple-500/[0.04]
+                "
               >
+                {/* Hover glow */}
+                <div className="pointer-events-none absolute -right-12 -top-12 h-32 w-32 rounded-full bg-purple-500/[0.08] blur-3xl transition-all duration-500 group-hover:bg-purple-500/[0.16]" />
 
-                <div className="w-12 h-12 rounded-xl bg-purple-500/10 border border-purple-500/10 text-purple-400 flex items-center justify-center text-lg">
-                  <Icon />
+                <div className="relative">
+
+                  <div className="flex items-start justify-between">
+                    <div
+                      className="
+                        flex h-12 w-12 items-center justify-center
+                        rounded-xl
+                        border border-purple-500/20
+                        bg-purple-500/[0.08]
+                        text-purple-400
+                        transition-all duration-300
+                        group-hover:scale-110
+                        group-hover:bg-purple-500/[0.14]
+                      "
+                    >
+                      <Icon />
+                    </div>
+
+                    <span className="text-xs font-bold tracking-widest text-slate-700">
+                      {item.number}
+                    </span>
+                  </div>
+
+                  <h3 className="mt-6 text-lg font-semibold">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-3 min-h-[72px] text-sm leading-6 text-slate-500">
+                    {item.description}
+                  </p>
+
+                  <div className="mt-5 flex items-center gap-2 text-sm font-medium text-purple-400 transition-all group-hover:gap-3 group-hover:text-purple-300">
+                    {item.action}
+                    <FaArrowRight className="text-xs" />
+                  </div>
                 </div>
-
-                <h3 className="text-lg font-bold mt-6">
-                  {item.title}
-                </h3>
-
-                <p className="text-slate-500 text-sm leading-6 mt-3 min-h-[72px]">
-                  {item.description}
-                </p>
-
-                <a
-                  href="#contact-form"
-                  className="inline-flex items-center gap-2 text-purple-400 text-sm font-medium mt-5 group-hover:text-purple-300 transition"
-                >
-                  {item.action}
-                  <FaArrowRight className="text-xs" />
-                </a>
-
-              </motion.div>
+              </motion.a>
             );
           })}
-
         </div>
 
-        {/* Main Contact Area */}
+        {/* =========================================================
+            MAIN CONTACT PANEL
+        ========================================================== */}
+
         <motion.div
           id="contact-form"
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 35 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="grid lg:grid-cols-2 gap-10 mt-20"
+          className="
+            relative mt-20 overflow-hidden
+            rounded-[2rem]
+            border border-white/[0.08]
+            bg-[#101522]/90
+            shadow-[0_30px_100px_rgba(0,0,0,0.35)]
+            backdrop-blur-xl
+          "
         >
+          {/* Panel glow */}
+          <div className="pointer-events-none absolute right-[-100px] top-[-100px] h-[350px] w-[350px] rounded-full bg-purple-600/[0.08] blur-[90px]" />
 
-          {/* Left */}
-          <div className="bg-[#151B2E] border border-purple-500/10 rounded-3xl p-8 md:p-10">
+          <div className="relative grid lg:grid-cols-[0.9fr_1.1fr]">
 
-            <p className="text-purple-400 uppercase tracking-widest text-sm font-semibold">
-              Start a Conversation
-            </p>
+            {/* =====================================================
+                LEFT INFORMATION
+            ====================================================== */}
 
-            <h3 className="text-3xl md:text-4xl font-bold mt-4">
-              Let's discover what we can
-              <span className="text-purple-400">
-                {" "}
-                build together.
-              </span>
-            </h3>
+            <div className="border-b border-white/[0.06] p-8 md:p-12 lg:border-b-0 lg:border-r lg:p-14">
 
-            <p className="text-slate-400 leading-7 mt-6">
-              ScoutX is currently being developed as a platform for
-              discovering, evaluating, and connecting emerging innovations
-              with real-world opportunities.
-            </p>
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-purple-500/20 bg-purple-500/[0.08] text-purple-400">
+                <FaRocket />
+              </div>
 
-            <div className="space-y-5 mt-10">
+              <p className="mt-8 text-xs font-semibold uppercase tracking-[0.22em] text-purple-400">
+                Start a conversation
+              </p>
 
-              <div className="flex items-center gap-4">
+              <h3 className="mt-4 text-3xl font-bold leading-tight md:text-4xl">
+                Let's discover what we can
+                <span className="block bg-gradient-to-r from-purple-300 to-violet-500 bg-clip-text text-transparent">
+                  build together.
+                </span>
+              </h3>
 
-                <div className="w-11 h-11 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
-                  <FaEnvelope />
-                </div>
+              <p className="mt-6 leading-7 text-slate-400">
+                Whether you have a problem worth solving, a prototype worth
+                discovering, or an ecosystem worth connecting, we'd love to
+                hear from you.
+              </p>
 
-                <div>
-                  <p className="text-xs text-slate-500 uppercase tracking-wider">
-                    Email
-                  </p>
-
-                  <a
-                    href="mailto:hello@scoutx.in"
-                    className="text-slate-300 hover:text-purple-400 transition"
+              {/* Reasons */}
+              <div className="mt-9 space-y-3">
+                {reasons.map((reason) => (
+                  <div
+                    key={reason}
+                    className="flex items-center gap-3 text-sm text-slate-300"
                   >
-                    hello@scoutx.in
-                  </a>
-                </div>
-
-              </div>
-
-              <div className="flex items-center gap-4">
-
-                <div className="w-11 h-11 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
-                  <FaRocket />
-                </div>
-
-                <div>
-                  <p className="text-xs text-slate-500 uppercase tracking-wider">
-                    Product
-                  </p>
-
-                  <p className="text-slate-300">
-                    ScoutX Innovation Platform
-                  </p>
-                </div>
-
-              </div>
-
-            </div>
-
-            {/* Social */}
-            <div className="flex gap-3 mt-10 pt-7 border-t border-slate-800">
-
-              <a
-                href="#"
-                className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400 hover:text-purple-400 hover:bg-purple-500/10 transition"
-                aria-label="ScoutX LinkedIn"
-              >
-                <FaLinkedin />
-              </a>
-
-              <a
-                href="#"
-                className="w-10 h-10 rounded-xl bg-slate-800 flex items-center justify-center text-slate-400 hover:text-purple-400 hover:bg-purple-500/10 transition"
-                aria-label="ScoutX GitHub"
-              >
-                <FaGithub />
-              </a>
-
-            </div>
-
-          </div>
-
-          {/* Right - Form */}
-          <div className="bg-[#151B2E] border border-slate-800 rounded-3xl p-8 md:p-10">
-
-            <div className="flex items-center gap-3 mb-7">
-
-              <div className="w-11 h-11 rounded-xl bg-purple-500/10 text-purple-400 flex items-center justify-center">
-                <FaPaperPlane />
-              </div>
-
-              <div>
-                <h3 className="font-bold text-xl">
-                  Tell us about your idea
-                </h3>
-
-                <p className="text-slate-500 text-sm">
-                  We would love to hear from you.
-                </p>
-              </div>
-
-            </div>
-
-            <form
-              onSubmit={(e) => {
-                e.preventDefault();
-                alert(
-                  "Thank you for reaching out to ScoutX! We will get back to you soon."
-                );
-              }}
-              className="space-y-5"
-            >
-
-              {/* Name */}
-              <div>
-                <label className="block text-sm text-slate-400 mb-2">
-                  Name
-                </label>
-
-                <input
-                  type="text"
-                  placeholder="Your name"
-                  required
-                  className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-purple-500 transition"
-                />
+                    <FaCheckCircle className="shrink-0 text-purple-400" />
+                    {reason}
+                  </div>
+                ))}
               </div>
 
               {/* Email */}
-              <div>
-                <label className="block text-sm text-slate-400 mb-2">
-                  Email
-                </label>
+              <div className="mt-10 border-t border-white/[0.06] pt-7">
+                <p className="text-xs uppercase tracking-widest text-slate-600">
+                  Email us
+                </p>
 
-                <input
-                  type="email"
-                  placeholder="you@example.com"
-                  required
-                  className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-purple-500 transition"
-                />
-              </div>
-
-              {/* User Type */}
-              <div>
-                <label className="block text-sm text-slate-400 mb-2">
-                  I am a...
-                </label>
-
-                <select
-                  required
-                  defaultValue=""
-                  className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-slate-300 focus:outline-none focus:border-purple-500 transition"
+                <a
+                  href="mailto:hello@scoutx.in"
+                  className="mt-2 inline-flex items-center gap-2 text-slate-300 transition hover:text-purple-400"
                 >
-                  <option value="" disabled>
-                    Select an option
-                  </option>
-                  <option value="innovator">
-                    Innovator / Student
-                  </option>
-                  <option value="company">
-                    Company / Startup
-                  </option>
-                  <option value="college">
-                    College / Institution
-                  </option>
-                  <option value="hackathon">
-                    Hackathon / Incubator
-                  </option>
-                  <option value="investor">
-                    Investor / Partner
-                  </option>
-                  <option value="other">
-                    Other
-                  </option>
-                </select>
+                  <FaEnvelope className="text-sm text-purple-400" />
+                  hello@scoutx.in
+                </a>
               </div>
 
-              {/* Message */}
-              <div>
-                <label className="block text-sm text-slate-400 mb-2">
-                  Message
-                </label>
+              {/* Social */}
+              <div className="mt-7 flex gap-3">
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="ScoutX LinkedIn"
+                  className="
+                    flex h-10 w-10 items-center justify-center rounded-xl
+                    border border-white/[0.06]
+                    bg-white/[0.03]
+                    text-slate-500
+                    transition
+                    hover:border-purple-500/30
+                    hover:bg-purple-500/[0.08]
+                    hover:text-purple-400
+                  "
+                >
+                  <FaLinkedin />
+                </a>
 
-                <textarea
-                  rows={5}
-                  placeholder="Tell us what you are looking for..."
-                  required
-                  className="w-full bg-slate-900 border border-slate-700 rounded-xl px-4 py-3 text-white placeholder:text-slate-600 focus:outline-none focus:border-purple-500 transition resize-none"
-                />
+                <a
+                  href="#"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="ScoutX GitHub"
+                  className="
+                    flex h-10 w-10 items-center justify-center rounded-xl
+                    border border-white/[0.06]
+                    bg-white/[0.03]
+                    text-slate-500
+                    transition
+                    hover:border-purple-500/30
+                    hover:bg-purple-500/[0.08]
+                    hover:text-purple-400
+                  "
+                >
+                  <FaGithub />
+                </a>
+              </div>
+            </div>
+
+            {/* =====================================================
+                FORM
+            ====================================================== */}
+
+            <div className="p-8 md:p-12 lg:p-14">
+
+              <div className="mb-8 flex items-center gap-4">
+                <div
+                  className="
+                    flex h-12 w-12 items-center justify-center
+                    rounded-xl
+                    border border-purple-500/20
+                    bg-purple-500/[0.08]
+                    text-purple-400
+                  "
+                >
+                  <FaPaperPlane />
+                </div>
+
+                <div>
+                  <h3 className="text-xl font-bold">
+                    Tell us what you're building
+                  </h3>
+
+                  <p className="mt-1 text-sm text-slate-600">
+                    We'll help you find the right next step.
+                  </p>
+                </div>
               </div>
 
-              {/* Submit */}
-              <button
-                type="submit"
-                className="w-full bg-purple-600 hover:bg-purple-700 rounded-xl px-6 py-3.5 flex items-center justify-center gap-3 font-medium transition"
+              <form
+                onSubmit={(e) => {
+                  e.preventDefault();
+
+                  alert(
+                    "Thank you for reaching out to ScoutX! We will get back to you soon."
+                  );
+                }}
+                className="space-y-5"
               >
-                Start the Conversation
-                <FaArrowRight />
-              </button>
+                {/* Name + Email */}
+                <div className="grid gap-5 md:grid-cols-2">
 
-            </form>
+                  <div>
+                    <label className="mb-2 block text-sm font-medium text-slate-400">
+                      Name
+                    </label>
 
+                    <input
+                      type="text"
+                      name="name"
+                      placeholder="Your name"
+                      required
+                      className="
+                        w-full rounded-xl
+                        border border-white/[0.08]
+                        bg-[#090D16]
+                        px-4 py-3.5
+                        text-white
+                        outline-none
+                        placeholder:text-slate-700
+                        transition
+                        focus:border-purple-500/60
+                        focus:ring-2
+                        focus:ring-purple-500/10
+                      "
+                    />
+                  </div>
+
+                  <div>
+                    <label className="mb-2 block text-sm font-medium text-slate-400">
+                      Email
+                    </label>
+
+                    <input
+                      type="email"
+                      name="email"
+                      placeholder="you@example.com"
+                      required
+                      className="
+                        w-full rounded-xl
+                        border border-white/[0.08]
+                        bg-[#090D16]
+                        px-4 py-3.5
+                        text-white
+                        outline-none
+                        placeholder:text-slate-700
+                        transition
+                        focus:border-purple-500/60
+                        focus:ring-2
+                        focus:ring-purple-500/10
+                      "
+                    />
+                  </div>
+
+                </div>
+
+                {/* User Type */}
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-slate-400">
+                    I am a...
+                  </label>
+
+                  <select
+                    name="type"
+                    required
+                    defaultValue=""
+                    className="
+                      w-full appearance-none rounded-xl
+                      border border-white/[0.08]
+                      bg-[#090D16]
+                      px-4 py-3.5
+                      text-slate-300
+                      outline-none
+                      transition
+                      focus:border-purple-500/60
+                      focus:ring-2
+                      focus:ring-purple-500/10
+                    "
+                  >
+                    <option value="" disabled>
+                      Select your role
+                    </option>
+
+                    <option value="innovator">
+                      Innovator / Student
+                    </option>
+
+                    <option value="company">
+                      Company / Startup
+                    </option>
+
+                    <option value="institution">
+                      College / Institution
+                    </option>
+
+                    <option value="program">
+                      Hackathon / Incubator
+                    </option>
+
+                    <option value="investor">
+                      Investor / Partner
+                    </option>
+
+                    <option value="other">
+                      Other
+                    </option>
+                  </select>
+                </div>
+
+                {/* Subject */}
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-slate-400">
+                    What would you like to discuss?
+                  </label>
+
+                  <input
+                    type="text"
+                    name="subject"
+                    placeholder="e.g. Partnership, prototype, problem statement..."
+                    className="
+                      w-full rounded-xl
+                      border border-white/[0.08]
+                      bg-[#090D16]
+                      px-4 py-3.5
+                      text-white
+                      outline-none
+                      placeholder:text-slate-700
+                      transition
+                      focus:border-purple-500/60
+                      focus:ring-2
+                      focus:ring-purple-500/10
+                    "
+                  />
+                </div>
+
+                {/* Message */}
+                <div>
+                  <label className="mb-2 block text-sm font-medium text-slate-400">
+                    Message
+                  </label>
+
+                  <textarea
+                    name="message"
+                    rows={5}
+                    required
+                    placeholder="Tell us about your problem, idea, project, or opportunity..."
+                    className="
+                      w-full resize-none rounded-xl
+                      border border-white/[0.08]
+                      bg-[#090D16]
+                      px-4 py-3.5
+                      text-white
+                      outline-none
+                      placeholder:text-slate-700
+                      transition
+                      focus:border-purple-500/60
+                      focus:ring-2
+                      focus:ring-purple-500/10
+                    "
+                  />
+                </div>
+
+                {/* Submit */}
+                <button
+                  type="submit"
+                  className="
+                    group flex w-full items-center justify-center gap-3
+                    rounded-xl
+                    bg-gradient-to-r from-purple-600 to-violet-600
+                    px-6 py-4
+                    font-semibold
+                    shadow-[0_10px_30px_rgba(124,58,237,0.2)]
+                    transition-all duration-300
+                    hover:-translate-y-0.5
+                    hover:from-purple-500
+                    hover:to-violet-500
+                    hover:shadow-[0_15px_40px_rgba(124,58,237,0.3)]
+                  "
+                >
+                  Start the Conversation
+
+                  <FaArrowRight className="text-sm transition-transform duration-300 group-hover:translate-x-1" />
+                </button>
+
+                <p className="text-center text-xs text-slate-700">
+                  Your information is only used to respond to your inquiry.
+                </p>
+              </form>
+            </div>
           </div>
-
         </motion.div>
 
-        {/* Bottom CTA */}
+        {/* =========================================================
+            FINAL CTA
+        ========================================================== */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-center mt-24"
+          transition={{ duration: 0.6 }}
+          className="mt-20 text-center"
         >
-
-          <div className="inline-flex items-center gap-3 px-5 py-3 rounded-full bg-purple-500/5 border border-purple-500/10">
-
-            <span className="w-2 h-2 rounded-full bg-purple-400 animate-pulse" />
-
-            <span className="text-slate-400 text-sm">
-              ScoutX — Discover what people can build.
+          <div
+            className="
+              mx-auto inline-flex items-center gap-3
+              rounded-full
+              border border-purple-500/15
+              bg-purple-500/[0.04]
+              px-5 py-3
+            "
+          >
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-purple-400 opacity-50" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-purple-400" />
             </span>
 
+            <span className="text-sm text-slate-400">
+              ScoutX — Discover what people can build.
+            </span>
           </div>
 
+          <p className="mt-5 text-sm text-slate-700">
+            The next great innovation might already exist.
+          </p>
         </motion.div>
 
       </div>
