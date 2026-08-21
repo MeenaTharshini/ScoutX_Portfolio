@@ -154,15 +154,7 @@ export default function Hero() {
           transition={{ delay: 1.7, duration: 1 }}
           className="max-w-4xl mx-auto mt-16 text-center"
         >
-          <p className="text-slate-500 text-sm leading-7">
-            The problem is not a lack of innovation;
-            <span className="text-slate-300">
-              {" "}
-              it is the lack of an efficient way to discover,
-              evaluate, and connect innovators
-            </span>{" "}
-            with the organizations that need them.
-          </p>
+          
         </motion.div>
 
       </div>
