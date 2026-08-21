@@ -1,116 +1,138 @@
 "use client";
 
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-scroll";
-import { FiMenu, FiX, FiDownload } from "react-icons/fi";
-import { useState } from "react";
+import { FaBars, FaTimes } from "react-icons/fa";
 
-const resume = "/assets/resume.pdf";
+const navLinks = [
+  { name: "Home", to: "home" },
+  { name: "About", to: "about" },
+  { name: "Problem", to: "problem" },
+  { name: "Solution", to: "solution" },
+  { name: "Who It's For", to: "users" },
+  { name: "Features", to: "features" },
+  { name: "Team", to: "team" },
+];
 
 export default function Navbar() {
+  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
-  
-  const navItems = [
-    { name: "About", id: "about" },
-    { name: "Skills", id: "skills" },
-    { name: "Projects", id: "projects" },
-    { name: "Journey", id: "timeline" },
-    { name: "Achievements", id: "achievements" },
-    { name: "Contact", id: "contact" },
-  ];
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-4 left-0 w-full z-50 px-4">
-      <div className="max-w-7xl mx-auto relative">
+    <motion.header
+      initial={{ y: -80, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.6 }}
+      className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${
+        scrolled
+          ? "bg-slate-900/80 backdrop-blur-md border-b border-purple-500/10 py-4"
+          : "bg-transparent py-6"
+      }`}
+    >
+      <nav className="max-w-7xl mx-auto px-6 md:px-10 flex items-center justify-between">
+        {/* Logo */}
+        <Link
+          to="home"
+          smooth
+          duration={500}
+          className="text-2xl font-bold cursor-pointer text-white"
+        >
+          Scout
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-violet-600">
+            X
+          </span>
+        </Link>
 
-        {/* Navbar container */}
-        <div className="bg-[#111827]/80 backdrop-blur-xl border border-purple-500/10 rounded-full px-6 py-3 shadow-lg">
-          <div className="flex items-center justify-between">
-
-            {/* Logo */}
-            <Link
-              to="home"
-              smooth={true}
-              duration={500}
-              offset={-80}
-              className="cursor-pointer"
-            >
-              <h1 className="text-2xl font-bold text-white">
-                MTI<span className="text-purple-500">.</span>
-              </h1>
-            </Link>
-
-            {/* Desktop Menu */}
-            <div className="hidden md:flex gap-2 bg-slate-900/50 border border-white/5 rounded-full p-1.5">
-              {navItems.map((item) => (
-                <Link
-                  key={item.id}
-                  to={item.id}
-                  smooth={true}
-                  duration={500}
-                  offset={-80}
-                  className="px-5 py-2 text-sm text-slate-300 hover:text-white hover:bg-purple-500/10 rounded-full cursor-pointer"
-                >
-                  {item.name}
-                </Link>
-              ))}
-            </div>
-
-            {/* Right Side */}
-            <div className="flex items-center gap-3">
-
-              {/* Resume button */}
-              <a
-                href={resume}
-                target="_blank"
-                className="hidden md:flex items-center gap-2 px-5 py-2.5 rounded-full bg-gradient-to-r from-purple-600 to-purple-500 text-white text-sm hover:scale-105 transition"
+        {/* Desktop links */}
+        <ul className="hidden lg:flex items-center gap-8">
+          {navLinks.map((link) => (
+            <li key={link.to}>
+              <Link
+                to={link.to}
+                smooth
+                duration={500}
+                offset={-80}
+                spy
+                activeClass="text-purple-400"
+                className="text-slate-300 hover:text-purple-400 text-sm font-medium cursor-pointer transition-colors"
               >
-                Resume <FiDownload />
-              </a>
+                {link.name}
+              </Link>
+            </li>
+          ))}
+        </ul>
 
-              {/* Mobile menu button */}
-              <button
-                onClick={() => setMenuOpen(!menuOpen)}
-                className="md:hidden text-white text-2xl"
-              >
-                {menuOpen ? <FiX /> : <FiMenu />}
-              </button>
-
-            </div>
-          </div>
+        {/* CTA */}
+        <div className="hidden lg:block">
+          <Link
+            to="contact"
+            smooth
+            duration={500}
+            offset={-80}
+            className="bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-5 py-2.5 rounded-xl transition cursor-pointer"
+          >
+            Join Waitlist
+          </Link>
         </div>
 
-        {/* Mobile Menu */}
-        {menuOpen && (
-          <div className="md:hidden mt-3 bg-[#111827]/95 backdrop-blur-xl border border-purple-500/10 rounded-3xl p-6">
-            <div className="flex flex-col gap-5">
+        {/* Mobile toggle */}
+        <button
+          onClick={() => setMenuOpen((prev) => !prev)}
+          className="lg:hidden text-white text-2xl"
+          aria-label="Toggle menu"
+        >
+          {menuOpen ? <FaTimes /> : <FaBars />}
+        </button>
+      </nav>
 
-              {navItems.map((item) => (
+      {/* Mobile menu */}
+      <AnimatePresence>
+        {menuOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.3 }}
+            className="lg:hidden overflow-hidden bg-slate-900/95 backdrop-blur-md border-t border-purple-500/10"
+          >
+            <ul className="flex flex-col items-center gap-6 py-8">
+              {navLinks.map((link) => (
+                <li key={link.to}>
+                  <Link
+                    to={link.to}
+                    smooth
+                    duration={500}
+                    offset={-80}
+                    onClick={() => setMenuOpen(false)}
+                    className="text-slate-300 hover:text-purple-400 text-base font-medium cursor-pointer transition-colors"
+                  >
+                    {link.name}
+                  </Link>
+                </li>
+              ))}
+              <li>
                 <Link
-                  key={item.id}
-                  to={item.id}
-                  smooth={true}
+                  to="contact"
+                  smooth
                   duration={500}
                   offset={-80}
                   onClick={() => setMenuOpen(false)}
-                  className="text-slate-300 hover:text-purple-400 text-lg cursor-pointer"
+                  className="bg-purple-600 hover:bg-purple-700 text-white text-sm font-medium px-6 py-3 rounded-xl transition cursor-pointer"
                 >
-                  {item.name}
+                  Join Waitlist
                 </Link>
-              ))}
-
-              <a
-                href={resume}
-                target="_blank"
-                className="mt-2 w-fit flex items-center gap-2 px-5 py-3 rounded-full bg-gradient-to-r from-purple-600 to-purple-500 text-white"
-              >
-                Resume <FiDownload />
-              </a>
-
-            </div>
-          </div>
+              </li>
+            </ul>
+          </motion.div>
         )}
-
-      </div>
-    </nav>
+      </AnimatePresence>
+    </motion.header>
   );
 }

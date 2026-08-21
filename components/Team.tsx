@@ -25,7 +25,7 @@ const teamMembers = [
 
   // Add your other team members here:
   {
-    name: "Team Member 02",
+    name: "Lithanya R",
     role: "Technology & Engineering",
     description:
       "Building the technical infrastructure and developing the core platform experience.",
@@ -36,7 +36,7 @@ const teamMembers = [
   },
 
   {
-    name: "Team Member 03",
+    name: "Magha Sri P",
     role: "Innovation & Research",
     description:
       "Researching user needs, innovation ecosystems, and opportunities for real-world adoption.",
