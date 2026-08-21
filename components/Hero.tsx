@@ -19,24 +19,22 @@ export default function Hero() {
           BACKGROUND
       ====================================================== */}
 
-      {/* Top gold glow */}
       <div className="absolute -top-40 -left-40 w-[500px] h-[500px] rounded-full bg-[#D4AF37]/8 blur-[120px] pointer-events-none" />
 
-      {/* Bottom gold glow */}
       <div className="absolute -bottom-48 -right-40 w-[550px] h-[550px] rounded-full bg-[#B08A28]/6 blur-[140px] pointer-events-none" />
 
-      {/* Center subtle glow */}
       <div className="absolute top-1/2 left-1/2 w-[750px] h-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#D4AF37]/[0.025] blur-[140px] pointer-events-none" />
 
-      {/* Bottom fade */}
       <div className="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-[#0B0B09] to-transparent pointer-events-none" />
 
       <div className="max-w-7xl mx-auto w-full relative z-10">
+
         {/* =====================================================
             HERO CONTENT
         ====================================================== */}
 
         <div className="text-center max-w-5xl mx-auto">
+
           {/* BADGE */}
 
           <motion.div
@@ -63,7 +61,7 @@ export default function Hero() {
           >
             <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse shadow-[0_0_12px_rgba(212,175,55,0.6)]" />
 
-            Innovation Discovery & Talent Visibility Platform
+            AI-Powered Innovation Discovery Platform
           </motion.div>
 
           {/* MAIN HEADING */}
@@ -106,16 +104,16 @@ export default function Hero() {
           >
             <TypeAnimation
               sequence={[
-                "Discover what innovators have actually built.",
+                "Find the innovation that may already solve your problem.",
                 2500,
 
-                "Turn scattered projects into discoverable innovation.",
+                "Discover ideas, prototypes, and solutions from anywhere.",
                 2500,
 
-                "Evaluate talent through real project evidence.",
+                "Let AI understand what an innovation actually does.",
                 2500,
 
-                "Connect promising innovators with organizations.",
+                "Connect real problems with relevant innovations.",
                 2500,
               ]}
               speed={45}
@@ -142,20 +140,20 @@ export default function Hero() {
             <span className="text-[#F7F2E8] font-bold">
               ScoutX
             </span>{" "}
-            is an innovation discovery platform that brings together{" "}
+            is an innovation discovery platform where{" "}
             <span className="text-[#E7C979] font-semibold">
-              student and early-stage innovators,
+              anyone with an idea, prototype, or solution
             </span>{" "}
-            their{" "}
+            can make their innovation discoverable. Organizations can search
+            by{" "}
             <span className="text-[#E7C979] font-semibold">
-              ideas, prototypes, builders, and evidence
+              problem, technology, domain, and keywords
             </span>{" "}
-            in one structured profile — helping companies, hackathon
-            organizers, and incubators{" "}
+            to find relevant innovations, understand them with AI-assisted
+            insights, and{" "}
             <span className="text-[#E7C979] font-semibold">
-              discover, evaluate, and connect
-            </span>{" "}
-            with promising innovation.
+              connect directly with their creators.
+            </span>
           </motion.p>
 
           {/* CTA */}
@@ -166,6 +164,7 @@ export default function Hero() {
             transition={{ delay: 0.9, duration: 0.8 }}
             className="flex flex-wrap justify-center gap-4 mt-10"
           >
+
             {/* PRIMARY CTA */}
 
             <motion.a
@@ -246,6 +245,7 @@ export default function Hero() {
             gap-4
           "
         >
+
           {/* CARD 1 */}
 
           <div
@@ -273,11 +273,11 @@ export default function Hero() {
 
             <div className="text-left">
               <p className="text-[#F7F2E8] text-sm font-semibold">
-                Real Ideas
+                Real Innovation
               </p>
 
               <p className="text-[#8F887B] text-xs mt-1">
-                Projects & prototypes
+                Ideas, prototypes & solutions
               </p>
             </div>
           </div>
@@ -309,11 +309,11 @@ export default function Hero() {
 
             <div className="text-left">
               <p className="text-[#F7F2E8] text-sm font-semibold">
-                AI Discovery
+                AI-Assisted Discovery
               </p>
 
               <p className="text-[#8F887B] text-xs mt-1">
-                Smarter evaluation
+                Understand & match innovation
               </p>
             </div>
           </div>
@@ -345,11 +345,11 @@ export default function Hero() {
 
             <div className="text-left">
               <p className="text-[#F7F2E8] text-sm font-semibold">
-                Better Connections
+                Problem → Solution
               </p>
 
               <p className="text-[#8F887B] text-xs mt-1">
-                Innovators ↔ Organizations
+                Organizations ↔ Creators
               </p>
             </div>
           </div>
