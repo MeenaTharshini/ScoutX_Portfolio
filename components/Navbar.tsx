@@ -11,10 +11,7 @@ import {
 } from "react-icons/fa";
 
 const navLinks = [
-  {
-    name: "About",
-    to: "about",
-  },
+  
   {
     name: "Problem",
     to: "problem",

@@ -3,13 +3,10 @@ import type { Metadata } from "next";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import Problem from "@/components/Problem";
-import About from "@/components/About";
 import Solution from "@/components/Solution";
-import Features from "@/components/Features";
 import Users from "@/components/Users";
-import Advantage from "@/components/Advantage";
+import WhyWe from "@/components/WhyWe";
 import Business from "@/components/Business";
-import Market from "@/components/Market";
 import Validation from "@/components/Validation";
 import Team from "@/components/Team";
 import Contact from "@/components/Contact";
@@ -34,26 +31,17 @@ export default function HomePage() {
         {/* 02 — Why this problem exists */}
         <Problem />
 
-        {/* 03 — What ScoutX actually is */}
-        <About />
-
         {/* 04 — How ScoutX works */}
         <Solution />
-
-        {/* 05 — AI intelligence behind discovery */}
-        <Features />
 
         {/* 06 — Innovators + Organizations */}
         <Users />
 
         {/* 07 — Why ScoutX is different */}
-        <Advantage />
+        <WhyWe />
 
         {/* 08 — How ScoutX can become a business */}
         <Business />
-
-        {/* 09 — Market, ecosystem & growth */}
-        <Market />
 
         {/* 10 — What must be validated */}
         <Validation />
