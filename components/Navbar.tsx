@@ -10,30 +10,28 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 
+/* =========================================================
+   PRIMARY NAVIGATION
+   Keep the navbar focused on the startup story:
+   Why → How → Who → Business → Action
+========================================================= */
+
 const navLinks = [
   {
-    name: "Problem",
+    name: "Why ScoutX",
     to: "problem",
   },
   {
-    name: "Solution",
+    name: "How It Works",
     to: "solution",
   },
   {
-    name: "Users",
+    name: "Who It's For",
     to: "users",
-  },
-  {
-    name: "Why ScoutX",
-    to: "advantage",
   },
   {
     name: "Business",
     to: "business",
-  },
-  {
-    name: "Validation",
-    to: "validation",
   },
 ];
 
@@ -122,8 +120,14 @@ export default function Navbar() {
 
   return (
     <motion.header
-      initial={{ y: -20, opacity: 0 }}
-      animate={{ y: 0, opacity: 1 }}
+      initial={{
+        y: -20,
+        opacity: 0,
+      }}
+      animate={{
+        y: 0,
+        opacity: 1,
+      }}
       transition={{
         duration: 0.6,
         ease: [0.22, 1, 0.36, 1],
@@ -208,6 +212,8 @@ export default function Navbar() {
                   "
                 />
 
+                {/* Shine */}
+
                 <span
                   className="
                     absolute
@@ -285,7 +291,7 @@ export default function Navbar() {
                       relative
                       cursor-pointer
                       rounded-lg
-                      px-3
+                      px-3.5
                       py-2.5
                       text-[12px]
                       font-semibold
@@ -297,6 +303,8 @@ export default function Navbar() {
                     "
                   >
                     {link.name}
+
+                    {/* Gold hover line */}
 
                     <span
                       className="
@@ -351,7 +359,7 @@ export default function Navbar() {
                   hover:shadow-[0_12px_35px_rgba(212,175,55,0.28)]
                 "
               >
-                Connect with ScoutX
+                Join the Pilot
 
                 <FaArrowRight
                   className="
@@ -413,7 +421,9 @@ export default function Navbar() {
                     rotate: 45,
                     scale: 0.8,
                   }}
-                  transition={{ duration: 0.15 }}
+                  transition={{
+                    duration: 0.15,
+                  }}
                 >
                   {menuOpen ? <FaTimes /> : <FaBars />}
                 </motion.span>
@@ -452,7 +462,7 @@ export default function Navbar() {
                 "
               >
                 <div className="px-4 pb-5 pt-3">
-                  {/* Navigation */}
+                  {/* Mobile navigation */}
 
                   <div className="space-y-1">
                     {navLinks.map((link, index) => (
@@ -552,7 +562,7 @@ export default function Navbar() {
                         shadow-[0_8px_25px_rgba(212,175,55,0.18)]
                       "
                     >
-                      Connect with ScoutX
+                      Join the ScoutX Pilot
 
                       <FaArrowRight
                         className="
@@ -563,6 +573,43 @@ export default function Navbar() {
                         "
                       />
                     </Link>
+                  </div>
+
+                  {/* Mobile brand statement */}
+
+                  <div
+                    className="
+                      mt-4
+                      rounded-xl
+                      border
+                      border-[#D4AF37]/[0.08]
+                      bg-[#D4AF37]/[0.025]
+                      px-4
+                      py-3
+                    "
+                  >
+                    <p
+                      className="
+                        text-[10px]
+                        font-semibold
+                        uppercase
+                        tracking-[0.18em]
+                        text-[#80601B]
+                      "
+                    >
+                      ScoutX
+                    </p>
+
+                    <p
+                      className="
+                        mt-1
+                        text-xs
+                        leading-5
+                        text-[#777267]
+                      "
+                    >
+                      Make valuable innovation discoverable.
+                    </p>
                   </div>
                 </div>
               </motion.div>
