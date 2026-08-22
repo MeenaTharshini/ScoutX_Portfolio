@@ -2,19 +2,24 @@ import type { Metadata } from "next";
 
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import About from "@/components/About";
 import Problem from "@/components/Problem";
+import About from "@/components/About";
 import Solution from "@/components/Solution";
-import Advantage from "@/components/Advantage";
+import Features from "@/components/Features";
 import Users from "@/components/Users";
+import Advantage from "@/components/Advantage";
+import Business from "@/components/Business";
+import Market from "@/components/Market";
+import Validation from "@/components/Validation";
 import Team from "@/components/Team";
+import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import BackToTop from "@/components/BackToTop";
 
 export const metadata: Metadata = {
-  title: "ScoutX — Discover What People Can Build",
+  title: "ScoutX — Innovation Exists. Discovery Doesn't.",
   description:
-    "ScoutX is an innovation discovery platform connecting real-world problems with projects, prototypes, talent, institutions, and opportunities.",
+    "ScoutX is a continuous innovation discovery platform connecting organizations with people who are building ideas, prototypes, research, and solutions.",
 };
 
 export default function HomePage() {
@@ -23,26 +28,41 @@ export default function HomePage() {
       <Navbar />
 
       <main id="main-content" className="relative overflow-hidden">
-        {/* 01 — What is ScoutX? */}
+        {/* 01 — The big idea */}
         <Hero />
 
-        {/* 02 — What ScoutX does */}
-        <About />
-
-        {/* 03 — Why ScoutX exists */}
+        {/* 02 — Why this problem exists */}
         <Problem />
 
-        {/* 04 — How ScoutX solves it */}
+        {/* 03 — What ScoutX actually is */}
+        <About />
+
+        {/* 04 — How ScoutX works */}
         <Solution />
 
-        {/* 05 — Why ScoutX is different */}
-        <Advantage />
+        {/* 05 — AI intelligence behind discovery */}
+        <Features />
 
-        {/* 06 — Who ScoutX is for */}
+        {/* 06 — Innovators + Organizations */}
         <Users />
 
-        {/* 07 — Who is building ScoutX */}
+        {/* 07 — Why ScoutX is different */}
+        <Advantage />
+
+        {/* 08 — How ScoutX can become a business */}
+        <Business />
+
+        {/* 09 — Market, ecosystem & growth */}
+        <Market />
+
+        {/* 10 — What must be validated */}
+        <Validation />
+
+        {/* 11 — The people building ScoutX */}
         <Team />
+
+        {/* 12 — Join / Contact */}
+        <Contact />
       </main>
 
       <Footer />
