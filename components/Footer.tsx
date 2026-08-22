@@ -22,7 +22,7 @@ export default function Footer() {
           </h2>
 
           <p className="mt-1 text-xs text-[#777267]">
-            Discovery shouldn't depend on who got the opportunity.
+            We remove the dependency on opportunity-based discovery.
           </p>
         </div>
 
