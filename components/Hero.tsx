@@ -61,7 +61,7 @@ export default function Hero() {
           >
             <span className="w-2 h-2 rounded-full bg-[#D4AF37] animate-pulse shadow-[0_0_12px_rgba(212,175,55,0.6)]" />
 
-            AI-Powered Innovation Discovery Platform
+            Making Every Innovation Discoverable
           </motion.div>
 
           {/* MAIN HEADING */}

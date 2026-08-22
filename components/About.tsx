@@ -42,11 +42,11 @@ export default function About() {
             </span>
           </h2>
 
-          <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-[#A9A293] md:text-base">
-            ScoutX is an AI-powered innovation discovery platform connecting
-            people who build ideas with organizations looking for relevant
-            solutions.
-          </p>
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#A9A293] md:text-base">
+  ScoutX makes hidden innovation discoverable. Innovators can showcase and
+  improve their ideas with AI, while organizations can discover relevant
+  solutions, post real problems, and connect with the people building them.
+</p>
         </motion.div>
 
         {/* TWO SIDES */}
