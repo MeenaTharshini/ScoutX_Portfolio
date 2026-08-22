@@ -9,18 +9,18 @@ import {
 
 const teamMembers = [
   {
-    name: "Meena Tharshini I",
-    role: "Founder",
+    name: "Lithanya R",
+    role: "Founder & CEO",
     icon: FaLightbulb,
   },
   {
-    name: "Lithanya R",
-    role: "Technology",
+    name: "Meena Tharshini I",
+    role: "Technology & CTO",
     icon: FaCode,
   },
   {
     name: "Magha Sri P",
-    role: "Innovation & Research",
+    role: "Research & COO",
     icon: FaBrain,
   },
 ];

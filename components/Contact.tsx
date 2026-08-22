@@ -96,11 +96,11 @@ export default function Contact() {
                 </p>
 
                 <a
-                  href="mailto:hello@scoutx.in"
+                  href="mailto:meenatharshiniiyappan@gmail.com"
                   className="mt-2 inline-flex items-center gap-2 text-sm text-[#C0B8A9] transition hover:text-[#D4AF37]"
                 >
                   <FaEnvelope className="text-[#D4AF37]" />
-                  hello@scoutx.in
+                  meenatharshiniiyappan@gmail.com
                 </a>
               </div>
             </div>
