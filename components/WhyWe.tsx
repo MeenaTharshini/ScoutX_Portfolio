@@ -12,25 +12,25 @@ const reasons = [
   {
     icon: FaSearch,
     title: "Continuous Discovery",
-    text: "Companies don't have to wait for the next hackathon or challenge. ScoutX keeps existing ideas and prototypes discoverable.",
+    text: "Companies don't have to wait for the next hackathon or challenge. ScoutX keeps innovations discoverable over time.",
   },
   {
     icon: FaRobot,
     title: "AI-Assisted Understanding",
-    text: "AI helps structure ideas, identify relevant technologies, compare related work, and surface useful signals.",
+    text: "AI helps structure innovations, understand their capabilities, and surface the signals that matter.",
   },
   {
     icon: FaBullseye,
     title: "Problem-to-Innovation Matching",
-    text: "Organizations can search by problem, domain, technology, or capability and connect with the people building relevant solutions.",
+    text: "Organizations can search by real problems, technologies, or capabilities and find relevant innovations.",
   },
 ];
 
 const difference = [
   "Not limited to hackathon participants",
-  "Ideas remain discoverable after events",
-  "Evidence-based innovation profiles",
-  "Organizations can search before building from scratch",
+  "Innovations remain discoverable after events",
+  "Structured profiles with supporting evidence",
+  "Search for existing solutions before building from scratch",
 ];
 
 export default function WhyWe() {
@@ -59,8 +59,10 @@ export default function WhyWe() {
           </p>
 
           <h2 className="mt-3 text-3xl font-bold leading-tight md:text-5xl">
-            Discovery should not depend on{" "}
-            <span className="gradient-text">who joined the event.</span>
+            Discovery shouldn't depend on{" "}
+            <span className="gradient-text">
+              who got the opportunity.
+            </span>
           </h2>
 
           <p className="mt-4 text-sm leading-6 text-[#A9A293] md:text-base">
@@ -69,7 +71,7 @@ export default function WhyWe() {
           </p>
         </motion.div>
 
-        {/* THREE CORE REASONS */}
+        {/* CORE REASONS */}
         <div className="mt-9 grid gap-4 md:grid-cols-3">
           {reasons.map(({ icon: Icon, title, text }, index) => (
             <motion.div
@@ -96,7 +98,7 @@ export default function WhyWe() {
           ))}
         </div>
 
-        {/* SIMPLE DIFFERENCE */}
+        {/* DIFFERENCE */}
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -107,19 +109,19 @@ export default function WhyWe() {
 
             <div>
               <p className="text-[10px] font-semibold uppercase tracking-[0.22em] text-[#D4AF37]">
-                The difference
+                What makes ScoutX different
               </p>
 
               <h3 className="mt-2 text-2xl font-bold">
-                Beyond hackathons.{" "}
+                Beyond events.{" "}
                 <span className="gradient-text">
                   Beyond portfolios.
                 </span>
               </h3>
 
               <p className="mt-2 text-sm leading-6 text-[#A9A293]">
-                ScoutX focuses on discovering what people actually build and
-                connecting that work to real organizational needs.
+                ScoutX is designed around continuous discovery — not one-time
+                opportunities or static showcases.
               </p>
             </div>
 
