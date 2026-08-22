@@ -22,7 +22,7 @@ export default function Footer() {
           </h2>
 
           <p className="mt-1 text-xs text-[#777267]">
-            Innovation exists. Discovery doesn't.
+            Discovery shouldn't depend on who got the opportunity.
           </p>
         </div>
 
