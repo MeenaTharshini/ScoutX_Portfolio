@@ -11,7 +11,6 @@ import {
 } from "react-icons/fa";
 
 const navLinks = [
-  
   {
     name: "Problem",
     to: "problem",
@@ -21,16 +20,20 @@ const navLinks = [
     to: "solution",
   },
   {
+    name: "Users",
+    to: "users",
+  },
+  {
     name: "Why ScoutX",
     to: "advantage",
   },
   {
-    name: "Target",
-    to: "users",
+    name: "Business",
+    to: "business",
   },
   {
-    name: "Team",
-    to: "team",
+    name: "Validation",
+    to: "validation",
   },
 ];
 
@@ -85,7 +88,7 @@ export default function Navbar() {
   }, [menuOpen]);
 
   /* =========================================================
-     PREVENT BODY SCROLL WHEN MOBILE MENU IS OPEN
+     LOCK BODY SCROLL
   ========================================================== */
 
   useEffect(() => {
@@ -119,14 +122,8 @@ export default function Navbar() {
 
   return (
     <motion.header
-      initial={{
-        y: -20,
-        opacity: 0,
-      }}
-      animate={{
-        y: 0,
-        opacity: 1,
-      }}
+      initial={{ y: -20, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
       transition={{
         duration: 0.6,
         ease: [0.22, 1, 0.36, 1],
@@ -159,7 +156,7 @@ export default function Navbar() {
           }`}
         >
           {/* =====================================================
-              MAIN NAVIGATION ROW
+              MAIN NAVIGATION
           ====================================================== */}
 
           <div
@@ -175,13 +172,7 @@ export default function Navbar() {
               type="button"
               onClick={goHome}
               aria-label="Go to ScoutX home"
-              className="
-                group
-                flex
-                items-center
-                gap-3
-                outline-none
-              "
+              className="group flex items-center gap-3 outline-none"
             >
               {/* Logo mark */}
 
@@ -216,8 +207,6 @@ export default function Navbar() {
                     text-[#0B0B09]
                   "
                 />
-
-                {/* Shine */}
 
                 <span
                   className="
@@ -296,7 +285,7 @@ export default function Navbar() {
                       relative
                       cursor-pointer
                       rounded-lg
-                      px-3.5
+                      px-3
                       py-2.5
                       text-[12px]
                       font-semibold
@@ -308,8 +297,6 @@ export default function Navbar() {
                     "
                   >
                     {link.name}
-
-                    {/* Gold hover line */}
 
                     <span
                       className="
@@ -334,40 +321,12 @@ export default function Navbar() {
             </div>
 
             {/* =================================================
-                DESKTOP ACTIONS
+                DESKTOP CTA
             ================================================== */}
 
-            <div className="hidden items-center gap-2 lg:flex">
-              {/* Secondary CTA */}
-
+            <div className="hidden items-center lg:flex">
               <Link
-                to="footer"
-                {...scrollProps}
-                className="
-                  cursor-pointer
-                  rounded-xl
-                  border
-                  border-white/[0.07]
-                  bg-white/[0.025]
-                  px-4
-                  py-2.5
-                  text-[12px]
-                  font-semibold
-                  text-[#B0ABA0]
-                  transition-all
-                  duration-300
-                  hover:border-[#D4AF37]/20
-                  hover:bg-[#D4AF37]/[0.05]
-                  hover:text-[#F7F2E8]
-                "
-              >
-                Contact
-              </Link>
-
-              {/* Primary CTA */}
-
-              <Link
-                to="footer"
+                to="contact"
                 {...scrollProps}
                 className="
                   group
@@ -436,10 +395,7 @@ export default function Navbar() {
                 lg:hidden
               "
             >
-              <AnimatePresence
-                mode="wait"
-                initial={false}
-              >
+              <AnimatePresence mode="wait" initial={false}>
                 <motion.span
                   key={menuOpen ? "close" : "open"}
                   initial={{
@@ -457,9 +413,7 @@ export default function Navbar() {
                     rotate: 45,
                     scale: 0.8,
                   }}
-                  transition={{
-                    duration: 0.15,
-                  }}
+                  transition={{ duration: 0.15 }}
                 >
                   {menuOpen ? <FaTimes /> : <FaBars />}
                 </motion.span>
@@ -498,7 +452,7 @@ export default function Navbar() {
                 "
               >
                 <div className="px-4 pb-5 pt-3">
-                  {/* Mobile navigation */}
+                  {/* Navigation */}
 
                   <div className="space-y-1">
                     {navLinks.map((link, index) => (
@@ -561,9 +515,7 @@ export default function Navbar() {
                     ))}
                   </div>
 
-                  {/* =================================================
-                      MOBILE CTA
-                  ================================================== */}
+                  {/* Mobile CTA */}
 
                   <div
                     className="
@@ -574,7 +526,7 @@ export default function Navbar() {
                     "
                   >
                     <Link
-                      to="footer"
+                      to="contact"
                       smooth
                       duration={700}
                       offset={-80}
@@ -611,45 +563,6 @@ export default function Navbar() {
                         "
                       />
                     </Link>
-                  </div>
-
-                  {/* =================================================
-                      MOBILE BRAND STATEMENT
-                  ================================================== */}
-
-                  <div
-                    className="
-                      mt-4
-                      rounded-xl
-                      border
-                      border-[#D4AF37]/[0.08]
-                      bg-[#D4AF37]/[0.025]
-                      px-4
-                      py-3
-                    "
-                  >
-                    <p
-                      className="
-                        text-[10px]
-                        font-semibold
-                        uppercase
-                        tracking-[0.18em]
-                        text-[#80601B]
-                      "
-                    >
-                      ScoutX
-                    </p>
-
-                    <p
-                      className="
-                        mt-1
-                        text-xs
-                        leading-5
-                        text-[#777267]
-                      "
-                    >
-                      Make valuable innovation discoverable.
-                    </p>
                   </div>
                 </div>
               </motion.div>
