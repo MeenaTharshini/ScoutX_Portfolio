@@ -81,10 +81,10 @@ export default function Hero() {
               text-[#F7F2E8]
             "
           >
-            Innovation Exists.
+            Great Ideas Exist.
 
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-[#E7C979] via-[#D4AF37] to-[#A67C00]">
-              Discovery Doesn't.
+              They Just Need to Be Found.
             </span>
           </motion.h1>
 
@@ -104,16 +104,19 @@ export default function Hero() {
           >
             <TypeAnimation
               sequence={[
-                "Find the innovation that may already solve your problem.",
+                "Your innovation shouldn't need a hackathon to be discovered.",
                 2500,
 
-                "Discover ideas, prototypes, and solutions from anywhere.",
+                "Post your idea. Let the right people find it.",
                 2500,
 
-                "Let AI understand what an innovation actually does.",
+                "Organizations can search for solutions to real problems.",
                 2500,
 
-                "Connect real problems with relevant innovations.",
+                "AI helps ideas become clearer, stronger, and more discoverable.",
+                2500,
+
+                "Turn overlooked ideas into real opportunities.",
                 2500,
               ]}
               speed={45}
@@ -140,20 +143,17 @@ export default function Hero() {
             <span className="text-[#F7F2E8] font-bold">
               ScoutX
             </span>{" "}
-            is an innovation discovery platform where{" "}
+            is a discovery platform that gives{" "}
             <span className="text-[#E7C979] font-semibold">
-              anyone with an idea, prototype, or solution
+              innovators a place to showcase ideas, projects, prototypes, and portfolios
             </span>{" "}
-            can make their innovation discoverable. Organizations can search
-            by{" "}
+            — even if they never get the opportunity to attend a hackathon or
+            innovation event. Organizations can{" "}
             <span className="text-[#E7C979] font-semibold">
-              problem, technology, domain, and keywords
+              search for solutions to their real-world problems
             </span>{" "}
-            to find relevant innovations, understand them with AI-assisted
-            insights, and{" "}
-            <span className="text-[#E7C979] font-semibold">
-              connect directly with their creators.
-            </span>
+            and discover the people behind them. AI helps analyze,
+            improve, and connect the right innovation with the right need.
           </motion.p>
 
           {/* CTA */}
@@ -193,7 +193,7 @@ export default function Hero() {
                 duration-300
               "
             >
-              Explore ScoutX
+              Discover How ScoutX Works
 
               <FaArrowRight className="group-hover:translate-x-1 transition-transform text-xs" />
             </motion.a>
@@ -222,7 +222,7 @@ export default function Hero() {
                 duration-300
               "
             >
-              See the Discovery Gap
+              Why ScoutX?
             </motion.a>
           </motion.div>
         </div>
@@ -273,11 +273,11 @@ export default function Hero() {
 
             <div className="text-left">
               <p className="text-[#F7F2E8] text-sm font-semibold">
-                Real Innovation
+                Anyone Can Innovate
               </p>
 
               <p className="text-[#8F887B] text-xs mt-1">
-                Ideas, prototypes & solutions
+                Ideas beyond hackathons
               </p>
             </div>
           </div>
@@ -309,11 +309,11 @@ export default function Hero() {
 
             <div className="text-left">
               <p className="text-[#F7F2E8] text-sm font-semibold">
-                AI-Assisted Discovery
+                AI-Powered Discovery
               </p>
 
               <p className="text-[#8F887B] text-xs mt-1">
-                Understand & match innovation
+                Analyze, improve & match ideas
               </p>
             </div>
           </div>
@@ -345,11 +345,11 @@ export default function Hero() {
 
             <div className="text-left">
               <p className="text-[#F7F2E8] text-sm font-semibold">
-                Problem → Solution
+                Problems Meet Ideas
               </p>
 
               <p className="text-[#8F887B] text-xs mt-1">
-                Organizations ↔ Creators
+                Organizations ↔ Innovators
               </p>
             </div>
           </div>
