@@ -1,4 +1,3 @@
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -13,106 +12,87 @@ import {
   FaArrowRight,
   FaCheckCircle,
   FaBullseye,
-  FaUsers,
   FaSearch,
   FaRocket,
+  FaUsers,
+  FaSyncAlt,
 } from "react-icons/fa";
 import type { IconType } from "react-icons";
 
-interface ValidationTest {
+interface ValidationPoint {
   number: string;
   icon: IconType;
   title: string;
-  question: string;
-  test: string;
-  signals: string[];
+  belief: string;
+  action: string;
+  signal: string;
 }
 
-const validationTests: ValidationTest[] = [
+const validationPoints: ValidationPoint[] = [
   {
     number: "01",
     icon: FaLightbulb,
-    title: "Can we make hidden innovation discoverable?",
-    question:
-      "Will people share things they have already built even when they are not part of a hackathon, incubator, or established innovation network?",
-    test:
-      "We will bring in students, developers, researchers, and independent builders who already have real work and see whether ScoutX can turn that work into useful, discoverable profiles.",
-    signals: [
-      "Projects submitted",
-      "Profile completion",
-      "Evidence quality",
-      "Creator retention",
-    ],
+    title: "Can we make good work discoverable?",
+    belief:
+      "People are already building useful things, but much of that work never reaches the people who could use it.",
+    action:
+      "We will start with real projects from students, developers, researchers, and independent builders and turn them into structured ScoutX profiles.",
+    signal:
+      "People actually submit, complete, and maintain useful profiles.",
   },
   {
     number: "02",
     icon: FaBuilding,
-    title: "Do organizations actually have this problem?",
-    question:
-      "When an organization needs a solution, will it look beyond the people and vendors it already knows?",
-    test:
-      "We will work with organizations that bring real technical or business problems and observe whether they use ScoutX to search for alternatives.",
-    signals: [
-      "Problems submitted",
-      "Search activity",
-      "Shortlists created",
-      "Repeat usage",
-    ],
+    title: "Will organizations actually scout?",
+    belief:
+      "Organizations may have a discovery problem, but we cannot assume they will change how they search.",
+    action:
+      "We will bring real technical and business problems to ScoutX and watch whether organizations use the platform to find alternatives.",
+    signal:
+      "Real problems lead to searches, shortlists, and repeat usage.",
   },
   {
     number: "03",
     icon: FaBrain,
-    title: "Can AI make discovery meaningfully better?",
-    question:
-      "Can ScoutX understand what an innovation does well enough to find useful matches beyond keywords?",
-    test:
-      "We will compare ScoutX recommendations against conventional search and collect feedback from the organizations evaluating the results.",
-    signals: [
-      "Relevant matches",
-      "Match quality",
-      "Search satisfaction",
-      "Time saved",
-    ],
+    title: "Does AI improve the search?",
+    belief:
+      "Simply indexing projects is not enough. ScoutX has to understand what an innovation actually does.",
+    action:
+      "We will compare ScoutX recommendations with conventional search and ask organizations whether the matches are genuinely useful.",
+    signal:
+      "Better relevance, less search time, and stronger user feedback.",
   },
   {
     number: "04",
     icon: FaHandshake,
-    title: "Does a match lead to a real opportunity?",
-    question:
-      "Finding a project is not enough. Will organizations actually want to talk to the people behind it?",
-    test:
-      "We will follow every meaningful match and track whether it turns into a creator contact, meeting, technical evaluation, pilot, or collaboration.",
-    signals: [
-      "Creator contacts",
-      "Meetings",
-      "Evaluations",
-      "Pilot discussions",
-    ],
+    title: "Does discovery lead somewhere?",
+    belief:
+      "A match has no value if nobody takes the next step.",
+    action:
+      "We will follow promising matches from discovery to profile views, conversations, evaluations, pilots, and collaborations.",
+    signal:
+      "Useful discoveries create real-world conversations or opportunities.",
   },
   {
     number: "05",
     icon: FaChartLine,
-    title: "Will organizations pay for the value we create?",
-    question:
-      "If ScoutX saves discovery time or surfaces valuable solutions, is that value strong enough to become a paid service?",
-    test:
-      "After proving useful discovery, we will introduce paid discovery missions and test whether organizations are willing to pay for the outcome.",
-    signals: [
-      "Paid pilots",
-      "Conversion",
-      "Repeat usage",
-      "Willingness to pay",
-    ],
+    title: "Is that value worth paying for?",
+    belief:
+      "If ScoutX genuinely saves time or surfaces valuable solutions, organizations should eventually pay for that value.",
+    action:
+      "Only after proving useful discovery, we will test paid Discovery Missions and ScoutX Pro with organizations.",
+    signal:
+      "Organizations return, convert, and are willing to pay.",
   },
 ];
 
 const pilotSteps = [
   {
     number: "01",
-    icon: FaLightbulb,
-    title: "Build the first innovation layer",
+    icon: FaUsers,
+    title: "Start with a focused network",
     description:
-      "We will start with a curated set of genuine projects from students, developers, researchers, and builders.",
+      "We will manually bring in a small number of genuine innovations instead of opening a huge marketplace immediately.",
     metric: "50–100 innovations",
   },
   {
@@ -120,7 +100,7 @@ const pilotSteps = [
     icon: FaBuilding,
     title: "Bring real problems",
     description:
-      "We will work with a small number of organizations that are willing to bring problems they genuinely want to solve.",
+      "We will work with organizations that have problems they genuinely want to solve.",
     metric: "5–10 organizations",
   },
   {
@@ -128,52 +108,62 @@ const pilotSteps = [
     icon: FaSearch,
     title: "Let them scout",
     description:
-      "Organizations will describe their needs, search ScoutX, review recommendations, and compare what they find with their normal discovery process.",
+      "Organizations describe what they need. ScoutX searches, explains, and ranks relevant innovations.",
     metric: "Measure relevance",
   },
   {
     number: "04",
     icon: FaHandshake,
-    title: "Follow what happens next",
+    title: "Track what happens",
     description:
-      "A match only matters if something happens after it. We will track conversations, evaluations, pilots, and collaboration.",
+      "We will follow the strongest matches beyond the screen to see whether they create conversations, evaluations, or pilots.",
     metric: "Track outcomes",
   },
   {
     number: "05",
     icon: FaRocket,
-    title: "Test whether it is worth paying for",
+    title: "Test payment",
     description:
-      "Once we can demonstrate repeated value, we will test paid discovery with organizations that want ScoutX to solve specific problems.",
+      "Once the discovery value is proven, we will ask organizations to pay for solving specific discovery problems.",
     metric: "Paid pilot",
   },
 ];
 
 const risks = [
   {
-    title: "The innovation layer may not have enough quality",
+    title: "Not enough quality",
+    description:
+      "If the innovation layer is weak, discovery will be weak.",
     response:
-      "We will not open the platform to everything on day one. We will curate the first supply, require meaningful evidence, and improve quality standards as we learn.",
+      "We start curated, require evidence, and improve quality standards before expanding supply.",
   },
   {
-    title: "Organizations may not search",
+    title: "Nobody searches",
+    description:
+      "Organizations may say discovery matters but continue using their existing networks.",
     response:
-      "We will not rely on surveys to answer this. We will put real problems in front of organizations and watch what they actually do.",
+      "We measure behavior, not survey answers. Real problems will be our test.",
   },
   {
-    title: "AI may produce impressive but useless matches",
+    title: "AI looks smart but isn't useful",
+    description:
+      "Good-sounding recommendations are meaningless if organizations do not find them relevant.",
     response:
-      "Human feedback stays in the loop. We will measure whether organizations consider recommendations genuinely relevant before trusting automated ranking.",
+      "Human feedback stays in the loop until the recommendations consistently prove useful.",
   },
   {
-    title: "Creators may not get meaningful value",
+    title: "Creators get no real value",
+    description:
+      "More profile views do not automatically mean more opportunity.",
     response:
-      "We care about qualified visibility, conversations, pilots, and opportunities — not vanity metrics like profile views alone.",
+      "We measure qualified contacts, conversations, evaluations, and opportunities.",
   },
   {
-    title: "The marketplace may become too broad too early",
+    title: "We go too broad too early",
+    description:
+      "A massive marketplace could become difficult to populate and difficult to search.",
     response:
-      "Our first version will stay focused. We would rather dominate one discovery problem than build a huge marketplace that nobody uses.",
+      "We start narrow, learn where the strongest demand exists, and expand from evidence.",
   },
 ];
 
@@ -183,15 +173,15 @@ export default function Validation() {
       id="validation"
       className="relative overflow-hidden bg-[#080806] px-6 py-24 text-[#F7F2E8] sm:px-10 lg:px-16"
     >
-      {/* Background glow */}
-      <div className="pointer-events-none absolute left-[-250px] top-[200px] h-[500px] w-[500px] rounded-full bg-[#D4AF37]/[0.035] blur-[140px]" />
+      {/* Background */}
+      <div className="pointer-events-none absolute left-[-250px] top-[250px] h-[500px] w-[500px] rounded-full bg-[#D4AF37]/[0.035] blur-[140px]" />
 
-      <div className="pointer-events-none absolute right-[-250px] top-[1250px] h-[500px] w-[500px] rounded-full bg-[#D4AF37]/[0.03] blur-[140px]" />
+      <div className="pointer-events-none absolute right-[-250px] top-[1200px] h-[500px] w-[500px] rounded-full bg-[#D4AF37]/[0.03] blur-[140px]" />
 
       <div className="relative z-10 mx-auto max-w-7xl">
 
         {/* ===================================================== */}
-        {/* FOUNDER INTRO */}
+        {/* INTRO */}
         {/* ===================================================== */}
 
         <motion.div
@@ -207,98 +197,78 @@ export default function Validation() {
           </div>
 
           <h2 className="mt-5 text-4xl font-bold tracking-tight sm:text-5xl lg:text-6xl">
-            We have the{" "}
-            <span className="bg-gradient-to-r from-[#E7C979] via-[#D4AF37] to-[#A67C00] bg-clip-text text-transparent">
-              vision.
-            </span>
+            We have the idea.
             <br />
-            Now we need the{" "}
-            <span className="bg-gradient-to-r from-[#E7C979] via-[#D4AF37] to-[#A67C00] bg-clip-text text-transparent">
-              evidence.
+            <span className="gradient-text">
+              Now we need to prove it.
             </span>
           </h2>
 
           <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-[#A9A293] sm:text-lg">
-            We are not assuming that ScoutX will work simply because the idea
-            makes sense. We want to put it in front of real innovators, real
-            organizations, and real problems — and let the results decide what
-            we build next.
+            We are not building ScoutX on assumptions. We are going to put it
+            in front of real creators, real organizations, and real problems —
+            and let what happens determine what we build next.
           </p>
         </motion.div>
 
         {/* ===================================================== */}
-        {/* OUR CORE HYPOTHESIS */}
+        {/* THE ONE THING WE NEED TO PROVE */}
         {/* ===================================================== */}
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
           className="mx-auto mt-14 max-w-5xl"
         >
-          <div className="rounded-3xl border border-[#D4AF37]/15 bg-[#11100D] p-7 sm:p-10">
+          <div className="rounded-[2rem] border border-[#D4AF37]/20 bg-[#11100D] p-7 sm:p-10">
 
-            <div className="grid gap-8 lg:grid-cols-[1fr_auto_1fr] lg:items-center">
+            <div className="text-center">
+              <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-[#D4AF37]">
+                Our Core Hypothesis
+              </p>
 
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#D4AF37]">
-                  What We Believe
-                </p>
+              <h3 className="mt-4 text-2xl font-bold sm:text-3xl">
+                The right solution may already exist.
+              </h3>
 
-                <h3 className="mt-3 text-2xl font-bold">
-                  “I built something.{" "}
-                  <span className="text-[#D4AF37]">
-                    Can anyone find it?
-                  </span>
-                  ”
-                </h3>
-
-                <p className="mt-3 text-sm leading-7 text-[#8F887B]">
-                  There is already a huge amount of innovation being created
-                  by people who never get the right opportunity to showcase it.
-                  We believe that work deserves to remain discoverable.
-                </p>
-              </div>
-
-              <div className="hidden lg:block">
-                <FaArrowRight className="text-xl text-[#D4AF37]/50" />
-              </div>
-
-              <div>
-                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#D4AF37]">
-                  What We Need to Prove
-                </p>
-
-                <h3 className="mt-3 text-2xl font-bold">
-                  “Who has already{" "}
-                  <span className="text-[#D4AF37]">
-                    solved this?
-                  </span>
-                  ”
-                </h3>
-
-                <p className="mt-3 text-sm leading-7 text-[#8F887B]">
-                  Organizations should be able to describe a real problem and
-                  discover relevant work without already knowing who created
-                  it.
-                </p>
-              </div>
-
+              <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#8F887B]">
+                If ScoutX can help an organization discover a useful solution
+                it would not have found otherwise — and help that creator reach
+                a real opportunity — then we are solving something valuable.
+              </p>
             </div>
 
-            <div className="mt-8 border-t border-white/[0.06] pt-6 text-center">
-              <p className="text-sm font-medium leading-6 text-[#C9C1B3]">
-                Our first job is to prove that these two people can actually
-                find each other through ScoutX.
-              </p>
+            <div className="mt-9 grid gap-3 md:grid-cols-5 md:items-center">
+
+              {[
+                "Real problem",
+                "ScoutX",
+                "Relevant innovation",
+                "Creator",
+                "Opportunity",
+              ].map((item, index) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-3 md:block"
+                >
+                  <div className="flex flex-1 items-center justify-center rounded-2xl border border-[#D4AF37]/10 bg-[#0B0B09] px-4 py-4 text-center text-xs font-semibold text-[#C9C1B3]">
+                    {item}
+                  </div>
+
+                  {index < 4 && (
+                    <FaArrowRight className="shrink-0 text-[10px] text-[#D4AF37]/40 md:mx-auto md:mt-3 md:block" />
+                  )}
+                </div>
+              ))}
+
             </div>
 
           </div>
         </motion.div>
 
         {/* ===================================================== */}
-        {/* FIVE QUESTIONS */}
+        {/* WHAT WE NEED TO PROVE */}
         {/* ===================================================== */}
 
         <motion.div
@@ -308,95 +278,93 @@ export default function Validation() {
           className="mt-24 text-center"
         >
           <p className="text-xs font-semibold uppercase tracking-[0.22em] text-[#D4AF37]">
-            What We Need to Learn
+            What We Need to Prove
           </p>
 
           <h3 className="mt-4 text-3xl font-bold sm:text-4xl">
-            Before we scale, we need answers to five questions.
+            Five assumptions. Five real tests.
           </h3>
 
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-[#817A6E]">
-            Each question represents an assumption behind ScoutX. Instead of
-            defending those assumptions, we want to test them.
+            We do not need perfect answers on day one. We need enough evidence
+            to know what works and what needs to change.
           </p>
         </motion.div>
 
         {/* ===================================================== */}
-        {/* VALIDATION TESTS */}
+        {/* FIVE TESTS */}
         {/* ===================================================== */}
 
-        <div className="mt-10 grid gap-5 lg:grid-cols-2">
+        <div className="mt-10 space-y-4">
 
-          {validationTests.map((test, index) => {
-            const Icon = test.icon;
+          {validationPoints.map((item, index) => {
+            const Icon = item.icon;
 
             return (
               <motion.article
-                key={test.number}
-                initial={{ opacity: 0, y: 20 }}
+                key={item.number}
+                initial={{ opacity: 0, y: 18 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{
-                  duration: 0.5,
-                  delay: index * 0.06,
+                  duration: 0.45,
+                  delay: index * 0.05,
                 }}
-                className={`group rounded-3xl border border-[#D4AF37]/10 bg-[#11100D] p-7 transition duration-300 hover:-translate-y-1 hover:border-[#D4AF37]/25 ${
-                  index === 4 ? "lg:col-span-2 lg:max-w-3xl lg:mx-auto" : ""
-                }`}
+                className="group rounded-3xl border border-[#D4AF37]/10 bg-[#11100D] p-6 transition duration-300 hover:border-[#D4AF37]/25 sm:p-7"
               >
 
-                <div className="flex items-start justify-between">
+                <div className="grid gap-6 lg:grid-cols-[55px_0.9fr_1.4fr_1fr] lg:items-center">
 
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#D4AF37]/15 bg-[#D4AF37]/10 text-[#E7C979]">
-                    <Icon />
+                  {/* NUMBER / ICON */}
+
+                  <div className="flex items-center gap-4 lg:block">
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#D4AF37]/15 bg-[#D4AF37]/10 text-[#E7C979]">
+                      <Icon />
+                    </div>
+
+                    <span className="font-mono text-xs text-[#D4AF37]/50 lg:mt-3 lg:block">
+                      {item.number}
+                    </span>
                   </div>
 
-                  <span className="font-mono text-xs text-[#D4AF37]/50">
-                    {test.number}
-                  </span>
+                  {/* QUESTION */}
 
-                </div>
+                  <div>
+                    <h4 className="text-xl font-bold leading-7">
+                      {item.title}
+                    </h4>
 
-                <h4 className="mt-6 text-xl font-bold leading-7">
-                  {test.title}
-                </h4>
+                    <p className="mt-2 text-sm leading-6 text-[#8F887B]">
+                      {item.belief}
+                    </p>
+                  </div>
 
-                <p className="mt-3 text-sm font-medium leading-6 text-[#D4AF37]">
-                  {test.question}
-                </p>
-
-                <div className="mt-6">
+                  {/* TEST */}
 
                   <div className="rounded-2xl border border-white/[0.06] bg-[#0B0B09] p-5">
-
                     <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#817A6E]">
-                      How We'll Test It
+                      What We'll Do
                     </p>
 
                     <p className="mt-2 text-sm leading-6 text-[#A9A293]">
-                      {test.test}
+                      {item.action}
                     </p>
-
                   </div>
 
-                  <div className="mt-5">
+                  {/* SIGNAL */}
 
-                    <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.18em] text-[#817A6E]">
-                      What We'll Watch
+                  <div>
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.18em] text-[#817A6E]">
+                      Evidence
                     </p>
 
-                    <div className="flex flex-wrap gap-2">
-                      {test.signals.map((signal) => (
-                        <span
-                          key={signal}
-                          className="flex items-center gap-2 rounded-full border border-[#D4AF37]/10 bg-[#D4AF37]/[0.04] px-3 py-1.5 text-[11px] text-[#A9A293]"
-                        >
-                          <FaCheckCircle className="text-[9px] text-[#D4AF37]" />
-                          {signal}
-                        </span>
-                      ))}
-                    </div>
+                    <div className="mt-3 flex gap-2">
+                      <FaCheckCircle className="mt-1 shrink-0 text-xs text-[#D4AF37]" />
 
+                      <p className="text-sm leading-6 text-[#C9C1B3]">
+                        {item.signal}
+                      </p>
+                    </div>
                   </div>
 
                 </div>
@@ -425,17 +393,17 @@ export default function Validation() {
             </p>
 
             <h3 className="mt-4 text-3xl font-bold sm:text-4xl">
-              Start small.
+              Small enough to learn.
               <br />
               <span className="text-[#A9A293]">
-                Learn from reality.
+                Real enough to matter.
               </span>
             </h3>
 
             <p className="mt-5 text-sm leading-7 text-[#8F887B] sm:text-base">
-              We don't want to build a massive marketplace first and then
-              search for a reason to use it. We want to start with a focused
-              network, real problems, and measurable outcomes.
+              We would rather prove ScoutX with a small number of meaningful
+              interactions than launch a huge marketplace without knowing
+              whether the core loop works.
             </p>
 
           </div>
@@ -448,14 +416,14 @@ export default function Validation() {
               return (
                 <motion.div
                   key={step.number}
-                  initial={{ opacity: 0, x: -15 }}
+                  initial={{ opacity: 0, x: -12 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{
                     duration: 0.4,
-                    delay: index * 0.06,
+                    delay: index * 0.05,
                   }}
-                  className="group grid gap-5 border-b border-white/[0.07] py-7 md:grid-cols-[55px_45px_1fr_auto] md:items-center"
+                  className="grid gap-4 border-b border-white/[0.07] py-7 md:grid-cols-[45px_45px_1fr_auto] md:items-center"
                 >
 
                   <span className="font-mono text-xs text-[#D4AF37]/60">
@@ -489,69 +457,7 @@ export default function Validation() {
         </motion.div>
 
         {/* ===================================================== */}
-        {/* PILOT LOOP */}
-        {/* ===================================================== */}
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mx-auto mt-16 max-w-5xl"
-        >
-
-          <div className="rounded-3xl border border-[#D4AF37]/15 bg-[#11100D] p-7 sm:p-10">
-
-            <div className="text-center">
-
-              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
-                What We Want to See
-              </p>
-
-              <h3 className="mt-3 text-2xl font-bold sm:text-3xl">
-                A real discovery loop.
-              </h3>
-
-            </div>
-
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
-
-              {[
-                "Real problem",
-                "ScoutX search",
-                "Relevant innovation",
-                "Creator connection",
-                "Real opportunity",
-              ].map((item, index) => (
-                <div
-                  key={item}
-                  className="flex items-center gap-2"
-                >
-
-                  <span className="rounded-full border border-[#D4AF37]/15 bg-[#0B0B09] px-4 py-2.5 text-xs font-medium text-[#BDB5A7]">
-                    {item}
-                  </span>
-
-                  {index < 4 && (
-                    <FaArrowRight className="text-[10px] text-[#D4AF37]/40" />
-                  )}
-
-                </div>
-              ))}
-
-            </div>
-
-            <p className="mx-auto mt-7 max-w-2xl text-center text-xs leading-6 text-[#6F6A60]">
-              If this loop happens repeatedly, we have evidence that ScoutX is
-              solving a real discovery problem — not simply creating another
-              place to upload projects.
-            </p>
-
-          </div>
-
-        </motion.div>
-
-        {/* ===================================================== */}
-        {/* RISKS */}
+        {/* WHAT FAILURE TEACHES US */}
         {/* ===================================================== */}
 
         <motion.div
@@ -567,22 +473,27 @@ export default function Validation() {
 
               <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.22em] text-[#D4AF37]">
                 <FaExclamationTriangle />
-                What We Could Get Wrong
+                If We're Wrong
               </div>
 
               <h3 className="mt-4 text-3xl font-bold leading-tight sm:text-4xl">
-                We know where
+                Failure is
                 <br />
                 <span className="text-[#A9A293]">
-                  this could fail.
+                  useful information.
                 </span>
               </h3>
 
               <p className="mt-5 text-sm leading-7 text-[#8F887B]">
-                We would rather identify a weakness early than hide it behind
-                a polished product. These are some of the assumptions we are
-                actively testing.
+                Validation is not about proving that every part of our idea is
+                right. If something does not work, we want to know early enough
+                to change it.
               </p>
+
+              <div className="mt-6 flex items-center gap-3 text-xs font-medium text-[#C9C1B3]">
+                <FaSyncAlt className="text-[#D4AF37]" />
+                Test → Learn → Adapt → Test again
+              </div>
 
             </div>
 
@@ -604,15 +515,21 @@ export default function Validation() {
                       <FaBullseye className="text-[10px]" />
                     </div>
 
-                    <div>
+                    <div className="flex-1">
 
                       <h4 className="font-semibold">
                         {risk.title}
                       </h4>
 
-                      <p className="mt-2 text-sm leading-6 text-[#8F887B]">
-                        {risk.response}
+                      <p className="mt-1 text-xs leading-5 text-[#6F6A60]">
+                        {risk.description}
                       </p>
+
+                      <div className="mt-3 border-l border-[#D4AF37]/20 pl-3">
+                        <p className="text-sm leading-6 text-[#A9A293]">
+                          {risk.response}
+                        </p>
+                      </div>
 
                     </div>
 
@@ -628,7 +545,7 @@ export default function Validation() {
         </motion.div>
 
         {/* ===================================================== */}
-        {/* WHAT SUCCESS LOOKS LIKE */}
+        {/* SUCCESS GATE */}
         {/* ===================================================== */}
 
         <motion.div
@@ -638,14 +555,14 @@ export default function Validation() {
           className="mx-auto mt-24 max-w-5xl"
         >
 
-          <div className="rounded-3xl border border-[#D4AF37]/20 bg-gradient-to-br from-[#17150F] to-[#0E0E0C] p-8 text-center sm:p-12">
+          <div className="rounded-[2rem] border border-[#D4AF37]/20 bg-gradient-to-br from-[#17150F] to-[#0E0E0C] p-8 text-center sm:p-12">
 
             <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/10 text-[#E7C979]">
               <FaChartLine />
             </div>
 
             <p className="mt-5 text-xs font-semibold uppercase tracking-[0.22em] text-[#D4AF37]">
-              Our Definition of Success
+              Our Success Gate
             </p>
 
             <h3 className="mt-4 text-3xl font-bold sm:text-5xl">
@@ -653,40 +570,51 @@ export default function Validation() {
             </h3>
 
             <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[#8F887B] sm:text-base">
-              For us, success is not having thousands of profiles or generating
-              impressive AI reports. It is much simpler:
+              We do not need thousands of users to know whether ScoutX has
+              potential. We need to repeatedly see this happen:
             </p>
+
+            <div className="mx-auto mt-8 max-w-3xl">
+
+              <div className="grid gap-2 sm:grid-cols-5">
+
+                {[
+                  "Problem",
+                  "Discovery",
+                  "Match",
+                  "Connection",
+                  "Outcome",
+                ].map((item, index) => (
+                  <div key={item} className="relative">
+
+                    <div className="rounded-2xl border border-[#D4AF37]/10 bg-[#0B0B09] px-3 py-4">
+                      <span className="block text-[9px] font-bold text-[#D4AF37]">
+                        0{index + 1}
+                      </span>
+
+                      <span className="mt-1 block text-xs font-semibold text-[#C9C1B3]">
+                        {item}
+                      </span>
+                    </div>
+
+                    {index < 4 && (
+                      <FaArrowRight className="absolute -right-2.5 top-1/2 z-10 hidden -translate-y-1/2 text-[9px] text-[#D4AF37]/50 sm:block" />
+                    )}
+
+                  </div>
+                ))}
+
+              </div>
+
+            </div>
 
             <div className="mx-auto mt-8 max-w-2xl rounded-2xl border border-[#D4AF37]/10 bg-[#0B0B09] p-6">
 
               <p className="text-base font-medium leading-7 text-[#C9C1B3] sm:text-lg">
-                A creator who was previously difficult to discover becomes
-                visible to an organization with a real problem — and that
-                discovery creates a meaningful conversation, opportunity, or
-                collaboration.
+                A solution that was difficult to discover becomes visible to
+                someone who genuinely needs it — and that discovery creates
+                something real.
               </p>
-
-            </div>
-
-            <div className="mt-8 flex flex-wrap justify-center gap-2">
-
-              {[
-                "Discover",
-                "Match",
-                "Connect",
-                "Validate",
-                "Repeat",
-              ].map((item, index) => (
-                <span
-                  key={item}
-                  className="rounded-full border border-[#D4AF37]/15 bg-[#11100D] px-4 py-2 text-xs font-semibold text-[#C9C1B3]"
-                >
-                  <span className="mr-2 text-[#D4AF37]">
-                    0{index + 1}
-                  </span>
-                  {item}
-                </span>
-              ))}
 
             </div>
 
@@ -702,19 +630,18 @@ export default function Validation() {
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mx-auto mt-14 max-w-3xl text-center"
+          className="mx-auto mt-16 max-w-3xl text-center"
         >
 
           <p className="text-sm leading-7 text-[#817A6E]">
-            We don't want to build ScoutX because we believe the world needs
-            another platform.
+            We are not trying to prove that ScoutX is perfect.
           </p>
 
           <h3 className="mt-3 text-2xl font-bold leading-tight md:text-3xl">
-            We want to build it because
+            We are trying to prove that
             <br />
             <span className="gradient-text">
-              too many useful ideas are still waiting to be found.
+              useful innovation can be found.
             </span>
           </h3>
 
