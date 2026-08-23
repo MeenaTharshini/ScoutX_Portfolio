@@ -31,6 +31,10 @@ const navLinks = [
     name: "Business",
     to: "business",
   },
+  {
+    name: "Team",
+    to: "team",
+  },
 ];
 
 const scrollProps = {

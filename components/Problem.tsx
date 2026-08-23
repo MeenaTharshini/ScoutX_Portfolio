@@ -10,6 +10,8 @@ import {
   FaCode,
   FaBuilding,
   FaArrowRight,
+  FaLink,
+  FaQuestion,
 } from "react-icons/fa";
 
 const discoveryChannels = [
@@ -22,27 +24,31 @@ const discoveryChannels = [
 const problems = [
   {
     number: "01",
-    title: "Temporary",
+    title: "Scattered",
     description:
-      "Hackathons, challenges, and competitions create discovery moments — but only for a limited time.",
+      "Useful innovations are spread across GitHub, hackathons, colleges, portfolios, research labs, and private networks.",
+    icon: FaCode,
   },
   {
     number: "02",
-    title: "Limited Reach",
+    title: "Opportunity-Dependent",
     description:
-      "Great builders outside existing communities, institutions, and networks can remain invisible.",
+      "Discovery often depends on being in the right event, institution, community, or network at the right time.",
+    icon: FaTrophy,
   },
   {
     number: "03",
-    title: "Hard to Evaluate",
+    title: "Hard to Match",
     description:
-      "Finding projects is easy. Understanding which one actually fits a real problem is much harder.",
+      "Finding a project is easy. Knowing whether it actually solves a specific real-world problem is much harder.",
+    icon: FaSearch,
   },
   {
     number: "04",
-    title: "Easy to Lose",
+    title: "Disconnected",
     description:
-      "When an event ends or attention moves elsewhere, valuable projects can disappear from view.",
+      "The people building solutions often don't know who needs them — and organizations don't know who has built them.",
+    icon: FaUsers,
   },
 ];
 
@@ -54,43 +60,42 @@ export default function Problem() {
     >
       {/* Background */}
       <div className="pointer-events-none absolute -left-40 -top-40 h-96 w-96 rounded-full bg-[#D4AF37]/[0.06] blur-[120px]" />
-
       <div className="pointer-events-none absolute -bottom-40 -right-40 h-96 w-96 rounded-full bg-[#D4AF37]/[0.05] blur-[120px]" />
 
       <div className="relative z-10 mx-auto max-w-6xl">
 
         {/* =====================================================
-            01 — PROBLEM
+            01 — THE CORE PROBLEM
         ====================================================== */}
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mx-auto max-w-4xl text-center"
+          className="mx-auto max-w-5xl text-center"
         >
-          <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#E7C979]">
+          <div className="inline-flex items-center gap-2 rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-[#E7C979]"
+          >
             <FaLightbulb className="text-[10px]" />
             The Problem
           </div>
 
           <h2 className="mt-6 text-4xl font-bold leading-tight md:text-6xl">
-            Great ideas are being built.
+            Problems exist.
             <br />
             <span className="bg-gradient-to-r from-[#E7C979] via-[#D4AF37] to-[#A67C00] bg-clip-text text-transparent">
-              Many remain undiscovered.
+              Solutions exist.
             </span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-[#A9A293] md:text-lg">
-            Innovation is being created across colleges, startups,
-            research labs, communities, and independent builders.
-            But discovery is still fragmented.
+          <p className="mx-auto mt-6 max-w-3xl text-base leading-8 text-[#A9A293] md:text-lg">
+            But the people who need solutions often cannot find the people
+            who have already built them.
           </p>
         </motion.div>
 
         {/* =====================================================
-            02 — DISCOVERY GAP
+            02 — THE DISCONNECT
         ====================================================== */}
 
         <motion.div
@@ -99,47 +104,77 @@ export default function Problem() {
           viewport={{ once: true }}
           className="mt-12 rounded-[2rem] border border-[#D4AF37]/15 bg-[#11100D] p-7 md:p-10"
         >
-          <div className="text-center">
+          <div className="grid items-center gap-6 md:grid-cols-[1fr_auto_1fr]">
 
-            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
-              The Discovery Gap
-            </p>
-
-            <h3 className="mt-3 text-2xl font-bold md:text-4xl">
-              Innovation is everywhere.
-              <br />
-              <span className="text-[#8F887B]">
-                But discovery is fragmented.
-              </span>
-            </h3>
-
-            <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-[#8F887B]">
-              Organizations currently discover innovation through separate
-              channels, each showing only part of the picture.
-            </p>
-          </div>
-
-          {/* DISCOVERY CHANNELS */}
-
-          <div className="mt-8 grid grid-cols-2 gap-3 md:grid-cols-4">
-            {discoveryChannels.map(([Icon, label]) => (
-              <div
-                key={label}
-                className="flex items-center justify-center gap-3 rounded-xl border border-[#D4AF37]/10 bg-white/[0.03] px-4 py-4"
-              >
-                <Icon className="text-[#D4AF37]" />
-
-                <span className="text-sm text-[#C9C1B3]">
-                  {label}
-                </span>
+            {/* Organization */}
+            <div className="rounded-2xl border border-[#D4AF37]/10 bg-[#0B0B09] p-6 text-center">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl border border-[#D4AF37]/15 bg-[#D4AF37]/10 text-[#E7C979]">
+                <FaBuilding />
               </div>
-            ))}
+
+              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
+                Organization
+              </p>
+
+              <h3 className="mt-2 text-xl font-bold">
+                "Who has already solved this?"
+              </h3>
+
+              <p className="mt-3 text-sm leading-6 text-[#8F887B]">
+                A company has a real technical or business problem
+                and needs to find a relevant solution.
+              </p>
+            </div>
+
+            {/* Gap */}
+            <div className="flex flex-col items-center gap-3">
+              <div className="flex h-12 w-12 items-center justify-center rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/10 text-[#E7C979]">
+                <FaQuestion />
+              </div>
+
+              <FaArrowRight className="hidden text-[#D4AF37] md:block" />
+              <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-[#D4AF37]/60">
+                Discovery Gap
+              </span>
+              <FaArrowRight className="hidden rotate-180 text-[#D4AF37] md:block" />
+            </div>
+
+            {/* Innovator */}
+            <div className="rounded-2xl border border-[#D4AF37]/10 bg-[#0B0B09] p-6 text-center">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl border border-[#D4AF37]/15 bg-[#D4AF37]/10 text-[#E7C979]">
+                <FaLightbulb />
+              </div>
+
+              <p className="mt-4 text-xs font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
+                Innovator
+              </p>
+
+              <h3 className="mt-2 text-xl font-bold">
+                "Who needs what I built?"
+              </h3>
+
+              <p className="mt-3 text-sm leading-6 text-[#8F887B]">
+                A student, researcher, developer, startup, or builder
+                has already created something potentially useful.
+              </p>
+            </div>
+
           </div>
 
+          <div className="mx-auto mt-8 flex max-w-2xl items-center justify-center gap-3 rounded-xl border border-[#D4AF37]/15 bg-[#D4AF37]/[0.05] px-5 py-4 text-center">
+            <FaLink className="shrink-0 text-[#D4AF37]" />
+
+            <p className="text-sm font-semibold text-[#C9C1B3]">
+              The problem isn't always a lack of solutions.
+              <span className="text-[#E7C979]">
+                {" "}It's a lack of discovery.
+              </span>
+            </p>
+          </div>
         </motion.div>
 
         {/* =====================================================
-            03 — WHY EXISTING CHANNELS AREN'T ENOUGH
+            03 — WHERE DISCOVERY HAPPENS TODAY
         ====================================================== */}
 
         <div className="mt-14">
@@ -151,18 +186,64 @@ export default function Problem() {
             className="mb-7 text-center"
           >
             <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
-              Why Existing Channels Aren't Enough
+              Where Discovery Happens Today
             </p>
 
             <h3 className="mt-3 text-2xl font-bold md:text-4xl">
-              Discovery shouldn't depend on opportunity.
+              Innovation is everywhere.
+              <br />
+              <span className="text-[#8F887B]">
+                Discovery is fragmented.
+              </span>
+            </h3>
+
+            <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-[#8F887B]">
+              Organizations rely on disconnected channels, each revealing
+              only a small part of the innovation landscape.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-2 gap-3 md:grid-cols-4">
+            {discoveryChannels.map(([Icon, label]) => (
+              <motion.div
+                key={label}
+                whileHover={{ y: -3 }}
+                className="flex items-center justify-center gap-3 rounded-xl border border-[#D4AF37]/10 bg-[#11100D] px-4 py-5"
+              >
+                <Icon className="text-[#D4AF37]" />
+
+                <span className="text-sm font-medium text-[#C9C1B3]">
+                  {label}
+                </span>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+
+        {/* =====================================================
+            04 — WHY THE GAP EXISTS
+        ====================================================== */}
+
+        <div className="mt-14">
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-7 text-center"
+          >
+            <p className="text-xs font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
+              Why Existing Channels Fall Short
+            </p>
+
+            <h3 className="mt-3 text-2xl font-bold md:text-4xl">
+              Finding innovation shouldn't depend on luck.
             </h3>
           </motion.div>
 
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-
             {problems.map(
-              ({ number, title, description }, index) => (
+              ({ number, title, description, icon: Icon }, index) => (
                 <motion.div
                   key={title}
                   initial={{ opacity: 0, y: 15 }}
@@ -171,16 +252,12 @@ export default function Problem() {
                   transition={{ delay: index * 0.05 }}
                   className="rounded-2xl border border-[#D4AF37]/10 bg-[#11100D] p-5 transition hover:-translate-y-1 hover:border-[#D4AF37]/25"
                 >
-
                   <span className="text-xs font-bold tracking-widest text-[#D4AF37]/30">
                     {number}
                   </span>
 
                   <div className="mt-4 flex h-10 w-10 items-center justify-center rounded-xl border border-[#D4AF37]/15 bg-[#D4AF37]/10 text-[#E7C979]">
-                    {index === 0 && <FaTrophy className="text-sm" />}
-                    {index === 1 && <FaUsers className="text-sm" />}
-                    {index === 2 && <FaSearch className="text-sm" />}
-                    {index === 3 && <FaCode className="text-sm" />}
+                    <Icon className="text-sm" />
                   </div>
 
                   <h4 className="mt-4 text-base font-bold">
@@ -190,16 +267,14 @@ export default function Problem() {
                   <p className="mt-2 text-xs leading-5 text-[#8F887B]">
                     {description}
                   </p>
-
                 </motion.div>
               )
             )}
-
           </div>
         </div>
 
         {/* =====================================================
-            04 — THE INSIGHT
+            05 — THE INSIGHT
         ====================================================== */}
 
         <motion.div
@@ -208,7 +283,6 @@ export default function Problem() {
           viewport={{ once: true }}
           className="mt-14 overflow-hidden rounded-[2rem] border border-[#D4AF37]/20 bg-gradient-to-br from-[#17150F] via-[#11100D] to-[#0B0B09]"
         >
-
           <div className="p-8 text-center md:p-12">
 
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
@@ -218,40 +292,37 @@ export default function Problem() {
             <h3 className="mt-4 text-3xl font-bold leading-tight md:text-5xl">
               What if the right solution
               <br />
-              <span className="gradient-text">
+              <span className="bg-gradient-to-r from-[#E7C979] via-[#D4AF37] to-[#A67C00] bg-clip-text text-transparent">
                 already exists?
               </span>
             </h3>
 
             <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[#A9A293] md:text-base">
-              Instead of building from scratch, discover what is
-              already being built.
+              Before building from scratch, organizations should be able
+              to discover what is already being built.
             </p>
 
             <div className="mx-auto mt-8 flex max-w-3xl flex-wrap items-center justify-center gap-3">
-
               {[
-                "Existing Ideas",
-                "Relevant Projects",
-                "Real Problems",
-                "Right Connections",
+                "Real Problem",
+                "Existing Innovation",
+                "AI Understanding",
+                "Relevant Match",
+                "Right Connection",
               ].map((item, index) => (
                 <div
                   key={item}
                   className="flex items-center gap-3"
                 >
-
                   <span className="rounded-xl border border-[#D4AF37]/10 bg-[#0B0B09] px-5 py-3 text-sm font-semibold text-[#A9A293]">
                     {item}
                   </span>
 
-                  {index < 3 && (
+                  {index < 4 && (
                     <FaArrowRight className="text-xs text-[#D4AF37]" />
                   )}
-
                 </div>
               ))}
-
             </div>
 
             <div className="mx-auto mt-9 max-w-2xl rounded-2xl border border-[#D4AF37]/15 bg-[#0B0B09] p-5">
@@ -261,14 +332,13 @@ export default function Problem() {
               </p>
 
               <p className="mt-2 text-xs leading-5 text-[#8F887B]">
-                It is creating a better way to discover the ideas
-                that already exist.
+                It is creating a better way for existing ideas,
+                real problems, and the right people to find each other.
               </p>
 
             </div>
 
           </div>
-
         </motion.div>
 
       </div>

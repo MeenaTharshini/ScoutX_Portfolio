@@ -5,7 +5,7 @@ import {
   FaArrowRight,
   FaBrain,
   FaBuilding,
-  FaCheckCircle,
+  FaCheck,
   FaComments,
   FaLightbulb,
   FaSearch,
@@ -13,60 +13,66 @@ import {
   FaUser,
 } from "react-icons/fa";
 
-const aiInsights = [
-  "Problem & solution fit",
-  "Related innovations",
-  "Existing research",
-  "Technical feasibility",
-  "Innovation potential",
-  "Differentiation",
-  "Improvement opportunities",
-  "Evidence & validation",
+const intelligence = [
+  "Understand the problem",
+  "Analyze the solution",
+  "Find related work",
+  "Evaluate feasibility",
+  "Identify differentiation",
+  "Surface improvement areas",
 ];
 
-const innovatorSteps = [
+const creatorFlow = [
   {
     icon: FaLightbulb,
-    title: "Share",
-    text: "Post an idea, prototype, research project, solution, or portfolio.",
+    number: "01",
+    title: "Publish",
+    text: "Share an idea, prototype, research project, product, or solution.",
   },
   {
     icon: FaBrain,
-    title: "Understand",
-    text: "ScoutX AI analyzes the idea, related work, feasibility, and innovation potential.",
+    number: "02",
+    title: "Analyze",
+    text: "ScoutX structures the innovation and generates useful AI insights.",
   },
   {
     icon: FaTools,
+    number: "03",
     title: "Improve",
-    text: "Get AI-assisted insights that help identify gaps, strengthen the idea, and make it more valuable.",
+    text: "See gaps, related work, opportunities, and ways to strengthen it.",
   },
   {
     icon: FaSearch,
-    title: "Get Discovered",
-    text: "Your innovation becomes searchable by organizations looking for relevant solutions.",
+    number: "04",
+    title: "Get Found",
+    text: "Become discoverable when someone is looking for what you built.",
   },
 ];
 
-const organizationSteps = [
+const organizationFlow = [
   {
     icon: FaSearch,
-    title: "Search",
-    text: "Describe a problem, requirement, technology, or capability you need.",
+    number: "01",
+    title: "Describe",
+    text: "Enter a problem, requirement, technology, or capability you need.",
   },
   {
     icon: FaBrain,
+    number: "02",
     title: "Match",
-    text: "ScoutX AI finds and ranks existing innovations based on meaningful relevance.",
+    text: "ScoutX analyzes the need and surfaces relevant innovations.",
   },
   {
     icon: FaUser,
-    title: "Discover",
-    text: "Explore the innovation, evidence, capabilities, and creator behind it.",
+    number: "03",
+    title: "Evaluate",
+    text: "Understand the solution, evidence, technology, and creator.",
   },
   {
     icon: FaComments,
+    number: "04",
     title: "Connect",
-    text: "Contact the creator and explore collaboration, validation, adoption, or further development.",
+    text: "Start a conversation for validation, collaboration, or adoption.",
   },
 ];
 
@@ -74,370 +80,354 @@ export default function Solution() {
   return (
     <section
       id="solution"
-      className="relative overflow-hidden bg-[#0B0B09] px-5 py-20 text-[#F7F2E8] md:py-28"
+      className="relative overflow-hidden bg-[#0B0B09] px-5 py-24 text-[#F7F2E8] md:py-32"
     >
-      {/* Background glow */}
-      <div className="pointer-events-none absolute left-1/2 top-[-180px] h-[450px] w-[700px] -translate-x-1/2 rounded-full bg-[#D4AF37]/[0.05] blur-[120px]" />
+      {/* Background */}
+      <div className="pointer-events-none absolute left-1/2 top-[-220px] h-[520px] w-[800px] -translate-x-1/2 rounded-full bg-[#D4AF37]/[0.055] blur-[140px]" />
 
       <div className="relative z-10 mx-auto max-w-6xl">
-        {/* HEADER */}
+
+        {/* =========================================================
+            HERO
+        ========================================================== */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mx-auto max-w-3xl text-center"
+          className="mx-auto max-w-4xl text-center"
         >
-          <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#D4AF37]">
+          <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#D4AF37]">
             The ScoutX Solution
           </p>
 
-          <h2 className="mt-4 text-4xl font-bold leading-tight md:text-6xl">
-            Make innovation{" "}
-            <span className="text-gradient">discoverable.</span>
+          <h2 className="mt-5 text-4xl font-bold leading-[1.08] md:text-6xl">
+            Turn scattered innovation
+            <br />
+            into{" "}
+            <span className="text-gradient">
+              searchable opportunity.
+            </span>
           </h2>
 
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[#A9A293] md:text-base">
-            ScoutX gives innovators a place to make their ideas visible,
-            understand and improve them with AI, and connect with organizations
-            that need solutions.
+          <p className="mx-auto mt-6 max-w-2xl text-sm leading-7 text-[#A9A293] md:text-base">
+            ScoutX creates a continuous layer between people building
+            solutions and people looking for them.
           </p>
 
-          <p className="mx-auto mt-4 max-w-2xl text-sm font-medium leading-6 text-[#C9C1B3]">
-            Great ideas shouldn't need a hackathon to be discovered.
-          </p>
-        </motion.div>
-
-        {/* DISCOVERY GAP */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-12 rounded-[2rem] border border-[#D4AF37]/15 bg-[#11100D] p-6 md:p-8"
-        >
-          <div className="grid items-center gap-7 md:grid-cols-[1fr_auto_1fr]">
-            <div className="text-center md:text-left">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#817A6E]">
-                Today
-              </p>
-
-              <h3 className="mt-2 text-xl font-bold">
-                Innovation depends on access.
-              </h3>
-
-              <p className="mt-2 text-sm leading-6 text-[#8F887B]">
-                Many people have ideas and projects but never get the time,
-                opportunity, network, or access to participate in hackathons,
-                competitions, incubators, or innovation programs.
-              </p>
-            </div>
-
-            <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-full border border-[#D4AF37]/20 bg-[#D4AF37]/10 text-[#E7C979]">
-              <FaArrowRight />
-            </div>
-
-            <div className="text-center md:text-left">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
-                With ScoutX
-              </p>
-
-              <h3 className="mt-2 text-xl font-bold">
-                Innovation becomes continuously discoverable.
-              </h3>
-
-              <p className="mt-2 text-sm leading-6 text-[#8F887B]">
-                Anyone can publish their innovation and become visible to
-                organizations searching for solutions — without waiting for
-                the next hackathon or opportunity.
-              </p>
-            </div>
+          <div className="mx-auto mt-7 flex flex-wrap items-center justify-center gap-2">
+            <MiniPill text="Ideas" />
+            <FaArrowRight className="text-xs text-[#D4AF37]/40" />
+            <MiniPill text="AI Understanding" />
+            <FaArrowRight className="text-xs text-[#D4AF37]/40" />
+            <MiniPill text="Discovery" />
+            <FaArrowRight className="text-xs text-[#D4AF37]/40" />
+            <MiniPill text="Connection" />
           </div>
         </motion.div>
 
-        {/* CORE IDEA */}
+        {/* =========================================================
+            THE PRODUCT IN ONE VIEW
+        ========================================================== */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-10 text-center"
+          className="mt-16 overflow-hidden rounded-[2rem] border border-[#D4AF37]/20 bg-[#11100D]"
         >
-          <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
-            One continuous layer
-          </p>
+          <div className="border-b border-[#D4AF37]/10 px-6 py-5 text-center md:px-10">
+            <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4AF37]">
+              How ScoutX works
+            </p>
 
-          <h3 className="mt-3 text-2xl font-bold md:text-4xl">
-            From <span className="text-gradient">idea</span> to{" "}
-            <span className="text-gradient">opportunity.</span>
-          </h3>
-
-          <div className="mx-auto mt-7 flex max-w-5xl flex-wrap items-center justify-center gap-2">
-            <FlowPill text="Create" />
-            <FaArrowRight className="text-[#D4AF37]/40" />
-            <FlowPill text="Understand" />
-            <FaArrowRight className="text-[#D4AF37]/40" />
-            <FlowPill text="Improve" />
-            <FaArrowRight className="text-[#D4AF37]/40" />
-            <FlowPill text="Discover" />
-            <FaArrowRight className="text-[#D4AF37]/40" />
-            <FlowPill text="Match" />
-            <FaArrowRight className="text-[#D4AF37]/40" />
-            <FlowPill text="Connect" />
-            <FaArrowRight className="text-[#D4AF37]/40" />
-            <FlowPill text="Collaborate" />
+            <h3 className="mt-2 text-2xl font-bold md:text-3xl">
+              One platform. Two sides. One continuous loop.
+            </h3>
           </div>
-        </motion.div>
 
-        {/* TWO SIDES */}
-        <div className="mt-10 grid gap-5 lg:grid-cols-2">
-          <FlowCard
-            label="For Innovators"
-            title="Build once. Improve continuously. Stay discoverable."
-            steps={innovatorSteps}
-          />
+          <div className="grid md:grid-cols-3">
 
-          <FlowCard
-            label="For Organizations"
-            title="Find solutions, discover creators, solve problems."
-            steps={organizationSteps}
-          />
-        </div>
+            {/* Innovator */}
+            <SolutionNode
+              icon={FaLightbulb}
+              label="INNOVATOR"
+              title="Publish what you built."
+              text="Ideas, prototypes, research, products, and solutions become structured and visible."
+            />
 
-        {/* AI INTELLIGENCE */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-5 overflow-hidden rounded-[2rem] border border-[#D4AF37]/20 bg-[#11100D]"
-        >
-          <div className="grid md:grid-cols-2">
-            <div className="p-7 md:p-9">
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#D4AF37]/15 bg-[#D4AF37]/10 text-[#E7C979]">
+            {/* ScoutX */}
+            <div className="relative border-y border-[#D4AF37]/10 bg-[#D4AF37]/[0.045] p-7 text-center md:border-x md:border-y-0 md:p-9">
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-2xl border border-[#D4AF37]/25 bg-[#D4AF37]/10 text-xl text-[#E7C979]">
                 <FaBrain />
               </div>
 
-              <p className="mt-5 text-[10px] font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
+              <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4AF37]">
+                SCOUTX AI
+              </p>
+
+              <h3 className="mt-3 text-xl font-bold">
+                Understand what it means.
+              </h3>
+
+              <p className="mt-3 text-xs leading-6 text-[#A9A293]">
+                ScoutX analyzes the innovation, its context, relevance,
+                related work, and potential value.
+              </p>
+            </div>
+
+            {/* Organization */}
+            <SolutionNode
+              icon={FaBuilding}
+              label="ORGANIZATION"
+              title="Find what you need."
+              text="Search for solutions, explore relevant innovations, evaluate them, and connect with creators."
+            />
+          </div>
+        </motion.div>
+
+        {/* =========================================================
+            CORE DIFFERENCE
+        ========================================================== */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto mt-16 max-w-3xl text-center"
+        >
+          <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4AF37]">
+            The Core Difference
+          </p>
+
+          <h3 className="mt-4 text-3xl font-bold leading-tight md:text-5xl">
+            ScoutX doesn't just store projects.
+            <br />
+            It makes them{" "}
+            <span className="text-gradient">
+              understandable.
+            </span>
+          </h3>
+
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[#8F887B]">
+            A project sitting in a portfolio is difficult to evaluate.
+            ScoutX adds context around what was built, what problem it
+            addresses, how it works, and where it may fit.
+          </p>
+        </motion.div>
+
+        {/* =========================================================
+            AI INTELLIGENCE
+        ========================================================== */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-12 rounded-[2rem] border border-[#D4AF37]/15 bg-[#11100D] p-7 md:p-10"
+        >
+          <div className="grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+
+            <div>
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/10 text-[#E7C979]">
+                <FaBrain />
+              </div>
+
+              <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4AF37]">
                 AI Innovation Intelligence
               </p>
 
               <h3 className="mt-3 text-2xl font-bold md:text-3xl">
-                More than matching.
+                From raw project
+                <br />
+                to useful intelligence.
               </h3>
 
-              <p className="mt-4 text-sm leading-6 text-[#A9A293]">
-                ScoutX AI helps innovators understand and strengthen their
-                ideas while helping organizations understand which innovations
-                are actually relevant to their problems.
+              <p className="mt-4 text-sm leading-7 text-[#A9A293]">
+                ScoutX AI doesn't decide whether an idea is good. It helps
+                people understand it faster and from more useful angles.
               </p>
-
-              <div className="mt-6 space-y-3">
-                <AIFlow
-                  icon={FaLightbulb}
-                  label="Innovation"
-                  text="Idea, project, prototype, or research"
-                />
-
-                <AIFlow
-                  icon={FaBrain}
-                  label="AI Analysis"
-                  text="Understand, compare, evaluate, and improve"
-                />
-
-                <AIFlow
-                  icon={FaBuilding}
-                  label="Organization"
-                  text="Find relevant solutions and creators"
-                />
-              </div>
             </div>
 
-            <div className="border-t border-[#D4AF37]/10 bg-[#0D0C0A] p-7 md:border-l md:border-t-0 md:p-9">
-              <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
-                What ScoutX AI can consider
-              </p>
-
-              <div className="mt-5 grid grid-cols-2 gap-2.5">
-                {aiInsights.map((signal) => (
-                  <div
-                    key={signal}
-                    className="flex items-center gap-2 rounded-xl border border-[#D4AF37]/10 bg-[#11100D] px-3 py-2.5 text-xs text-[#C9C1B3]"
-                  >
-                    <FaCheckCircle className="shrink-0 text-[10px] text-[#D4AF37]" />
-                    {signal}
+            <div className="grid gap-2 sm:grid-cols-2">
+              {intelligence.map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-3 rounded-xl border border-[#D4AF37]/10 bg-[#0D0C0A] px-4 py-3"
+                >
+                  <div className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-[#D4AF37]/10">
+                    <FaCheck className="text-[9px] text-[#D4AF37]" />
                   </div>
-                ))}
-              </div>
 
-              <div className="mt-6 rounded-2xl border border-[#D4AF37]/10 bg-[#11100D] p-4">
-                <p className="text-xs font-semibold text-[#E7C979]">
-                  AI doesn't replace the innovator.
-                </p>
-
-                <p className="mt-1 text-xs leading-5 text-[#8F887B]">
-                  It gives the creator better insight into what they have
-                  built, where it can improve, and where it may create value.
-                </p>
-              </div>
+                  <span className="text-xs text-[#C9C1B3]">
+                    {item}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
         </motion.div>
 
-        {/* ORGANIZATION SEARCH */}
+        {/* =========================================================
+            TWO USER FLOWS
+        ========================================================== */}
+
+        <div className="mt-16 grid gap-5 lg:grid-cols-2">
+
+          <UserFlow
+            eyebrow="FOR INNOVATORS"
+            title="Give your work a path to discovery."
+            steps={creatorFlow}
+          />
+
+          <UserFlow
+            eyebrow="FOR ORGANIZATIONS"
+            title="Start with the problem, not the network."
+            steps={organizationFlow}
+          />
+
+        </div>
+
+        {/* =========================================================
+            SEARCH EXPERIENCE
+        ========================================================== */}
+
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-12"
+          className="mt-16"
         >
           <div className="text-center">
-            <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
-              For Organizations
+            <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4AF37]">
+              A Different Way To Search
             </p>
 
             <h3 className="mt-3 text-2xl font-bold md:text-4xl">
-              Search for{" "}
-              <span className="text-gradient">solutions, not just people.</span>
+              Search by{" "}
+              <span className="text-gradient">
+                need.
+              </span>
             </h3>
 
-            <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[#A9A293]">
-              Instead of relying only on hackathon winners, known networks,
-              institutions, or existing contacts, organizations can search
-              the wider ScoutX innovation layer.
+            <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[#8F887B]">
+              Organizations don't need to know who built the answer.
+              They only need to describe the problem.
             </p>
           </div>
 
-          <div className="mt-7 rounded-[2rem] border border-[#D4AF37]/15 bg-[#11100D] p-6 md:p-8">
-            <div className="grid gap-4 md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-center">
-              <SearchCard
+          <div className="mt-8 rounded-[2rem] border border-[#D4AF37]/15 bg-[#11100D] p-6 md:p-8">
+
+            <div className="grid gap-3 md:grid-cols-[1fr_auto_1.2fr_auto_1fr] md:items-stretch">
+
+              <SearchStep
                 icon={FaBuilding}
-                title="Organization"
-                text="We need a low-cost pipeline leak detection solution."
+                label="THE NEED"
+                text="Find a low-cost way to detect pipeline leaks."
               />
 
-              <FaArrowRight className="mx-auto rotate-90 text-[#D4AF37]/40 md:rotate-0" />
+              <FlowArrow />
 
-              <SearchCard
+              <SearchStep
                 icon={FaBrain}
-                title="ScoutX AI"
-                text="Analyzes the problem and finds relevant innovations."
+                label="SCOUTX"
+                text="Understands the problem and searches the innovation layer."
                 highlight
               />
 
-              <FaArrowRight className="mx-auto rotate-90 text-[#D4AF37]/40 md:rotate-0" />
+              <FlowArrow />
 
-              <SearchCard
+              <SearchStep
                 icon={FaLightbulb}
-                title="Relevant Innovation"
-                text="Explore the project, evidence, technology, and creator."
+                label="THE MATCH"
+                text="Explore relevant solutions, evidence, technology, and creators."
               />
+
             </div>
           </div>
         </motion.div>
 
-        {/* PROBLEM POSTING */}
+        {/* =========================================================
+            NO SOLUTION
+        ========================================================== */}
+
         <motion.div
-          initial={{ opacity: 0, y: 15 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mt-8 rounded-[2rem] border border-[#D4AF37]/20 bg-[#11100D] p-7 text-center md:p-9"
+          className="mt-6 rounded-[2rem] border border-[#D4AF37]/15 bg-gradient-to-br from-[#17150F] to-[#11100D] p-7 text-center md:p-10"
         >
-          <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-xl border border-[#D4AF37]/15 bg-[#D4AF37]/10 text-[#E7C979]">
+          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/10 text-[#E7C979]">
             <FaTools />
           </div>
 
-          <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
-            No existing solution?
-          </p>
-
-          <h3 className="mt-2 text-2xl font-bold md:text-3xl">
-            Turn the problem into an{" "}
-            <span className="text-gradient">open opportunity.</span>
-          </h3>
-
-          <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[#A9A293]">
-            Organizations can post real, unsolved problems. Innovators can
-            discover those problems, develop solutions, and submit their ideas
-            directly to the organization.
-          </p>
-
-          <div className="mt-6 flex flex-wrap items-center justify-center gap-2 text-xs font-semibold">
-            <FlowPill text="Organization Problem" />
-            <FaArrowRight className="text-[#D4AF37]/40" />
-            <FlowPill text="Post on ScoutX" />
-            <FaArrowRight className="text-[#D4AF37]/40" />
-            <FlowPill text="Innovators Discover" />
-            <FaArrowRight className="text-[#D4AF37]/40" />
-            <FlowPill text="New Solutions" />
-            <FaArrowRight className="text-[#D4AF37]/40" />
-            <FlowPill text="Collaboration" />
-          </div>
-        </motion.div>
-
-        {/* TWO-WAY NETWORK */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-12 text-center"
-        >
-          <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
-            The ScoutX Network
+          <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4AF37]">
+            Nothing matches?
           </p>
 
           <h3 className="mt-3 text-2xl font-bold md:text-4xl">
-            Innovation flows in{" "}
-            <span className="text-gradient">both directions.</span>
+            Create the opportunity.
           </h3>
 
-          <div className="mx-auto mt-7 grid max-w-5xl gap-4 md:grid-cols-2">
-            <NetworkCard
-              title="Innovator → Organization"
-              description="An innovator publishes an idea. ScoutX makes it understandable and discoverable. An organization finds it and starts a conversation."
-              icon={FaLightbulb}
-            />
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#A9A293]">
+            Organizations can publish unsolved problems. Innovators can
+            discover them, build solutions, and respond directly.
+          </p>
 
-            <NetworkCard
-              title="Organization → Innovator"
-              description="An organization posts a real problem. Innovators discover the need, develop solutions, and connect with the organization."
-              icon={FaBuilding}
-            />
+          <div className="mt-7 flex flex-wrap items-center justify-center gap-2">
+            <MiniPill text="Real Problem" />
+            <FaArrowRight className="text-xs text-[#D4AF37]/40" />
+            <MiniPill text="Open Opportunity" />
+            <FaArrowRight className="text-xs text-[#D4AF37]/40" />
+            <MiniPill text="New Solution" />
+            <FaArrowRight className="text-xs text-[#D4AF37]/40" />
+            <MiniPill text="Connection" />
           </div>
         </motion.div>
 
-        {/* FINAL MESSAGE */}
+        {/* =========================================================
+            FINAL STATEMENT
+        ========================================================== */}
+
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mx-auto mt-14 max-w-4xl text-center"
+          className="mx-auto mt-20 max-w-4xl text-center"
         >
-          <p className="text-lg font-semibold leading-8 text-[#F7F2E8] md:text-2xl">
-            ScoutX doesn't just help organizations find innovation.
-          </p>
+          <h3 className="text-3xl font-bold leading-tight md:text-5xl">
+            The internet made information searchable.
+            <br />
+            <span className="text-gradient">
+              ScoutX makes innovation searchable.
+            </span>
+          </h3>
 
-          <p className="mt-2 text-lg font-semibold leading-8 text-[#D4AF37] md:text-2xl">
-            It helps innovation find the right opportunity.
-          </p>
-
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-6 text-[#8F887B]">
-            From idea to insight. From discovery to connection. From real
-            problems to new solutions.
+          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[#8F887B]">
+            Built ideas should not disappear because the right person never
+            found them.
           </p>
         </motion.div>
+
       </div>
     </section>
   );
 }
 
-/* FLOW CARD */
+/* ================================================================
+   USER FLOW
+================================================================ */
 
-function FlowCard({
-  label,
+function UserFlow({
+  eyebrow,
   title,
   steps,
 }: {
-  label: string;
+  eyebrow: string;
   title: string;
   steps: readonly {
     icon: React.ElementType;
+    number: string;
     title: string;
     text: string;
   }[];
@@ -447,33 +437,34 @@ function FlowCard({
       initial={{ opacity: 0, y: 15 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      whileHover={{ y: -3 }}
-      className="rounded-3xl border border-[#D4AF37]/10 bg-[#11100D] p-6 transition hover:border-[#D4AF37]/25 md:p-7"
+      className="rounded-[2rem] border border-[#D4AF37]/10 bg-[#11100D] p-6 md:p-7"
     >
-      <p className="text-[10px] font-semibold uppercase tracking-[0.2em] text-[#D4AF37]">
-        {label}
+      <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4AF37]">
+        {eyebrow}
       </p>
 
-      <h3 className="mt-3 text-xl font-bold">{title}</h3>
+      <h3 className="mt-3 text-xl font-bold md:text-2xl">
+        {title}
+      </h3>
 
-      <div className="mt-6 space-y-3">
-        {steps.map(({ icon: Icon, title, text }, index) => (
+      <div className="mt-7 space-y-2">
+        {steps.map(({ icon: Icon, number, title, text }) => (
           <div
             key={title}
-            className="flex gap-3 rounded-2xl border border-[#D4AF37]/10 bg-[#0B0B09] p-4"
+            className="group flex gap-4 rounded-2xl border border-[#D4AF37]/10 bg-[#0D0C0A] p-4 transition hover:border-[#D4AF37]/25"
           >
-            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl border border-[#D4AF37]/15 bg-[#D4AF37]/10 text-[#E7C979]">
+            <div className="relative flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-[#D4AF37]/10 text-[#E7C979]">
               <Icon className="text-xs" />
+
+              <span className="absolute -right-1 -top-1 text-[7px] font-bold text-[#D4AF37]">
+                {number}
+              </span>
             </div>
 
             <div>
-              <div className="flex items-center gap-2">
-                <span className="text-[9px] font-bold text-[#D4AF37]">
-                  0{index + 1}
-                </span>
-
-                <h4 className="text-sm font-semibold">{title}</h4>
-              </div>
+              <h4 className="text-sm font-bold">
+                {title}
+              </h4>
 
               <p className="mt-1 text-xs leading-5 text-[#8F887B]">
                 {text}
@@ -486,41 +477,54 @@ function FlowCard({
   );
 }
 
-/* AI FLOW */
+/* ================================================================
+   SOLUTION NODE
+================================================================ */
 
-function AIFlow({
+function SolutionNode({
   icon: Icon,
   label,
+  title,
   text,
 }: {
   icon: React.ElementType;
   label: string;
+  title: string;
   text: string;
 }) {
   return (
-    <div className="flex items-center gap-3 rounded-2xl border border-[#D4AF37]/10 bg-[#0D0C0A] p-3">
-      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-[#D4AF37]/10 text-[#E7C979]">
-        <Icon className="text-xs" />
+    <div className="p-7 md:p-9">
+      <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-[#D4AF37]/15 bg-[#D4AF37]/10 text-[#E7C979]">
+        <Icon />
       </div>
 
-      <div>
-        <p className="text-xs font-semibold text-[#F7F2E8]">{label}</p>
-        <p className="mt-0.5 text-[11px] text-[#8F887B]">{text}</p>
-      </div>
+      <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4AF37]">
+        {label}
+      </p>
+
+      <h3 className="mt-3 text-xl font-bold">
+        {title}
+      </h3>
+
+      <p className="mt-3 text-sm leading-6 text-[#8F887B]">
+        {text}
+      </p>
     </div>
   );
 }
 
-/* SEARCH CARD */
+/* ================================================================
+   SEARCH STEP
+================================================================ */
 
-function SearchCard({
+function SearchStep({
   icon: Icon,
-  title,
+  label,
   text,
   highlight = false,
 }: {
   icon: React.ElementType;
-  title: string;
+  label: string;
   text: string;
   highlight?: boolean;
 }) {
@@ -528,7 +532,7 @@ function SearchCard({
     <div
       className={`rounded-2xl border p-5 text-center ${
         highlight
-          ? "border-[#D4AF37]/30 bg-[#D4AF37]/[0.08]"
+          ? "border-[#D4AF37]/30 bg-[#D4AF37]/[0.07]"
           : "border-[#D4AF37]/10 bg-[#0D0C0A]"
       }`}
     >
@@ -542,46 +546,36 @@ function SearchCard({
         <Icon className="text-xs" />
       </div>
 
-      <p className="mt-3 text-[10px] font-semibold uppercase tracking-[0.15em] text-[#D4AF37]">
-        {title}
+      <p className="mt-3 text-[9px] font-bold uppercase tracking-[0.2em] text-[#D4AF37]">
+        {label}
       </p>
 
-      <p className="mt-2 text-xs leading-5 text-[#A9A293]">{text}</p>
-    </div>
-  );
-}
-
-/* NETWORK CARD */
-
-function NetworkCard({
-  title,
-  description,
-  icon: Icon,
-}: {
-  title: string;
-  description: string;
-  icon: React.ElementType;
-}) {
-  return (
-    <div className="rounded-3xl border border-[#D4AF37]/10 bg-[#11100D] p-6 text-left transition hover:border-[#D4AF37]/25">
-      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#D4AF37]/10 text-[#E7C979]">
-        <Icon className="text-sm" />
-      </div>
-
-      <h4 className="mt-4 text-base font-bold">{title}</h4>
-
-      <p className="mt-2 text-sm leading-6 text-[#8F887B]">
-        {description}
+      <p className="mt-2 text-xs leading-5 text-[#A9A293]">
+        {text}
       </p>
     </div>
   );
 }
 
-/* PILL */
+/* ================================================================
+   ARROW
+================================================================ */
 
-function FlowPill({ text }: { text: string }) {
+function FlowArrow() {
   return (
-    <span className="rounded-full border border-[#D4AF37]/15 bg-[#11100D] px-3 py-1.5 text-xs text-[#A9A293]">
+    <div className="flex items-center justify-center">
+      <FaArrowRight className="rotate-90 text-xs text-[#D4AF37]/40 md:rotate-0" />
+    </div>
+  );
+}
+
+/* ================================================================
+   PILL
+================================================================ */
+
+function MiniPill({ text }: { text: string }) {
+  return (
+    <span className="rounded-full border border-[#D4AF37]/15 bg-[#11100D] px-3 py-1.5 text-xs font-medium text-[#A9A293]">
       {text}
     </span>
   );
