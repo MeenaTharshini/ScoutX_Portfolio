@@ -348,42 +348,70 @@ export default function Solution() {
         </motion.div>
 
         {/* =========================================================
-            NO SOLUTION
-        ========================================================== */}
+    NO SOLUTION / CREATE OPPORTUNITY
+========================================================= */}
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-6 rounded-[2rem] border border-[#D4AF37]/15 bg-gradient-to-br from-[#17150F] to-[#11100D] p-7 text-center md:p-10"
-        >
-          <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl border border-[#D4AF37]/20 bg-[#D4AF37]/10 text-[#E7C979]">
-            <FaTools />
-          </div>
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  className="relative mt-6 overflow-hidden rounded-[2rem] border border-[#D4AF37]/30 bg-[#15130E] p-7 text-center md:p-10"
+>
+  {/* Subtle accent glow */}
+  <div className="pointer-events-none absolute left-1/2 top-0 h-32 w-72 -translate-x-1/2 rounded-full bg-[#D4AF37]/10 blur-3xl" />
 
-          <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4AF37]">
-            Nothing matches?
-          </p>
+  {/* Top accent line */}
+  <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-[#D4AF37]/60 to-transparent" />
 
-          <h3 className="mt-3 text-2xl font-bold md:text-4xl">
-            Create the opportunity.
-          </h3>
+  <div className="relative z-10">
+    {/* ICON */}
+    <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl border border-[#D4AF37]/30 bg-[#D4AF37]/10 text-[#E7C979]">
+      <FaTools />
+    </div>
 
-          <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#A9A293]">
-            Organizations can publish unsolved problems. Innovators can
-            discover them, build solutions, and respond directly.
-          </p>
+    {/* LABEL */}
+    <p className="mt-5 text-[10px] font-bold uppercase tracking-[0.25em] text-[#D4AF37]">
+      Nothing matches?
+    </p>
 
-          <div className="mt-7 flex flex-wrap items-center justify-center gap-2">
-            <MiniPill text="Real Problem" />
-            <FaArrowRight className="text-xs text-[#D4AF37]/40" />
-            <MiniPill text="Open Opportunity" />
-            <FaArrowRight className="text-xs text-[#D4AF37]/40" />
-            <MiniPill text="New Solution" />
-            <FaArrowRight className="text-xs text-[#D4AF37]/40" />
-            <MiniPill text="Connection" />
-          </div>
-        </motion.div>
+    {/* TITLE */}
+    <h3 className="mt-3 text-2xl font-bold md:text-4xl">
+      Create the{" "}
+      <span className="text-gradient">
+        opportunity.
+      </span>
+    </h3>
+
+    {/* DESCRIPTION */}
+    <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#A9A293]">
+      If an existing solution cannot be found, organizations can publish
+      the problem itself — giving innovators a real opportunity to build
+      toward a real need.
+    </p>
+
+    {/* FLOW */}
+    <div className="mt-7 flex flex-wrap items-center justify-center gap-2">
+      <MiniPill text="Real Problem" />
+
+      <FaArrowRight className="text-xs text-[#D4AF37]/50" />
+
+      <MiniPill text="Open Opportunity" />
+
+      <FaArrowRight className="text-xs text-[#D4AF37]/50" />
+
+      <MiniPill text="New Solution" />
+
+      <FaArrowRight className="text-xs text-[#D4AF37]/50" />
+
+      <MiniPill text="Connection" />
+    </div>
+
+    {/* SMALL SUPPORTING LINE */}
+    <p className="mt-6 text-[11px] text-[#6F695F]">
+      No existing solution doesn't mean no opportunity.
+    </p>
+  </div>
+</motion.div>
 
         {/* =========================================================
             FINAL STATEMENT
