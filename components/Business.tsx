@@ -1,3 +1,4 @@
+
 "use client";
 
 import { motion } from "framer-motion";
@@ -8,7 +9,7 @@ import {
   FaCheck,
   FaArrowRight,
   FaChartLine,
-  FaLayerGroup,
+  FaLightbulb,
 } from "react-icons/fa";
 
 const revenueStreams = [
@@ -16,27 +17,27 @@ const revenueStreams = [
     icon: FaSearch,
     number: "01",
     title: "ScoutX Pro",
-    subtitle: "Subscription",
+    subtitle: "For teams that scout regularly",
     description:
-      "For teams that continuously search ScoutX for technologies, projects, and innovators.",
+      "For organizations that continuously look for technologies, projects, capabilities, and people beyond their existing networks.",
     features: [
-      "Advanced discovery",
-      "AI-assisted matching",
-      "Save & compare",
-      "Team access",
+      "Advanced innovation discovery",
+      "AI-assisted problem matching",
+      "Save & compare discoveries",
+      "Team collaboration",
     ],
   },
   {
     icon: FaRocket,
     number: "02",
     title: "Discovery Missions",
-    subtitle: "Pay per problem",
+    subtitle: "For a specific problem",
     description:
-      "For organizations with a specific challenge that needs a targeted search across the innovation network.",
+      "When an organization has a problem and wants ScoutX to actively search the innovation network for relevant solutions.",
     features: [
-      "Define a challenge",
-      "AI-assisted search",
-      "Ranked candidates",
+      "Define the real-world problem",
+      "AI-assisted discovery",
+      "Relevant solution ranking",
       "Curated shortlist",
     ],
   },
@@ -44,30 +45,30 @@ const revenueStreams = [
     icon: FaBuilding,
     number: "03",
     title: "Enterprise",
-    subtitle: "Custom contracts",
+    subtitle: "For innovation at scale",
     description:
-      "For larger organizations that need private workflows, multiple teams, and innovation intelligence at scale.",
+      "For larger organizations that want dedicated discovery workflows, private environments, multiple teams, and deeper innovation intelligence.",
     features: [
-      "Private workspaces",
-      "Multiple teams",
-      "Custom workflows",
-      "Analytics",
+      "Private innovation workspaces",
+      "Multiple teams & users",
+      "Custom discovery workflows",
+      "Innovation analytics",
     ],
   },
 ];
 
 const reasons = [
   {
-    title: "Reduce search time",
-    text: "Find relevant work without relying entirely on existing networks.",
+    title: "We reduce discovery time",
+    text: "Instead of searching through disconnected networks, organizations can describe what they need and explore relevant work in one place.",
   },
   {
-    title: "Lower discovery cost",
-    text: "Identify existing capabilities before commissioning something from scratch.",
+    title: "We reduce unnecessary rebuilding",
+    text: "Before spending months developing something from scratch, organizations can first discover whether a relevant solution already exists.",
   },
   {
-    title: "Expand the opportunity set",
-    text: "Reach innovators outside familiar institutions, events, and contacts.",
+    title: "We expand who organizations can discover",
+    text: "A useful solution may come from a student, researcher, developer, startup, or independent builder outside an organization's usual network.",
   },
 ];
 
@@ -77,12 +78,15 @@ export default function Business() {
       id="business"
       className="relative overflow-hidden bg-[#080806] px-5 py-20 text-[#F7F2E8] md:py-28"
     >
-      {/* Background */}
+      {/* Background glow */}
       <div className="pointer-events-none absolute left-1/2 top-[-180px] h-[450px] w-[700px] -translate-x-1/2 rounded-full bg-[#D4AF37]/[0.05] blur-[130px]" />
 
       <div className="relative z-10 mx-auto max-w-6xl">
 
-        {/* HEADER */}
+        {/* ========================================================= */}
+        {/* FOUNDER INTRO */}
+        {/* ========================================================= */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -90,24 +94,29 @@ export default function Business() {
           className="mx-auto max-w-3xl text-center"
         >
           <p className="text-[10px] font-semibold uppercase tracking-[0.28em] text-[#D4AF37]">
-            10 — Business Model
+            Our Business Model
           </p>
 
           <h2 className="mt-4 text-4xl font-bold leading-tight md:text-6xl">
-            Innovators bring the{" "}
-            <span className="gradient-text">solutions.</span>
+            We keep innovation{" "}
+            <span className="gradient-text">open.</span>
             <br />
-            Organizations pay to{" "}
-            <span className="gradient-text">discover them.</span>
+            We charge for{" "}
+            <span className="gradient-text">discovery.</span>
           </h2>
 
           <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[#A9A293] md:text-base">
-            ScoutX is free on the creator side and monetizes the value of
-            faster, broader innovation discovery for organizations.
+            We want anyone to be able to put their work on ScoutX — whether
+            they are a student, developer, researcher, founder, or independent
+            builder. Our business model is built around the organizations that
+            gain value from discovering those innovations.
           </p>
         </motion.div>
 
-        {/* WHO PAYS / WHY */}
+        {/* ========================================================= */}
+        {/* OUR BELIEF */}
+        {/* ========================================================= */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -118,32 +127,37 @@ export default function Business() {
 
             {/* LEFT */}
             <div>
-              <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
-                The Customer
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#D4AF37]/10 text-[#E7C979]">
+                <FaLightbulb />
+              </div>
+
+              <p className="mt-6 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
+                What We Believe
               </p>
 
-              <h3 className="mt-3 text-2xl font-bold md:text-3xl">
-                Organizations pay for{" "}
+              <h3 className="mt-3 text-2xl font-bold leading-tight md:text-3xl">
+                The people creating innovation{" "}
                 <span className="gradient-text">
-                  better discovery.
+                  shouldn't be the ones paying to be discovered.
                 </span>
               </h3>
 
-              <p className="mt-4 text-sm leading-7 text-[#A9A293]">
-                Companies already spend time and money searching for
-                technologies, capabilities, researchers, and potential
-                partners.
+              <p className="mt-5 text-sm leading-7 text-[#A9A293]">
+                Our goal is to make the innovation layer as large and diverse
+                as possible. That means reducing the barrier for creators to
+                showcase what they have built.
               </p>
 
               <p className="mt-3 text-sm leading-7 text-[#A9A293]">
-                ScoutX turns that fragmented search into a structured
-                discovery workflow.
+                The value on the other side is different. Organizations save
+                time, discover capabilities they did not know existed, and
+                potentially avoid rebuilding solutions that already exist.
               </p>
             </div>
 
             {/* RIGHT */}
             <div className="grid gap-3">
-              {reasons.map(({ title, text }, index) => (
+              {reasons.map(({ title, text }) => (
                 <div
                   key={title}
                   className="flex gap-3 rounded-2xl border border-[#D4AF37]/10 bg-[#0B0B09] p-4"
@@ -168,21 +182,92 @@ export default function Business() {
           </div>
         </motion.div>
 
-        {/* REVENUE MODEL */}
+        {/* ========================================================= */}
+        {/* VALUE EXCHANGE */}
+        {/* ========================================================= */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-16"
+        >
+          <div className="text-center">
+            <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
+              The Value Exchange
+            </p>
+
+            <h3 className="mt-3 text-3xl font-bold md:text-4xl">
+              We monetize the{" "}
+              <span className="gradient-text">
+                discovery problem.
+              </span>
+            </h3>
+
+            <p className="mx-auto mt-3 max-w-2xl text-sm leading-6 text-[#817A6E]">
+              Creators bring the supply. Organizations bring the problems.
+              ScoutX sits between them and makes the connection easier.
+            </p>
+          </div>
+
+          <div className="mt-8 rounded-[2rem] border border-[#D4AF37]/15 bg-[#11100D] p-6 md:p-10">
+
+            <div className="grid gap-4 md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-center">
+
+              <BusinessNode
+                icon={FaRocket}
+                title="Innovator"
+                text="Shares a project, prototype, research, or capability."
+              />
+
+              <FaArrowRight className="mx-auto rotate-90 text-[#D4AF37]/40 md:rotate-0" />
+
+              <BusinessNode
+                icon={FaSearch}
+                title="ScoutX"
+                text="Understands the innovation and connects it with relevant needs."
+                highlight
+              />
+
+              <FaArrowRight className="mx-auto rotate-90 text-[#D4AF37]/40 md:rotate-0" />
+
+              <BusinessNode
+                icon={FaBuilding}
+                title="Organization"
+                text="Discovers, evaluates, and connects with relevant creators."
+              />
+
+            </div>
+
+            <div className="mt-8 border-t border-[#D4AF37]/10 pt-6 text-center">
+              <p className="text-xs leading-6 text-[#817A6E]">
+                Our revenue comes from helping organizations discover
+                innovation — not from putting a price on someone's ability
+                to showcase what they have built.
+              </p>
+            </div>
+
+          </div>
+        </motion.div>
+
+        {/* ========================================================= */}
+        {/* REVENUE STREAMS */}
+        {/* ========================================================= */}
+
         <div className="mt-16">
 
           <div className="text-center">
             <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
-              Revenue
+              How We Can Monetize
             </p>
 
             <h3 className="mt-3 text-3xl font-bold md:text-4xl">
-              Three revenue streams.
+              Three ways organizations can use ScoutX.
             </h3>
 
-            <p className="mx-auto mt-3 max-w-xl text-sm text-[#817A6E]">
-              Different levels of discovery for different organizational
-              needs.
+            <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-[#817A6E]">
+              We are starting with a focused pilot and will validate which
+              model creates the strongest recurring value.
             </p>
           </div>
 
@@ -208,6 +293,7 @@ export default function Business() {
                   whileHover={{ y: -4 }}
                   className="group rounded-3xl border border-[#D4AF37]/10 bg-[#11100D] p-6 transition-all duration-300 hover:border-[#D4AF37]/25"
                 >
+
                   <div className="flex items-start justify-between">
 
                     <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-[#D4AF37]/15 bg-[#D4AF37]/10 text-[#E7C979]">
@@ -228,7 +314,7 @@ export default function Business() {
                     {subtitle}
                   </p>
 
-                  <p className="mt-4 min-h-[72px] text-sm leading-6 text-[#8F887B]">
+                  <p className="mt-4 min-h-[88px] text-sm leading-6 text-[#8F887B]">
                     {description}
                   </p>
 
@@ -243,13 +329,17 @@ export default function Business() {
                       </div>
                     ))}
                   </div>
+
                 </motion.div>
               )
             )}
           </div>
         </div>
 
-        {/* BUSINESS FLOW */}
+        {/* ========================================================= */}
+        {/* OUR BUSINESS LOGIC */}
+        {/* ========================================================= */}
+
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -258,120 +348,184 @@ export default function Business() {
         >
           <div className="text-center">
             <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
-              How Revenue Happens
+              Our Business Logic
             </p>
 
             <h3 className="mt-3 text-2xl font-bold md:text-4xl">
-              A simple value exchange.
+              The more useful discoveries we create,
+              <br />
+              <span className="gradient-text">
+                the more valuable ScoutX becomes.
+              </span>
             </h3>
           </div>
 
           <div className="mt-8 rounded-[2rem] border border-[#D4AF37]/15 bg-[#11100D] p-6 md:p-10">
 
-            <div className="grid gap-4 md:grid-cols-[1fr_auto_1fr_auto_1fr] md:items-center">
+            <div className="grid gap-5 md:grid-cols-5">
 
-              <BusinessNode
-                icon={FaBuilding}
-                title="Organization"
-                text="Has a problem or needs a capability"
+              <LogicStep
+                number="01"
+                title="More creators"
+                text="More people bring their work onto ScoutX."
               />
 
-              <FaArrowRight className="mx-auto rotate-90 text-[#D4AF37]/40 md:rotate-0" />
-
-              <BusinessNode
-                icon={FaSearch}
-                title="ScoutX"
-                text="Finds and evaluates relevant innovation"
-                highlight
+              <LogicStep
+                number="02"
+                title="More innovation"
+                text="The platform develops a richer innovation layer."
               />
 
-              <FaArrowRight className="mx-auto rotate-90 text-[#D4AF37]/40 md:rotate-0" />
+              <LogicStep
+                number="03"
+                title="Better discovery"
+                text="Organizations have more relevant things to discover."
+              />
 
-              <BusinessNode
-                icon={FaRocket}
-                title="Opportunity"
-                text="Connection, collaboration, or adoption"
+              <LogicStep
+                number="04"
+                title="More value"
+                text="Useful matches create conversations and opportunities."
+              />
+
+              <LogicStep
+                number="05"
+                title="More organizations"
+                text="Successful discoveries attract more demand."
               />
 
             </div>
 
-            <div className="mt-8 border-t border-[#D4AF37]/10 pt-6 text-center">
-              <p className="text-xs text-[#817A6E]">
-                ScoutX monetizes the discovery layer — not the creator.
+          </div>
+        </motion.div>
+
+        {/* ========================================================= */}
+        {/* REVERSE MARKETPLACE */}
+        {/* ========================================================= */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mt-16"
+        >
+          <div className="grid gap-8 md:grid-cols-2 md:items-center">
+
+            <div>
+              <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
+                The Bigger Opportunity
+              </p>
+
+              <h3 className="mt-3 text-2xl font-bold leading-tight md:text-4xl">
+                We don't want ScoutX to only answer:
+                <br />
+                <span className="gradient-text">
+                  “Who built this?”
+                </span>
+              </h3>
+
+              <p className="mt-5 text-sm leading-7 text-[#A9A293]">
+                We also want organizations to be able to ask:
+                “Who can solve this?”
+              </p>
+
+              <p className="mt-3 text-sm leading-7 text-[#A9A293]">
+                If an organization cannot find an existing solution, it can
+                publish the problem itself. Innovators can discover that
+                opportunity and build toward a real need.
               </p>
             </div>
 
-          </div>
-        </motion.div>
+            <div className="rounded-[2rem] border border-[#D4AF37]/15 bg-[#11100D] p-6 md:p-8">
 
-        {/* FLYWHEEL */}
-        <motion.div
-          initial={{ opacity: 0, y: 15 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <p className="text-[10px] font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
-            Growth Flywheel
-          </p>
+              <div className="space-y-3">
 
-          <h3 className="mt-3 text-2xl font-bold md:text-4xl">
-            Network growth strengthens{" "}
-            <span className="gradient-text">
-              the product.
-            </span>
-          </h3>
+                <FlowItem text="Organization publishes a real problem" />
+                <FlowArrow />
+                <FlowItem text="Innovators discover the opportunity" />
+                <FlowArrow />
+                <FlowItem text="New solutions are developed" />
+                <FlowArrow />
+                <FlowItem text="ScoutX connects both sides" />
 
-          <div className="mx-auto mt-8 max-w-5xl">
+              </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-2 text-xs font-semibold">
-              <BusinessPill text="More Innovators" />
-              <FaArrowRight className="text-[#D4AF37]/40" />
-
-              <BusinessPill text="More Innovation" />
-              <FaArrowRight className="text-[#D4AF37]/40" />
-
-              <BusinessPill text="Better Discovery" />
-              <FaArrowRight className="text-[#D4AF37]/40" />
-
-              <BusinessPill text="More Organizations" />
-              <FaArrowRight className="text-[#D4AF37]/40" />
-
-              <BusinessPill text="More Revenue" />
             </div>
 
           </div>
         </motion.div>
 
-        {/* CLOSING */}
+        {/* ========================================================= */}
+        {/* VALIDATION */}
+        {/* ========================================================= */}
+
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="mx-auto mt-14 max-w-3xl text-center"
+          className="mx-auto mt-16 max-w-4xl"
         >
-          <div className="rounded-[2rem] border border-[#D4AF37]/20 bg-gradient-to-br from-[#17150F] via-[#11100D] to-[#0B0B09] px-6 py-8 md:px-10 md:py-10">
+          <div className="rounded-[2rem] border border-[#D4AF37]/20 bg-gradient-to-br from-[#17150F] via-[#11100D] to-[#0B0B09] px-6 py-9 text-center md:px-10 md:py-12">
 
             <FaChartLine className="mx-auto text-xl text-[#D4AF37]" />
 
-            <p className="mt-4 text-sm text-[#817A6E]">
-              The model
+            <p className="mt-4 text-[10px] font-semibold uppercase tracking-[0.25em] text-[#D4AF37]">
+              Where We Are Today
             </p>
 
-            <h3 className="mt-2 text-2xl font-bold md:text-3xl">
-              Free to create.
+            <h3 className="mt-3 text-2xl font-bold md:text-4xl">
+              We are not assuming the business model.
               <br />
               <span className="gradient-text">
-                Paid to discover.
+                We are going to prove it.
               </span>
             </h3>
 
-            <p className="mx-auto mt-4 max-w-xl text-xs leading-6 text-[#6F6A60]">
-              ScoutX starts with a focused pilot and validates pricing,
-              conversion, and repeat usage before expanding the model.
+            <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[#817A6E]">
+              Our first goal is not to maximize revenue. It is to prove that
+              ScoutX can repeatedly help organizations discover useful
+              innovation that they would otherwise struggle to find.
+            </p>
+
+            <div className="mx-auto mt-8 grid max-w-3xl gap-3 sm:grid-cols-4">
+
+              <ValidationItem number="01" text="Discover" />
+              <ValidationItem number="02" text="Match" />
+              <ValidationItem number="03" text="Connect" />
+              <ValidationItem number="04" text="Measure value" />
+
+            </div>
+
+            <p className="mx-auto mt-8 max-w-xl text-xs leading-6 text-[#6F6A60]">
+              Once organizations repeatedly see measurable value from
+              discovery, we can turn that value into a sustainable business.
             </p>
 
           </div>
+        </motion.div>
+
+        {/* ========================================================= */}
+        {/* CLOSING */}
+        {/* ========================================================= */}
+
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="mx-auto mt-12 max-w-2xl text-center"
+        >
+          <p className="text-sm leading-7 text-[#817A6E]">
+            Our vision is simple:
+          </p>
+
+          <h3 className="mt-3 text-2xl font-bold leading-tight md:text-3xl">
+            Make it free for people to{" "}
+            <span className="gradient-text">create and showcase.</span>
+            <br />
+            Make it valuable for organizations to{" "}
+            <span className="gradient-text">discover.</span>
+          </h3>
+
         </motion.div>
 
       </div>
@@ -379,7 +533,9 @@ export default function Business() {
   );
 }
 
+/* ============================================================= */
 /* BUSINESS NODE */
+/* ============================================================= */
 
 function BusinessNode({
   icon: Icon,
@@ -421,12 +577,76 @@ function BusinessNode({
   );
 }
 
-/* PILL */
+/* ============================================================= */
+/* LOGIC STEP */
+/* ============================================================= */
 
-function BusinessPill({ text }: { text: string }) {
+function LogicStep({
+  number,
+  title,
+  text,
+}: {
+  number: string;
+  title: string;
+  text: string;
+}) {
   return (
-    <span className="rounded-full border border-[#D4AF37]/15 bg-[#11100D] px-4 py-2 text-[#BDB5A7]">
+    <div className="rounded-2xl border border-[#D4AF37]/10 bg-[#0B0B09] p-5">
+      <span className="text-[10px] font-bold tracking-widest text-[#D4AF37]">
+        {number}
+      </span>
+
+      <h4 className="mt-3 text-sm font-bold">
+        {title}
+      </h4>
+
+      <p className="mt-2 text-xs leading-5 text-[#817A6E]">
+        {text}
+      </p>
+    </div>
+  );
+}
+
+/* ============================================================= */
+/* FLOW ITEM */
+/* ============================================================= */
+
+function FlowItem({ text }: { text: string }) {
+  return (
+    <div className="rounded-xl border border-[#D4AF37]/10 bg-[#0B0B09] px-4 py-3 text-center text-xs font-medium text-[#BDB5A7]">
       {text}
-    </span>
+    </div>
+  );
+}
+
+function FlowArrow() {
+  return (
+    <div className="flex justify-center text-[#D4AF37]/40">
+      <FaArrowRight className="rotate-90 text-xs" />
+    </div>
+  );
+}
+
+/* ============================================================= */
+/* VALIDATION ITEM */
+/* ============================================================= */
+
+function ValidationItem({
+  number,
+  text,
+}: {
+  number: string;
+  text: string;
+}) {
+  return (
+    <div className="rounded-xl border border-[#D4AF37]/10 bg-[#0B0B09] px-4 py-3">
+      <p className="text-[9px] font-bold tracking-widest text-[#D4AF37]/60">
+        {number}
+      </p>
+
+      <p className="mt-1 text-xs font-semibold text-[#BDB5A7]">
+        {text}
+      </p>
+    </div>
   );
 }
