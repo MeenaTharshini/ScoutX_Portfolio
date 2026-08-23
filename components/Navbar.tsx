@@ -20,12 +20,12 @@ const navLinks = [
     to: "solution",
   },
   {
-    name: "Why ScoutX",
-    to: "why",
-  },
-  {
     name: "Who It's For",
     to: "users",
+  },
+  {
+    name: "Why ScoutX",
+    to: "why",
   },
   {
     name: "Business",
