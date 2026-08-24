@@ -118,6 +118,9 @@ export default function Hero() {
 
                 "Turn overlooked ideas into real opportunities.",
                 2500,
+
+                "a continuous discovery layer between problems and existing innovation.",
+                2500,
               ]}
               speed={45}
               repeat={Infinity}
